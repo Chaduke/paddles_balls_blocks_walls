@@ -23,13 +23,13 @@ https://www.youtube.com/@nathanbaggs
 
 TODO List:
 
-1) Get collisions with blocks working 
-2) Start on a basic menu 
-3) Start a level editor
-4) Redo all sounds / music in Ableton Live
-5) Work on power-ups
-6) Do different sized paddles and balls in Blender 
-7) Many more things to come
+- Start on a basic menu
+- Start a level editor
+- Redo all sounds / music in Ableton Live
+- Work on power-ups
+- Do different sized paddles and balls in Blender 
+- Create a toggle-able keyboard shortcut menu
+- Many more things to come
 
 My plan is to create progress reports and / or video every Sunday.
 
