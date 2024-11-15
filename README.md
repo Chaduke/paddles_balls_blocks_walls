@@ -34,3 +34,19 @@ TODO List:
 My plan is to create progress reports and / or video every Sunday.
 
 The game will be eventually released for free on itch.io and maybe other platforms depending on how well everything goes.
+
+Instructions :
+
+Clone the repository:
+
+```git clone https://github.com/chaduke/paddles_balls_blocks_walls```
+
+Install LibSGD:
+
+```pip install libsgd```
+
+Go into the "paddles_balls_blocks_walls" folder and run:
+
+```python main.py```
+
+
