@@ -14,22 +14,18 @@ class Paddle:
         self.acceleration=(0,0)
         sgd.setEntityPosition(self.model,0,2,37)
     def update(self):
-        # position the paddles X location based on camera "unprojection"
-        # in the main game loop I called this right before
-        # sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 1)
-        # which basically does a camera "un-projection" to the current 2D mouse X and Y
-        # I'm only using the X value though, this could probably be done better
-        # sgd.setEntityPosition(self.model, sgd.getUnprojectedX() * 10, sgd.getEntityY(self.model), 37)
-
+        # control the paddle with mouse
         sgd.moveEntity(self.model,sgd.getMouseVX() * 0.02,0,0)
+        # stay in the "playfield"
         if sgd.getEntityX(self.model) < -16:
             sgd.setEntityPosition(self.model,-16,sgd.getEntityY(self.model),37)
         if sgd.getEntityX(self.model) > 8.2:
             sgd.setEntityPosition(self.model,8.2,sgd.getEntityY(self.model),37)
-
+        # "swing" the paddle using left mouse
         if sgd.isMouseButtonDown(0):
             if sgd.getEntityY(self.model) > 0:
                 sgd.moveEntity(self.model,0,-0.3,0)
         else:
+            # if the mouse button is released, get the paddle the back to its original position
             if sgd.getEntityY(self.model) < 2:
                 sgd.moveEntity(self.model, 0, 0.3, 0)

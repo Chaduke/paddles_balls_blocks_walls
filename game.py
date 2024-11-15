@@ -1,5 +1,3 @@
-from libsgd import getColliderEntity
-
 from ball import *
 from block import *
 from paddle import *
@@ -38,32 +36,50 @@ class Game:
         self.blocks = []
         for i in range(10):
             self.blocks.append(Block(self.block_mesh,i * 2 - 14,16))
+
         # paddle
         self.paddle_mesh = sgd.loadMesh("assets/paddle_4m.glb")
         sgd.setMeshShadowsEnabled(self.paddle_mesh, True)
         self.paddle = Paddle(self.paddle_mesh)
 
-        self.loop = True
-        sgd.setMouseCursorMode(3)
-
-        # collisions
+        # collisions setup
         # ball with walls, ball = 1, walls = 0
         sgd.enableCollisions(1, 0, sgd.COLLISION_RESPONSE_NONE)
         # ball with paddle, ball = 1, paddle = 2
-        sgd.enableCollisions(1,2,sgd.COLLISION_RESPONSE_STOP)
-
+        sgd.enableCollisions(1, 2 ,sgd.COLLISION_RESPONSE_STOP)
         self.colliding = False
+
+        # load audio
+        self.title_sound = sgd.loadSound("assets/wave/title.wav")
+        self.bgm_sound = sgd.loadSound("assets/wave/bgm.wav")
+        self.paddle_sound = sgd.loadSound("assets/wave/pad.wav")
+        self.audio_on = False
+        if self.audio_on:
+            sgd.playSound(self.title_sound)
+        # pre-loop stuff
+        self.loop = True
+        sgd.setMouseCursorMode(3)
+
     def load_stage(self,stage):
         pass
     def run_stage(self):
+        if self.audio_on:
+            background_music = sgd.playSound(self.bgm_sound)
+            sgd.setAudioLooping(background_music,True)
         while self.loop:
             e=sgd.pollEvents()
             if e==sgd.EVENT_MASK_CLOSE_CLICKED: self.loop = False
             if sgd.isKeyHit(sgd.KEY_ESCAPE): self.loop = False
+
             # on mouse right click, release a ball (if available)
             if sgd.isMouseButtonHit(1):
-                self.balls.append(Ball(self.ball_mesh,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,0,0.6))
-
+                # set which way the ball goes left or right based on X location of paddle
+                if sgd.getEntityX(self.paddle.model) < -3.9:
+                    vx = -0.1
+                else:
+                    vx= 0.1
+                self.balls.append(Ball(self.ball_mesh,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,0.7))
+            # balls update loop
             for ball in self.balls:
                 ball.update()
                 if sgd.getCollisionCount(ball.collider) > 0:
@@ -75,8 +91,13 @@ class Game:
                             # we're probably at the ceiling
                             ball.velocity[1] = -abs(ball.velocity[1] * 0.8)
                         else:
-                            # we're problably hitting the side walls
-                            ball.velocity[0] = -abs(ball.velocity[0] * 0.8)
+                            # we're probably hitting the side walls
+                            if sgd.getEntityX(ball.model) < -16:
+                                # left wall
+                                ball.velocity[0] = abs(ball.velocity[0] * 0.8)
+                            else:
+                                # right wall
+                                ball.velocity[0] = -abs(ball.velocity[0] * 0.8)
                     elif sgd.getColliderType(collided_collider) == 2:
                         # check for paddle collisions
                         collided_entity = sgd.getColliderEntity(collided_collider)
@@ -86,6 +107,7 @@ class Game:
                         if paddle_height < 2 and not sgd.isMouseButtonDown(0):
                             # add some velocity for ball hit with "swung" paddle
                             ball.velocity[1] += ball.velocity[1] / 3
+                        if self.audio_on: sgd.playSound(self.paddle_sound)
                 else:
                     self.colliding = False
                 if not ball.active:
@@ -97,7 +119,7 @@ class Game:
             sgd.renderScene()
             sgd.clear2D()
             if self.colliding: sgd.draw2DText("Colliding",0,0)
-            sgd.draw2DText("FPS : " + str(sgd.getFPS()),0,sgd.getWindowHeight() - 20)
+            sgd.draw2DText("FPS : " + str(int(sgd.getFPS())),0,sgd.getWindowHeight() - 20)
             sgd.present()
     def __del__(self):
         sgd.terminate()
