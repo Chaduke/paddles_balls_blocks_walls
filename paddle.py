@@ -9,9 +9,27 @@ class Paddle:
             self.collision_points[i] = sgd.createModel(0)
             sgd.setEntityParent(self.collision_points[i],self.model)
             sgd.setEntityPosition(self.collision_points[i],i - 1.5,0,0)
-            self.colliders[i] = sgd.createSphereCollider(self.collision_points[i],0,0.5)
+            self.colliders[i] = sgd.createSphereCollider(self.collision_points[i],2,0.5)
         self.velocity=(0,0)
         self.acceleration=(0,0)
-        sgd.setEntityPosition(self.model,0,1,30)
+        sgd.setEntityPosition(self.model,0,2,37)
     def update(self):
-        pass
+        # position the paddles X location based on camera "unprojection"
+        # in the main game loop I called this right before
+        # sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 1)
+        # which basically does a camera "un-projection" to the current 2D mouse X and Y
+        # I'm only using the X value though, this could probably be done better
+        # sgd.setEntityPosition(self.model, sgd.getUnprojectedX() * 10, sgd.getEntityY(self.model), 37)
+
+        sgd.moveEntity(self.model,sgd.getMouseVX() * 0.02,0,0)
+        if sgd.getEntityX(self.model) < -16:
+            sgd.setEntityPosition(self.model,-16,sgd.getEntityY(self.model),37)
+        if sgd.getEntityX(self.model) > 8.2:
+            sgd.setEntityPosition(self.model,8.2,sgd.getEntityY(self.model),37)
+
+        if sgd.isMouseButtonDown(0):
+            if sgd.getEntityY(self.model) > 0:
+                sgd.moveEntity(self.model,0,-0.3,0)
+        else:
+            if sgd.getEntityY(self.model) < 2:
+                sgd.moveEntity(self.model, 0, 0.3, 0)
