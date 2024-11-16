@@ -10,14 +10,14 @@ class Menu:
         self.title3 = "Blocks"
         self.title4 = "and Walls!"
         self.subtitle = "Chaduke's"
-    def display(self):
+    def draw_title(self):
         # draw the title
         w = sgd.getWindowWidth() / 2
         h = sgd.getWindowHeight() / 2
         # draw the subtitle shadow first
         sgd.set2DTextColor(0.80, 0.19, 0.26, 1)
         sgd.set2DFont(self.subtitle_font)
-        sgd.draw2DText(self.subtitle,15,15)
+        sgd.draw2DText(self.subtitle, 15, 15)
         sgd.set2DFont(self.title_font)
         sgd.draw2DText(self.title1, 15, 50)
         sgd.draw2DText(self.title2, 15, 100)
@@ -32,7 +32,8 @@ class Menu:
         sgd.draw2DText(self.title2, 15, 104)
         sgd.draw2DText(self.title3, 15, 154)
         sgd.draw2DText(self.title4, 15, 204)
-
+    def display(self):
+        self.draw_title()
         sgd.set2DTextColor(1, 1, 1, 1)
         sgd.set2DFont(self.subtitle_font)
         sgd.draw2DText("P - Play", 15,300)

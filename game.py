@@ -355,7 +355,13 @@ class Game:
             if self.paused:
                 display_text_centered("PAUSED",self.menu.title_font,sgd.getWindowHeight()/2,0)
             #if self.colliding: sgd.draw2DText("Colliding", 0, 0)
+            self.menu.draw_title()
             sgd.set2DFont(self.regular_font)
+            sgd.set2DTextColor(1,1,1,1)
+            sgd.draw2DText("Left Mouse - Swing Paddle",15,300)
+            sgd.draw2DText("Right Mouse - Release Ball", 15, 320)
+            sgd.draw2DText("Escape - Menu", 15, 340)
+            sgd.draw2DText("P - Pause", 15, 360)
             sgd.draw2DText("FPS : " + str(int(sgd.getFPS())), 0, sgd.getWindowHeight() - 40)
             sgd.present()
 
