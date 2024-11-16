@@ -36,9 +36,17 @@ class Game:
         self.ball_mesh = sgd.loadMesh("assets/ball1.glb")
         sgd.setMeshShadowsEnabled(self.ball_mesh,True)
 
-        # block
-        self.block_mesh = sgd.loadMesh("assets/block_yellow.glb")
-        sgd.setMeshShadowsEnabled(self.block_mesh, True)
+        # blocks
+        self.block_meshes = []
+        self.block_yellow_mesh = sgd.loadMesh("assets/block_yellow.glb")
+        sgd.setMeshShadowsEnabled(self.block_yellow_mesh, True)
+        self.block_meshes.append( self.block_yellow_mesh)
+        self.block_blue_mesh = sgd.loadMesh("assets/block_blue.glb")
+        sgd.setMeshShadowsEnabled(self.block_blue_mesh, True)
+        self.block_meshes.append(self.block_blue_mesh)
+        self.block_blue2_mesh = sgd.loadMesh("assets/block_blue2.glb")
+        sgd.setMeshShadowsEnabled(self.block_blue2_mesh, True)
+        self.block_meshes.append(self.block_blue2_mesh)
         self.blocks = []
 
         # paddle
@@ -75,7 +83,7 @@ class Game:
         self.paused = False
         self.editor = False
         sgd.setMouseCursorMode(3)
-        self.cursor = sgd.createModel(self.block_mesh)
+        self.cursor = sgd.createModel(self.block_meshes[0])
         self.grid = sgd.loadModel("assets/grid.glb")
         sgd.moveEntity(self.grid, -19, 0, 37)
         sgd.setEntityVisible(self.grid,False)
@@ -132,7 +140,7 @@ class Game:
         stage_path = "stages/system/stage" + str(stage) + ".json"
         with open(stage_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            self.blocks = [Block(self.block_mesh,item["x"], item["y"], item["block_type"]) for item in data]
+            self.blocks = [Block(self.block_meshes[item["type"]],item["x"], item["y"], item["type"]) for item in data]
         if self.audio_on : sgd.playSound(self.title_sound)
     def position_cursor(self):
         sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
@@ -163,15 +171,16 @@ class Game:
                     sgd.destroyEntity(block.model)
                     self.blocks.remove(block)
                     if self.audio_on: sgd.playSound(self.close_sound)
-    def add_block(self):
+    def add_block(self,type):
         # make sure one doesnt already exist there
         self.remove_block()
         new_xy = self.get_new_xy()
-        self.blocks.append(Block(self.block_mesh, new_xy[0], new_xy[1],0))
+        self.blocks.append(Block(self.block_meshes[type], new_xy[0], new_xy[1],type))
         if self.audio_on: sgd.playSound(self.block_sound)
     def edit_stage(self):
         sgd.setEntityVisible(self.paddle.model,False)
         edit_loop = True
+        current_block_index = 0
         while edit_loop:
             e = sgd.pollEvents()
             if e == sgd.EVENT_MASK_CLOSE_CLICKED: edit_loop = False
@@ -182,6 +191,11 @@ class Game:
                     sgd.setEntityVisible(self.grid,False)
                 else:
                     sgd.setEntityVisible(self.grid, True)
+            # toggle audio
+            if sgd.isKeyHit(sgd.KEY_A):
+                if self.audio_on:
+                    self.audio_on = False
+                else: self.audio_on = True
             # save stage
             if sgd.isKeyHit(sgd.KEY_S):
                 self.save_stage(1)
@@ -208,10 +222,18 @@ class Game:
                 self.load_stage(1)
             # add a block
             if sgd.isMouseButtonHit(0):
-                self.add_block()
+                self.add_block(current_block_index)
             # delete a block
             if sgd.isMouseButtonHit(1):
                 self.remove_block()
+            # select block
+            mz = abs(int(sgd.getMouseZ()))
+            if mz != current_block_index:
+                current_block_index = mz
+                if current_block_index > 2: current_block_index = 2
+                sgd.destroyEntity(self.cursor)
+                self.cursor = sgd.createModel(self.block_meshes[current_block_index])
+
             self.position_cursor()
             sgd.renderScene()
             sgd.clear2D()
@@ -229,6 +251,8 @@ class Game:
             sgd.draw2DText("L - Load Stage", 15, 170)
             sgd.draw2DText("C - Clear Stage", 15, 190)
             sgd.draw2DText("P - Play Stage",15, 210)
+            if not self.audio_on:
+                sgd.draw2DText("AUDIO MUTED",15,1030)
             sgd.draw2DText("Cursor X,Y : " + str(sgd.getEntityX(self.cursor)) + "," + str(sgd.getEntityY(self.cursor)),15,1060)
 
             sgd.present()
@@ -296,8 +320,19 @@ class Game:
                             # block collisions
                             block_collision_point = sgd.getColliderEntity(collided_collider)
                             block_model = sgd.getEntityParent(block_collision_point)
+                            # get the Y height of the block to determine how to re-position the ball post-collision
+                            # if we don't do this we'll get multiple collisions and unexpected behaviour
+                            block_height = sgd.getEntityY(block_model)
+                            if block_height > sgd.getEntityY(ball.model):
+                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height - 1,
+                                                      sgd.getEntityZ(ball.model))
+                            else:
+                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height + 1,
+                                                      sgd.getEntityZ(ball.model))
                             for block in self.blocks:
                                 if block.model == block_model:
+                                    if block.type == 1:
+                                        self.blocks.append(Block(self.block_meshes[2],sgd.getEntityX(block.model),sgd.getEntityY(block.model),2))
                                     sgd.destroyEntity(block.model)
                                     self.blocks.remove(block)
                                     if len(self.blocks) == 0:
