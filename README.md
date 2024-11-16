@@ -23,13 +23,12 @@ https://www.youtube.com/@nathanbaggs
 
 TODO List:
 
-- Finish Editor
-    - Make delete work
+- Finish Editor    
     - Add new block types
-    - Fix the playfield size 
+    - Add powerups (items)
 - Finish Menu
+- Finish UI / HUD
 - Redo all sounds / music in Ableton Live
-- Work on power-ups
 - Do different sized paddles and balls in Blender 
 - Create a toggle-able keyboard shortcut menu
 - Many more things to come
