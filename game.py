@@ -45,7 +45,7 @@ class Game:
         self.paddle_mesh = sgd.loadMesh("assets/paddle_4m.glb")
         sgd.setMeshShadowsEnabled(self.paddle_mesh, True)
         self.paddle = Paddle(self.paddle_mesh)
-
+        sgd.setEntityVisible(self.paddle.model,False)
         # collisions setup
         # ball with walls, ball = 1, walls = 0
         sgd.enableCollisions(1, 0, sgd.COLLISION_RESPONSE_NONE)
@@ -70,14 +70,43 @@ class Game:
         # menu
         self.menu = Menu()
         self.regular_font = sgd.loadFont("assets/bb.ttf",20)
+
         # pre-loop stuff
-        self.loop = True
         self.paused = False
-        self.editor = True
+        self.editor = False
         sgd.setMouseCursorMode(3)
         self.cursor = sgd.createModel(self.block_mesh)
         self.grid = sgd.loadModel("assets/grid.glb")
         sgd.moveEntity(self.grid, -19, 0, 37)
+        sgd.setEntityVisible(self.grid,False)
+    def show_menu(self):
+        menu_loop = True
+        while menu_loop:
+            e = sgd.pollEvents()
+            if e == sgd.EVENT_MASK_CLOSE_CLICKED: menu_loop = False
+            if sgd.isKeyHit(sgd.KEY_ESCAPE): menu_loop = False
+            if sgd.isKeyHit(sgd.KEY_P):
+                sgd.setEntityVisible(self.paddle.model, True)
+                self.load_stage(1)
+                self.run_stage()
+                sgd.setEntityVisible(self.paddle.model, False)
+                self.clear_balls()
+                self.clear_stage()
+                if self.background_music is not None : sgd.stopAudio(self.background_music)
+            if sgd.isKeyHit(sgd.KEY_E):
+                self.editor = True
+                sgd.setEntityVisible(self.paddle.model, False)
+                sgd.setEntityVisible(self.grid, True)
+                sgd.setEntityVisible(self.cursor, True)
+                self.clear_balls()
+                self.load_stage(1)
+                self.edit_stage()
+
+            sgd.clear2D()
+            self.menu.display()
+            sgd.renderScene()
+            sgd.present()
+
     def save_stage(self,stage):
         stage_path = "stages/system/stage" + str(stage) + ".json"
         with open(stage_path, 'w') as f:
@@ -210,10 +239,11 @@ class Game:
         if self.audio_on:
             self.background_music = sgd.playSound(self.bgm_sound)
             sgd.setAudioLooping(self.background_music,True)
-        while self.loop:
+        game_loop = True
+        while game_loop:
             e=sgd.pollEvents()
-            if e==sgd.EVENT_MASK_CLOSE_CLICKED: self.loop = False
-            if sgd.isKeyHit(sgd.KEY_ESCAPE): self.loop = False
+            if e==sgd.EVENT_MASK_CLOSE_CLICKED: game_loop = False
+            if sgd.isKeyHit(sgd.KEY_ESCAPE): game_loop = False
             if sgd.isKeyHit(sgd.KEY_P):
                 if self.paused:
                     self.paused = False
@@ -270,6 +300,8 @@ class Game:
                                 if block.model == block_model:
                                     sgd.destroyEntity(block.model)
                                     self.blocks.remove(block)
+                                    if len(self.blocks) == 0:
+                                        game_loop = False
                             ball.velocity[1] = - ball.velocity[1]
                             if self.audio_on :
                                 if random() > 0.5:
@@ -286,10 +318,10 @@ class Game:
             sgd.renderScene()
             sgd.clear2D()
             if self.paused:
-                self.menu.display()
-                display_text_centered("PAUSED",self.regular_font,sgd.getWindowHeight() - 25)
-            if self.colliding: sgd.draw2DText("Colliding", 0, 0)
-            sgd.draw2DText("FPS : " + str(int(sgd.getFPS())), 0, sgd.getWindowHeight() - 20)
+                display_text_centered("PAUSED",self.menu.title_font,sgd.getWindowHeight()/2,0)
+            #if self.colliding: sgd.draw2DText("Colliding", 0, 0)
+            sgd.set2DFont(self.regular_font)
+            sgd.draw2DText("FPS : " + str(int(sgd.getFPS())), 0, sgd.getWindowHeight() - 40)
             sgd.present()
 
     def __del__(self):
