@@ -58,6 +58,7 @@ class Game:
         # load audio
         self.title_sound = sgd.loadSound("assets/wave/title.wav")
         self.bgm_sound = sgd.loadSound("assets/wave/bgm.wav")
+        self.background_music = None
         self.paddle_sound = sgd.loadSound("assets/wave/pad.wav")
         self.close_sound = sgd.loadSound("assets/wave/close.wav")
         self.block_sound = sgd.loadSound("assets/wave/block.wav")
@@ -90,6 +91,13 @@ class Game:
         for block in to_remove:
             self.blocks.remove(block) # Remove the collected blocks
         if self.audio_on : sgd.playSound(self.reverse_sound)
+    def clear_balls(self):
+        to_remove = []  # Temporary list to collect blocks to be removed
+        for ball in self.balls:
+            sgd.destroyEntity(ball.model)
+            to_remove.append(ball) # Collect the blocks to be removed
+        for ball in to_remove:
+            self.balls.remove(ball) # Remove the collected blocks
     def load_stage(self,stage):
         self.clear_stage()
         stage_path = "stages/system/stage" + str(stage) + ".json"
@@ -134,10 +142,11 @@ class Game:
         if self.audio_on: sgd.playSound(self.block_sound)
     def edit_stage(self):
         sgd.setEntityVisible(self.paddle.model,False)
-        while self.loop:
+        edit_loop = True
+        while edit_loop:
             e = sgd.pollEvents()
-            if e == sgd.EVENT_MASK_CLOSE_CLICKED: self.loop = False
-            if sgd.isKeyHit(sgd.KEY_ESCAPE): self.loop = False
+            if e == sgd.EVENT_MASK_CLOSE_CLICKED: edit_loop = False
+            if sgd.isKeyHit(sgd.KEY_ESCAPE): edit_loop = False
             # toggle grid
             if sgd.isKeyHit(sgd.KEY_G):
                 if sgd.isEntityVisible(self.grid):
@@ -161,6 +170,13 @@ class Game:
                 sgd.setEntityVisible(self.cursor, False)
                 self.save_stage(1)
                 self.run_stage()
+                self.editor = True
+                sgd.setEntityVisible(self.paddle.model, False)
+                sgd.setEntityVisible(self.grid, True)
+                sgd.setEntityVisible(self.cursor, True)
+                self.clear_balls()
+                sgd.stopAudio(self.background_music)
+                self.load_stage(1)
             # add a block
             if sgd.isMouseButtonHit(0):
                 self.add_block()
@@ -192,8 +208,8 @@ class Game:
             self.edit_stage()
             return
         if self.audio_on:
-            background_music = sgd.playSound(self.bgm_sound)
-            sgd.setAudioLooping(background_music,True)
+            self.background_music = sgd.playSound(self.bgm_sound)
+            sgd.setAudioLooping(self.background_music,True)
         while self.loop:
             e=sgd.pollEvents()
             if e==sgd.EVENT_MASK_CLOSE_CLICKED: self.loop = False
