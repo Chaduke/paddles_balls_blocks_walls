@@ -5,7 +5,7 @@ class Ball:
         self.model = sgd.createModel(mesh)
         self.collider = sgd.createSphereCollider(self.model,1,0.5)
         self.velocity= [xvel, yvel]
-        self.acceleration=[0,-0.01]
+        self.acceleration=[0,-0.02]
         sgd.setEntityPosition(self.model,x,y,37)
         self.active = True
     def update(self):

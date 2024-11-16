@@ -2,9 +2,9 @@ This is a game project I've been wanting to work on for a very long time. Now th
 
 The original inspiration for this project came from a game I found many years ago (20 maybe?) called "Block", programmed by a Japanese developer that went by the name of "Kenta".  It's basically a Breakout / Arkanoid clone but with a TON of FUN features!
 
-I recently dug up the original game on "Wayback Machine" and tried to play it on my modern system but no dice!  Luckily and thankfully with the help of programming genius Nathan Baggs the game is now playable again, and now I can study it's ways and try to somewhat faithfully re-create its magic.
+I recently dug up the original game on "Wayback Machine" and tried to play it on my modern system but no dice!  Luckily and thankfully with the help of programming genius Nathan Baggs the game is now playable again, and now I can study its ways and try to somewhat faithfully re-create its magic.
 
-This repository will serve as both a learning hub for those who wish to get a closer look at how I'm accomplishing this task, as well as a way to check on my progress.
+This repository will serve as both a learning hub for those who wish to get a closer look at how I'm accomplishing this task, and as a way to check on my progress.
 
 At the current stage it is being written in Python and uses the fantastic game library LibSGD.
 
@@ -14,23 +14,22 @@ The original "Block" game on Wayback Machine:
 
 https://web.archive.org/web/20070203093035/http://www.interq.or.jp/tohoku/kenta/e/download/block/block.htm
 
-A Youtube video of the game being played:
+A YouTube video of the game being played:
 
 https://www.youtube.com/watch?v=aU1Hrpr2igM
 
-Youtube account of "Nathan Baggs" (go check him out he's great!):
+YouTube account of "Nathan Baggs" (go check him out he's great!):
 https://www.youtube.com/@nathanbaggs
 
 TODO List:
 
 - Finish Editor    
-    - Add new block types
-    - Add powerups (items)
+    - Add new block types (in progress)
+    - Add powerups (items) (in progress)
 - Finish Menu (make it much prettier)
-- Finish UI / HUD
+- Finish UI / HUD (need to start this soon)
 - Redo all sounds / music in Ableton Live
-- Do different sized paddles and balls in Blender 
-- Create a toggle-able keyboard shortcut menu
+- Do different sized paddles and balls in Blender (paddles part done)
 - Many more things to come
 
 My plan is to create progress reports and / or video every Sunday.

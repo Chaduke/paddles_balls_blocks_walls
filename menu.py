@@ -10,6 +10,7 @@ class Menu:
         self.title3 = "Blocks"
         self.title4 = "and Walls!"
         self.subtitle = "Chaduke's"
+        self.left_margin = 20
     def draw_title(self):
         # draw the title
         w = sgd.getWindowWidth() / 2
@@ -17,26 +18,26 @@ class Menu:
         # draw the subtitle shadow first
         sgd.set2DTextColor(0.80, 0.19, 0.26, 1)
         sgd.set2DFont(self.subtitle_font)
-        sgd.draw2DText(self.subtitle, 15, 15)
+        sgd.draw2DText(self.subtitle, self.left_margin, 15)
         sgd.set2DFont(self.title_font)
-        sgd.draw2DText(self.title1, 15, 50)
-        sgd.draw2DText(self.title2, 15, 100)
-        sgd.draw2DText(self.title3, 15, 150)
-        sgd.draw2DText(self.title4, 15, 200)
+        sgd.draw2DText(self.title1, self.left_margin, 50)
+        sgd.draw2DText(self.title2, self.left_margin, 100)
+        sgd.draw2DText(self.title3, self.left_margin, 150)
+        sgd.draw2DText(self.title4, self.left_margin, 200)
         sgd.set2DTextColor(.4, .85, .19, 1)
         sgd.set2DFont(self.subtitle_font)
-        sgd.draw2DText(self.subtitle, 17, 17)
+        sgd.draw2DText(self.subtitle, self.left_margin+2, 17)
         sgd.set2DFont(self.title_font)
         sgd.set2DTextColor(.90, .85, .19, 1)
-        sgd.draw2DText(self.title1, 15, 54)
-        sgd.draw2DText(self.title2, 15, 104)
-        sgd.draw2DText(self.title3, 15, 154)
-        sgd.draw2DText(self.title4, 15, 204)
+        sgd.draw2DText(self.title1, self.left_margin+4, 54)
+        sgd.draw2DText(self.title2, self.left_margin+4, 104)
+        sgd.draw2DText(self.title3, self.left_margin+4, 154)
+        sgd.draw2DText(self.title4, self.left_margin+4, 204)
     def display(self):
         self.draw_title()
         sgd.set2DTextColor(1, 1, 1, 1)
         sgd.set2DFont(self.subtitle_font)
-        sgd.draw2DText("P - Play", 15,300)
-        sgd.draw2DText("E - Editor", 15,340)
-        sgd.draw2DText("ESC - Quit", 15,380)
+        sgd.draw2DText("P - Play", self.left_margin,300)
+        sgd.draw2DText("E - Editor", self.left_margin,340)
+        sgd.draw2DText("ESC - Quit", self.left_margin,380)
 

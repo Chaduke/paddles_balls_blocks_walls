@@ -14,14 +14,16 @@ class Paddle:
         self.velocity=(0,0)
         self.acceleration=(0,0)
         sgd.setEntityPosition(self.model,0,2,37)
+        self.bounds_left = -18.5 + self.point_count / 2
+        self.bounds_right = 11.5 - self.point_count / 2
     def update(self):
         # control the paddle with mouse
         sgd.moveEntity(self.model,sgd.getMouseVX() * 0.02,0,0)
         # stay in the "playfield"
-        if sgd.getEntityX(self.model) < -16:
-            sgd.setEntityPosition(self.model,-16,sgd.getEntityY(self.model),37)
-        if sgd.getEntityX(self.model) > 9.2:
-            sgd.setEntityPosition(self.model,9.2,sgd.getEntityY(self.model),37)
+        if sgd.getEntityX(self.model) < self.bounds_left:
+            sgd.setEntityPosition(self.model,self.bounds_left,sgd.getEntityY(self.model),37)
+        if sgd.getEntityX(self.model) > self.bounds_right:
+            sgd.setEntityPosition(self.model,self.bounds_right,sgd.getEntityY(self.model),37)
         # "swing" the paddle using left mouse
         if sgd.isMouseButtonDown(0):
             if sgd.getEntityY(self.model) > 0:

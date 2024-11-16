@@ -1,9 +1,8 @@
-from libsgd import playSound
-
 from paddle import *
 from ball import *
 from block import *
 from menu import *
+from item import *
 from globals import *
 from random import random
 import json
@@ -63,8 +62,16 @@ class Game:
         self.paddle_xl_mesh = sgd.loadMesh("assets/paddle_16m.glb")
         sgd.setMeshShadowsEnabled(self.paddle_xl_mesh, True)
         self.paddle_meshes.append(self.paddle_xl_mesh)
-        self.paddle = Paddle(self.paddle_meshes[3],3)
+        self.paddle = Paddle(self.paddle_meshes[2],2)
         sgd.setEntityVisible(self.paddle.model,False)
+
+        # items
+        self.item_meshes = []
+        self.shrinker_mesh = sgd.loadMesh("assets/shrinker.glb")
+        sgd.setMeshShadowsEnabled(self.shrinker_mesh, True)
+        self.item_meshes.append(self.shrinker_mesh)
+        self.items = []
+
         # collisions setup
         # ball with walls, ball = 1, walls = 0
         sgd.enableCollisions(1, 0, sgd.COLLISION_RESPONSE_NONE)
@@ -118,7 +125,6 @@ class Game:
                 sgd.setEntityVisible(self.grid, True)
                 sgd.setEntityVisible(self.cursor, True)
                 self.clear_balls()
-                self.load_stage(1)
                 self.edit_stage()
 
             sgd.clear2D()
@@ -151,7 +157,7 @@ class Game:
         stage_path = "stages/system/stage" + str(stage) + ".json"
         with open(stage_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-            self.blocks = [Block(self.block_meshes[item["type"]],item["x"], item["y"], item["type"]) for item in data]
+            self.blocks = [Block(self.block_meshes[item["block_type"]],item["x"], item["y"], item["block_type"]) for item in data]
         if self.audio_on : sgd.playSound(self.title_sound)
     def position_cursor(self):
         sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
@@ -182,11 +188,11 @@ class Game:
                     sgd.destroyEntity(block.model)
                     self.blocks.remove(block)
                     if self.audio_on: sgd.playSound(self.close_sound)
-    def add_block(self,type):
-        # make sure one doesnt already exist there
+    def add_block(self,block_type):
+        # make sure one doesn't already exist there
         self.remove_block()
         new_xy = self.get_new_xy()
-        self.blocks.append(Block(self.block_meshes[type], new_xy[0], new_xy[1],type))
+        self.blocks.append(Block(self.block_meshes[block_type], new_xy[0], new_xy[1],block_type))
         if self.audio_on: sgd.playSound(self.block_sound)
     def edit_stage(self):
         sgd.setEntityVisible(self.paddle.model,False)
@@ -294,7 +300,7 @@ class Game:
                         vx = -0.1
                     else:
                         vx= 0.1
-                    self.balls.append(Ball(self.ball_mesh,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,0.7))
+                    self.balls.append(Ball(self.ball_mesh,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,0.98))
                 # balls update loop
                 for ball in self.balls:
                     ball.update()
@@ -342,8 +348,12 @@ class Game:
                                                       sgd.getEntityZ(ball.model))
                             for block in self.blocks:
                                 if block.model == block_model:
-                                    if block.type == 1:
+                                    if block.block_type == 1:
                                         self.blocks.append(Block(self.block_meshes[2],sgd.getEntityX(block.model),sgd.getEntityY(block.model),2))
+                                    # random chance to drop an item
+                                    if random() > 0.9:
+                                        self.items.append(Item(self.item_meshes[0], 0, sgd.getEntityX(block.model),
+                                                               sgd.getEntityY(block.model)))
                                     sgd.destroyEntity(block.model)
                                     self.blocks.remove(block)
                                     if len(self.blocks) == 0:
@@ -360,6 +370,12 @@ class Game:
                         sgd.destroyEntity(ball.model)
                         self.balls.remove(ball)
                 self.paddle.update()
+                # items update
+                for item in self.items:
+                    item.move()
+                    if not item.active:
+                        sgd.destroyEntity(item.model)
+                        self.items.remove(item)
                 sgd.updateColliders()
             sgd.renderScene()
             sgd.clear2D()
@@ -373,8 +389,8 @@ class Game:
             sgd.draw2DText("Right Mouse - Release Ball", 15, 320)
             sgd.draw2DText("Escape - Menu", 15, 340)
             sgd.draw2DText("P - Pause", 15, 360)
-            sgd.draw2DText("FPS : " + str(int(sgd.getFPS())), 0, sgd.getWindowHeight() - 40)
-            sgd.draw2DText("Paddle Location X : " + str(sgd.getEntityX(self.paddle.model)), 0, sgd.getWindowHeight() - 60)
+            sgd.draw2DText("FPS : " + str(round(sgd.getFPS(),2)), 0, sgd.getWindowHeight() - 40)
+            sgd.draw2DText("Paddle Location X : " + str(round(sgd.getEntityX(self.paddle.model),2)), 0, sgd.getWindowHeight() - 60)
             sgd.present()
 
     def __del__(self):
