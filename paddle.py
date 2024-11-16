@@ -1,4 +1,4 @@
-from libsgd import sgd
+from globals import *
 
 class Paddle:
     def __init__(self,mesh):

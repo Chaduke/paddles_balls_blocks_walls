@@ -1,4 +1,4 @@
-from libsgd import sgd
+from globals import *
 
 class Ball:
     def __init__(self,mesh,x,y,xvel,yvel):

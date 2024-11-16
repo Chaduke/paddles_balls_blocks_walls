@@ -1,4 +1,4 @@
-from libsgd import sgd
+from globals import *
 
 class Block:
     def __init__(self,mesh,x,y):

@@ -1,6 +1,8 @@
+from paddle import *
 from ball import *
 from block import *
-from paddle import *
+from menu import *
+from globals import *
 
 class Game:
     def __init__(self):
@@ -34,8 +36,6 @@ class Game:
         self.block_mesh = sgd.loadMesh("assets/block_yellow.glb")
         sgd.setMeshShadowsEnabled(self.block_mesh, True)
         self.blocks = []
-        for i in range(10):
-            self.blocks.append(Block(self.block_mesh,i * 2 - 14,16))
 
         # paddle
         self.paddle_mesh = sgd.loadMesh("assets/paddle_4m.glb")
@@ -58,14 +58,58 @@ class Game:
         self.audio_on = False
         if self.audio_on:
             sgd.playSound(self.title_sound)
+
+        # menu
+        self.menu = Menu()
+        self.regular_font = sgd.loadFont("assets/bb.ttf",20)
         # pre-loop stuff
         self.loop = True
         self.paused = False
+        self.editor = True
         sgd.setMouseCursorMode(3)
-
+        self.cursor = sgd.createModel(self.block_mesh)
+        self.grid = sgd.loadModel("assets/grid.glb")
+        sgd.moveEntity(self.grid, -19, 0, 37)
+    def save_stage(self,stage):
+        pass
     def load_stage(self,stage):
         pass
+    def edit_stage(self):
+        sgd.setEntityVisible(self.paddle.model,False)
+        while self.loop:
+            e = sgd.pollEvents()
+            if e == sgd.EVENT_MASK_CLOSE_CLICKED: self.loop = False
+            if sgd.isKeyHit(sgd.KEY_ESCAPE): self.loop = False
+
+            # toggle grid
+            if sgd.isKeyHit(sgd.KEY_G):
+                if sgd.isEntityVisible(self.grid):
+                    sgd.setEntityVisible(self.grid,False)
+                else:
+                    sgd.setEntityVisible(self.grid, True)
+
+            # drop a block
+            if sgd.isMouseButtonHit(0):
+                self.blocks.append(Block(self.block_mesh,int(sgd.getEntityX(self.cursor))-0.5,int(sgd.getEntityY(self.cursor)) + 0.5))
+
+            sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
+            sgd.setEntityPosition(self.cursor, sgd.getUnprojectedX(), sgd.getUnprojectedY(), sgd.getUnprojectedZ())
+            sgd.renderScene()
+            sgd.clear2D()
+            sgd.set2DFont(self.menu.subtitle_font)
+            sgd.set2DTextColor(1,1,0,1)
+            sgd.draw2DText("BLOCK EDITOR",15,0)
+            sgd.set2DFont(self.regular_font)
+            sgd.set2DTextColor(0.8,0.8,0.8,1)
+            sgd.draw2DText("G - Toggle Grid",15,50)
+            sgd.draw2DText("Left Mouse - Drop Block",15,70)
+            sgd.draw2DText("Right Mouse - Erase Block", 15, 90)
+            sgd.draw2DText("Mouse Wheel - Select Block", 15, 110)
+            sgd.present()
     def run_stage(self):
+        if self.editor:
+            self.edit_stage()
+            return
         if self.audio_on:
             background_music = sgd.playSound(self.bgm_sound)
             sgd.setAudioLooping(background_music,True)
@@ -76,8 +120,10 @@ class Game:
             if sgd.isKeyHit(sgd.KEY_P):
                 if self.paused:
                     self.paused = False
+                    sgd.setMouseCursorMode(3)
                 else:
                     self.paused = True
+                    sgd.setMouseCursorMode(1)
             if not self.paused:
                 # on mouse right click, release a ball (if available)
                 if sgd.isMouseButtonHit(1):
@@ -134,9 +180,13 @@ class Game:
                 sgd.updateColliders()
             sgd.renderScene()
             sgd.clear2D()
-            if self.colliding: sgd.draw2DText("Colliding",0,0)
-            sgd.draw2DText("FPS : " + str(int(sgd.getFPS())),0,sgd.getWindowHeight() - 20)
+            if self.paused:
+                self.menu.display()
+                display_text_centered("PAUSED",self.regular_font,sgd.getWindowHeight() - 25)
+            if self.colliding: sgd.draw2DText("Colliding", 0, 0)
+            sgd.draw2DText("FPS : " + str(int(sgd.getFPS())), 0, sgd.getWindowHeight() - 20)
             sgd.present()
+
     def __del__(self):
         sgd.terminate()
 
