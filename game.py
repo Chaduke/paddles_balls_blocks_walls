@@ -3,6 +3,7 @@ from ball import *
 from block import *
 from menu import *
 from globals import *
+import json
 
 class Game:
     def __init__(self):
@@ -58,7 +59,6 @@ class Game:
         self.audio_on = False
         if self.audio_on:
             sgd.playSound(self.title_sound)
-
         # menu
         self.menu = Menu()
         self.regular_font = sgd.loadFont("assets/bb.ttf",20)
@@ -71,9 +71,22 @@ class Game:
         self.grid = sgd.loadModel("assets/grid.glb")
         sgd.moveEntity(self.grid, -19, 0, 37)
     def save_stage(self,stage):
-        pass
+        stage_path = "stages/system/stage" + str(stage) + ".json"
+        with open(stage_path, 'w') as f:
+            json.dump([block.to_dict() for block in self.blocks], f, indent=4)
+    def clear_stage(self):
+        to_remove = []  # Temporary list to collect blocks to be removed
+        for block in self.blocks:
+            sgd.destroyEntity(block.model)
+            to_remove.append(block) # Collect the blocks to be removed
+        for block in to_remove:
+            self.blocks.remove(block) # Remove the collected blocks
     def load_stage(self,stage):
-        pass
+        self.clear_stage()
+        stage_path = "stages/system/stage" + str(stage) + ".json"
+        with open(stage_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            self.blocks = [Block(self.block_mesh,item["x"], item["y"], item["block_type"]) for item in data]
     def position_cursor(self):
         sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
         x = sgd.getUnprojectedX()
@@ -81,29 +94,59 @@ class Game:
         z = sgd.getUnprojectedZ()
         x = int(x) - 0.5
         if x < -17.5: x = -17.5
-        if x > 9.5: x = 9.5
+        if x > 10.5: x = 10.5
         y = int(y) + 0.5
         if y > 28.5: y = 28.5
         if y < 0.5: y = 0.5
         sgd.setEntityPosition(self.cursor, x, y, z)
+    def get_new_xy(self):
+        new_x = int(sgd.getEntityX(self.cursor))
+        new_y = int(sgd.getEntityY(self.cursor))
+        if new_x < 0:
+            new_x -= 0.5
+        else:
+            new_x += 0.5
+        new_y += 0.5
+        return new_x,new_y
+    def remove_block(self):
+        new_xy = self.get_new_xy()
+        for block in self.blocks:
+            if sgd.getEntityX(block.model) == new_xy[0]:
+                if sgd.getEntityY(block.model) == new_xy[1]:
+                    sgd.destroyEntity(block.model)
+                    self.blocks.remove(block)
+    def add_block(self):
+        # make sure one doesnt already exist there
+        self.remove_block()
+        new_xy = self.get_new_xy()
+        self.blocks.append(Block(self.block_mesh, new_xy[0], new_xy[1],0))
     def edit_stage(self):
         sgd.setEntityVisible(self.paddle.model,False)
         while self.loop:
             e = sgd.pollEvents()
             if e == sgd.EVENT_MASK_CLOSE_CLICKED: self.loop = False
             if sgd.isKeyHit(sgd.KEY_ESCAPE): self.loop = False
-
             # toggle grid
             if sgd.isKeyHit(sgd.KEY_G):
                 if sgd.isEntityVisible(self.grid):
                     sgd.setEntityVisible(self.grid,False)
                 else:
                     sgd.setEntityVisible(self.grid, True)
-
-            # drop a block
+            # save stage
+            if sgd.isKeyHit(sgd.KEY_S):
+                self.save_stage(1)
+            # load stage
+            if sgd.isKeyHit(sgd.KEY_L):
+                self.load_stage(1)
+            # clear stage
+            if sgd.isKeyHit(sgd.KEY_C):
+                self.clear_stage()
+            # add a block
             if sgd.isMouseButtonHit(0):
-                self.blocks.append(Block(self.block_mesh,int(sgd.getEntityX(self.cursor))-0.5,int(sgd.getEntityY(self.cursor)) + 0.5))
-
+                self.add_block()
+            # delete a block
+            if sgd.isMouseButtonHit(1):
+                self.remove_block()
             self.position_cursor()
             sgd.renderScene()
             sgd.clear2D()
@@ -118,6 +161,7 @@ class Game:
             sgd.draw2DText("Mouse Wheel - Select Block", 15, 110)
             sgd.draw2DText("S - Save Stage", 15, 130)
             sgd.draw2DText("L - Load Stage", 15, 150)
+            sgd.draw2DText("C - Clear Stage", 15, 170)
             sgd.draw2DText("Cursor X,Y : " + str(sgd.getEntityX(self.cursor)) + "," + str(sgd.getEntityY(self.cursor)),15,1060)
 
             sgd.present()
