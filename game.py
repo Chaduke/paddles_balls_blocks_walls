@@ -50,9 +50,20 @@ class Game:
         self.blocks = []
 
         # paddle
-        self.paddle_mesh = sgd.loadMesh("assets/paddle_4m.glb")
-        sgd.setMeshShadowsEnabled(self.paddle_mesh, True)
-        self.paddle = Paddle(self.paddle_mesh)
+        self.paddle_meshes = []
+        self.paddle_small_mesh = sgd.loadMesh("assets/paddle_4m.glb")
+        sgd.setMeshShadowsEnabled(self.paddle_small_mesh, True)
+        self.paddle_meshes.append(self.paddle_small_mesh)
+        self.paddle_medium_mesh = sgd.loadMesh("assets/paddle_8m.glb")
+        sgd.setMeshShadowsEnabled(self.paddle_medium_mesh, True)
+        self.paddle_meshes.append(self.paddle_medium_mesh)
+        self.paddle_large_mesh = sgd.loadMesh("assets/paddle_12m.glb")
+        sgd.setMeshShadowsEnabled(self.paddle_large_mesh, True)
+        self.paddle_meshes.append(self.paddle_large_mesh)
+        self.paddle_xl_mesh = sgd.loadMesh("assets/paddle_16m.glb")
+        sgd.setMeshShadowsEnabled(self.paddle_xl_mesh, True)
+        self.paddle_meshes.append(self.paddle_xl_mesh)
+        self.paddle = Paddle(self.paddle_meshes[3],3)
         sgd.setEntityVisible(self.paddle.model,False)
         # collisions setup
         # ball with walls, ball = 1, walls = 0
@@ -271,10 +282,10 @@ class Game:
             if sgd.isKeyHit(sgd.KEY_P):
                 if self.paused:
                     self.paused = False
-                    sgd.setMouseCursorMode(3)
+                    #sgd.setMouseCursorMode(3)
                 else:
                     self.paused = True
-                    sgd.setMouseCursorMode(1)
+                    #sgd.setMouseCursorMode(1)
             if not self.paused:
                 # on mouse right click, release a ball (if available)
                 if sgd.isMouseButtonHit(1):
@@ -363,6 +374,7 @@ class Game:
             sgd.draw2DText("Escape - Menu", 15, 340)
             sgd.draw2DText("P - Pause", 15, 360)
             sgd.draw2DText("FPS : " + str(int(sgd.getFPS())), 0, sgd.getWindowHeight() - 40)
+            sgd.draw2DText("Paddle Location X : " + str(sgd.getEntityX(self.paddle.model)), 0, sgd.getWindowHeight() - 60)
             sgd.present()
 
     def __del__(self):

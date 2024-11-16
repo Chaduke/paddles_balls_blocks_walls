@@ -1,14 +1,15 @@
 from globals import *
 
 class Paddle:
-    def __init__(self,mesh):
+    def __init__(self,mesh,size):
         self.model = sgd.createModel(mesh)
-        self.colliders = [None] * 4
-        self.collision_points = [None] * 4
-        for i in range(4):
+        self.point_count = 4 * (size+1)
+        self.colliders = [None] * self.point_count
+        self.collision_points = [None] * self.point_count
+        for i in range(self.point_count):
             self.collision_points[i] = sgd.createModel(0)
             sgd.setEntityParent(self.collision_points[i],self.model)
-            sgd.setEntityPosition(self.collision_points[i],i - 1.5,0,0)
+            sgd.setEntityPosition(self.collision_points[i],i - (self.point_count / 2) + 0.5,0,0)
             self.colliders[i] = sgd.createSphereCollider(self.collision_points[i],2,0.5)
         self.velocity=(0,0)
         self.acceleration=(0,0)
