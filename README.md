@@ -23,8 +23,8 @@ https://www.youtube.com/@nathanbaggs
 
 TODO List:
 
-- Start on a basic menu
-- Start a level editor
+- Finish Menu
+- Finish Editor
 - Redo all sounds / music in Ableton Live
 - Work on power-ups
 - Do different sized paddles and balls in Blender 
