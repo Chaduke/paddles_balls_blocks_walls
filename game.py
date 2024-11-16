@@ -74,6 +74,18 @@ class Game:
         pass
     def load_stage(self,stage):
         pass
+    def position_cursor(self):
+        sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
+        x = sgd.getUnprojectedX()
+        y = sgd.getUnprojectedY()
+        z = sgd.getUnprojectedZ()
+        x = int(x) - 0.5
+        if x < -17.5: x = -17.5
+        if x > 9.5: x = 9.5
+        y = int(y) + 0.5
+        if y > 28.5: y = 28.5
+        if y < 0.5: y = 0.5
+        sgd.setEntityPosition(self.cursor, x, y, z)
     def edit_stage(self):
         sgd.setEntityVisible(self.paddle.model,False)
         while self.loop:
@@ -92,19 +104,22 @@ class Game:
             if sgd.isMouseButtonHit(0):
                 self.blocks.append(Block(self.block_mesh,int(sgd.getEntityX(self.cursor))-0.5,int(sgd.getEntityY(self.cursor)) + 0.5))
 
-            sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
-            sgd.setEntityPosition(self.cursor, sgd.getUnprojectedX(), sgd.getUnprojectedY(), sgd.getUnprojectedZ())
+            self.position_cursor()
             sgd.renderScene()
             sgd.clear2D()
             sgd.set2DFont(self.menu.subtitle_font)
             sgd.set2DTextColor(1,1,0,1)
-            sgd.draw2DText("BLOCK EDITOR",15,0)
+            sgd.draw2DText("STAGE EDITOR",15,0)
             sgd.set2DFont(self.regular_font)
             sgd.set2DTextColor(0.8,0.8,0.8,1)
             sgd.draw2DText("G - Toggle Grid",15,50)
             sgd.draw2DText("Left Mouse - Drop Block",15,70)
             sgd.draw2DText("Right Mouse - Erase Block", 15, 90)
             sgd.draw2DText("Mouse Wheel - Select Block", 15, 110)
+            sgd.draw2DText("S - Save Stage", 15, 130)
+            sgd.draw2DText("L - Load Stage", 15, 150)
+            sgd.draw2DText("Cursor X,Y : " + str(sgd.getEntityX(self.cursor)) + "," + str(sgd.getEntityY(self.cursor)),15,1060)
+
             sgd.present()
     def run_stage(self):
         if self.editor:
