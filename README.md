@@ -26,7 +26,7 @@ TODO List:
 - Finish Editor    
     - Add new block types
     - Add powerups (items)
-- Finish Menu
+- Finish Menu (make it much prettier)
 - Finish UI / HUD
 - Redo all sounds / music in Ableton Live
 - Do different sized paddles and balls in Blender 
