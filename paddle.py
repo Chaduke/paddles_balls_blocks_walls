@@ -19,8 +19,8 @@ class Paddle:
         # stay in the "playfield"
         if sgd.getEntityX(self.model) < -16:
             sgd.setEntityPosition(self.model,-16,sgd.getEntityY(self.model),37)
-        if sgd.getEntityX(self.model) > 8.2:
-            sgd.setEntityPosition(self.model,8.2,sgd.getEntityY(self.model),37)
+        if sgd.getEntityX(self.model) > 9.2:
+            sgd.setEntityPosition(self.model,9.2,sgd.getEntityY(self.model),37)
         # "swing" the paddle using left mouse
         if sgd.isMouseButtonDown(0):
             if sgd.getEntityY(self.model) > 0:

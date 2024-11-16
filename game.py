@@ -1,8 +1,11 @@
+from libsgd import playSound
+
 from paddle import *
 from ball import *
 from block import *
 from menu import *
 from globals import *
+from random import random
 import json
 
 class Game:
@@ -56,7 +59,11 @@ class Game:
         self.title_sound = sgd.loadSound("assets/wave/title.wav")
         self.bgm_sound = sgd.loadSound("assets/wave/bgm.wav")
         self.paddle_sound = sgd.loadSound("assets/wave/pad.wav")
-        self.audio_on = False
+        self.close_sound = sgd.loadSound("assets/wave/close.wav")
+        self.block_sound = sgd.loadSound("assets/wave/block.wav")
+        self.block2_sound = sgd.loadSound("assets/wave/block2.wav")
+        self.reverse_sound = sgd.loadSound("assets/wave/reverse.wav")
+        self.audio_on = True
         if self.audio_on:
             sgd.playSound(self.title_sound)
         # menu
@@ -73,7 +80,8 @@ class Game:
     def save_stage(self,stage):
         stage_path = "stages/system/stage" + str(stage) + ".json"
         with open(stage_path, 'w') as f:
-            json.dump([block.to_dict() for block in self.blocks], f, indent=4)
+            json.dump([block.to_dict() for block in self.blocks], f, ensure_ascii=False,indent=4)
+        if self.audio_on: sgd.playSound(self.block2_sound)
     def clear_stage(self):
         to_remove = []  # Temporary list to collect blocks to be removed
         for block in self.blocks:
@@ -81,12 +89,14 @@ class Game:
             to_remove.append(block) # Collect the blocks to be removed
         for block in to_remove:
             self.blocks.remove(block) # Remove the collected blocks
+        if self.audio_on : sgd.playSound(self.reverse_sound)
     def load_stage(self,stage):
         self.clear_stage()
         stage_path = "stages/system/stage" + str(stage) + ".json"
         with open(stage_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
             self.blocks = [Block(self.block_mesh,item["x"], item["y"], item["block_type"]) for item in data]
+        if self.audio_on : sgd.playSound(self.title_sound)
     def position_cursor(self):
         sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
         x = sgd.getUnprojectedX()
@@ -115,11 +125,13 @@ class Game:
                 if sgd.getEntityY(block.model) == new_xy[1]:
                     sgd.destroyEntity(block.model)
                     self.blocks.remove(block)
+                    if self.audio_on: sgd.playSound(self.close_sound)
     def add_block(self):
         # make sure one doesnt already exist there
         self.remove_block()
         new_xy = self.get_new_xy()
         self.blocks.append(Block(self.block_mesh, new_xy[0], new_xy[1],0))
+        if self.audio_on: sgd.playSound(self.block_sound)
     def edit_stage(self):
         sgd.setEntityVisible(self.paddle.model,False)
         while self.loop:
@@ -141,6 +153,14 @@ class Game:
             # clear stage
             if sgd.isKeyHit(sgd.KEY_C):
                 self.clear_stage()
+            # play stage
+            if sgd.isKeyHit(sgd.KEY_P):
+                self.editor = False
+                sgd.setEntityVisible(self.paddle.model,True)
+                sgd.setEntityVisible(self.grid,False)
+                sgd.setEntityVisible(self.cursor, False)
+                self.save_stage(1)
+                self.run_stage()
             # add a block
             if sgd.isMouseButtonHit(0):
                 self.add_block()
@@ -156,12 +176,14 @@ class Game:
             sgd.set2DFont(self.regular_font)
             sgd.set2DTextColor(0.8,0.8,0.8,1)
             sgd.draw2DText("G - Toggle Grid",15,50)
-            sgd.draw2DText("Left Mouse - Drop Block",15,70)
-            sgd.draw2DText("Right Mouse - Erase Block", 15, 90)
-            sgd.draw2DText("Mouse Wheel - Select Block", 15, 110)
-            sgd.draw2DText("S - Save Stage", 15, 130)
-            sgd.draw2DText("L - Load Stage", 15, 150)
-            sgd.draw2DText("C - Clear Stage", 15, 170)
+            sgd.draw2DText("A - Toggle Audio",15,70)
+            sgd.draw2DText("Left Mouse - Drop Block",15,90)
+            sgd.draw2DText("Right Mouse - Erase Block", 15, 110)
+            sgd.draw2DText("Mouse Wheel - Select Block", 15, 130)
+            sgd.draw2DText("S - Save Stage", 15, 150)
+            sgd.draw2DText("L - Load Stage", 15, 170)
+            sgd.draw2DText("C - Clear Stage", 15, 190)
+            sgd.draw2DText("P - Play Stage",15, 210)
             sgd.draw2DText("Cursor X,Y : " + str(sgd.getEntityX(self.cursor)) + "," + str(sgd.getEntityY(self.cursor)),15,1060)
 
             sgd.present()
@@ -215,12 +237,15 @@ class Game:
                             # check for paddle collisions
                             collided_entity = sgd.getColliderEntity(collided_collider)
                             paddle_height = sgd.getEntityY(collided_entity)
-                            # sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),paddle_height + 1,sgd.getEntityZ(ball.model))
+                            # prevent multiple collisions and re-triggering audio
+                            sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),paddle_height + 1,sgd.getEntityZ(ball.model))
+                            # paddle collisions should always send the ball upwards
                             ball.velocity[1] = abs(ball.velocity[1])
+                            # check if the paddle is on the upswing
                             if paddle_height < 2 and not sgd.isMouseButtonDown(0):
                                 # add some velocity for ball hit with "swung" paddle
                                 ball.velocity[1] += ball.velocity[1] / 3
-                            if self.audio_on: sgd.playSound(self.paddle_sound)
+                            if self.audio_on: sgd.playSound(self.close_sound)
                         elif sgd.getColliderType(collided_collider) == 3:
                             # block collisions
                             block_collision_point = sgd.getColliderEntity(collided_collider)
@@ -230,6 +255,11 @@ class Game:
                                     sgd.destroyEntity(block.model)
                                     self.blocks.remove(block)
                             ball.velocity[1] = - ball.velocity[1]
+                            if self.audio_on :
+                                if random() > 0.5:
+                                    sgd.playSound(self.block_sound)
+                                else:
+                                    sgd.playSound(self.block2_sound)
                     else:
                         self.colliding = False
                     if not ball.active:
