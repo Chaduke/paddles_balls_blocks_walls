@@ -80,7 +80,8 @@ class Game:
         # ball with blocks, ball = 1, blocks = 3
         sgd.enableCollisions(1, 3, sgd.COLLISION_RESPONSE_STOP)
         self.colliding = False # flag to display collisions for debug purposes
-
+        # items with paddle, items = 4, paddle = 2
+        sgd.enableCollisions(4, 2, sgd.COLLISION_RESPONSE_STOP)
         # load audio
         self.title_sound = sgd.loadSound("assets/wave/title.wav")
         self.bgm_sound = sgd.loadSound("assets/wave/bgm.wav")
@@ -297,9 +298,9 @@ class Game:
                 if sgd.isMouseButtonHit(1):
                     # set which way the ball goes left or right based on X location of paddle
                     if sgd.getEntityX(self.paddle.model) < -3.9:
-                        vx = -0.1
+                        vx = 0.1 # keeping this with the way the original works for now, always to the right
                     else:
-                        vx= 0.1
+                        vx = 0.1
                     self.balls.append(Ball(self.ball_mesh,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,0.98))
                 # balls update loop
                 for ball in self.balls:
@@ -373,6 +374,22 @@ class Game:
                 # items update
                 for item in self.items:
                     item.move()
+                    # check for collisions
+                    cl = sgd.getCollisionCount(item.collider_left)
+                    cr = sgd.getCollisionCount(item.collider_right)
+                    if cl + cr > 0:
+                        # we collided with the paddle
+                        if item.item_type == 0:
+                            # shrink the paddle
+                            if self.paddle.point_count > 4:
+                                # create a new paddle and delete the old one
+                                new_paddle_size = int((self.paddle.point_count - 4) / 4) - 1
+                                old_x = sgd.getEntityX(self.paddle.model)
+                                sgd.destroyEntity(self.paddle.model)
+                                self.paddle = Paddle(self.paddle_meshes[new_paddle_size],new_paddle_size)
+                                sgd.setEntityPosition(self.paddle.model,old_x,sgd.getEntityY(self.paddle.model),sgd.getEntityZ(self.paddle.model))
+                        # regardless of item type we need to delete it
+                        item.active = False
                     if not item.active:
                         sgd.destroyEntity(item.model)
                         self.items.remove(item)
