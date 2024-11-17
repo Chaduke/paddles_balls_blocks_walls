@@ -26,6 +26,8 @@ TODO List:
 - Finish Editor    
     - Add new block types (in progress)
     - Add powerups (items) (in progress)
+- Fix invalid entity issue when going directly to play mode
+- Add a little ball control with the paddle
 - Finish Menu (make it much prettier)
 - Finish UI / HUD (need to start this soon)
 - Redo all sounds / music in Ableton Live
