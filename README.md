@@ -24,14 +24,12 @@ https://www.youtube.com/@nathanbaggs
 TODO List:
 
 - Finish Editor    
-    - Add new block types (in progress)
-    - Add powerups (items) (in progress)
+    - Add new block types (in progress 2 done)
+    - Add powerups (items) (in progress 4 done)
 - Fix invalid entity issue when going directly to play mode
-- Add a little ball control with the paddle
 - Finish Menu (make it much prettier)
 - Finish UI / HUD (need to start this soon)
 - Redo all sounds / music in Ableton Live
-- Do different sized paddles and balls in Blender (paddles part done)
 - Many more things to come
 
 My plan is to create progress reports and / or video every Sunday.
