@@ -1,3 +1,4 @@
+import os
 from paddle import *
 from ball import *
 from block import *
@@ -133,6 +134,18 @@ class Game:
         self.grid = sgd.loadModel("assets/grid.glb")
         sgd.moveEntity(self.grid, -19, 0, 37)
         sgd.setEntityVisible(self.grid,False)
+        self.bank = int(0) # for saving levels
+        self.stage_numbers = []
+        self.update_stage_numbers()
+        print(self.stage_numbers)
+    def update_stage_numbers(self):
+        self.stage_numbers.clear()
+        for stage_number in range(10):
+            # find out is file exists
+            current_number = self.bank * 10 + stage_number
+            file_path = "stages/system/stage" + str(current_number) + ".json"
+            if os.path.exists(file_path) and os.path.isfile(file_path):
+                self.stage_numbers.append(stage_number)
     def show_menu(self):
         menu_loop = True
         while menu_loop:
@@ -165,6 +178,7 @@ class Game:
         with open(stage_path, 'w') as f:
             json.dump([block.to_dict() for block in self.blocks], f, ensure_ascii=False,indent=4)
         if self.audio_on: sgd.playSound(self.block2_sound)
+        self.update_stage_numbers()
     def clear_stage(self):
         to_remove = []  # Temporary list to collect blocks to be removed
         for block in self.blocks:
@@ -172,7 +186,8 @@ class Game:
             to_remove.append(block) # Collect the blocks to be removed
         for block in to_remove:
             self.blocks.remove(block) # Remove the collected blocks
-        if self.audio_on : sgd.playSound(self.reverse_sound)
+        self.blocks.clear()
+        #if self.audio_on : sgd.playSound(self.reverse_sound)
     def clear_balls(self):
         to_remove = []  # Temporary list to collect blocks to be removed
         for ball in self.balls:
@@ -183,10 +198,11 @@ class Game:
     def load_stage(self,stage):
         self.clear_stage()
         stage_path = "stages/system/stage" + str(stage) + ".json"
-        with open(stage_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            self.blocks = [Block(self.block_meshes[item["block_type"]],item["x"], item["y"], item["block_type"]) for item in data]
-        if self.audio_on : sgd.playSound(self.title_sound)
+        if os.path.exists(stage_path) and os.path.isfile(stage_path):
+            with open(stage_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                self.blocks = [Block(self.block_meshes[item["block_type"]],item["x"], item["y"], item["block_type"]) for item in data]
+            if self.audio_on : sgd.playSound(self.title_sound)
     def position_cursor(self):
         sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
         x = sgd.getUnprojectedX()
@@ -235,18 +251,27 @@ class Game:
                 if sgd.isEntityVisible(self.grid):
                     sgd.setEntityVisible(self.grid,False)
                 else:
-                    sgd.setEntityVisible(self.grid, True)
+                    sgd.setEntityVisible(self.grid,True)
             # toggle audio
             if sgd.isKeyHit(sgd.KEY_A):
                 if self.audio_on:
                     self.audio_on = False
                 else: self.audio_on = True
-            # save stage
-            if sgd.isKeyHit(sgd.KEY_S):
-                self.save_stage(1)
-            # load stage
-            if sgd.isKeyHit(sgd.KEY_L):
-                self.load_stage(1)
+            # numpad saves / load
+            for k in range(10):
+                if sgd.isKeyHit(320+k):
+                    if sgd.isKeyDown(sgd.KEY_LEFT_CONTROL):
+                        self.save_stage(k)
+                    else:
+                        self.load_stage(k)
+            # bank select
+            if sgd.isKeyHit(sgd.KEY_KP_ADD):
+                self.bank+=1
+                self.update_stage_numbers()
+            if sgd.isKeyHit(sgd.KEY_KP_SUBTRACT):
+                self.bank-=1
+                if self.bank < 0: self.bank=0
+                self.update_stage_numbers()
             # clear stage
             if sgd.isKeyHit(sgd.KEY_C):
                 self.clear_stage()
@@ -292,10 +317,26 @@ class Game:
             sgd.draw2DText("Left Mouse - Drop Block",15,90)
             sgd.draw2DText("Right Mouse - Erase Block", 15, 110)
             sgd.draw2DText("Mouse Wheel - Select Block", 15, 130)
-            sgd.draw2DText("S - Save Stage", 15, 150)
-            sgd.draw2DText("L - Load Stage", 15, 170)
-            sgd.draw2DText("C - Clear Stage", 15, 190)
-            sgd.draw2DText("P - Play Stage",15, 210)
+            sgd.draw2DText("Numpad 0-9 - Load Stage", 15, 170)
+            sgd.draw2DText("Left CTRL + Numpad 0-9 - ", 15, 190)
+            sgd.draw2DText("Save Stage", 15, 210)
+            sgd.draw2DText("Numpad+ Bank Up", 15, 230)
+            sgd.draw2DText("Numpad- Bank Down", 15, 250)
+            sgd.draw2DText("C - Clear Stage", 15, 270)
+            sgd.draw2DText("P - Play Stage",15, 290)
+
+            # draw Bank / Stages Square
+            sgd.set2DFillColor(0,0,0,0)
+            sgd.set2DOutlineColor(1,1,1,1)
+            sgd.set2DOutlineEnabled(True)
+            sgd.draw2DRect(15,800,220,900)
+            sgd.draw2DText("BANK - " + str(self.bank),20,810)
+            sgd.draw2DText("STAGES",20,830)
+            indent = 5
+            for current_number in self.stage_numbers:
+                indent+=15
+                sgd.draw2DText(str(current_number),indent,850)
+
             if not self.audio_on:
                 sgd.draw2DText("AUDIO MUTED",15,1030)
             sgd.draw2DText("Cursor X,Y : " + str(sgd.getEntityX(self.cursor)) + "," + str(sgd.getEntityY(self.cursor)),15,1060)
