@@ -94,6 +94,9 @@ class Game:
         self.smallballs_mesh = sgd.loadMesh("assets/smallballs.glb")
         sgd.setMeshShadowsEnabled(self.smallballs_mesh, True)
         self.item_meshes.append(self.smallballs_mesh)
+        self.largeballs_mesh = sgd.loadMesh("assets/largeballs.glb")
+        sgd.setMeshShadowsEnabled(self.largeballs_mesh, True)
+        self.item_meshes.append(self.largeballs_mesh)
         self.items = []
 
         # collisions setup
@@ -298,6 +301,15 @@ class Game:
             sgd.draw2DText("Cursor X,Y : " + str(sgd.getEntityX(self.cursor)) + "," + str(sgd.getEntityY(self.cursor)),15,1060)
 
             sgd.present()
+    def get_ball_radius(self):
+        if self.current_ball_size==0:
+            return 0.25
+        elif self.current_ball_size==1:
+            return 0.5
+        elif self.current_ball_size == 2:
+            return 1.0
+        elif self.current_ball_size == 3:
+            return 2
     def run_stage(self):
         if self.editor:
             self.edit_stage()
@@ -334,23 +346,28 @@ class Game:
                         collided_collider = sgd.getCollisionCollider(ball.collider,0)
                         # check for walls
                         if sgd.getColliderType(collided_collider) == 0:
+                            br = self.get_ball_radius()
                             if sgd.getEntityY(ball.model) > 28:
                                 # we're probably at the ceiling
                                 ball.velocity[1] = -abs(ball.velocity[1] * 0.8)
+                                sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),28.5 - br,37)
                             else:
                                 # we're probably hitting the side walls
-                                if sgd.getEntityX(ball.model) < -16:
+                                if sgd.getEntityX(ball.model) < -17:
                                     # left wall
                                     ball.velocity[0] = abs(ball.velocity[0] * 0.8)
+                                    sgd.setEntityPosition(ball.model,-18.5 + br, sgd.getEntityY(ball.model), 37)
                                 else:
                                     # right wall
                                     ball.velocity[0] = -abs(ball.velocity[0] * 0.8)
+                                    sgd.setEntityPosition(ball.model, 11.5 - br, sgd.getEntityY(ball.model), 37)
                         elif sgd.getColliderType(collided_collider) == 2:
                             # check for paddle collisions
                             collided_entity = sgd.getColliderEntity(collided_collider)
                             paddle_height = sgd.getEntityY(collided_entity)
                             # prevent multiple collisions and re-triggering audio
-                            sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),paddle_height + 1,sgd.getEntityZ(ball.model))
+                            br = self.get_ball_radius()
+                            sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),paddle_height + 0.5 + br,sgd.getEntityZ(ball.model))
                             # paddle collisions should always send the ball upwards
                             ball.velocity[1] = abs(ball.velocity[1])
                             # make a slight x velocity adjustment based on distance from the center of the paddle
@@ -368,11 +385,12 @@ class Game:
                             # get the Y height of the block to determine how to re-position the ball post-collision
                             # if we don't do this we'll get multiple collisions and unexpected behaviour
                             block_height = sgd.getEntityY(block_model)
+                            br = self.get_ball_radius()
                             if block_height > sgd.getEntityY(ball.model):
-                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height - 1,
+                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height - 0.5 - br,
                                                       sgd.getEntityZ(ball.model))
                             else:
-                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height + 1,
+                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height + 0.5 + br,
                                                       sgd.getEntityZ(ball.model))
                             for block in self.blocks:
                                 if block.model == block_model:
@@ -380,7 +398,7 @@ class Game:
                                         self.blocks.append(Block(self.block_meshes[2],sgd.getEntityX(block.model),sgd.getEntityY(block.model),2))
                                     # random chance to drop an item
                                     if random() > 0.9:
-                                        random_item = int(random() * 3)
+                                        random_item = int(random() * 4)
                                         self.items.append(Item(self.item_meshes[random_item], random_item, sgd.getEntityX(block.model),
                                                                sgd.getEntityY(block.model)))
                                     sgd.destroyEntity(block.model)
@@ -429,16 +447,21 @@ class Game:
                             # shrink all balls
                             self.current_ball_size-=1
                             if self.current_ball_size < 0 : self.current_ball_size=0
-                            to_remove = []
                             for ball in self.balls:
-                                to_remove.append(ball)
-                                self.balls.append(Ball(self.ball_meshes[self.current_ball_size],self.current_ball_size,
-                                                       sgd.getEntityX(ball.model),
-                                                        sgd.getEntityY(ball.model),ball.velocity[0],
-                                                       ball.velocity[1]))
-                            for ball in to_remove:
-                                sgd.destroyEntity(ball.model)
-                                self.balls.remove(ball)
+                                ball.active = False
+                        elif item.item_type == 3:
+                            # expand all balls
+                            self.current_ball_size+=1
+                            if self.current_ball_size > 3: self.current_ball_size = 3
+                            for ball in self.balls:
+                                ball.active = False
+                                # self.balls.append(Ball(
+                                # self.ball_meshes[self.current_ball_size],
+                                # self.current_ball_size,
+                                # sgd.getEntityX(ball.model),
+                                # sgd.getEntityY(ball.model),ball.velocity[0],
+                                # ball.velocity[1]))
+
                         # regardless of item type we need to delete it
                         item.active = False
                     if not item.active:
