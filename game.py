@@ -137,7 +137,7 @@ class Game:
         self.bank = int(0) # for saving levels
         self.stage_numbers = []
         self.update_stage_numbers()
-        print(self.stage_numbers)
+        self.current_stage = 0
     def update_stage_numbers(self):
         self.stage_numbers.clear()
         for stage_number in range(10):
@@ -173,6 +173,7 @@ class Game:
             sgd.renderScene()
             sgd.present()
 
+    # noinspection PyTypeChecker
     def save_stage(self,stage):
         stage_path = "stages/system/stage" + str(stage) + ".json"
         with open(stage_path, 'w') as f:
@@ -203,6 +204,7 @@ class Game:
                 data = json.load(f)
                 self.blocks = [Block(self.block_meshes[item["block_type"]],item["x"], item["y"], item["block_type"]) for item in data]
             if self.audio_on : sgd.playSound(self.title_sound)
+            self.current_stage = stage
     def position_cursor(self):
         sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
         x = sgd.getUnprojectedX()
@@ -312,26 +314,26 @@ class Game:
             sgd.draw2DText("STAGE EDITOR",15,0)
             sgd.set2DFont(self.regular_font)
             sgd.set2DTextColor(0.8,0.8,0.8,1)
-            sgd.draw2DText("G - Toggle Grid",15,50)
-            sgd.draw2DText("A - Toggle Audio",15,70)
-            sgd.draw2DText("Left Mouse - Drop Block",15,90)
-            sgd.draw2DText("Right Mouse - Erase Block", 15, 110)
-            sgd.draw2DText("Mouse Wheel - Select Block", 15, 130)
-            sgd.draw2DText("Numpad 0-9 - Load Stage", 15, 170)
-            sgd.draw2DText("Left CTRL + Numpad 0-9 - ", 15, 190)
+            sgd.draw2DText("G = Toggle Grid",15,50)
+            sgd.draw2DText("A = Toggle Audio",15,70)
+            sgd.draw2DText("Left Mouse = Place Block",15,90)
+            sgd.draw2DText("Right Mouse = Erase Block", 15, 110)
+            sgd.draw2DText("Mouse Wheel = Select Block", 15, 130)
+            sgd.draw2DText("Numpad 0-9 = Load Stage", 15, 170)
+            sgd.draw2DText("Left CTRL + Numpad 0-9 = ", 15, 190)
             sgd.draw2DText("Save Stage", 15, 210)
-            sgd.draw2DText("Numpad+ Bank Up", 15, 230)
-            sgd.draw2DText("Numpad- Bank Down", 15, 250)
-            sgd.draw2DText("C - Clear Stage", 15, 270)
-            sgd.draw2DText("P - Play Stage",15, 290)
+            sgd.draw2DText("Numpad + = Bank Up", 15, 230)
+            sgd.draw2DText("Numpad - = Bank Down", 15, 250)
+            sgd.draw2DText("C = Clear Stage", 15, 270)
+            sgd.draw2DText("P = Play Stage",15, 290)
 
             # draw Bank / Stages Square
             sgd.set2DFillColor(0,0,0,0)
             sgd.set2DOutlineColor(1,1,1,1)
             sgd.set2DOutlineEnabled(True)
             sgd.draw2DRect(15,800,220,900)
-            sgd.draw2DText("BANK - " + str(self.bank),20,810)
-            sgd.draw2DText("STAGES",20,830)
+            sgd.draw2DText("BANK = " + str(self.bank),20,810)
+            sgd.draw2DText("STAGES =",20,830)
             indent = 5
             for current_number in self.stage_numbers:
                 indent+=15
@@ -378,7 +380,7 @@ class Game:
                         vx = 0.1 # keeping this with the way the original works for now, always to the right
                     else:
                         vx = 0.1
-                    self.balls.append(Ball(self.ball_meshes[self.current_ball_size],self.current_ball_size,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,0.98))
+                    self.balls.append(Ball(self.ball_meshes[self.current_ball_size],self.current_ball_size,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,1))
                 # balls update loop
                 for ball in self.balls:
                     ball.update()
@@ -523,6 +525,20 @@ class Game:
             sgd.draw2DText("P - Pause", 15, 360)
             sgd.draw2DText("FPS : " + str(round(sgd.getFPS(),2)), 0, sgd.getWindowHeight() - 40)
             sgd.draw2DText("Paddle Location X : " + str(round(sgd.getEntityX(self.paddle.model),2)), 0, sgd.getWindowHeight() - 60)
+
+            # HUD
+            sgd.set2DFont(self.menu.title_font)
+            sgd.set2DTextColor(0.2, 0.2, 0.2, 1)
+            sgd.draw2DText("STAGE",1410,35)
+            sgd.set2DTextColor(1, 0.2, 0.2, 1)
+            sgd.draw2DText("STAGE", 1412, 37)
+            sgd.set2DTextColor(0.2, 0.2, 1, 1)
+            if self.current_stage < 10:
+                stage_string = "0" + str(self.current_stage)
+            else:
+                stage_string = str(self.current_stage)
+            sgd.set2DFont(self.menu.subtitle_font)
+            sgd.draw2DText(stage_string, 1550, 85)
             sgd.present()
 
     def __del__(self):
