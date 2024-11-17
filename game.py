@@ -62,7 +62,7 @@ class Game:
         self.paddle_xl_mesh = sgd.loadMesh("assets/paddle_16m.glb")
         sgd.setMeshShadowsEnabled(self.paddle_xl_mesh, True)
         self.paddle_meshes.append(self.paddle_xl_mesh)
-        self.paddle = Paddle(self.paddle_meshes[2],2)
+        self.paddle = Paddle(self.paddle_meshes[0],0)
         sgd.setEntityVisible(self.paddle.model,False)
 
         # items
@@ -70,6 +70,9 @@ class Game:
         self.shrinker_mesh = sgd.loadMesh("assets/shrinker.glb")
         sgd.setMeshShadowsEnabled(self.shrinker_mesh, True)
         self.item_meshes.append(self.shrinker_mesh)
+        self.grower_mesh = sgd.loadMesh("assets/grower.glb")
+        sgd.setMeshShadowsEnabled(self.grower_mesh, True)
+        self.item_meshes.append(self.grower_mesh)
         self.items = []
 
         # collisions setup
@@ -353,7 +356,8 @@ class Game:
                                         self.blocks.append(Block(self.block_meshes[2],sgd.getEntityX(block.model),sgd.getEntityY(block.model),2))
                                     # random chance to drop an item
                                     if random() > 0.9:
-                                        self.items.append(Item(self.item_meshes[0], 0, sgd.getEntityX(block.model),
+                                        random_item = int(random() * 2)
+                                        self.items.append(Item(self.item_meshes[random_item], random_item, sgd.getEntityX(block.model),
                                                                sgd.getEntityY(block.model)))
                                     sgd.destroyEntity(block.model)
                                     self.blocks.remove(block)
@@ -384,6 +388,15 @@ class Game:
                             if self.paddle.point_count > 4:
                                 # create a new paddle and delete the old one
                                 new_paddle_size = int((self.paddle.point_count - 4) / 4) - 1
+                                old_x = sgd.getEntityX(self.paddle.model)
+                                sgd.destroyEntity(self.paddle.model)
+                                self.paddle = Paddle(self.paddle_meshes[new_paddle_size],new_paddle_size)
+                                sgd.setEntityPosition(self.paddle.model,old_x,sgd.getEntityY(self.paddle.model),sgd.getEntityZ(self.paddle.model))
+                        elif item.item_type == 1:
+                            # grow the paddle
+                            if self.paddle.point_count < 16:
+                                # create a new paddle and delete the old one
+                                new_paddle_size = int((self.paddle.point_count + 4) / 4) - 1
                                 old_x = sgd.getEntityX(self.paddle.model)
                                 sgd.destroyEntity(self.paddle.model)
                                 self.paddle = Paddle(self.paddle_meshes[new_paddle_size],new_paddle_size)
