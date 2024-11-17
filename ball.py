@@ -1,9 +1,11 @@
 from globals import *
 
 class Ball:
-    def __init__(self,mesh,x,y,xvel,yvel):
+    def __init__(self,mesh,size,x,y,xvel,yvel):
         self.model = sgd.createModel(mesh)
-        self.collider = sgd.createSphereCollider(self.model,1,0.5)
+        self.size = size
+        collider_radius = (size + 1) / 4
+        self.collider = sgd.createSphereCollider(self.model,1,collider_radius)
         self.velocity= [xvel, yvel]
         self.acceleration=[0,-0.02]
         sgd.setEntityPosition(self.model,x,y,37)

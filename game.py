@@ -32,8 +32,20 @@ class Game:
 
         # balls
         self.balls=[]
-        self.ball_mesh = sgd.loadMesh("assets/ball1.glb")
-        sgd.setMeshShadowsEnabled(self.ball_mesh,True)
+        self.ball_meshes = []
+        self.current_ball_size = 1 # regular sized balls
+        self.ball_mesh_small = sgd.loadMesh("assets/ball_small.glb")
+        sgd.setMeshShadowsEnabled(self.ball_mesh_small,True)
+        self.ball_meshes.append(self.ball_mesh_small)
+        self.ball_mesh_regular = sgd.loadMesh("assets/ball_regular.glb")
+        sgd.setMeshShadowsEnabled(self.ball_mesh_regular, True)
+        self.ball_meshes.append(self.ball_mesh_regular)
+        self.ball_mesh_large = sgd.loadMesh("assets/ball_large.glb")
+        sgd.setMeshShadowsEnabled(self.ball_mesh_large, True)
+        self.ball_meshes.append(self.ball_mesh_large)
+        self.ball_mesh_xl = sgd.loadMesh("assets/ball_xl.glb")
+        sgd.setMeshShadowsEnabled(self.ball_mesh_xl, True)
+        self.ball_meshes.append(self.ball_mesh_xl)
 
         # blocks
         self.block_meshes = []
@@ -62,6 +74,12 @@ class Game:
         self.paddle_xl_mesh = sgd.loadMesh("assets/paddle_16m.glb")
         sgd.setMeshShadowsEnabled(self.paddle_xl_mesh, True)
         self.paddle_meshes.append(self.paddle_xl_mesh)
+        self.paddle_xxl_mesh = sgd.loadMesh("assets/paddle_20m.glb")
+        sgd.setMeshShadowsEnabled(self.paddle_xxl_mesh, True)
+        self.paddle_meshes.append(self.paddle_xxl_mesh)
+        self.paddle_xxxl_mesh = sgd.loadMesh("assets/paddle_24m.glb")
+        sgd.setMeshShadowsEnabled(self.paddle_xxxl_mesh, True)
+        self.paddle_meshes.append(self.paddle_xxxl_mesh)
         self.paddle = Paddle(self.paddle_meshes[0],0)
         sgd.setEntityVisible(self.paddle.model,False)
 
@@ -73,6 +91,9 @@ class Game:
         self.grower_mesh = sgd.loadMesh("assets/grower.glb")
         sgd.setMeshShadowsEnabled(self.grower_mesh, True)
         self.item_meshes.append(self.grower_mesh)
+        self.smallballs_mesh = sgd.loadMesh("assets/smallballs.glb")
+        sgd.setMeshShadowsEnabled(self.smallballs_mesh, True)
+        self.item_meshes.append(self.smallballs_mesh)
         self.items = []
 
         # collisions setup
@@ -304,7 +325,7 @@ class Game:
                         vx = 0.1 # keeping this with the way the original works for now, always to the right
                     else:
                         vx = 0.1
-                    self.balls.append(Ball(self.ball_mesh,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,0.98))
+                    self.balls.append(Ball(self.ball_meshes[self.current_ball_size],self.current_ball_size,sgd.getEntityX(self.paddle.model),sgd.getEntityY(self.paddle.model) + 0.5,vx,0.98))
                 # balls update loop
                 for ball in self.balls:
                     ball.update()
@@ -313,7 +334,7 @@ class Game:
                         collided_collider = sgd.getCollisionCollider(ball.collider,0)
                         # check for walls
                         if sgd.getColliderType(collided_collider) == 0:
-                            if sgd.getEntityY(ball.model) > 29:
+                            if sgd.getEntityY(ball.model) > 28:
                                 # we're probably at the ceiling
                                 ball.velocity[1] = -abs(ball.velocity[1] * 0.8)
                             else:
@@ -332,6 +353,9 @@ class Game:
                             sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),paddle_height + 1,sgd.getEntityZ(ball.model))
                             # paddle collisions should always send the ball upwards
                             ball.velocity[1] = abs(ball.velocity[1])
+                            # make a slight x velocity adjustment based on distance from the center of the paddle
+                            distance_from_center = sgd.getEntityX(self.paddle.model) - sgd.getEntityX(ball.model)
+                            ball.velocity[0]-=distance_from_center * 0.05
                             # check if the paddle is on the upswing
                             if paddle_height < 2 and not sgd.isMouseButtonDown(0):
                                 # add some velocity for ball hit with "swung" paddle
@@ -356,7 +380,7 @@ class Game:
                                         self.blocks.append(Block(self.block_meshes[2],sgd.getEntityX(block.model),sgd.getEntityY(block.model),2))
                                     # random chance to drop an item
                                     if random() > 0.9:
-                                        random_item = int(random() * 2)
+                                        random_item = int(random() * 3)
                                         self.items.append(Item(self.item_meshes[random_item], random_item, sgd.getEntityX(block.model),
                                                                sgd.getEntityY(block.model)))
                                     sgd.destroyEntity(block.model)
@@ -394,13 +418,27 @@ class Game:
                                 sgd.setEntityPosition(self.paddle.model,old_x,sgd.getEntityY(self.paddle.model),sgd.getEntityZ(self.paddle.model))
                         elif item.item_type == 1:
                             # grow the paddle
-                            if self.paddle.point_count < 16:
+                            if self.paddle.point_count < 28:
                                 # create a new paddle and delete the old one
                                 new_paddle_size = int((self.paddle.point_count + 4) / 4) - 1
                                 old_x = sgd.getEntityX(self.paddle.model)
                                 sgd.destroyEntity(self.paddle.model)
                                 self.paddle = Paddle(self.paddle_meshes[new_paddle_size],new_paddle_size)
                                 sgd.setEntityPosition(self.paddle.model,old_x,sgd.getEntityY(self.paddle.model),sgd.getEntityZ(self.paddle.model))
+                        elif item.item_type == 2:
+                            # shrink all balls
+                            self.current_ball_size-=1
+                            if self.current_ball_size < 0 : self.current_ball_size=0
+                            to_remove = []
+                            for ball in self.balls:
+                                to_remove.append(ball)
+                                self.balls.append(Ball(self.ball_meshes[self.current_ball_size],self.current_ball_size,
+                                                       sgd.getEntityX(ball.model),
+                                                        sgd.getEntityY(ball.model),ball.velocity[0],
+                                                       ball.velocity[1]))
+                            for ball in to_remove:
+                                sgd.destroyEntity(ball.model)
+                                self.balls.remove(ball)
                         # regardless of item type we need to delete it
                         item.active = False
                     if not item.active:
