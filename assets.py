@@ -40,6 +40,9 @@ class Assets:
         self.block_metal_mesh = sgd.loadMesh("assets/block_metal.glb")
         sgd.setMeshShadowsEnabled(self.block_metal_mesh, True)
         self.block_meshes.append(self.block_metal_mesh)
+        self.block_yellow2_mesh = sgd.loadMesh("assets/block_yellow2.glb")
+        sgd.setMeshShadowsEnabled(self.block_yellow2_mesh, True)
+        self.block_meshes.append(self.block_yellow2_mesh)
 
         # paddle
         self.paddle_meshes = []
