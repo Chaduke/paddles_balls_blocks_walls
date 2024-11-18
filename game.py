@@ -4,6 +4,7 @@ from ball import *
 from block import *
 from menu import *
 from item import *
+from assets import *
 from globals import *
 from random import random
 import json
@@ -12,101 +13,22 @@ class Game:
     def __init__(self):
         sgd.init()
         sgd.createWindow(1920,1080,"Paddles, Balls, Blocks, and Walls",sgd.WINDOW_FLAGS_FULLSCREEN)
-        self.env = sgd.loadCubeTexture("assets/night.jpg",sgd.TEXTURE_FORMAT_SRGBA8,sgd.TEXTURE_FLAGS_DEFAULT)
-        sgd.setEnvTexture(self.env)
-        self.skybox = sgd.createSkybox(self.env)
+        self.assets = Assets()
+        sgd.setEnvTexture(self.assets.env)
+        self.skybox = sgd.createSkybox(self.assets.env)
         self.camera = sgd.createPerspectiveCamera()
         sgd.moveEntity(self.camera,0,15,0)
         self.light = sgd.createDirectionalLight()
         sgd.turnEntity(self.light,-45,-45,0)
         sgd.setLightShadowsEnabled(self.light,True)
-        # ground
-        #ground_material = sgd.loadPBRMaterial("assets/Gravel041_1K-JPG")
-        #ground_mesh = sgd.createBoxMesh(-32,-0.1,-32,32,0,32,ground_material)
-        #sgd.transformTexCoords(ground_mesh,16,16,0,0)
-        #self.ground = sgd.createModel(ground_mesh)
 
-        # walls
-        self.walls = sgd.loadModel("assets/walls.glb")
-        sgd.moveEntity(self.walls,-19,0,37)
-        self.walls_collider = sgd.createMeshCollider(self.walls,0,sgd.getModelMesh(self.walls))
-
-        # balls
+        sgd.moveEntity(self.assets.walls,-19,0,37)
+        self.walls_collider = sgd.createMeshCollider(self.assets.walls,0,sgd.getModelMesh(self.assets.walls))
         self.balls=[]
-        self.ball_meshes = []
         self.current_ball_size = 1 # regular sized balls
-        self.ball_mesh_small = sgd.loadMesh("assets/ball_small.glb")
-        sgd.setMeshShadowsEnabled(self.ball_mesh_small,True)
-        self.ball_meshes.append(self.ball_mesh_small)
-        self.ball_mesh_regular = sgd.loadMesh("assets/ball_regular.glb")
-        sgd.setMeshShadowsEnabled(self.ball_mesh_regular, True)
-        self.ball_meshes.append(self.ball_mesh_regular)
-        self.ball_mesh_large = sgd.loadMesh("assets/ball_large.glb")
-        sgd.setMeshShadowsEnabled(self.ball_mesh_large, True)
-        self.ball_meshes.append(self.ball_mesh_large)
-        self.ball_mesh_xl = sgd.loadMesh("assets/ball_xl.glb")
-        sgd.setMeshShadowsEnabled(self.ball_mesh_xl, True)
-        self.ball_meshes.append(self.ball_mesh_xl)
-
-        # blocks
-        self.block_meshes = []
-        self.block_yellow_mesh = sgd.loadMesh("assets/block_yellow.glb")
-        sgd.setMeshShadowsEnabled(self.block_yellow_mesh, True)
-        self.block_meshes.append( self.block_yellow_mesh)
-        self.block_blue_mesh = sgd.loadMesh("assets/block_blue.glb")
-        sgd.setMeshShadowsEnabled(self.block_blue_mesh, True)
-        self.block_meshes.append(self.block_blue_mesh)
-        self.block_blue2_mesh = sgd.loadMesh("assets/block_blue2.glb")
-        sgd.setMeshShadowsEnabled(self.block_blue2_mesh, True)
-        self.block_meshes.append(self.block_blue2_mesh)
-        self.block_pink_mesh = sgd.loadMesh("assets/block_pink.glb")
-        sgd.setMeshShadowsEnabled(self.block_pink_mesh, True)
-        self.block_meshes.append(self.block_pink_mesh)
-        self.block_clear_mesh = sgd.loadMesh("assets/block_clear.glb")
-        sgd.setMeshShadowsEnabled(self.block_clear_mesh, True)
-        self.block_meshes.append(self.block_clear_mesh)
-        self.block_metal_mesh = sgd.loadMesh("assets/block_metal.glb")
-        sgd.setMeshShadowsEnabled(self.block_metal_mesh, True)
-        self.block_meshes.append(self.block_metal_mesh)
         self.blocks = []
-
-        # paddle
-        self.paddle_meshes = []
-        self.paddle_small_mesh = sgd.loadMesh("assets/paddle_4m.glb")
-        sgd.setMeshShadowsEnabled(self.paddle_small_mesh, True)
-        self.paddle_meshes.append(self.paddle_small_mesh)
-        self.paddle_medium_mesh = sgd.loadMesh("assets/paddle_8m.glb")
-        sgd.setMeshShadowsEnabled(self.paddle_medium_mesh, True)
-        self.paddle_meshes.append(self.paddle_medium_mesh)
-        self.paddle_large_mesh = sgd.loadMesh("assets/paddle_12m.glb")
-        sgd.setMeshShadowsEnabled(self.paddle_large_mesh, True)
-        self.paddle_meshes.append(self.paddle_large_mesh)
-        self.paddle_xl_mesh = sgd.loadMesh("assets/paddle_16m.glb")
-        sgd.setMeshShadowsEnabled(self.paddle_xl_mesh, True)
-        self.paddle_meshes.append(self.paddle_xl_mesh)
-        self.paddle_xxl_mesh = sgd.loadMesh("assets/paddle_20m.glb")
-        sgd.setMeshShadowsEnabled(self.paddle_xxl_mesh, True)
-        self.paddle_meshes.append(self.paddle_xxl_mesh)
-        self.paddle_xxxl_mesh = sgd.loadMesh("assets/paddle_24m.glb")
-        sgd.setMeshShadowsEnabled(self.paddle_xxxl_mesh, True)
-        self.paddle_meshes.append(self.paddle_xxxl_mesh)
-        self.paddle = Paddle(self.paddle_meshes[0],0)
+        self.paddle = Paddle(self.assets.paddle_meshes[0],0)
         sgd.setEntityVisible(self.paddle.model,False)
-
-        # items
-        self.item_meshes = []
-        self.shrinker_mesh = sgd.loadMesh("assets/shrinker.glb")
-        sgd.setMeshShadowsEnabled(self.shrinker_mesh, True)
-        self.item_meshes.append(self.shrinker_mesh)
-        self.grower_mesh = sgd.loadMesh("assets/grower.glb")
-        sgd.setMeshShadowsEnabled(self.grower_mesh, True)
-        self.item_meshes.append(self.grower_mesh)
-        self.smallballs_mesh = sgd.loadMesh("assets/smallballs.glb")
-        sgd.setMeshShadowsEnabled(self.smallballs_mesh, True)
-        self.item_meshes.append(self.smallballs_mesh)
-        self.largeballs_mesh = sgd.loadMesh("assets/largeballs.glb")
-        sgd.setMeshShadowsEnabled(self.largeballs_mesh, True)
-        self.item_meshes.append(self.largeballs_mesh)
         self.items = []
 
         # collisions
@@ -119,27 +41,19 @@ class Game:
             sgd.enableCollisions(1, 3, sgd.COLLISION_RESPONSE_NONE)
             # items with paddle, items = 4, paddle = 2
             sgd.enableCollisions(4, 2, sgd.COLLISION_RESPONSE_NONE)
-        # load audio
-        self.title_sound = sgd.loadSound("assets/wave/title.wav")
-        self.bgm_sound = sgd.loadSound("assets/wave/bgm.wav")
+
         self.background_music = None
-        self.paddle_sound = sgd.loadSound("assets/wave/pad.wav")
-        self.close_sound = sgd.loadSound("assets/wave/close.wav")
-        self.block_sound = sgd.loadSound("assets/wave/block.wav")
-        self.block2_sound = sgd.loadSound("assets/wave/block2.wav")
-        self.reverse_sound = sgd.loadSound("assets/wave/reverse.wav")
         self.audio_on = True
         if self.audio_on:
-            sgd.playSound(self.title_sound)
-        # menu
+            sgd.playSound(self.assets.title_sound)
+
         self.menu = Menu()
-        self.regular_font = sgd.loadFont("assets/bb.ttf",20)
 
         # pre-loop stuff
         self.paused = False
         self.editor = False
         sgd.setMouseCursorMode(3)
-        self.cursor = sgd.createModel(self.block_meshes[0])
+        self.cursor = sgd.createModel(self.assets.block_meshes[0])
         self.grid = sgd.loadModel("assets/grid.glb")
         sgd.moveEntity(self.grid, -19, 0, 37)
         sgd.setEntityVisible(self.grid,False)
@@ -151,7 +65,7 @@ class Game:
         # create a new paddle and delete the old one
         old_x = sgd.getEntityX(self.paddle.model)
         sgd.destroyEntity(self.paddle.model)
-        self.paddle = Paddle(self.paddle_meshes[new_size], new_size)
+        self.paddle = Paddle(self.assets.paddle_meshes[new_size], new_size)
         sgd.setEntityPosition(self.paddle.model, old_x, sgd.getEntityY(self.paddle.model),
                               sgd.getEntityZ(self.paddle.model))
     def update_stage_numbers(self):
@@ -184,7 +98,7 @@ class Game:
         stage_path = "stages/system/stage" + str(stage) + ".json"
         with open(stage_path, 'w') as f:
             json.dump([block.to_dict() for block in self.blocks], f, ensure_ascii=False,indent=4)
-        if self.audio_on: sgd.playSound(self.block2_sound)
+        if self.audio_on: sgd.playSound(self.assets.block2_sound)
         self.update_stage_numbers()
     def clear_stage(self):
         self.clear_blocks()
@@ -222,8 +136,8 @@ class Game:
         if os.path.exists(stage_path) and os.path.isfile(stage_path):
             with open(stage_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                self.blocks = [Block(self.block_meshes[item["block_type"]],item["x"], item["y"], item["block_type"]) for item in data]
-            if self.audio_on : sgd.playSound(self.title_sound)
+                self.blocks = [Block(self.assets.block_meshes[item["block_type"]],item["x"], item["y"], item["block_type"]) for item in data]
+            if self.audio_on : sgd.playSound(self.assets.title_sound)
             self.current_stage = stage
     def position_cursor(self):
         sgd.cameraUnproject(self.camera, sgd.getMouseX(), sgd.getMouseY(), 37)
@@ -253,13 +167,13 @@ class Game:
                 if sgd.getEntityY(block.model) == new_xy[1]:
                     sgd.destroyEntity(block.model)
                     self.blocks.remove(block)
-                    if self.audio_on: sgd.playSound(self.close_sound)
+                    if self.audio_on: sgd.playSound(self.assets.close_sound)
     def add_block(self,block_type):
         # make sure one doesn't already exist there
         self.remove_block()
         new_xy = self.get_new_xy()
-        self.blocks.append(Block(self.block_meshes[block_type], new_xy[0], new_xy[1],block_type))
-        if self.audio_on: sgd.playSound(self.block_sound)
+        self.blocks.append(Block(self.assets.block_meshes[block_type], new_xy[0], new_xy[1],block_type))
+        if self.audio_on: sgd.playSound(self.assets.block_sound)
     def pre_edit_stage(self):
         # upon edit stage we need to make sure everything is setup properly
         self.editor = True
@@ -326,7 +240,7 @@ class Game:
                 current_block_index = mz
                 if current_block_index > 5: current_block_index = 0
                 sgd.destroyEntity(self.cursor)
-                self.cursor = sgd.createModel(self.block_meshes[current_block_index])
+                self.cursor = sgd.createModel(self.assets.block_meshes[current_block_index])
 
             self.position_cursor()
             sgd.renderScene()
@@ -334,7 +248,7 @@ class Game:
             sgd.set2DFont(self.menu.subtitle_font)
             sgd.set2DTextColor(1,1,0,1)
             sgd.draw2DText("STAGE EDITOR",15,0)
-            sgd.set2DFont(self.regular_font)
+            sgd.set2DFont(self.assets.regular_font)
             sgd.set2DTextColor(0.8,0.8,0.8,1)
             sgd.draw2DText("G = Toggle Grid",15,50)
             sgd.draw2DText("A = Toggle Audio",15,70)
@@ -381,7 +295,7 @@ class Game:
         sgd.setEntityVisible(self.grid, False)
         sgd.setEntityVisible(self.cursor, False)
         if self.audio_on:
-            self.background_music = sgd.playSound(self.bgm_sound)
+            self.background_music = sgd.playSound(self.assets.bgm_sound)
             sgd.setAudioLooping(self.background_music,True)
         game_loop = True
         while game_loop:
@@ -404,29 +318,27 @@ class Game:
                     else:
                         vx = 0.1
                     self.balls.append(Ball(
-                        self.ball_meshes[self.current_ball_size],
+                        self.assets.ball_meshes[self.current_ball_size],
                         self.current_ball_size,
                         sgd.getEntityX(self.paddle.model),
                         sgd.getEntityY(self.paddle.model) + 0.5,vx,0.9))
                 # blocks update loop
-                to_add = []
-                to_remove = []
+                blocks_to_add = []
                 for block in self.blocks:
                     if not block.active:
                         # add a cracked blue (2) in place of solid blue (1)
                         if block.block_type == 1:
-                            to_add.append(Block(
-                                self.block_meshes[2],
+                            blocks_to_add.append(Block(
+                                self.assets.block_meshes[2],
                                 sgd.getEntityX(block.model),
                                 sgd.getEntityY(block.model), 2))
-                        to_remove.append(block)
-                if len(to_add) > 0:
-                    for block in to_add:
-                        self.blocks.append(block)
-                if len(to_remove) > 0:
-                    for block in to_remove:
                         sgd.destroyEntity(block.model)
                         self.blocks.remove(block)
+                if len(blocks_to_add) > 0:
+                    for block in blocks_to_add:
+                        self.blocks.append(block)
+                blocks_to_add.clear()
+
                 # then check if we are done with the level
                 if len(self.blocks) == 0:
                     if self.current_stage != 0:
@@ -445,7 +357,7 @@ class Game:
                         if ball.size != self.current_ball_size:
                             # create a new one before deleting
                             balls_to_add.append(Ball(
-                                self.ball_meshes[self.current_ball_size],
+                                self.assets.ball_meshes[self.current_ball_size],
                                 self.current_ball_size,
                                 sgd.getEntityX(ball.model),
                                 sgd.getEntityY(ball.model) + 0.5, ball.velocity[0],ball.velocity[1]))
@@ -455,6 +367,7 @@ class Game:
                 if len(balls_to_add) > 0:
                     for ball in balls_to_add:
                         self.balls.append(ball)
+                    balls_to_add.clear()
                 for ball in self.balls:
                     ball.update()
                     if sgd.getCollisionCount(ball.collider) > 0:
@@ -496,17 +409,16 @@ class Game:
                             if paddle_height < 2 and not sgd.isMouseButtonDown(0):
                                 # add some velocity for ball hit with "swung" paddle
                                 ball.velocity[1] += ball.velocity[1] / 3
-                            if self.audio_on: sgd.playSound(self.close_sound)
+                            if self.audio_on: sgd.playSound(self.assets.close_sound)
                         elif sgd.getColliderType(collided_collider) == 3:
                             # block collisions
                             block_collision_point = sgd.getColliderEntity(collided_collider)
                             block_model = sgd.getEntityParent(block_collision_point)
                             br = self.get_ball_radius()
-
                             for block in self.blocks:
                                 if block.model == block_model:
                                     # make the ball bounce unless it's a large ball or the block type is clear
-                                    if self.current_ball_size < 2 or block.block_type!=4:
+                                    if self.current_ball_size < 2 and block.block_type!=4:
                                         # determine if the ball needs to bounce horizontally
                                         v_difference = sgd.getEntityY(block.model) - sgd.getEntityY(ball.model)
                                         if abs(v_difference) < 0.1:
@@ -546,7 +458,7 @@ class Game:
                                     # pink blocks drop items
                                     if block.block_type==3:
                                         random_item = int(random() * 4)
-                                        self.items.append(Item(self.item_meshes[random_item], random_item, sgd.getEntityX(block.model),
+                                        self.items.append(Item(self.assets.item_meshes[random_item], random_item, sgd.getEntityX(block.model),
                                                                sgd.getEntityY(block.model)))
                                     # clear blocks drop balls
                                     if random() > 0.5:
@@ -554,7 +466,7 @@ class Game:
                                     else : xv = 0.3
                                     if block.block_type==4:
                                         self.balls.append(Ball(
-                                            self.ball_meshes[self.current_ball_size],
+                                            self.assets.ball_meshes[self.current_ball_size],
                                             self.current_ball_size,
                                             sgd.getEntityX(block.model),
                                             sgd.getEntityY(block.model),xv,0.3))
@@ -610,7 +522,7 @@ class Game:
             if self.paused:
                 display_text_centered("PAUSED",self.menu.title_font,sgd.getWindowHeight()/2,0)
             self.menu.draw_title()
-            sgd.set2DFont(self.regular_font)
+            sgd.set2DFont(self.assets.regular_font)
             sgd.set2DTextColor(1,1,1,1)
             sgd.draw2DText("Left Mouse - Swing Paddle",15,300)
             sgd.draw2DText("Right Mouse - Release Ball", 15, 320)
