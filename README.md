@@ -24,7 +24,7 @@ https://www.youtube.com/@nathanbaggs
 TODO List:
 
 - Finish Editor    
-    - Add new block types (in progress 2 done)
+    - Add new block types (in progress 4 done)
     - Add powerups (items) (in progress 4 done)
 - Fix invalid entity issue when going directly to play mode
 - Finish Menu (make it much prettier)

@@ -65,6 +65,9 @@ class Game:
         self.block_clear_mesh = sgd.loadMesh("assets/block_clear.glb")
         sgd.setMeshShadowsEnabled(self.block_clear_mesh, True)
         self.block_meshes.append(self.block_clear_mesh)
+        self.block_metal_mesh = sgd.loadMesh("assets/block_metal.glb")
+        sgd.setMeshShadowsEnabled(self.block_metal_mesh, True)
+        self.block_meshes.append(self.block_metal_mesh)
         self.blocks = []
 
         # paddle
@@ -110,12 +113,12 @@ class Game:
         # ball with walls, ball = 1, walls = 0
         sgd.enableCollisions(1, 0, sgd.COLLISION_RESPONSE_NONE)
         # ball with paddle, ball = 1, paddle = 2
-        sgd.enableCollisions(1, 2 ,sgd.COLLISION_RESPONSE_STOP)
+        sgd.enableCollisions(1, 2 ,sgd.COLLISION_RESPONSE_NONE)
         # ball with blocks, ball = 1, blocks = 3
-        sgd.enableCollisions(1, 3, sgd.COLLISION_RESPONSE_STOP)
+        sgd.enableCollisions(1, 3, sgd.COLLISION_RESPONSE_NONE)
         self.colliding = False # flag to display collisions for debug purposes
         # items with paddle, items = 4, paddle = 2
-        sgd.enableCollisions(4, 2, sgd.COLLISION_RESPONSE_STOP)
+        sgd.enableCollisions(4, 2, sgd.COLLISION_RESPONSE_NONE)
         # load audio
         self.title_sound = sgd.loadSound("assets/wave/title.wav")
         self.bgm_sound = sgd.loadSound("assets/wave/bgm.wav")
@@ -125,7 +128,7 @@ class Game:
         self.block_sound = sgd.loadSound("assets/wave/block.wav")
         self.block2_sound = sgd.loadSound("assets/wave/block2.wav")
         self.reverse_sound = sgd.loadSound("assets/wave/reverse.wav")
-        self.audio_on = True
+        self.audio_on = False
         if self.audio_on:
             sgd.playSound(self.title_sound)
         # menu
@@ -318,7 +321,7 @@ class Game:
             mz = abs(int(sgd.getMouseZ()))
             if mz != current_block_index:
                 current_block_index = mz
-                if current_block_index > 4: current_block_index = 0
+                if current_block_index > 5: current_block_index = 0
                 sgd.destroyEntity(self.cursor)
                 self.cursor = sgd.createModel(self.block_meshes[current_block_index])
 
@@ -446,20 +449,49 @@ class Game:
                             # block collisions
                             block_collision_point = sgd.getColliderEntity(collided_collider)
                             block_model = sgd.getEntityParent(block_collision_point)
-                            # get the Y height of the block to determine how to re-position the ball post-collision
-                            # if we don't do this we'll get multiple collisions and unexpected behaviour
-                            block_height = sgd.getEntityY(block_model)
+
                             br = self.get_ball_radius()
-                            if block_height > sgd.getEntityY(ball.model):
-                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height - 0.5 - br,
-                                                      sgd.getEntityZ(ball.model))
+                            ball_height = sgd.getEntityY(ball.model)
+                            block_height = sgd.getEntityY(block_model)
+                            height_difference = block_height-ball_height
+                            # we should only have to do this for metal blocks
+                            if height_difference > 0:
+                                sgd.setEntityPosition(ball.model,
+                                                  sgd.getEntityX(ball.model),
+                                                  block_height - 0.5 - br,
+                                                  sgd.getEntityZ(ball.model))
                             else:
-                                sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height + 0.5 + br,
+                                sgd.setEntityPosition(ball.model,
+                                                      sgd.getEntityX(ball.model),
+                                                      block_height + 0.5 + br,
                                                       sgd.getEntityZ(ball.model))
                             to_remove = []
                             for block in self.blocks:
                                 if block.model == block_model:
+                                    # make the ball bounce unless it's a large ball or the block type is clear
+                                    if self.current_ball_size < 2 or block.block_type!=4:
+                                        # determine if the ball needs to bounce horizontally
+                                        if abs(height_difference) < 0.1:
+                                            # horizontal bounce
+                                            ball.velocity[0] = - ball.velocity[0]
+                                            # find the horizontal distance
+                                            h_distance = sgd.getEntityX(block.model) - sgd.getEntityX(ball.model)
+                                            if abs(h_distance) > 0.5:
+                                                if h_distance > 0:
+                                                    # ball is to the left side
+                                                    sgd.setEntityPosition(ball.model,
+                                                                          sgd.getEntityX(block_collision_point)-1,
+                                                                          sgd.getEntityY(ball.model),37)
+                                                else:
+                                                    # ball is on the right side
+                                                    sgd.setEntityPosition(ball.model,
+                                                                          sgd.getEntityX(block_collision_point) + 1,
+                                                                          sgd.getEntityY(ball.model), 37)
+                                        else:
+                                            # vertical bounce
+                                            ball.velocity[1] = - ball.velocity[1]
                                     if block.block_type == 1:
+                                        # blue blocks change to cracked blue
                                         self.blocks.append(Block(self.block_meshes[2],sgd.getEntityX(block.model),sgd.getEntityY(block.model),2))
                                     # pink blocks drop items
                                     if block.block_type==3:
@@ -473,7 +505,8 @@ class Game:
                                             self.current_ball_size,
                                             sgd.getEntityX(block.model),
                                             sgd.getEntityY(block.model),0.1,0))
-                                    to_remove.append(block)
+                                    # metal block types stay forever
+                                    if block.block_type != 5: to_remove.append(block)
                             # remove blocks that were collided with
                             if len(to_remove) > 0:
                                 print("removing " + str(len(to_remove)) + " blocks.")
@@ -489,7 +522,6 @@ class Game:
                                     # we are running from the editor
                                     # so return there
                                     return
-                            ball.velocity[1] = - ball.velocity[1]
                             if self.audio_on :
                                 if random() > 0.5:
                                     sgd.playSound(self.block_sound)
