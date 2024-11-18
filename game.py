@@ -59,6 +59,12 @@ class Game:
         self.block_blue2_mesh = sgd.loadMesh("assets/block_blue2.glb")
         sgd.setMeshShadowsEnabled(self.block_blue2_mesh, True)
         self.block_meshes.append(self.block_blue2_mesh)
+        self.block_pink_mesh = sgd.loadMesh("assets/block_pink.glb")
+        sgd.setMeshShadowsEnabled(self.block_pink_mesh, True)
+        self.block_meshes.append(self.block_pink_mesh)
+        self.block_clear_mesh = sgd.loadMesh("assets/block_clear.glb")
+        sgd.setMeshShadowsEnabled(self.block_clear_mesh, True)
+        self.block_meshes.append(self.block_clear_mesh)
         self.blocks = []
 
         # paddle
@@ -161,11 +167,6 @@ class Game:
                 self.clear_stage()
                 if self.background_music is not None : sgd.stopAudio(self.background_music)
             if sgd.isKeyHit(sgd.KEY_E):
-                self.editor = True
-                sgd.setEntityVisible(self.paddle.model, False)
-                sgd.setEntityVisible(self.grid, True)
-                sgd.setEntityVisible(self.cursor, True)
-                self.clear_balls()
                 self.edit_stage()
 
             sgd.clear2D()
@@ -181,21 +182,34 @@ class Game:
         if self.audio_on: sgd.playSound(self.block2_sound)
         self.update_stage_numbers()
     def clear_stage(self):
+        self.clear_blocks()
+        self.clear_balls()
+        self.clear_items()
+        self.current_ball_size = 1
+    def clear_blocks(self):
         to_remove = []  # Temporary list to collect blocks to be removed
         for block in self.blocks:
             sgd.destroyEntity(block.model)
-            to_remove.append(block) # Collect the blocks to be removed
+            to_remove.append(block)  # Collect the blocks to be removed
         for block in to_remove:
-            self.blocks.remove(block) # Remove the collected blocks
+            self.blocks.remove(block)  # Remove the collected blocks
         self.blocks.clear()
-        #if self.audio_on : sgd.playSound(self.reverse_sound)
     def clear_balls(self):
-        to_remove = []  # Temporary list to collect blocks to be removed
+        to_remove = []  # Temporary list to collect balls to be removed
         for ball in self.balls:
             sgd.destroyEntity(ball.model)
-            to_remove.append(ball) # Collect the blocks to be removed
+            to_remove.append(ball) # Collect the balls to be removed
         for ball in to_remove:
-            self.balls.remove(ball) # Remove the collected blocks
+            self.balls.remove(ball) # Remove the collected balls
+        self.balls.clear()
+    def clear_items(self):
+        to_remove = []  # Temporary list to collect items to be removed
+        for item in self.items:
+            sgd.destroyEntity(item.model)
+            to_remove.append(item) # Collect the items to be removed
+        for item in to_remove:
+            self.items.remove(item) # Remove the collected blocks
+        self.items.clear()
     def load_stage(self,stage):
         self.clear_stage()
         stage_path = "stages/system/stage" + str(stage) + ".json"
@@ -240,10 +254,18 @@ class Game:
         new_xy = self.get_new_xy()
         self.blocks.append(Block(self.block_meshes[block_type], new_xy[0], new_xy[1],block_type))
         if self.audio_on: sgd.playSound(self.block_sound)
+    def pre_edit_stage(self):
+        # upon edit stage we need to make sure everything is setup properly
+        self.editor = True
+        sgd.setEntityVisible(self.paddle.model, False)
+        sgd.setEntityVisible(self.grid, True)
+        sgd.setEntityVisible(self.cursor, True)
+        self.clear_stage()
+        if self.background_music is not None: sgd.stopAudio(self.background_music)
     def edit_stage(self):
-        sgd.setEntityVisible(self.paddle.model,False)
-        edit_loop = True
+        self.pre_edit_stage()
         current_block_index = 0
+        edit_loop = True
         while edit_loop:
             e = sgd.pollEvents()
             if e == sgd.EVENT_MASK_CLOSE_CLICKED: edit_loop = False
@@ -279,19 +301,13 @@ class Game:
                 self.clear_stage()
             # play stage
             if sgd.isKeyHit(sgd.KEY_P):
-                self.editor = False
-                sgd.setEntityVisible(self.paddle.model,True)
-                sgd.setEntityVisible(self.grid,False)
-                sgd.setEntityVisible(self.cursor, False)
-                self.save_stage(1)
+                # when we play from the editor
+                # everything is stage 0
+                self.save_stage(0)
+                self.current_stage=0
                 self.run_stage()
-                self.editor = True
-                sgd.setEntityVisible(self.paddle.model, False)
-                sgd.setEntityVisible(self.grid, True)
-                sgd.setEntityVisible(self.cursor, True)
-                self.clear_balls()
-                sgd.stopAudio(self.background_music)
-                self.load_stage(1)
+                self.pre_edit_stage()
+                self.load_stage(0)
             # add a block
             if sgd.isMouseButtonHit(0):
                 self.add_block(current_block_index)
@@ -302,7 +318,7 @@ class Game:
             mz = abs(int(sgd.getMouseZ()))
             if mz != current_block_index:
                 current_block_index = mz
-                if current_block_index > 2: current_block_index = 2
+                if current_block_index > 4: current_block_index = 0
                 sgd.destroyEntity(self.cursor)
                 self.cursor = sgd.createModel(self.block_meshes[current_block_index])
 
@@ -354,9 +370,10 @@ class Game:
         elif self.current_ball_size == 3:
             return 2
     def run_stage(self):
-        if self.editor:
-            self.edit_stage()
-            return
+        self.editor = False
+        sgd.setEntityVisible(self.paddle.model, True)
+        sgd.setEntityVisible(self.grid, False)
+        sgd.setEntityVisible(self.cursor, False)
         if self.audio_on:
             self.background_music = sgd.playSound(self.bgm_sound)
             sgd.setAudioLooping(self.background_music,True)
@@ -387,13 +404,13 @@ class Game:
                     if sgd.getCollisionCount(ball.collider) > 0:
                         self.colliding = True
                         collided_collider = sgd.getCollisionCollider(ball.collider,0)
-                        # check for walls
+                        # wall collisions
                         if sgd.getColliderType(collided_collider) == 0:
                             br = self.get_ball_radius()
                             if sgd.getEntityY(ball.model) > 28:
                                 # we're probably at the ceiling
                                 ball.velocity[1] = -abs(ball.velocity[1] * 0.8)
-                                sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),28.5 - br,37)
+                                sgd.setEntityPosition(ball.model,sgd.getEntityX(ball.model),29 - br,37)
                             else:
                                 # we're probably hitting the side walls
                                 if sgd.getEntityX(ball.model) < -17:
@@ -405,7 +422,7 @@ class Game:
                                     ball.velocity[0] = -abs(ball.velocity[0] * 0.8)
                                     sgd.setEntityPosition(ball.model, 11.5 - br, sgd.getEntityY(ball.model), 37)
                         elif sgd.getColliderType(collided_collider) == 2:
-                            # check for paddle collisions
+                            # paddle collisions
                             collided_entity = sgd.getColliderEntity(collided_collider)
                             paddle_height = sgd.getEntityY(collided_entity)
                             # prevent multiple collisions and re-triggering audio
@@ -414,8 +431,12 @@ class Game:
                             # paddle collisions should always send the ball upwards
                             ball.velocity[1] = abs(ball.velocity[1])
                             # make a slight x velocity adjustment based on distance from the center of the paddle
-                            distance_from_center = sgd.getEntityX(self.paddle.model) - sgd.getEntityX(ball.model)
-                            ball.velocity[0]-=distance_from_center * 0.05
+                            #distance_from_center = sgd.getEntityX(self.paddle.model) - sgd.getEntityX(ball.model)
+                            #ball.velocity[0]-=distance_from_center * 0.05
+                            # THIS DOESN'T WORK LIKE THE ORIGINAL GAME SO LEAVE IT OUT
+                            # WHEN TRYING TO DUPLICATE THE LEVELS IT BECOMES EVIDENT WHY
+                            # IT WAS DONE THE WAY IT WAS
+
                             # check if the paddle is on the upswing
                             if paddle_height < 2 and not sgd.isMouseButtonDown(0):
                                 # add some velocity for ball hit with "swung" paddle
@@ -435,19 +456,39 @@ class Game:
                             else:
                                 sgd.setEntityPosition(ball.model, sgd.getEntityX(ball.model), block_height + 0.5 + br,
                                                       sgd.getEntityZ(ball.model))
+                            to_remove = []
                             for block in self.blocks:
                                 if block.model == block_model:
                                     if block.block_type == 1:
                                         self.blocks.append(Block(self.block_meshes[2],sgd.getEntityX(block.model),sgd.getEntityY(block.model),2))
-                                    # random chance to drop an item
-                                    if random() > 0.9:
+                                    # pink blocks drop items
+                                    if block.block_type==3:
                                         random_item = int(random() * 4)
                                         self.items.append(Item(self.item_meshes[random_item], random_item, sgd.getEntityX(block.model),
                                                                sgd.getEntityY(block.model)))
+                                    # clear blocks drop balls
+                                    if block.block_type==4:
+                                        self.balls.append(Ball(
+                                            self.ball_meshes[self.current_ball_size],
+                                            self.current_ball_size,
+                                            sgd.getEntityX(block.model),
+                                            sgd.getEntityY(block.model),0.1,0))
+                                    to_remove.append(block)
+                            # remove blocks that were collided with
+                            if len(to_remove) > 0:
+                                print("removing " + str(len(to_remove)) + " blocks.")
+                                for block in to_remove:
                                     sgd.destroyEntity(block.model)
                                     self.blocks.remove(block)
-                                    if len(self.blocks) == 0:
-                                        game_loop = False
+                            # check if we finished the level
+                            if len(self.blocks) == 0:
+                                if self.current_stage!=0:
+                                    self.current_stage+=1
+                                    self.load_stage(self.current_stage)
+                                else:
+                                    # we are running from the editor
+                                    # so return there
+                                    return
                             ball.velocity[1] = - ball.velocity[1]
                             if self.audio_on :
                                 if random() > 0.5:
@@ -463,7 +504,7 @@ class Game:
                 # items update
                 for item in self.items:
                     item.move()
-                    # check for collisions
+                    # item collisions
                     cl = sgd.getCollisionCount(item.collider_left)
                     cr = sgd.getCollisionCount(item.collider_right)
                     if cl + cr > 0:
@@ -531,14 +572,21 @@ class Game:
             sgd.set2DTextColor(0.2, 0.2, 0.2, 1)
             sgd.draw2DText("STAGE",1410,35)
             sgd.set2DTextColor(1, 0.2, 0.2, 1)
-            sgd.draw2DText("STAGE", 1412, 37)
+            sgd.draw2DText("STAGE", 1414, 39)
             sgd.set2DTextColor(0.2, 0.2, 1, 1)
             if self.current_stage < 10:
                 stage_string = "0" + str(self.current_stage)
             else:
                 stage_string = str(self.current_stage)
             sgd.set2DFont(self.menu.subtitle_font)
-            sgd.draw2DText(stage_string, 1550, 85)
+            sgd.draw2DText(stage_string, 1570, 60)
+            # time area
+            sgd.set2DFont(self.menu.title_font)
+            sgd.set2DTextColor(0.2, 0.2, 0.2, 1)
+            sgd.draw2DText("TIME", 1410, 90)
+            sgd.set2DTextColor(1, 0.2, 0.2, 1)
+            sgd.draw2DText("TIME", 1414, 94)
+
             sgd.present()
 
     def __del__(self):

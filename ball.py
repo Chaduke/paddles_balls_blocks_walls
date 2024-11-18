@@ -4,7 +4,16 @@ class Ball:
     def __init__(self,mesh,size,x,y,xvel,yvel):
         self.model = sgd.createModel(mesh)
         self.size = size
-        collider_radius = (size + 1) / 4
+        if self.size == 0:
+            collider_radius = 0.25
+        elif self.size == 1:
+            collider_radius = 0.5
+        elif self.size == 2:
+            collider_radius = 1
+        elif self.size == 3:
+            collider_radius = 2
+        else:
+            collider_radius = 1
         self.collider = sgd.createSphereCollider(self.model,1,collider_radius)
         self.velocity= [xvel, yvel]
         self.acceleration=[0,-0.02]
