@@ -13,5 +13,6 @@ class Block:
         sgd.setEntityPosition(self.collision_point_left, 0.5, 0, 0)
         self.collider_right = sgd.createSphereCollider(self.collision_point_right, 3, 0.5)
         sgd.setEntityPosition(self.model,x,y,37)
+        self.active = True
     def to_dict(self):
         return {"x": sgd.getEntityX(self.model), "y": sgd.getEntityY(self.model), "block_type": self.block_type}

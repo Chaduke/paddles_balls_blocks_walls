@@ -1,5 +1,9 @@
 from libsgd import sgd
 
+# collision_system 0 = LibSGD Internal
+# collision_system 1 = Chaduke's Custom 2D Rectangle Colliders and Responses
+collision_system = 0
+
 def display_text_centered(text,font,yoffset=0,xoffset=0):
     sgd.set2DFont(font)
     center = sgd.getWindowWidth()/2
