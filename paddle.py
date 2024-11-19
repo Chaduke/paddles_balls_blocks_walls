@@ -1,5 +1,13 @@
 from globals import *
 
+def resize_paddle(game, new_size):
+    # create a new paddle and delete the old one
+    old_x = sgd.getEntityX(game.paddle.model)
+    sgd.destroyEntity(game.paddle.model)
+    game.paddle = Paddle(game.assets.paddle_meshes[new_size], new_size)
+    sgd.setEntityPosition(game.paddle.model, old_x, sgd.getEntityY(game.paddle.model),
+                          sgd.getEntityZ(game.paddle.model))
+
 class Paddle:
     def __init__(self,mesh,size):
         self.model = sgd.createModel(mesh)

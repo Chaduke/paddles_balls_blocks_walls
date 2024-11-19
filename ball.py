@@ -1,5 +1,15 @@
 from globals import *
 
+def get_ball_radius(game):
+    if game.current_ball_size==0:
+        return 0.25
+    elif game.current_ball_size==1:
+        return 0.5
+    elif game.current_ball_size == 2:
+        return 1.0
+    elif game.current_ball_size == 3:
+        return 2
+
 class Ball:
     def __init__(self,mesh,size,x,y,xvel,yvel):
         self.model = sgd.createModel(mesh)

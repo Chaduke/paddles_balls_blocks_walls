@@ -1,4 +1,22 @@
 from globals import *
+from editor import load_stage,edit_stage
+
+def show_menu(game):
+    menu_loop = True
+    while menu_loop:
+        e = sgd.pollEvents()
+        if e == sgd.EVENT_MASK_CLOSE_CLICKED: menu_loop = False
+        if sgd.isKeyHit(sgd.KEY_ESCAPE): menu_loop = False
+        if sgd.isKeyHit(sgd.KEY_P):
+            sgd.setEntityVisible(game.paddle.model, True)
+            load_stage(game,1)
+            game.run_stage()
+        if sgd.isKeyHit(sgd.KEY_E):
+            edit_stage(game)
+        sgd.clear2D()
+        game.menu.display()
+        sgd.renderScene()
+        sgd.present()
 
 class Menu:
     def __init__(self):

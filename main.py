@@ -1,5 +1,5 @@
 from game import *
 
 g = Game()
-g.show_menu()
+show_menu(g)
 del g
