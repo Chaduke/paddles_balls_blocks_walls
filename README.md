@@ -23,10 +23,13 @@ https://www.youtube.com/@nathanbaggs
 
 TODO List:
 
+- Continue refactoring game.py 
+- Figure out problem with left over blocks
 - Finish Editor    
-    - Add new block types (in progress 4 done)
+    - Add new block types (in progress 7 done)
     - Add powerups (items) (in progress 4 done)
-- Fix invalid entity issue when going directly to play mode
+- Finish all 50 original levels
+- Add 50 new unique levels
 - Finish Menu (make it much prettier)
 - Finish UI / HUD (need to start this soon)
 - Redo all sounds / music in Ableton Live

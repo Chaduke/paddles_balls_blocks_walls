@@ -51,7 +51,6 @@ class Game:
         update_stage_numbers(self)
         self.current_stage = 0
 
-
     def run_stage(self):
         self.editor = False
         sgd.setEntityVisible(self.paddle.model, True)

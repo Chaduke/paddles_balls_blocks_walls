@@ -73,7 +73,7 @@ def get_new_xy(game):
     new_y += 0.5
     return new_x,new_y
 def remove_block(game):
-    new_xy = game.get_new_xy()
+    new_xy = get_new_xy(game)
     for block in game.blocks:
         if sgd.getEntityX(block.model) == new_xy[0]:
             if sgd.getEntityY(block.model) == new_xy[1]:
