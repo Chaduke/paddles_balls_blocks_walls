@@ -1,3 +1,6 @@
+NOTE : I'm currently having some collision issues with LibSGD, and as it is still in development I've decided to switch this project over to the Godot engine until things mature a bit.  Its moving along slowly but surely, but Godot is a very detailed game engine with a lot of features so its going to take me a little while to learn all its quirks.  I'll have a Godot project uploaded here as soon as I get something worthwhile, shouldn't be long! In the meantime please subscribe to my youtube channel, star this repository and check out my support page to get updates when they happen!  https://chaduke.github.io/support-me
+-
+
 This is a game project I've been wanting to work on for a very long time. Now that the years have flown by, and the original game that inspired me to re-create it has fallen into obscurity, (among other reasons), the time is now!
 
 The original inspiration for this project came from a game I found many years ago (20 maybe?) called "Block", programmed by a Japanese developer that went by the name of "Kenta".  It's basically a Breakout / Arkanoid clone but with a TON of FUN features!
