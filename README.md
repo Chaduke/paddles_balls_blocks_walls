@@ -39,10 +39,4 @@ Clone the repository:
 
 ```git clone https://github.com/chaduke/paddles_balls_blocks_walls```
 
-Install LibSGD:
-
-```pip install libsgd```
-
-Go into the "paddles_balls_blocks_walls" folder and run:
-
-```python main.py```
+Open the project in Godot 4.3
