@@ -3,4 +3,7 @@
 /android/
 addons/
 assets/*.import
-
+assets/fonts/*.import
+assets/images/*.import
+assets/models/*.import
+assets/wave/*.import
