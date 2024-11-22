@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfochh16du623"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_d5xv0"]
+[ext_resource type="PackedScene" uid="uid://dfcijeaxjupjj" path="res://assets/models/ball_regular.glb" id="2_07dlx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf2yo"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_824ox"]
+radius = 0.552936
+
+[node name="ball" type="RigidBody3D"]
+axis_lock_linear_z = true
+physics_material_override = SubResource("PhysicsMaterial_rf2yo")
+gravity_scale = 3.0
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 2
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_d5xv0")
+
+[node name="ball_collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_824ox")
+
+[node name="ball_model" parent="." instance=ExtResource("2_07dlx")]
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

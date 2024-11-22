@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkpskgpuqpts5"]
+
+[ext_resource type="Script" path="res://scripts/paddle.gd" id="1_fl6gt"]
+[ext_resource type="PackedScene" uid="uid://d0bof3qelmwxm" path="res://assets/models/paddle_8m.glb" id="1_u4tox"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3mtfs"]
+size = Vector3(8, 1, 1)
+
+[node name="paddle" type="CharacterBody3D"]
+script = ExtResource("1_fl6gt")
+
+[node name="paddle_8m" parent="." instance=ExtResource("1_u4tox")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3mtfs")

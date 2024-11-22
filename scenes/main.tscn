@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcn6jjvjds3ev"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
+[ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
+[ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_qct0r")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+fov = 45.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 20, 0)
+
+[node name="paddle" parent="." instance=ExtResource("5_478fp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -37)
+
+[node name="stage" parent="." instance=ExtResource("4_mb6a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
