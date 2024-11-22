@@ -6,7 +6,7 @@ I recently dug up the original game on "Wayback Machine" and tried to play it on
 
 This repository will serve as both a learning hub for those who wish to get a closer look at how I'm accomplishing this task, and as a way to check on my progress.
 
-At the current stage I'm using the Godot engine, and I'm in the process of learning its intracacies. 
+At the current stage I'm using the Godot engine, and I'm in the process of learning its intricacies. 
 
 Here are some links to the various people / places I mentioned:
 
