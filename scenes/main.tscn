@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=9 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
 [ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
 [ext_resource type="Texture2D" uid="uid://dh62r386qxuix" path="res://assets/images/skybox_sunny.png" id="4_w6qld"]
 [ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="5_l3s87"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
 panorama = ExtResource("4_w6qld")
@@ -22,7 +23,7 @@ sky_custom_fov = 45.0
 script = ExtResource("1_qct0r")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)
 fov = 45.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -37,3 +38,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_enept")
+
+[node name="title_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9186, 26.3756, -37)
+modulate = Color(0.773834, 0.542536, 0.760415, 1)
+outline_modulate = Color(0.505326, 0.0915123, 0.341284, 1)
+text = "Paddles
+Balls
+Blocks
+and Walls!"
+font = ExtResource("5_l3s87")
+font_size = 320
+outline_size = 61
