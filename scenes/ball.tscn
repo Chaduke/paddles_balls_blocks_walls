@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfochh16du623"]
+[gd_scene load_steps=7 format=3 uid="uid://cfochh16du623"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_d5xv0"]
 [ext_resource type="PackedScene" uid="uid://dfcijeaxjupjj" path="res://assets/models/ball_regular.glb" id="2_07dlx"]
 [ext_resource type="AudioStream" uid="uid://gtoabgmrm6l3" path="res://assets/wave/ball.wav" id="3_8hym1"]
+[ext_resource type="AudioStream" uid="uid://byxx6h2dntgo8" path="res://assets/wave/block.wav" id="4_o2jvh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf2yo"]
 friction = 0.0
@@ -29,5 +30,8 @@ shape = SubResource("SphereShape3D_824ox")
 
 [node name="bounce" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_8hym1")
+
+[node name="block" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o2jvh")
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

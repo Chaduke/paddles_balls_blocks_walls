@@ -369,16 +369,112 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15.5, 0)
 [node name="environment" type="Node3D" parent="."]
 
 [node name="pine1" parent="environment" instance=ExtResource("3_ab40y")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14, 0, -40)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 24, 0, -55)
+
+[node name="pine10" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 24, 0, -76)
+
+[node name="pine11" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 52, 0, -47)
+
+[node name="pine5" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 37, 0, -45)
 
 [node name="pine2" parent="environment" instance=ExtResource("3_ab40y")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 20, 0, -42)
 
+[node name="pine17" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -34, 0, -60)
+
+[node name="pine12" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -17, 0, -42)
+
+[node name="pine6" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -34)
+
 [node name="pine3" parent="environment" instance=ExtResource("3_ab40y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -44)
 
+[node name="pine13" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -35)
+
+[node name="pine14" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -30)
+
+[node name="pine7" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -34)
+
 [node name="pine4" parent="environment" instance=ExtResource("3_ab40y")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 8, 0, -46)
+
+[node name="pine15" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 8, 0, -73)
+
+[node name="pine16" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -34, 0, -84)
+
+[node name="pine8" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 41, 0, -63)
+
+[node name="pine9" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -11, 0, -63)
+
+[node name="pine18" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 3.76471, 0, -120.706)
+
+[node name="pine19" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 3.76471, 0, -99.7059)
+
+[node name="pine35" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -10.2353, 0, -85.7059)
+
+[node name="pine20" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -35.2353, 0, -110.706)
+
+[node name="pine21" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -20.2353, 0, -126.706)
+
+[node name="pine22" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 0.764705, 0, -145.706)
+
+[node name="pine23" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 61.7647, 0, -115.706)
+
+[node name="pine24" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 44.7647, 0, -133.706)
+
+[node name="pine25" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 27.7647, 0, -141.706)
+
+[node name="pine26" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.7647, 0, -131.706)
+
+[node name="pine27" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.2353, 0, -140.706)
+
+[node name="pine28" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.7647, 0, -145.706)
+
+[node name="pine29" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.2353, 0, -136.706)
+
+[node name="pine36" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.2353, 0, -127.706)
+
+[node name="pine30" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 19.7647, 0, -129.706)
+
+[node name="pine31" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 20.7647, 0, -97.7059)
+
+[node name="pine32" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 47.7647, 0, -88.7059)
+
+[node name="pine33" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, -13.2353, 0, -106.706)
+
+[node name="pine34" parent="environment" instance=ExtResource("3_ab40y")]
+transform = Transform3D(-4, 0, -3.49691e-07, 0, 4, 0, 3.49691e-07, 0, -4, 38.7647, 0, -112.706)
 
 [node name="ground2" parent="environment" instance=ExtResource("4_ymuf5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -23)

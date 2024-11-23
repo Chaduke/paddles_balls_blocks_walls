@@ -1,5 +1,6 @@
 extends RigidBody3D
 @onready var bounce = $bounce
+@onready var block = $block
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,9 +11,11 @@ func _process(_delta):
 	pass
 
 func _on_body_exited(body):
-	# print("Exited " + body.name)
-	bounce.play()
+	# print("Exited " + body.name)	
 	if body.name=="paddle":
-		linear_velocity+=Vector3((randf()-0.5) * 5,5,0)
+		var diff = position.x - body.position.x
+		linear_velocity+=Vector3(diff,5,0)
+		bounce.play()
 	if body.name.begins_with("block"):
+		block.play()
 		body.queue_free()
