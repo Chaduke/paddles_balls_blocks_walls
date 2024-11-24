@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqclg4jco6ayd"]
+[gd_scene load_steps=3 format=3 uid="uid://dqclg4jco6ayd"]
 
 [ext_resource type="PackedScene" uid="uid://cmob50oa7q85t" path="res://assets/models/basic_block.glb" id="1_lspox"]
-[ext_resource type="Script" path="res://scripts/block.gd" id="1_xlpnh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0vcpp"]
 
 [node name="block" type="StaticBody3D"]
-script = ExtResource("1_xlpnh")
 
 [node name="basic_block" parent="." instance=ExtResource("1_lspox")]
 

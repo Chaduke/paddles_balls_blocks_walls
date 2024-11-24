@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://phyfuyw0hpjf"]
+[gd_scene load_steps=11 format=3 uid="uid://phyfuyw0hpjf"]
 
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="1_ijncp"]
 [ext_resource type="PackedScene" uid="uid://dqclg4jco6ayd" path="res://scenes/block.tscn" id="2_vo5il"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bq8crsnylxqyf" path="res://assets/models/pine1.glb" id="3_ab40y"]
 [ext_resource type="PackedScene" uid="uid://c7u3wjd7lh5q0" path="res://assets/models/ground.glb" id="4_ymuf5"]
 [ext_resource type="PackedScene" uid="uid://dfcijeaxjupjj" path="res://assets/models/ball_regular.glb" id="6_nk5t2"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="7_eeplf"]
+[ext_resource type="Script" path="res://scripts/time_label.gd" id="8_jrwyw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uj3rf"]
 size = Vector3(40, 1, 1)
@@ -586,3 +588,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 8.5, 0)
 
 [node name="ground2" parent="." instance=ExtResource("4_ymuf5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -23)
+
+[node name="stage_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 27, 0)
+modulate = Color(0.865075, 0.0776522, 0.107639, 1)
+text = "Stage 0"
+font = ExtResource("7_eeplf")
+font_size = 280
+
+[node name="time_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 25, 0)
+text = "Time 0m 0s 00"
+font = ExtResource("7_eeplf")
+font_size = 200
+horizontal_alignment = 0
+script = ExtResource("8_jrwyw")

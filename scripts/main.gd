@@ -5,11 +5,13 @@ var ball_scene = preload("res://scenes/ball.tscn")
 var balls_left = 10
 @onready var stage = $stage
 @onready var camera = $Camera3D
+var blocks 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
-
+	blocks = stage.get_node("blocks")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if camera.position.z < 0:
@@ -24,7 +26,10 @@ func _process(_delta):
 		if ball.position.y < 0: # Check if the ball has left the screen 
 			ball.queue_free() 
 			balls.erase(ball) # Remove from the list break # Exit loop to prevent errors from modifying the array while iterating	
-
+	if blocks.get_child_count() == 0:
+		# reset the level for now
+		get_tree().reload_current_scene()
+		
 func spawn_ball():	
 	var spare_balls = stage.get_node("spare_balls")
 	if spare_balls.get_child_count() > 0:

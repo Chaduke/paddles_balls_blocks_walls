@@ -40,8 +40,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
 environment = SubResource("Environment_enept")
 
 [node name="title_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9186, 26.3756, -37)
-modulate = Color(0.773834, 0.542536, 0.760415, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2209, 26.3756, -37)
+modulate = Color(0.278431, 0.917647, 0.666667, 1)
 outline_modulate = Color(0.505326, 0.0915123, 0.341284, 1)
 text = "Paddles
 Balls
