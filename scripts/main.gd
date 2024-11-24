@@ -11,7 +11,7 @@ var time_label
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
-	blocks = stage.get_node("blocks")
+	blocks = stage.get_node("blocks0")
 	time_label = stage.get_node("time_label")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8i11mfr84cg7"]
+
+[ext_resource type="PackedScene" uid="uid://ddr0svip01mdr" path="res://assets/models/grower.glb" id="1_eibgq"]
+[ext_resource type="Script" path="res://scripts/pickup_item.gd" id="1_t3jms"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wdw47"]
+size = Vector3(2, 1, 1)
+
+[node name="pickup_item" type="CharacterBody3D"]
+script = ExtResource("1_t3jms")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wdw47")
+
+[node name="grower2" parent="." instance=ExtResource("1_eibgq")]

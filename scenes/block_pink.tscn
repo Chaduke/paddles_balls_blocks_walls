@@ -13,3 +13,5 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 shape = SubResource("CapsuleShape3D_0vcpp")
 
 [node name="block_pink" parent="." instance=ExtResource("1_iu61l")]
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

@@ -36,3 +36,4 @@ func block_collision(block_body):
 		# catch all for other block types
 		block_body.queue_free()
 	linear_velocity *= 1.1
+	
