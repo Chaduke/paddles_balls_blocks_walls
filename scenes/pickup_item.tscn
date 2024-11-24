@@ -1,15 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8i11mfr84cg7"]
+[gd_scene load_steps=5 format=3 uid="uid://c8i11mfr84cg7"]
 
 [ext_resource type="PackedScene" uid="uid://ddr0svip01mdr" path="res://assets/models/grower.glb" id="1_eibgq"]
 [ext_resource type="Script" path="res://scripts/pickup_item.gd" id="1_t3jms"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="3_l8ywv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wdw47"]
 size = Vector3(2, 1, 1)
 
 [node name="pickup_item" type="CharacterBody3D"]
+collision_mask = 2
 script = ExtResource("1_t3jms")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_wdw47")
 
-[node name="grower2" parent="." instance=ExtResource("1_eibgq")]
+[node name="Grower" parent="." instance=ExtResource("1_eibgq")]
+
+[node name="pickup_timer" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.809, 0)
+visible = false
+text = "0"
+font = ExtResource("3_l8ywv")
+font_size = 200

@@ -78,4 +78,4 @@ script = ExtResource("8_jrwyw")
 
 [node name="forest" parent="." instance=ExtResource("8_y451n")]
 
-[node name="blocks0" parent="." instance=ExtResource("6_v1r2o")]
+[node name="blocks_0" parent="." instance=ExtResource("6_v1r2o")]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bo14ca75e1vsq" path="res://scenes/block_blue.tscn" id="2_qvhci"]
 [ext_resource type="PackedScene" uid="uid://caad1bitssj3a" path="res://scenes/block_pink.tscn" id="3_46yvw"]
 
-[node name="blocks0" type="Node3D"]
+[node name="blocks_0" type="Node3D"]
 
 [node name="block" parent="." instance=ExtResource("1_3urk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 22.5, 0)
@@ -234,9 +234,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 15.5, 0)
 [node name="block81" parent="." instance=ExtResource("1_3urk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 15.5, 0)
 
-[node name="block82" parent="." instance=ExtResource("1_3urk2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 15.5, 0)
-
 [node name="block83" parent="." instance=ExtResource("1_3urk2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 15.5, 0)
 
@@ -335,6 +332,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 22.5, 0)
 
 [node name="block5" parent="." instance=ExtResource("3_46yvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 22.5, 0)
+
+[node name="block82" parent="." instance=ExtResource("3_46yvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 15.5, 0)
 
 [node name="block6" parent="." instance=ExtResource("3_46yvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 22.5, 0)

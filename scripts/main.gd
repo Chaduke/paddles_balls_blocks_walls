@@ -7,11 +7,13 @@ var balls_left = 10
 @onready var camera = $Camera3D
 var blocks
 var time_label
+var stage_number = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
-	blocks = stage.get_node("blocks0")
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var blocks_node = "blocks_" + str(stage_number)
+	blocks = stage.get_node(blocks_node)
 	time_label = stage.get_node("time_label")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

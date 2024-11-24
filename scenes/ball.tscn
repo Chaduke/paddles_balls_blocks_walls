@@ -14,6 +14,7 @@ bounce = 1.0
 radius = 0.552936
 
 [node name="ball" type="RigidBody3D"]
+collision_mask = 3
 axis_lock_linear_z = true
 physics_material_override = SubResource("PhysicsMaterial_rf2yo")
 gravity_scale = 3.0
