@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://phyfuyw0hpjf"]
+[gd_scene load_steps=12 format=3 uid="uid://phyfuyw0hpjf"]
 
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="1_ijncp"]
 [ext_resource type="PackedScene" uid="uid://dqclg4jco6ayd" path="res://scenes/block.tscn" id="2_vo5il"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfcijeaxjupjj" path="res://assets/models/ball_regular.glb" id="6_nk5t2"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="7_eeplf"]
 [ext_resource type="Script" path="res://scripts/time_label.gd" id="8_jrwyw"]
+[ext_resource type="PackedScene" uid="uid://caad1bitssj3a" path="res://scenes/block_pink.tscn" id="9_rspfb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uj3rf"]
 size = Vector3(40, 1, 1)
@@ -39,9 +40,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 22.5, 0)
 [node name="block2" parent="blocks" instance=ExtResource("2_vo5il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 22.5, 0)
 
-[node name="block3" parent="blocks" instance=ExtResource("2_vo5il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 22.5, 0)
-
 [node name="block4" parent="blocks" instance=ExtResource("2_vo5il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 22.5, 0)
 
@@ -50,9 +48,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 22.5, 0)
 
 [node name="block6" parent="blocks" instance=ExtResource("2_vo5il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 22.5, 0)
-
-[node name="block7" parent="blocks" instance=ExtResource("2_vo5il")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 22.5, 0)
 
 [node name="block8" parent="blocks" instance=ExtResource("2_vo5il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 22.5, 0)
@@ -603,3 +598,10 @@ font = ExtResource("7_eeplf")
 font_size = 200
 horizontal_alignment = 0
 script = ExtResource("8_jrwyw")
+
+[node name="block" parent="." instance=ExtResource("9_rspfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 22.5, 0)
+
+[node name="block2" parent="." instance=ExtResource("9_rspfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 22.5, 0)
+item_type = "Shrinker"

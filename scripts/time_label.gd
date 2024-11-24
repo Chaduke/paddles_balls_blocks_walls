@@ -5,24 +5,24 @@ var elapsed_time = 0.0
 var minutes = 0
 var seconds = 0
 var hundredths = 0
-
-# Reference to the Label3D node
+var game_started = false
 
 func _ready():
 	# Initialize the time_label text
 	text = format_time(elapsed_time)
 
 func _process(delta):
-	# Update the elapsed time
-	elapsed_time += delta
-	
-	# Calculate minutes, seconds, and hundredths
-	minutes = int(elapsed_time / 60)
-	seconds = int(elapsed_time) % 60
-	hundredths = int(elapsed_time * 100) % 100
-	
-	# Update the label text
-	text = "Time " + str(minutes) + "m " + str(seconds) + "s " + format_hundredths(hundredths)
+	if game_started:
+		# Update the elapsed time
+		elapsed_time += delta
+			
+		# Calculate minutes, seconds, and hundredths
+		minutes = int(elapsed_time / 60)
+		seconds = int(elapsed_time) % 60
+		hundredths = int(elapsed_time * 100) % 100
+		
+		# Update the label text
+		text = "Time " + str(minutes) + "m " + str(seconds) + "s " + format_hundredths(hundredths)
 
 func format_time(time):
 	# Calculate minutes, seconds, and hundredths from the time

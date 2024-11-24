@@ -5,12 +5,14 @@ var ball_scene = preload("res://scenes/ball.tscn")
 var balls_left = 10
 @onready var stage = $stage
 @onready var camera = $Camera3D
-var blocks 
+var blocks
+var time_label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
 	blocks = stage.get_node("blocks")
+	time_label = stage.get_node("time_label")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -30,7 +32,9 @@ func _process(_delta):
 		# reset the level for now
 		get_tree().reload_current_scene()
 		
-func spawn_ball():	
+func spawn_ball():
+	if not time_label.game_started:
+		time_label.game_started = true
 	var spare_balls = stage.get_node("spare_balls")
 	if spare_balls.get_child_count() > 0:
 		var spare_ball = spare_balls.get_child(0)
