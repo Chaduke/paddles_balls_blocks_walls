@@ -2,21 +2,37 @@ extends CharacterBody3D
 @export var item_type: String = "Random"
 @onready var collision_shape_3d = $CollisionShape3D
 @onready var pickup_timer = $pickup_timer
+@onready var grower = $Grower
+@onready var shrinker = $Shrinker
+@onready var smallballs = $Smallballs
+@onready var largeballs = $Largeballs
 
 var state
 var start_position
 var elapsed_time = 0.0
 var timer = 10
 
-func _ready():
-	state = 0	
-	start_position = position
+var target_position = Vector3(0,0,0)
 
+func _ready():
+	state = 0
+	start_position = position
+	if item_type == "Random":
+		pick_random()
+	if item_type == "Grower":
+		grower.visible = true
+	elif item_type == "Shrinker":
+		shrinker.visible = true
+	elif item_type == "Smallballs":
+		smallballs.visible = true 
+	elif item_type == "Largeballs":
+		largeballs.visible = true  
+		
 func _process(delta):
 	if state == 0:
 		move_up()
 	elif state == 1:
-		move_down()		
+		move_down()
 	elif state == 2:
 		move_right()
 	else:
@@ -24,7 +40,8 @@ func _process(delta):
 		var secs = int(elapsed_time) % 60
 		pickup_timer.text = str(timer - secs)
 		if secs == timer:
-			queue_free()
+			Global.decrement_items_active()
+			queue_free()			
 
 func move_up():	
 	if position.y < start_position.y + 2:
@@ -35,19 +52,47 @@ func move_up():
 func move_down():
 	if position.y > 0:
 		var collision = move_and_collide(Vector3(0,-0.1,0))
-		if collision:
-			collision_shape_3d.disabled = true
-			state = 2
-			if item_type == "Grower":
-				# change the paddle size if possible
-				pass
+		if collision:			
+			# set the target position based on how many are active
+			if Global.increment_items_active():
+				state = 2
+				collision_shape_3d.disabled = true
+				if Global.items_active == 1:
+					target_position = Vector3(15,15,-37)
+				elif Global.items_active == 2:
+					target_position = Vector3(18,15,-37)
+				elif Global.items_active == 3:
+					target_position = Vector3(15,13,-37)
+				elif Global.items_active == 4:
+					target_position = Vector3(18,13,-37)
+				if item_type == "Grower":
+					# change the paddle size if possible
+					pass
+			else:
+				queue_free()
 	else:
-		queue_free()
+		queue_free()		
 		
 func move_right():
-	if position.x < 15:
-		position.x += 0.3
+	# Current position 
+	var current_position = global_transform.origin
+	if current_position.distance_to(target_position) > 0.01:
+		# Interpolate towards target position 
+		var new_position = current_position.lerp(target_position, 0.1) 
+		global_transform.origin = new_position
 	else: 
 		state = 3
 		pickup_timer.visible = true
-		
+
+func pick_random():
+	var rng = RandomNumberGenerator.new() 
+	rng.randomize() # Ensure randomness by randomizing the seed 
+	var random_int = rng.randi_range(0, 3)
+	if random_int == 0:
+		item_type = "Grower"
+	elif random_int == 1:
+		item_type = "Shrinker"
+	elif random_int == 2:
+		item_type = "Largeballs"
+	elif random_int == 3:
+		item_type = "Smallballs"
