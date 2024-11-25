@@ -1,7 +1,17 @@
 extends RigidBody3D
+
 @onready var bounce = $bounce
 @onready var block = $block
 @onready var wall = $wall
+@onready var mesh_instance_3d = $MeshInstance3D
+@onready var collision_shape_3d = $CollisionShape3D
+
+@export var ball_models = {
+	1:preload("res://assets/models/ball_small.glb"),
+	2:preload("res://assets/models/ball_regular.glb"),
+	4:preload("res://assets/models/ball_large.glb"),
+	8:preload("res://assets/models/ball_xl.glb")
+}
 
 func _on_body_exited(body):
 	# print("Exited " + body.name)	

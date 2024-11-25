@@ -3,6 +3,7 @@ extends Node3D
 var balls = []
 var ball_scene = preload("res://scenes/ball.tscn")
 var balls_left = 10
+var current_ball_size = 2
 @onready var stage = $stage
 @onready var camera = $Camera3D
 var blocks
@@ -43,7 +44,27 @@ func spawn_ball():
 		spare_ball.queue_free()
 		balls_left-=1
 		var ball_instance = ball_scene.instantiate()
+		if ball_instance.has_node("MeshInstance3D"):
+			var mesh_instance = ball_instance.get_node("MeshInstance3D")
+			if mesh_instance:
+				mesh_instance.queue_free()
+		var new_mesh_instance = ball_instance.ball_models[current_ball_size].instantiate()
+		new_mesh_instance.name="MeshInstance3D"		
+		ball_instance.add_child(new_mesh_instance)
+		ball_instance.mesh_instance_3d = new_mesh_instance
+		# Update collision shape radius 
+		if ball_instance.has_node("CollisionShape3D"): 
+			var collision_shape = ball_instance.get_node("CollisionShape3D") 
+			if collision_shape and collision_shape.shape is SphereShape3D: 
+				var sphere_shape = collision_shape.shape as SphereShape3D 
+				sphere_shape.radius = current_ball_size / 4.0 
+			else: 
+				print("Error: CollisionShape3D node or SphereShape3D shape not found.")		
 		ball_instance.position = paddle.position + Vector3(0,5,0)
-		ball_instance.linear_velocity += Vector3(3,40,0)
+		ball_instance.linear_velocity += Vector3(0,40,0)
 		balls.append(ball_instance) 
 		add_child(ball_instance)
+		
+func update_ball_size(_size):
+	pass
+	
