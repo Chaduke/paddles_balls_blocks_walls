@@ -53,7 +53,7 @@ func move_up():
 func move_down():
 	if position.y > 0:
 		var collision = move_and_collide(Vector3(0,-0.1,0))
-		if collision:			
+		if collision:
 			# set the target position based on how many are active
 			slot = Global.find_free_slot()
 			if slot > 0:
@@ -67,13 +67,16 @@ func move_down():
 					target_position = Vector3(15,13,-37)
 				elif slot == 4:
 					target_position = Vector3(18,13,-37)
+				var paddle=get_tree().root.get_child(1).get_node("paddle")
 				if item_type == "Grower":
-					# change the paddle size if possible
-					pass
+					# change the paddle size if possible					
+					paddle.grow_paddle()
+				elif item_type == "Shrinker":
+					paddle.shrink_paddle()
 			else:
 				queue_free()
 	else:
-		queue_free()		
+		queue_free()
 		
 func move_right():
 	# Current position 
