@@ -34,12 +34,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -37)
 collision_mask = 5
 
-[node name="stage" parent="." instance=ExtResource("4_mb6a1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_enept")
-
 [node name="title_label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2209, 26.3756, -37)
 modulate = Color(0.278431, 0.917647, 0.666667, 1)
@@ -51,3 +45,9 @@ and Walls!"
 font = ExtResource("5_l3s87")
 font_size = 320
 outline_size = 61
+
+[node name="stage" parent="." instance=ExtResource("4_mb6a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_enept")

@@ -11,6 +11,7 @@ var state
 var start_position
 var elapsed_time = 0.0
 var timer = 10
+var slot = 0
 
 var target_position = Vector3(0,0,0)
 
@@ -40,8 +41,8 @@ func _process(delta):
 		var secs = int(elapsed_time) % 60
 		pickup_timer.text = str(timer - secs)
 		if secs == timer:
-			Global.decrement_items_active()
-			queue_free()			
+			Global.set_slot_inactive(slot)
+			queue_free()
 
 func move_up():	
 	if position.y < start_position.y + 2:
@@ -54,16 +55,17 @@ func move_down():
 		var collision = move_and_collide(Vector3(0,-0.1,0))
 		if collision:			
 			# set the target position based on how many are active
-			if Global.increment_items_active():
+			slot = Global.find_free_slot()
+			if slot > 0:
 				state = 2
 				collision_shape_3d.disabled = true
-				if Global.items_active == 1:
+				if slot == 1:
 					target_position = Vector3(15,15,-37)
-				elif Global.items_active == 2:
+				elif slot == 2:
 					target_position = Vector3(18,15,-37)
-				elif Global.items_active == 3:
+				elif slot == 3:
 					target_position = Vector3(15,13,-37)
-				elif Global.items_active == 4:
+				elif slot == 4:
 					target_position = Vector3(18,13,-37)
 				if item_type == "Grower":
 					# change the paddle size if possible

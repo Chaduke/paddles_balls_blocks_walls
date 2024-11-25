@@ -1,15 +1,33 @@
 # global.gd
 extends Node
 
-var items_active = 0
-var max_active_items = 4
+var slot1 = false
+var slot2 = false
+var slot3 = false
+var slot4 = false
 
-func increment_items_active():
-	if items_active < max_active_items:
-		items_active += 1
-		return true
-	return false
-
-func decrement_items_active():
-	if items_active > 0:
-		items_active -= 1
+func find_free_slot():
+	if not slot1:
+		slot1 = true
+		return 1
+	elif not slot2:
+		slot2 = true
+		return 2
+	elif not slot3:
+		slot3 = true
+		return 3
+	elif not slot4:
+		slot4 = true
+		return 4
+	else:
+		return 0
+		
+func set_slot_inactive(slot):
+	if slot == 1:
+		slot1 = false
+	elif slot == 2: 
+		slot2 = false
+	elif slot == 3:
+		slot3 = false
+	elif slot == 4: 
+		slot4 = false
