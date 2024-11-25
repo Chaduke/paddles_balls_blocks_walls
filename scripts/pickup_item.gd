@@ -68,11 +68,26 @@ func move_down():
 				elif slot == 4:
 					target_position = Vector3(18,13,-37)
 				var paddle=get_tree().root.get_child(1).get_node("paddle")
+				var main_scene = get_tree().root.get_child(1)
 				if item_type == "Grower":
 					# change the paddle size if possible					
 					paddle.grow_paddle()
 				elif item_type == "Shrinker":
 					paddle.shrink_paddle()
+				elif item_type == "Largeballs":					
+					if main_scene.current_ball_size == 1:
+						main_scene.current_ball_size = 2
+						main_scene.update_ball_size()
+					elif main_scene.current_ball_size == 2:
+						main_scene.current_ball_size = 4
+						main_scene.update_ball_size()
+				elif item_type == "Smallballs":
+					if main_scene.current_ball_size == 4:
+						main_scene.current_ball_size = 2
+						main_scene.update_ball_size()
+					elif main_scene.current_ball_size == 2:
+						main_scene.current_ball_size = 1
+						main_scene.update_ball_size()
 			else:
 				queue_free()
 	else:
