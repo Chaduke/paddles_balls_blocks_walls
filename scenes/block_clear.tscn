@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://sonrtvbb6nc0"]
+
+[ext_resource type="Script" path="res://scripts/block_clear.gd" id="1_0sg8s"]
+[ext_resource type="PackedScene" uid="uid://bljj8ip47jnsu" path="res://assets/models/block_clear.glb" id="1_u7peh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r72js"]
+
+[node name="block_clear" type="StaticBody3D"]
+script = ExtResource("1_0sg8s")
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("1_u7peh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_r72js")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
