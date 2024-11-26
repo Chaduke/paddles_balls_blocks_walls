@@ -10,7 +10,7 @@ extends CharacterBody3D
 var state
 var start_position
 var elapsed_time = 0.0
-var timer = 10
+var timer = 2
 var slot = 0
 
 var target_position = Vector3(0,0,0)
@@ -52,7 +52,8 @@ func move_up():
 		
 func move_down():
 	if position.y > 0:
-		var collision = move_and_collide(Vector3(0,-0.1,0))
+		var collision = move_and_collide(Vector3(0,-0.1,0))		
+		rotation.x+=0.1
 		if collision:
 			# set the target position based on how many are active
 			slot = Global.find_free_slot()
@@ -71,7 +72,7 @@ func move_down():
 				var main_scene = get_tree().root.get_child(1)
 				if item_type == "Grower":
 					# change the paddle size if possible					
-					paddle.grow_paddle()
+					paddle.grow_paddle()					
 				elif item_type == "Shrinker":
 					paddle.shrink_paddle()
 				elif item_type == "Largeballs":					

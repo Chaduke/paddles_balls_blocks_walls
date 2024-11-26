@@ -3,8 +3,6 @@ extends RigidBody3D
 @onready var bounce = $bounce
 @onready var block = $block
 @onready var wall = $wall
-@onready var mesh_instance_3d = $MeshInstance3D
-@onready var collision_shape_3d = $CollisionShape3D
 
 @export var ball_models = {
 	1:preload("res://assets/models/ball_small.glb"),
@@ -14,18 +12,19 @@ extends RigidBody3D
 }
 
 func _on_body_exited(body):
-	# print("Exited " + body.name)	
-	if body.name=="paddle":
-		paddle_collision(body)		
-	elif body.name.begins_with("block"):
-		block_collision(body)
-	else: 
-		wall.play()
-		linear_velocity*=1.1
+	if is_inside_tree():
+		# print("Exited " + body.name)	
+		if body.name=="paddle":
+			paddle_collision(body)		
+		elif body.name.begins_with("block"):
+			block_collision(body)
+		else: 
+			wall.play()
+			linear_velocity*=1.1
 		
-func paddle_collision(paddle_body):
+func paddle_collision(paddle_body):	
 	var diff = position.x - paddle_body.position.x
-	linear_velocity.y *= 1.1
+	linear_velocity.y *= 1.5
 	linear_velocity.x += diff * 2
 	bounce.play()
 	

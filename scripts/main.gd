@@ -6,15 +6,12 @@ var balls_left = 10
 var current_ball_size = 2
 @onready var stage = $stage
 @onready var camera = $Camera3D
-var blocks
 var time_label
 var stage_number = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	var blocks_node = "blocks_" + str(stage_number)
-	blocks = stage.get_node(blocks_node)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
 	time_label = stage.get_node("time_label")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,10 +28,9 @@ func _process(_delta):
 	for ball in balls: 
 		if ball.position.y < 0: # Check if the ball has left the screen 
 			ball.queue_free() 
-			balls.erase(ball) # Remove from the list break # Exit loop to prevent errors from modifying the array while iterating	
-	if blocks.get_child_count() == 0:
-		# reset the level for now
-		get_tree().reload_current_scene()		
+			balls.erase(ball)
+			break
+	
 func spawn_ball():
 	if camera.position.z < 0:
 		return
@@ -51,9 +47,8 @@ func spawn_ball():
 			if mesh_instance:
 				mesh_instance.queue_free()
 		var new_mesh_instance = ball_instance.ball_models[current_ball_size].instantiate()
-		new_mesh_instance.name="MeshInstance3D"		
+		new_mesh_instance.name="MeshInstance3D"
 		ball_instance.add_child(new_mesh_instance)
-		ball_instance.mesh_instance_3d = new_mesh_instance
 		# Update collision shape radius 
 		if ball_instance.has_node("CollisionShape3D"): 
 			var collision_shape = ball_instance.get_node("CollisionShape3D") 
@@ -76,7 +71,6 @@ func update_ball_size():
 		var new_mesh_instance = ball_instance.ball_models[current_ball_size].instantiate()
 		new_mesh_instance.name="MeshInstance3D"		
 		ball_instance.add_child(new_mesh_instance)
-		ball_instance.mesh_instance_3d = new_mesh_instance
 		# Update collision shape radius 
 		if ball_instance.has_node("CollisionShape3D"): 
 			var collision_shape = ball_instance.get_node("CollisionShape3D") 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://phyfuyw0hpjf"]
 
+[ext_resource type="Script" path="res://scripts/stage.gd" id="1_7ig21"]
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="1_ijncp"]
 [ext_resource type="PackedScene" uid="uid://dfcijeaxjupjj" path="res://assets/models/ball_regular.glb" id="6_nk5t2"]
-[ext_resource type="PackedScene" uid="uid://ce033rqf5dk2y" path="res://scenes/blocks_0.tscn" id="6_v1r2o"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="7_eeplf"]
 [ext_resource type="Script" path="res://scripts/time_label.gd" id="8_jrwyw"]
 [ext_resource type="PackedScene" uid="uid://65yr7ubbdaki" path="res://scenes/forest.tscn" id="8_y451n"]
@@ -14,6 +14,7 @@ size = Vector3(40, 1, 1)
 size = Vector3(1, 30, 1)
 
 [node name="stage" type="StaticBody3D"]
+script = ExtResource("1_7ig21")
 
 [node name="walls" parent="." instance=ExtResource("1_ijncp")]
 
@@ -77,5 +78,3 @@ horizontal_alignment = 0
 script = ExtResource("8_jrwyw")
 
 [node name="forest" parent="." instance=ExtResource("8_y451n")]
-
-[node name="blocks_0" parent="." instance=ExtResource("6_v1r2o")]
