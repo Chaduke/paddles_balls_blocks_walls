@@ -18,6 +18,20 @@ func _process(_delta):
 	if stages_available:
 		if current_blocks and current_blocks.get_child_count() == 0:
 			on_stage_cleared()
+	else:
+		if Input.is_action_just_pressed("spawn_ball") \
+		or Input.is_action_just_pressed("swing_paddle"):
+			stages_available = true			
+			Global.current_stage =  2
+			$all_stages_clear_label.visible = false
+			$all_stages_clear_label2.visible = false
+			get_tree().reload_current_scene()
+			load_stage(Global.current_stage)
+		
+	if (Input.is_action_just_pressed("spawn_ball") \
+	or Input.is_action_just_pressed("swing_paddle")) \
+	and $stage_clear_label.visible == true:
+		load_next_stage()
 
 func load_stage(stage_number): 
 	if current_blocks: 
@@ -29,10 +43,18 @@ func load_stage(stage_number):
 		add_child(current_blocks)
 		$stage_label.text = "Stage " + str(Global.current_stage - 1)
 	else: 
-		print("No more stages available")
+		$all_stages_clear_label.visible = true
+		$all_stages_clear_label2.visible = true
 		stages_available = false
 
-func on_stage_cleared(): 
+func on_stage_cleared():
+	$stage_clear_label.text = "Stage " + str(Global.current_stage) + " Cleared!"
+	$stage_clear_label.visible = true
+	$stage_clear_label2.visible = true
+
+func load_next_stage():
+	$stage_clear_label.visible = false
+	$stage_clear_label2.visible = false
 	Global.current_stage += 1 
 	get_tree().reload_current_scene()
 	load_stage(Global.current_stage)

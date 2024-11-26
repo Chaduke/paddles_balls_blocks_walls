@@ -10,7 +10,7 @@ extends CharacterBody3D
 var state
 var start_position
 var elapsed_time = 0.0
-var timer = 2
+var timer = 1
 var slot = 0
 
 var target_position = Vector3(0,0,0)
@@ -104,6 +104,7 @@ func move_right():
 	else: 
 		state = 3
 		pickup_timer.visible = true
+		rotation.x = 0
 
 func pick_random():
 	var rng = RandomNumberGenerator.new() 
