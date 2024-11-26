@@ -26,5 +26,6 @@ func _on_tree_exiting():
 	rng.randomize() # Ensure randomness by randomizing the seed 
 	var random_int = rng.randi_range(-10,10)
 	ball_instance.linear_velocity.x += random_int
+	ball_instance.linear_velocity.y += 10
 	main_scene.balls.append(ball_instance) 
 	main_scene.add_child.call_deferred(ball_instance)
