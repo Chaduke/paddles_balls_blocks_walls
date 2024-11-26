@@ -1,5 +1,5 @@
 extends StaticBody3D
-var current_stage = 1
+
 var current_blocks
 var stages_available = true
 var total_stages = 3
@@ -12,7 +12,7 @@ func add_scene_paths():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_scene_paths()
-	load_stage(current_stage)
+	load_stage(Global.current_stage)
 	
 func _process(_delta):
 	if stages_available:
@@ -27,11 +27,12 @@ func load_stage(stage_number):
 		var new_blocks_scene = load(scene_path) 
 		current_blocks = new_blocks_scene.instantiate() 
 		add_child(current_blocks)
-		$stage_label.text = "Stage " + str(current_stage - 1)
+		$stage_label.text = "Stage " + str(Global.current_stage - 1)
 	else: 
 		print("No more stages available")
 		stages_available = false
 
 func on_stage_cleared(): 
-	current_stage += 1 
-	load_stage(current_stage)
+	Global.current_stage += 1 
+	get_tree().reload_current_scene()
+	load_stage(Global.current_stage)

@@ -7,7 +7,6 @@ var current_ball_size = 2
 @onready var stage = $stage
 @onready var camera = $Camera3D
 var time_label
-var stage_number = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
