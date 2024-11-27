@@ -6,7 +6,7 @@ var slot2 = false
 var slot3 = false
 var slot4 = false
 
-var current_stage = 2
+var current_stage = 3
 
 func find_free_slot():
 	if not slot1:

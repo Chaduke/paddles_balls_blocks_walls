@@ -2,7 +2,7 @@ extends StaticBody3D
 
 var current_blocks
 var stages_available = true
-var total_stages = 3
+var total_stages = 4
 var block_scene_paths = []
 
 func add_scene_paths():
