@@ -14,6 +14,7 @@ func _ready():
 	time_label = stage.get_node("time_label")
 	# make sure Global stuff is where it needs to be on scene reload
 	Global.current_ball_size = 2
+	Global.infinite_balls = false
 	PhysicsServer3D.area_set_param(get_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3(0, -1, 0))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
