@@ -40,9 +40,10 @@ func spawn_ball():
 		time_label.game_started = true
 	var spare_balls = stage.get_node("spare_balls")
 	if spare_balls.get_child_count() > 0:
-		var spare_ball = spare_balls.get_child(0)
-		spare_ball.queue_free()
-		balls_left-=1
+		if not Global.infinite_balls:
+			var spare_ball = spare_balls.get_child(0)
+			spare_ball.queue_free()
+			balls_left-=1
 		var ball_instance = ball_scene.instantiate()
 		if ball_instance.has_node("MeshInstance3D"):
 			var mesh_instance = ball_instance.get_node("MeshInstance3D")

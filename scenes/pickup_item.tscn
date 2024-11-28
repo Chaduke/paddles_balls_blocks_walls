@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8i11mfr84cg7"]
+[gd_scene load_steps=10 format=3 uid="uid://c8i11mfr84cg7"]
 
 [ext_resource type="PackedScene" uid="uid://ddr0svip01mdr" path="res://assets/models/grower.glb" id="1_eibgq"]
 [ext_resource type="Script" path="res://scripts/pickup_item.gd" id="1_t3jms"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwvcotd83mrs3" path="res://assets/models/smallballs.glb" id="4_rce14"]
 [ext_resource type="PackedScene" uid="uid://22r3q04noqmr" path="res://assets/models/largeballs.glb" id="6_vrkwf"]
 [ext_resource type="PackedScene" uid="uid://du8igq6t1n36s" path="res://assets/models/gravity_reverse.glb" id="7_8ra7b"]
+[ext_resource type="PackedScene" uid="uid://blrcu1s44ofh7" path="res://assets/models/infinite_balls.glb" id="8_cdivb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wdw47"]
 size = Vector3(2, 1, 1)
@@ -39,4 +40,7 @@ visible = false
 visible = false
 
 [node name="GravityReverse" parent="." instance=ExtResource("7_8ra7b")]
+visible = false
+
+[node name="InfiniteBalls" parent="." instance=ExtResource("8_cdivb")]
 visible = false

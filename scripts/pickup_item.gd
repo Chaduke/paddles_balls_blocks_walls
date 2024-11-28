@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var smallballs = $Smallballs
 @onready var largeballs = $Largeballs
 @onready var gravity_reverse = $GravityReverse
+@onready var infinite_balls = $InfiniteBalls
 
 var state
 var start_position
@@ -32,6 +33,9 @@ func _ready():
 	elif item_type == "GravityReverse":
 		gravity_reverse.visible = true
 		timer = 10
+	elif item_type == "InfiniteBalls":
+		infinite_balls.visible = true
+		timer = 20
 		
 func _process(delta):
 	if state == 0:
@@ -48,6 +52,8 @@ func _process(delta):
 			Global.set_slot_inactive(slot)
 			if item_type == "GravityReverse":
 				PhysicsServer3D.area_set_param(get_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3(0, -1, 0))
+			if item_type == "InfiniteBalls":
+				Global.infinite_balls = false
 			queue_free()
 
 func move_up():	
@@ -101,8 +107,10 @@ func move_down():
 					elif Global.current_ball_size == 2:
 						Global.current_ball_size = 1
 						main_scene.update_ball_size()
-				elif item_type == "GravityReverse":					
+				elif item_type == "GravityReverse":
 					PhysicsServer3D.area_set_param(get_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3(0, 1, 0))
+				elif item_type == "InfiniteBalls":
+					Global.infinite_balls = true
 			else:
 				queue_free()
 	else:
@@ -123,7 +131,7 @@ func move_right():
 func pick_random():
 	var rng = RandomNumberGenerator.new() 
 	rng.randomize() # Ensure randomness by randomizing the seed 
-	var random_int = rng.randi_range(0, 4)
+	var random_int = rng.randi_range(0, 5)
 	if random_int == 0:
 		item_type = "Grower"
 	elif random_int == 1:
@@ -134,3 +142,5 @@ func pick_random():
 		item_type = "Smallballs"
 	elif random_int == 4:
 		item_type = "GravityReverse"
+	elif random_int == 5:
+		item_type = "InfiniteBalls"
