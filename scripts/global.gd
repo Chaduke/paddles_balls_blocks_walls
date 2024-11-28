@@ -1,12 +1,12 @@
 # global.gd
 extends Node
 
+var current_stage = 6
+
 var slot1 = false
 var slot2 = false
 var slot3 = false
 var slot4 = false
-
-var current_stage = 3
 
 func find_free_slot():
 	if not slot1:

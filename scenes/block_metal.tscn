@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba1a2vwk3fixx"]
+
+[ext_resource type="PackedScene" uid="uid://g67jsydrrjrg" path="res://assets/models/block_metal.glb" id="1_1b4ji"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ch0yj"]
+
+[node name="block_metal" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ch0yj")
+
+[node name="block_metal" parent="." instance=ExtResource("1_1b4ji")]
