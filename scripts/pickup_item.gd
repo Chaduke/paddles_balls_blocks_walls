@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var shrinker = $Shrinker
 @onready var smallballs = $Smallballs
 @onready var largeballs = $Largeballs
+@onready var gravity_reverse = $GravityReverse
 
 var state
 var start_position
@@ -27,7 +28,10 @@ func _ready():
 	elif item_type == "Smallballs":
 		smallballs.visible = true 
 	elif item_type == "Largeballs":
-		largeballs.visible = true  
+		largeballs.visible = true
+	elif item_type == "GravityReverse":
+		gravity_reverse.visible = true
+		timer = 10
 		
 func _process(delta):
 	if state == 0:
@@ -42,6 +46,8 @@ func _process(delta):
 		pickup_timer.text = str(timer - secs)
 		if secs == timer:
 			Global.set_slot_inactive(slot)
+			if item_type == "GravityReverse":
+				PhysicsServer3D.area_set_param(get_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3(0, -1, 0))
 			queue_free()
 
 func move_up():	
@@ -76,19 +82,27 @@ func move_down():
 				elif item_type == "Shrinker":
 					paddle.shrink_paddle()
 				elif item_type == "Largeballs":					
-					if main_scene.current_ball_size == 1:
-						main_scene.current_ball_size = 2
+					if Global.current_ball_size == 1:
+						Global.current_ball_size = 2
 						main_scene.update_ball_size()
-					elif main_scene.current_ball_size == 2:
-						main_scene.current_ball_size = 4
+					elif Global.current_ball_size == 2:
+						Global.current_ball_size = 4
+						main_scene.update_ball_size()
+					elif Global.current_ball_size == 4:
+						Global.current_ball_size = 8
 						main_scene.update_ball_size()
 				elif item_type == "Smallballs":
-					if main_scene.current_ball_size == 4:
-						main_scene.current_ball_size = 2
+					if Global.current_ball_size == 8:
+						Global.current_ball_size = 4
 						main_scene.update_ball_size()
-					elif main_scene.current_ball_size == 2:
-						main_scene.current_ball_size = 1
+					elif Global.current_ball_size == 4:
+						Global.current_ball_size = 2
 						main_scene.update_ball_size()
+					elif Global.current_ball_size == 2:
+						Global.current_ball_size = 1
+						main_scene.update_ball_size()
+				elif item_type == "GravityReverse":					
+					PhysicsServer3D.area_set_param(get_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3(0, 1, 0))
 			else:
 				queue_free()
 	else:
@@ -109,7 +123,7 @@ func move_right():
 func pick_random():
 	var rng = RandomNumberGenerator.new() 
 	rng.randomize() # Ensure randomness by randomizing the seed 
-	var random_int = rng.randi_range(0, 3)
+	var random_int = rng.randi_range(0, 4)
 	if random_int == 0:
 		item_type = "Grower"
 	elif random_int == 1:
@@ -118,3 +132,5 @@ func pick_random():
 		item_type = "Largeballs"
 	elif random_int == 3:
 		item_type = "Smallballs"
+	elif random_int == 4:
+		item_type = "GravityReverse"

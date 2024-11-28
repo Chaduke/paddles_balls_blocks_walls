@@ -3,7 +3,7 @@ var ball_scene = preload("res://scenes/ball.tscn")
 
 func _on_tree_exiting():	
 	var main_scene = get_tree().root.get_child(1)
-	var current_ball_size = main_scene.current_ball_size
+	var current_ball_size = Global.current_ball_size
 	var ball_instance = ball_scene.instantiate()
 	ball_instance.position = global_transform.origin
 	# print("Ball spawned at " + str(position))

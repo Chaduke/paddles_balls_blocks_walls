@@ -163,9 +163,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 20.5, 0)
 
 [node name="block20" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 20.5, 0)
+item_type = "GravityReverse"
 
 [node name="block21" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 20.5, 0)
+item_type = "Grower"
 
 [node name="block22" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 20.5, 0)
+item_type = "Largeballs"

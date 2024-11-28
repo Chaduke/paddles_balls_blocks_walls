@@ -9,6 +9,6 @@ func _on_body_entered(_body):
 		emitter.emitting = true
 		model.visible = false
 		active = false
-			
+
 func _on_gpu_particles_3d_finished():
 	queue_free()

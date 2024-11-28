@@ -1,7 +1,8 @@
 # global.gd
 extends Node
 
-var current_stage = 6
+var current_stage = 1
+var current_ball_size = 2
 
 var slot1 = false
 var slot2 = false
