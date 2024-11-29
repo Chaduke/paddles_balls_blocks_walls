@@ -1,3 +1,5 @@
+# ball.gd 
+
 extends RigidBody3D
 
 @onready var bounce = $bounce
@@ -43,6 +45,7 @@ func block_collision(block_body):
 			block_body.queue_free()
 	else:
 		# catch all for other block types
-		block_body.queue_free()
+		if block_model.name != "block_metal":
+			block_body.queue_free()
 	#linear_velocity *= 1.1
 	

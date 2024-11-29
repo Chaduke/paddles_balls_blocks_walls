@@ -3,7 +3,7 @@ extends Area3D
 @onready var model = $block_yellow2
 var active = true
 
-func _on_body_entered(_body):
+func _on_body_entered(body):
 	if active:
 		$block_sound.play()
 		emitter.emitting = true
