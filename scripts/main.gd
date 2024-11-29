@@ -33,6 +33,11 @@ func _process(_delta):
 			ball.queue_free() 
 			balls.erase(ball)
 			break
+
+func remove_all_balls():
+	for ball in balls:
+		ball.queue_free() 
+		balls.erase(ball)
 	
 func spawn_ball():
 	if camera.position.z < 0:

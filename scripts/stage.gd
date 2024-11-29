@@ -48,9 +48,12 @@ func load_stage(stage_number):
 		stages_available = false
 
 func on_stage_cleared():
-	$stage_clear_label.text = "Stage " + str(Global.current_stage) + " Cleared!"
+	$stage_clear_label.text = "Stage " + str(Global.current_stage - 1) + " Cleared!"
 	$stage_clear_label.visible = true
 	$stage_clear_label2.visible = true
+	var main_scene = get_tree().root.get_child(1)
+	main_scene.remove_all_balls()
+	
 
 func load_next_stage():
 	$stage_clear_label.visible = false

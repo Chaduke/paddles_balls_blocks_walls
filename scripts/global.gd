@@ -1,7 +1,7 @@
 # global.gd
 extends Node
 
-var current_stage = 6
+var current_stage = 2
 var current_ball_size = 2
 var infinite_balls = false
 
