@@ -2,7 +2,7 @@ extends StaticBody3D
 
 var current_blocks
 var stages_available = true
-var total_stages = 7
+var total_stages = 8
 var block_scene_paths = []
 var non_blocks_count = 0
 
@@ -62,7 +62,9 @@ func on_stage_cleared():
 	$stage_clear_label2.visible = true
 	var main_scene = get_tree().root.get_child(1)
 	main_scene.remove_all_balls()
-	
+	for child in current_blocks.get_children():
+		if child.name.begins_with("flow_arrows"):
+			child.queue_free()
 
 func load_next_stage():
 	$stage_clear_label.visible = false

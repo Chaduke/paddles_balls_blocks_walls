@@ -81,7 +81,7 @@ script = ExtResource("8_jrwyw")
 [node name="forest" parent="." instance=ExtResource("8_y451n")]
 
 [node name="stage_clear_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 16, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 16, 0.1)
 visible = false
 modulate = Color(0.983983, 0.286034, 0, 1)
 text = "Stage 0 Cleared!"
@@ -90,7 +90,7 @@ font_size = 300
 outline_size = 50
 
 [node name="stage_clear_label2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 14.4222, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 14.422, 0.1)
 visible = false
 modulate = Color(0.984314, 0, 0, 1)
 text = "Click to load next level"
@@ -109,7 +109,7 @@ font_size = 300
 outline_size = 50
 
 [node name="all_stages_clear_label2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 14.4222, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 14.422, 0)
 visible = false
 modulate = Color(0.984314, 0, 0, 1)
 text = "Click to play again, ESC to exit"
