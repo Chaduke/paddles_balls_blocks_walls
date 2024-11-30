@@ -1,3 +1,4 @@
+# main.gd
 extends Node3D
 @onready var paddle = $paddle
 var balls = []
@@ -63,7 +64,7 @@ func spawn_ball():
 			var collision_shape = ball_instance.get_node("CollisionShape3D") 
 			if collision_shape and collision_shape.shape is SphereShape3D: 
 				var sphere_shape = collision_shape.shape as SphereShape3D 
-				sphere_shape.radius = Global.current_ball_size / 4.0 
+				sphere_shape.radius = Global.current_ball_size / 4.0 - 0.1
 			else: 
 				print("Error: CollisionShape3D node or SphereShape3D shape not found.")		
 		ball_instance.position = paddle.position + Vector3(0,1,0)

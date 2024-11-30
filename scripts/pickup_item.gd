@@ -1,3 +1,4 @@
+# pickup_item.gd
 extends CharacterBody3D
 @export var item_type: String = "Random"
 @onready var collision_shape_3d = $CollisionShape3D

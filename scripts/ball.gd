@@ -26,7 +26,7 @@ func _on_body_exited(body):
 		
 func paddle_collision(paddle_body):	
 	var diff = position.x - paddle_body.position.x
-	linear_velocity.y *= 1.5
+	linear_velocity.y *= 1.4
 	linear_velocity.x += diff * 2
 	bounce.play()
 	
@@ -43,7 +43,10 @@ func block_collision(block_body):
 		else:
 			# the cracked model is visible, so remove it
 			block_body.queue_free()
+	elif block_body.name.begins_with("block_clear"):
+		block_body.start_timer()
 	else:
+		# print("Block body name is " + block_body.name)
 		# catch all for other block types
 		if block_model.name != "block_metal":
 			block_body.queue_free()

@@ -2,7 +2,7 @@ extends StaticBody3D
 
 var current_blocks
 var stages_available = true
-var total_stages = 8
+var total_stages = 10
 var block_scene_paths = []
 var non_blocks_count = 0
 
