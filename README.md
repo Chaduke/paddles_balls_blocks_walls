@@ -1,3 +1,14 @@
+Update 11/30/2024:
+If you're not in the mood to clone the repository I'll be uploading "web versions" of the game here:
+
+https://chaduke.github.io/pbbw_web
+
+The game is still very much in development, has only 10 levels and needs a lot of tweaking here and there plus sounds, music, more 3D stuff, a very long list, but you can kind of get the gist of where I'm going with it.  It reminds me of a cross between breakout and pinball, for those of you old enough to remember pinball. 
+
+To play just use the mouse to move the paddle, left click "swings" the paddle and right click releases balls. Enjoy!
+
+=========================================================
+
 This is a game project I've been wanting to work on for a very long time. Now that the years have flown by, and the original game that inspired me to re-create it has fallen into obscurity, (among other reasons), the time is now!
 
 The original inspiration for this project came from a game I found many years ago (20 maybe?) called "Block", programmed by a Japanese developer that went by the name of "Kenta".  It's basically a Breakout / Arkanoid clone but with a TON of FUN features!
