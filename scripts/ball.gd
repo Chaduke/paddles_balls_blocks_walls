@@ -30,9 +30,10 @@ func paddle_collision(paddle_body):
 	linear_velocity.x += diff * 2
 	bounce.play()
 	
-func block_collision(block_body):
-	block.play()
+func block_collision(block_body):	
 	var block_model = block_body.get_child(1)
+	if block_model.name != "block_metal":
+		block.play()
 	if block_model.name=="block_blue":
 		if block_model.visible==true:
 			# the regular model is visible
@@ -51,4 +52,5 @@ func block_collision(block_body):
 		if block_model.name != "block_metal":
 			block_body.queue_free()
 		else:
-			linear_velocity *= 1.01
+			linear_velocity *= 0.98
+	

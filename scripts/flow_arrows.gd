@@ -10,3 +10,6 @@ func _on_body_entered(body):
 		else:
 			# push the ball down
 			body.linear_velocity.y -= 10
+
+func _on_body_exited(body):
+	pass # Replace with function body.
