@@ -1,3 +1,4 @@
+# block_pink.gd
 extends StaticBody3D
 @export var item_type : String = "Random" 
 var item_scene = preload("res://scenes/pickup_item.tscn")

@@ -74,13 +74,13 @@ func move_down():
 				state = 2
 				collision_shape_3d.disabled = true
 				if slot == 1:
-					target_position = Vector3(15,15,-37)
+					target_position = Vector3(15,10,-37)
 				elif slot == 2:
-					target_position = Vector3(18,15,-37)
+					target_position = Vector3(18,10,-37)
 				elif slot == 3:
-					target_position = Vector3(15,13,-37)
+					target_position = Vector3(15,8,-37)
 				elif slot == 4:
-					target_position = Vector3(18,13,-37)
+					target_position = Vector3(18,8,-37)
 				var paddle=get_tree().root.get_child(1).get_node("paddle")
 				var main_scene = get_tree().root.get_child(1)
 				if item_type == "Grower":

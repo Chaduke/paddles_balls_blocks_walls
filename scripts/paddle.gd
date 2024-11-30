@@ -11,7 +11,7 @@ extends CharacterBody3D
 	28: preload("res://assets/models/paddle_28m.glb") 
 	}
 
-var current_size = 12
+var current_size = 8
 var left_bounds 
 var right_bounds
 @onready var collision_shape_3d = $CollisionShape3D

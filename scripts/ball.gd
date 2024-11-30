@@ -50,5 +50,5 @@ func block_collision(block_body):
 		# catch all for other block types
 		if block_model.name != "block_metal":
 			block_body.queue_free()
-	#linear_velocity *= 1.1
-	
+		else:
+			linear_velocity *= 1.01

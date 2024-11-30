@@ -41,7 +41,7 @@ func release_ball():
 		else: 
 			print("Error: CollisionShape3D node or SphereShape3D shape not found.")
 	var rng = RandomNumberGenerator.new() 
-	rng.randomize() # Ensure randomness by randomizing the seed 
+	rng.randomize() 
 	var random_int = rng.randi_range(-10,10)
 	ball_instance.linear_velocity.x += random_int
 	ball_instance.linear_velocity.y += 10
@@ -49,7 +49,7 @@ func release_ball():
 	main_scene.add_child.call_deferred(ball_instance)
 
 func _on_timer_timeout():
-	if (current_ball < total_balls):		
+	if (current_ball < total_balls):
 		release_ball()
 		current_ball+=1
 		#print("Released ball " + str(current_ball))

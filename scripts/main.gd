@@ -68,7 +68,7 @@ func spawn_ball():
 			else: 
 				print("Error: CollisionShape3D node or SphereShape3D shape not found.")		
 		ball_instance.position = paddle.position + Vector3(0,1,0)
-		ball_instance.linear_velocity += Vector3(2,40,0)
+		ball_instance.linear_velocity += Vector3(5,40,0)
 		balls.append(ball_instance) 
 		add_child(ball_instance)
 		

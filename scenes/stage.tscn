@@ -32,6 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0161, 15, 0)
 shape = SubResource("BoxShape3D_1yhfb")
 
 [node name="spare_balls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613022, -5.88477, 0)
 
 [node name="ball_regular1" parent="spare_balls" instance=ExtResource("6_nk5t2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 9.5, 0)
@@ -62,6 +63,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 8.5, 0)
 
 [node name="ball_regular10" parent="spare_balls" instance=ExtResource("6_nk5t2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 8.5, 0)
+
+[node name="spare_balls_label" type="Label3D" parent="spare_balls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9561, 11.2352, 0)
+modulate = Color(1, 0, 0.0745098, 1)
+text = "Spare Balls
+"
+font = ExtResource("7_eeplf")
+font_size = 270
 
 [node name="stage_label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 27, 0)
@@ -116,3 +125,11 @@ text = "Click to play again, ESC to exit"
 font = ExtResource("7_eeplf")
 font_size = 200
 outline_size = 40
+
+[node name="items_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0174, 11.5375, 0)
+modulate = Color(1, 0, 0.0745098, 1)
+text = "Items
+"
+font = ExtResource("7_eeplf")
+font_size = 270
