@@ -10,8 +10,7 @@ var balls_left = 10
 var time_label
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
+func _ready():	
 	time_label = stage.get_node("time_label")
 	# make sure Global stuff is where it needs to be on scene reload
 	Global.current_ball_size = 2
@@ -20,20 +19,26 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if camera.position.z < 0:
-		camera.position.z += 4
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
-	if Input.is_action_just_pressed("spawn_ball"):
-		spawn_ball()
-	if Input.is_action_just_pressed("reset"):
-		get_tree().reload_current_scene()
-	# balls loop
-	for ball in balls: 
-		if ball.position.y < 0: # Check if the ball has left the screen 
-			ball.queue_free() 
-			balls.erase(ball)
-			break
+	if Global.game_started:
+		if camera.position.z < 0:
+			camera.position.z += 4
+		if Input.is_action_pressed("ui_cancel"):
+			get_tree().quit()
+		if Input.is_action_just_pressed("spawn_ball"):
+			spawn_ball()
+		if Input.is_action_just_pressed("reset"):
+			get_tree().reload_current_scene()
+		# balls loop
+		for ball in balls: 
+			if ball.position.y < 0: # Check if the ball has left the screen 
+				ball.queue_free() 
+				balls.erase(ball)
+				break
+	else:
+		if Input.is_action_pressed("swing_paddle"):
+			$Camera3D/click_to_begin.visible = false
+			Global.game_started = true 
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func remove_all_balls():
 	for ball in balls:

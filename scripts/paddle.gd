@@ -45,7 +45,7 @@ func shrink_paddle():
 		update_paddle_model(current_size)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(_delta):	
 	if Input.is_action_pressed("swing_paddle"):
 		if position.y > 0.5:
 			position.y -= 0.3

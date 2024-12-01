@@ -26,6 +26,13 @@ script = ExtResource("1_qct0r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)
 fov = 45.0
 
+[node name="click_to_begin" type="Label3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37)
+text = "Click to Begin"
+font = ExtResource("5_l3s87")
+font_size = 300
+outline_size = 50
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 20, 0)
 shadow_enabled = true

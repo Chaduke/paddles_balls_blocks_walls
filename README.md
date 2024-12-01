@@ -15,6 +15,7 @@ Short Term
 - Add "Total timer" for all levels
 - Keep track of player's best times 
 - Make a "max size" paddle pickup item
+- Make particles look more realistic
 
 Long Term 
 - Create a clone of all 50 original levels from Block 1.30 (10 done)
