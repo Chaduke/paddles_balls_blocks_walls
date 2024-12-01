@@ -9,11 +9,10 @@ To play just use the mouse to move the paddle, left click "swings" the paddle an
 
 TODO List:
 
-Short Term 
-- Enable replay of individual levels 
-- Find out why the ball lands on the paddle sometimes and stops
+Short Term
 - Add "Total timer" for all levels
 - Keep track of player's best times 
+- Find out why the ball lands on the paddle sometimes and stops
 - Make a "max size" paddle pickup item
 - Make particles look more realistic
 

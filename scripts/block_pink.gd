@@ -9,5 +9,5 @@ func _on_tree_exiting():
 	item_instance.position.x -= 18.5
 	item_instance.position.z = -37
 	item_instance.item_type = item_type		
-	get_tree().root.get_child(1).add_child(item_instance)
+	get_tree().root.get_child(1).add_child.call_deferred(item_instance)
 	#print("Item added at " + str(position))

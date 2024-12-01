@@ -8,4 +8,4 @@ func _on_tree_exiting():
 	new_instance.position = position
 	var main_scene = get_tree().root.get_child(1)
 	var stage = main_scene.get_node("stage")
-	stage.add_child(new_instance)
+	stage.add_child.call_deferred(new_instance)

@@ -16,7 +16,8 @@ func _ready():
 	Global.current_ball_size = 2
 	Global.infinite_balls = false
 	PhysicsServer3D.area_set_param(get_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, Vector3(0, -1, 0))
-	
+	if Global.game_started:
+		$Camera3D/click_to_begin.visible = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Global.game_started:
@@ -33,12 +34,22 @@ func _process(_delta):
 			if ball.position.y < 0: # Check if the ball has left the screen 
 				ball.queue_free() 
 				balls.erase(ball)
+				# check for game over condition				
+				if len(balls) == 0 and balls_left == 0:
+					$Camera3D/game_over.visible = true
+					Global.game_started = false
 				break
 	else:
 		if Input.is_action_pressed("swing_paddle"):
-			$Camera3D/click_to_begin.visible = false
-			Global.game_started = true 
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			if $Camera3D/click_to_begin.visible == true:
+				$Camera3D/click_to_begin.visible = false
+				Global.game_started = true 
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			else:
+				$Camera3D/game_over.visible = false
+				Global.game_started = true
+				get_tree().reload_current_scene()
+				$stage.load_stage(Global.current_stage)
 
 func remove_all_balls():
 	for ball in balls:
@@ -56,6 +67,7 @@ func spawn_ball():
 			var spare_ball = spare_balls.get_child(0)
 			spare_ball.queue_free()
 			balls_left-=1
+			if balls_left < 0: balls_left = 0
 		var ball_instance = ball_scene.instantiate()
 		if ball_instance.has_node("MeshInstance3D"):
 			var mesh_instance = ball_instance.get_node("MeshInstance3D")
@@ -75,7 +87,7 @@ func spawn_ball():
 		ball_instance.position = paddle.position + Vector3(0,1,0)
 		ball_instance.linear_velocity += Vector3(5,40,0)
 		balls.append(ball_instance) 
-		add_child(ball_instance)
+		add_child(ball_instance)	
 		
 func update_ball_size():
 	for ball_instance in balls:
