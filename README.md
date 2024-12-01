@@ -7,6 +7,22 @@ The game is still very much in development, has only 10 levels and needs a lot o
 
 To play just use the mouse to move the paddle, left click "swings" the paddle and right click releases balls. Enjoy!
 
+TODO List:
+
+Short Term 
+- Enable replay of individual levels 
+- Find out why the ball lands on the paddle sometimes and stops
+- Add "Total timer" for all levels
+- Keep track of player's best times 
+- Make a "max size" paddle pickup item
+
+Long Term 
+- Create a clone of all 50 original levels from Block 1.30 (10 done)
+- Add 50 new unique levels
+- Create a Menu
+- Create a UI / HUD
+- Redo all sounds / music in Ableton Live
+
 =========================================================
 
 This is a game project I've been wanting to work on for a very long time. Now that the years have flown by, and the original game that inspired me to re-create it has fallen into obscurity, (among other reasons), the time is now!
@@ -31,14 +47,6 @@ https://www.youtube.com/watch?v=aU1Hrpr2igM
 
 YouTube account of "Nathan Baggs" (go check him out he's great!):
 https://www.youtube.com/@nathanbaggs
-
-TODO List:
-
-- Create a clone of all 50 original levels from Block 1.30
-- Add 50 new unique levels
-- Create a Menu
-- Create a UI / HUD
-- Redo all sounds / music in Ableton Live
 
 My plan is to create progress reports and / or video every Sunday.
 

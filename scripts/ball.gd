@@ -13,6 +13,23 @@ extends RigidBody3D
 	8:preload("res://assets/models/ball_xl.glb")
 }
 
+var top_velocity_x = 0
+var top_velocity_y = 0
+
+func _process(_delta):
+	# trying out "tapering" the ball speed
+	#if linear_velocity.x > top_velocity_x:
+		#top_velocity_x = linear_velocity.x
+		# print("New high X : " + str(top_velocity_x))
+	#if linear_velocity.y > top_velocity_y:
+		#top_velocity_y = linear_velocity.y
+		# print("New high Y : " + str(top_velocity_y))
+	# taper the speed 	
+	if linear_velocity.x > 50:
+		linear_velocity.x = 50
+	if linear_velocity.y > 50:
+		linear_velocity.y = 50
+
 func _on_body_exited(body):
 	if is_inside_tree():
 		# print("Exited " + body.name)	
