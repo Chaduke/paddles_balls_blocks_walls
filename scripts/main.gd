@@ -4,7 +4,11 @@ extends Node3D
 var balls = []
 var ball_scene = preload("res://scenes/ball.tscn")
 var balls_left = 10
+var game_ready = false
 
+func _ready():
+	set_globals()	
+	
 func set_globals():
 	# after each stage is complete 
 	# I call a get_tree().reload_current_scene()
@@ -15,51 +19,63 @@ func set_globals():
 	if Global.game_started:
 		$camera/click_to_begin.visible = false
 
-func _ready():
-	set_globals()
-
 func _process(_delta):
 	if Global.game_started:
+		position_camera()
+		get_input()
+				
+	if Global.stage_started:
+		process_balls()
+	else:
+		check_stage_start()
+			
+func position_camera():
+	# this is just an "opening movement" thing so show off the 3D scenery
+	if not game_ready:
 		if $camera.position.z < 0:
 			$camera.position.z += 4
-		if Input.is_action_pressed("ui_cancel"):
-				get_tree().quit()
-		if Input.is_action_just_pressed("spawn_ball"):
-				spawn_ball()
-		if Input.is_action_just_pressed("reset"):
-				get_tree().reload_current_scene()
-		if Global.stage_started:
-			# balls loop
-			for ball in balls: 
-				if ball.position.y < 0: # Check if the ball has left the screen 
-					ball.queue_free() 
-					balls.erase(ball)
-					# check for game over condition				
-					if len(balls) == 0 and balls_left == 0:
-						$game_over.visible = true
-						Global.stage_started = false
-					break
 		else:
-			if Input.is_action_pressed("swing_paddle"):
-				$game_over.visible = false
-				Global.stage_started = true
-				get_tree().reload_current_scene()
-				$stage.load_stage(Global.current_stage)
-	else:
-		if Input.is_action_pressed("swing_paddle"):
-			if $camera/click_to_begin.visible == true:
-				$camera/click_to_begin.visible = false
-				Global.game_started = true 
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			game_ready = true
+			
+func get_input():
+	if Input.is_action_pressed("ui_cancel"):
+		$main_menu.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+	if Input.is_action_just_pressed("spawn_ball") and game_ready:
+		spawn_ball()
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
+			
+func process_balls():
+	# balls loop
+	for ball in balls:
+		# Check if the ball has left the screen 
+		if ball.position.y < 0:
+			balls.erase(ball)
+			ball.queue_free()
+			# check for game over condition				
+			if len(balls) == 0 and balls_left == 0:
+				game_over()
+			break
 
+func game_over():
+	$game_over.visible = true
+	Global.stage_started = false
+				
+func check_stage_start():
+	if Input.is_action_pressed("swing_paddle"):
+		$game_over.visible = false
+		Global.stage_started = true
+		get_tree().reload_current_scene()
+		$stage.load_stage(Global.current_stage)
+			
 func remove_all_balls():
 	for ball in balls:
 		ball.queue_free() 
 		balls.erase(ball)
 	
 func spawn_ball():
-	if $camera.position.z < 0:
-		return
 	if not Global.stage_started:
 		Global.stage_started = true
 	var spare_balls = $stage/spare_balls

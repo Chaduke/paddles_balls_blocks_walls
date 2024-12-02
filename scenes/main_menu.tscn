@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqykai0fkxblq"]
+
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_4x3ge"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_x3mcw"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3mcw")
+
+[node name="start_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 599.0
+offset_right = 1068.0
+offset_bottom = 666.0
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 50
+text = "START GAME"
+
+[node name="settings_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 869.0
+offset_top = 684.0
+offset_right = 1041.0
+offset_bottom = 751.0
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
+
+[node name="quit_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 768.0
+offset_right = 1000.0
+offset_bottom = 835.0
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="title_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 99.0
+offset_right = 1151.0
+offset_bottom = 580.0
+theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 100
+text = "PADDLES
+BALLS
+BLOCKS 
+and WALLS!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

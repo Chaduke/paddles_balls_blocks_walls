@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=10 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
+[ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/main_menu.tscn" id="2_u3m40"]
 [ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
 [ext_resource type="Texture2D" uid="uid://dh62r386qxuix" path="res://assets/images/skybox_sunny.png" id="4_w6qld"]
 [ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
@@ -22,16 +23,14 @@ sky_custom_fov = 45.0
 [node name="main" type="Node3D"]
 script = ExtResource("1_qct0r")
 
+[node name="main_menu" parent="." instance=ExtResource("2_u3m40")]
+process_mode = 3
+offset_top = -1.0
+offset_bottom = -1.0
+
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)
 fov = 45.0
-
-[node name="click_to_begin" type="Label3D" parent="camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37)
-text = "Click to Begin"
-font = ExtResource("5_l3s87")
-font_size = 300
-outline_size = 50
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 20, 0)
