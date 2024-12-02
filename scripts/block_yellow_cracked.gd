@@ -1,3 +1,4 @@
+# block_yellow_cracked.gd
 extends Area3D
 @onready var emitter = $GPUParticles3D
 @onready var model = $block_yellow2

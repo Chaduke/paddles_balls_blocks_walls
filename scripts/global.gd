@@ -5,6 +5,8 @@ var current_stage = 1
 var current_ball_size = 2
 var infinite_balls = false
 var game_started = false
+var stage_started = false
+var accumlated_time = 0.0
 
 var slot1 = false
 var slot2 = false

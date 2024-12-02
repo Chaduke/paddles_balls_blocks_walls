@@ -1,5 +1,12 @@
-Update 11/30/2024:
-If you're not in the mood to clone the repository I'll be uploading "web versions" of the game here:
+-Update Dec 2nd 2024
+
+Watch the intro video here :
+
+https://youtu.be/HQ9_zqg4RUU?si=gQfzIGiknZz-U3oS
+
+I'll try to post update videos on or around every Sunday.  
+
+Play the web version here (expect bugs):
 
 https://chaduke.github.io/pbbw_web
 
@@ -10,6 +17,7 @@ To play just use the mouse to move the paddle, left click "swings" the paddle an
 TODO List:
 
 Short Term
+- Refactor all code and get core functionality complete and working
 - Add "Total timer" for all levels
 - Keep track of player's best times 
 - Find out why the ball lands on the paddle sometimes and stops

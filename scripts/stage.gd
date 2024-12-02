@@ -1,3 +1,4 @@
+# stage.gd
 extends StaticBody3D
 
 var current_blocks
@@ -23,7 +24,7 @@ func _process(_delta):
 	else:
 		if Input.is_action_just_pressed("spawn_ball") \
 		or Input.is_action_just_pressed("swing_paddle"):
-			stages_available = true			
+			stages_available = true
 			Global.current_stage = 1
 			$all_stages_clear_label.visible = false
 			$all_stages_clear_label2.visible = false
@@ -60,6 +61,8 @@ func on_stage_cleared():
 	$stage_clear_label.text = "Stage " + str(Global.current_stage) + " Cleared!"
 	$stage_clear_label.visible = true
 	$stage_clear_label2.visible = true
+	Global.accumlated_time = $total_time_label.elapsed_time
+	Global.stage_started = false
 	var main_scene = get_tree().root.get_child(1)
 	main_scene.remove_all_balls()
 	for child in current_blocks.get_children():

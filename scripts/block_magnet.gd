@@ -1,3 +1,4 @@
+# block_magnet.gd
 extends StaticBody3D
 
 func _on_magnetic_influence_body_entered(body):

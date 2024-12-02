@@ -1,3 +1,4 @@
+# paddle.gd
 extends CharacterBody3D
 @onready var mesh_instance_3d = $MeshInstance3D
 

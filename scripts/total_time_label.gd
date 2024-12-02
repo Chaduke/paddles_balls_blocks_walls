@@ -1,4 +1,4 @@
-# time_label.gd
+# total_time_label.gd
 extends Label3D
 
 # Time variables
@@ -10,13 +10,14 @@ var game_started = false
 
 func _ready():
 	# Initialize the time_label text
-	text = format_time(elapsed_time)
+	text = format_time(Global.accumlated_time)
+	elapsed_time = Global.accumlated_time
 
 func _process(delta):
 	if Global.stage_started:
 		# Update the elapsed time
 		elapsed_time += delta
-			
+		
 		# Calculate minutes, seconds, and hundredths
 		minutes = int(elapsed_time / 60)
 		seconds = int(elapsed_time) % 60

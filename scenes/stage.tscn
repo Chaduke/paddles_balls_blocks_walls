@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://phyfuyw0hpjf"]
+[gd_scene load_steps=10 format=3 uid="uid://phyfuyw0hpjf"]
 
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_7ig21"]
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="1_ijncp"]
 [ext_resource type="PackedScene" uid="uid://dfcijeaxjupjj" path="res://assets/models/ball_regular.glb" id="6_nk5t2"]
+[ext_resource type="Script" path="res://scripts/total_time_label.gd" id="6_re78e"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="7_eeplf"]
 [ext_resource type="Script" path="res://scripts/time_label.gd" id="8_jrwyw"]
 [ext_resource type="PackedScene" uid="uid://65yr7ubbdaki" path="res://scenes/forest.tscn" id="8_y451n"]
@@ -77,15 +78,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 27, 0)
 modulate = Color(0.865075, 0.0776522, 0.107639, 1)
 text = "Stage 0"
 font = ExtResource("7_eeplf")
-font_size = 280
+font_size = 300
 
 [node name="time_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 25, 0)
-text = "Time 0m 0s 00"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2218, 22.5904, 0)
+text = "0m 0s 00"
 font = ExtResource("7_eeplf")
 font_size = 200
 horizontal_alignment = 0
 script = ExtResource("8_jrwyw")
+
+[node name="total_time_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2218, 19.5699, 0)
+text = "0m 0s 00"
+font = ExtResource("7_eeplf")
+font_size = 200
+horizontal_alignment = 0
+script = ExtResource("6_re78e")
 
 [node name="forest" parent="." instance=ExtResource("8_y451n")]
 
@@ -130,6 +139,22 @@ outline_size = 40
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0174, 11.5375, 0)
 modulate = Color(1, 0, 0.0745098, 1)
 text = "Items
+"
+font = ExtResource("7_eeplf")
+font_size = 270
+
+[node name="stage_time_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0174, 23.7552, 0)
+modulate = Color(1, 0, 0.0745098, 1)
+text = "stage time
+"
+font = ExtResource("7_eeplf")
+font_size = 270
+
+[node name="total_time_label2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0174, 20.7687, 0)
+modulate = Color(1, 0, 0.0745098, 1)
+text = "total time
 "
 font = ExtResource("7_eeplf")
 font_size = 270

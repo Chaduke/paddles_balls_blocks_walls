@@ -1,5 +1,4 @@
 # ball.gd 
-
 extends RigidBody3D
 
 @onready var bounce = $bounce
