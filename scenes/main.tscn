@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=11 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
 [ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/main_menu.tscn" id="2_u3m40"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dh62r386qxuix" path="res://assets/images/skybox_sunny.png" id="4_w6qld"]
 [ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="5_l3s87"]
+[ext_resource type="PackedScene" uid="uid://bs1eip3jtnoyk" path="res://scenes/settings_menu.tscn" id="7_yw4vb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
 panorama = ExtResource("4_w6qld")
@@ -25,8 +26,14 @@ script = ExtResource("1_qct0r")
 
 [node name="main_menu" parent="." instance=ExtResource("2_u3m40")]
 process_mode = 3
-offset_top = -1.0
-offset_bottom = -1.0
+process_priority = 1
+visible = false
+offset_left = 0.0
+offset_right = 0.0
+
+[node name="settings_menu" parent="." instance=ExtResource("7_yw4vb")]
+process_mode = 3
+visible = false
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)

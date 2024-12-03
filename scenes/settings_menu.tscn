@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs1eip3jtnoyk"]
+
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_ikejd"]
+[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_oyrka"]
+
+[node name="settings_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyrka")
+
+[node name="show_background_checkbutton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 793.0
+offset_top = 647.0
+offset_right = 1087.0
+offset_bottom = 712.0
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "Show 3D Background"
+
+[node name="settings_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 806.0
+offset_top = 567.0
+offset_right = 1065.0
+offset_bottom = 662.0
+theme_override_fonts/font = ExtResource("1_ikejd")
+theme_override_font_sizes/font_size = 80
+text = "Settings"
+
+[node name="title_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 734.0
+offset_top = 69.0
+offset_right = 1121.0
+offset_bottom = 550.0
+theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ikejd")
+theme_override_font_sizes/font_size = 100
+text = "PADDLES
+BALLS
+BLOCKS 
+and WALLS!"
+horizontal_alignment = 1
+
+[connection signal="toggled" from="show_background_checkbutton" to="." method="_on_show_background_checkbutton_toggled"]

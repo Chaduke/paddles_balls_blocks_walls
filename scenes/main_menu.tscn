@@ -16,40 +16,40 @@ script = ExtResource("1_x3mcw")
 
 [node name="start_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 851.0
-offset_top = 599.0
-offset_right = 1068.0
-offset_bottom = 666.0
+offset_left = 831.0
+offset_top = 616.0
+offset_right = 1048.0
+offset_bottom = 683.0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "START GAME"
 
 [node name="settings_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 869.0
-offset_top = 684.0
-offset_right = 1041.0
-offset_bottom = 751.0
+offset_left = 849.0
+offset_top = 701.0
+offset_right = 1021.0
+offset_bottom = 768.0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 915.0
-offset_top = 768.0
-offset_right = 1000.0
-offset_bottom = 835.0
+offset_left = 895.0
+offset_top = 785.0
+offset_right = 980.0
+offset_bottom = 852.0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 764.0
-offset_top = 99.0
-offset_right = 1151.0
-offset_bottom = 580.0
+offset_left = 734.0
+offset_top = 69.0
+offset_right = 1121.0
+offset_bottom = 550.0
 theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4x3ge")
@@ -61,4 +61,5 @@ and WALLS!"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
