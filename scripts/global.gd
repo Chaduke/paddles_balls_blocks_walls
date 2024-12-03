@@ -9,6 +9,9 @@ var game_started = false
 var stage_started = false
 var accumlated_time = 0.0
 
+# settings 
+var show_background_3d = true
+
 var slot1 = false
 var slot2 = false
 var slot3 = false

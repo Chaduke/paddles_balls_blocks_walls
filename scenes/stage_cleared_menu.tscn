@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj6lqmg0h52uc"]
+
+[ext_resource type="Script" path="res://scripts/stage_cleared_menu.gd" id="1_4quwe"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_lgh5i"]
+
+[node name="stage_cleared_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4quwe")
+
+[node name="stage_cleared_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 411.0
+offset_right = 1324.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(0.952941, 0.239216, 0, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 110
+text = "Stage 0 Cleared!"
+
+[node name="next_stage_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 547.0
+offset_right = 968.0
+offset_bottom = 614.0
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 50
+text = "Next Stage"
+
+[node name="quit_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 615.0
+offset_right = 968.0
+offset_bottom = 682.0
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="next_stage_button" to="." method="_on_next_stage_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

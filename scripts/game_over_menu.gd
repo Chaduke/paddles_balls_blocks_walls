@@ -1,3 +1,4 @@
+# game_over_menu.gd
 extends Control
 
 func _on_restart_button_pressed():

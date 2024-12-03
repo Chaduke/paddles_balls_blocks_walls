@@ -16,8 +16,10 @@ func back_to_main():
 func _on_show_background_checkbutton_toggled(toggled_on):
 	var main_scene = get_tree().root.get_child(1)
 	var stage = main_scene.get_node("stage")
-	var forest = stage.get_node("forest")
-	if toggled_on:		
-		forest.visible = true
+	var background_3d = stage.get_node("background_3d")
+	if toggled_on:
+		background_3d.show()
+		Global.show_background_3d = true 
 	else:
-		forest.visible = false
+		background_3d.hide()
+		Global.show_background_3d = false

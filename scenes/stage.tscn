@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://phyfuyw0hpjf"]
+[gd_scene load_steps=12 format=3 uid="uid://phyfuyw0hpjf"]
 
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_7ig21"]
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="1_ijncp"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://scripts/total_time_label.gd" id="6_re78e"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="7_eeplf"]
 [ext_resource type="Script" path="res://scripts/time_label.gd" id="8_jrwyw"]
+[ext_resource type="PackedScene" uid="uid://cj6lqmg0h52uc" path="res://scenes/stage_cleared_menu.tscn" id="8_o0eev"]
 [ext_resource type="PackedScene" uid="uid://65yr7ubbdaki" path="res://scenes/forest.tscn" id="8_y451n"]
+[ext_resource type="PackedScene" uid="uid://dgi18ced4wf7k" path="res://scenes/all_stages_clear_menu.tscn" id="9_gwbm1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uj3rf"]
 size = Vector3(40, 1, 1)
@@ -96,44 +98,7 @@ font_size = 200
 horizontal_alignment = 0
 script = ExtResource("6_re78e")
 
-[node name="forest" parent="." instance=ExtResource("8_y451n")]
-
-[node name="stage_clear_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 16, 0.1)
-visible = false
-modulate = Color(0.983983, 0.286034, 0, 1)
-text = "Stage 0 Cleared!"
-font = ExtResource("7_eeplf")
-font_size = 300
-outline_size = 50
-
-[node name="stage_clear_label2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 14.422, 0.1)
-visible = false
-modulate = Color(0.984314, 0, 0, 1)
-text = "Click to load next level"
-font = ExtResource("7_eeplf")
-font_size = 200
-outline_size = 40
-
-[node name="all_stages_clear_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 16, 0)
-visible = false
-modulate = Color(0.983983, 0.286034, 0, 1)
-text = "ALL STAGES CLEARED!!
-"
-font = ExtResource("7_eeplf")
-font_size = 300
-outline_size = 50
-
-[node name="all_stages_clear_label2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 14.422, 0)
-visible = false
-modulate = Color(0.984314, 0, 0, 1)
-text = "Click to play again, ESC to exit"
-font = ExtResource("7_eeplf")
-font_size = 200
-outline_size = 40
+[node name="background_3d" parent="." instance=ExtResource("8_y451n")]
 
 [node name="items_label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0174, 11.5375, 0)
@@ -158,3 +123,11 @@ text = "total time
 "
 font = ExtResource("7_eeplf")
 font_size = 270
+
+[node name="stage_cleared_menu" parent="." instance=ExtResource("8_o0eev")]
+process_mode = 3
+visible = false
+
+[node name="all_stages_cleared_menu" parent="." instance=ExtResource("9_gwbm1")]
+process_mode = 3
+visible = false

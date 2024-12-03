@@ -14,30 +14,30 @@ script = ExtResource("1_sgd61")
 
 [node name="label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 666.0
-offset_top = 424.0
-offset_right = 1236.0
-offset_bottom = 601.0
+offset_left = 590.0
+offset_top = 430.0
+offset_right = 1160.0
+offset_bottom = 607.0
 theme_override_fonts/font = ExtResource("2_grbse")
 theme_override_font_sizes/font_size = 150
 text = "GAME OVER"
 
 [node name="restart_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 828.0
-offset_top = 597.0
-offset_right = 1087.0
-offset_bottom = 664.0
+offset_left = 752.0
+offset_top = 603.0
+offset_right = 1011.0
+offset_bottom = 670.0
 theme_override_fonts/font = ExtResource("2_grbse")
 theme_override_font_sizes/font_size = 50
 text = "Restart Level"
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 825.0
-offset_top = 671.0
-offset_right = 1084.0
-offset_bottom = 738.0
+offset_left = 749.0
+offset_top = 677.0
+offset_right = 1008.0
+offset_bottom = 744.0
 theme_override_fonts/font = ExtResource("2_grbse")
 theme_override_font_sizes/font_size = 50
 text = "Quit"

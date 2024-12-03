@@ -2,13 +2,14 @@
 extends StaticBody3D
 
 var current_blocks
-var stages_available = true
 var block_scene_paths = []
 var non_blocks_count = 0
 
 func _ready():
 	add_scene_paths()
 	load_stage()
+	if not Global.show_background_3d:
+		$background_3d.hide()
 
 func add_scene_paths():
 	for i in range(Global.total_stages):
@@ -38,20 +39,18 @@ func load_stage():
 	set_non_blocks_count()
 
 func all_stages_cleared():
-	$all_stages_clear_label.show()
-	$all_stages_clear_label2.show()
-	stages_available = false
+	$all_stages_cleared_menu.show()	
 
 func stage_cleared():
-	$stage_clear_label.text = "Stage " + str(Global.current_stage) + " Cleared!"
-	$stage_clear_label.show()
-	$stage_clear_label2.show()
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
 	var main_scene = get_tree().root.get_child(1)
 	main_scene.remove_all_balls()
 	clear_flow_arrows()
 	clear_metal_blocks()
+	get_tree().paused = true 
+	$stage_cleared_menu.show()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
 func clear_flow_arrows():	
 	for child in current_blocks.get_children():
@@ -63,30 +62,18 @@ func clear_metal_blocks():
 		if child.name.begins_with("block_metal"):
 			child.queue_free()
 				
-func _process(_delta):
-	if stages_available:
-		var blocks_count = current_blocks.get_child_count() - non_blocks_count
-		# check if stage had been cleared 
-		if current_blocks and blocks_count == 0:
-			stage_cleared()
-	else:		
-		if Input.is_action_just_pressed("swing_paddle"):
-			stages_available = true
-			Global.current_stage = 1
-			$all_stages_clear_label.hide()
-			$all_stages_clear_label2.hide()
-			get_tree().reload_current_scene()
-			#load_stage()
-		else: 
-			if Input.is_action_just_pressed("swing_paddle") and $stage_clear_label.visible == true:
-				load_next_stage()
+func _process(_delta):	
+	var blocks_count = current_blocks.get_child_count() - non_blocks_count
+	# check if stage had been cleared 
+	if current_blocks and blocks_count == 0:
+		stage_cleared()
 				
 func load_next_stage():
-	$stage_clear_label.hide()
-	$stage_clear_label2.hide()
 	Global.current_stage += 1 
 	if Global.current_stage == Global.total_stages:
 		all_stages_cleared()
 	else:
+		get_tree().paused = false
 		get_tree().reload_current_scene()
-		#load_stage()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		

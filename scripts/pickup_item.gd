@@ -121,7 +121,8 @@ func grow_balls():
 func shrink_balls():
 	var current = Global.current_ball_size
 	if current > 1:
-		Global.current_ball_size*=0.5
+		@warning_ignore("integer_division")
+		Global.current_ball_size = int(Global.current_ball_size/2)
 		var main_scene = get_tree().root.get_child(1)
 		main_scene.update_ball_size()
 		
