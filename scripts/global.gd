@@ -11,6 +11,7 @@ var accumlated_time = 0.0
 
 # settings 
 var show_background_3d = true
+var version = "0.0.1"
 
 var slot1 = false
 var slot2 = false

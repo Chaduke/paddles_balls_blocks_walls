@@ -11,6 +11,8 @@ config_version=5
 [application]
 
 config/name="paddles_balls_blocks_walls"
+config/description="A breakout clone with 3D graphics and ball / paddle physics.  Its like a cross between Breakout and Pinball and it is awesomely fun. "
+config/version="0.0.2"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -23,7 +25,7 @@ Global="*res://scripts/global.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/mode=4
 
 [editor]
 

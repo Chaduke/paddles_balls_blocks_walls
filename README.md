@@ -1,4 +1,4 @@
--Update Dec 2nd 2024
+-Update Dec 3rd 2024
 
 Watch the intro video here :
 
@@ -8,7 +8,7 @@ I'll try to post update videos on or around every Sunday.
 
 Play the web version here (expect bugs):
 
-https://chaduke.github.io/pbbw_web
+https://chaduke.itch.io/pbbw
 
 The game is still very much in development, has only 10 levels and needs a lot of tweaking here and there plus sounds, music, more 3D stuff, a very long list, but you can kind of get the gist of where I'm going with it.  It reminds me of a cross between breakout and pinball, for those of you old enough to remember pinball. 
 

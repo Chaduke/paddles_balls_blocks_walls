@@ -61,10 +61,10 @@ text = "QUIT"
 
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 734.0
-offset_top = 69.0
-offset_right = 1121.0
-offset_bottom = 550.0
+offset_left = 745.0
+offset_top = 71.0
+offset_right = 1132.0
+offset_bottom = 552.0
 theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4x3ge")
@@ -74,6 +74,17 @@ BALLS
 BLOCKS 
 and WALLS!"
 horizontal_alignment = 1
+
+[node name="version_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 548.0
+offset_right = 1004.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Version 0.0.0"
 
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]

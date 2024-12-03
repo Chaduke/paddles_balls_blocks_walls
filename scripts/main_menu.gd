@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	$version_label.text = "Version " +  ProjectSettings.get_setting("application/config/version")
 	if not Global.game_started:	
 		$start_button.show()	
 		$start_button.grab_focus()
