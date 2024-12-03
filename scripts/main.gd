@@ -56,7 +56,7 @@ func process_balls():
 		if ball.position.y < 0:
 			balls.erase(ball)
 			ball.queue_free()
-			# check for game over condition				
+			# check for game over condition
 			if len(balls) == 0 and balls_left == 0:
 				game_over()
 			break
@@ -70,7 +70,7 @@ func check_stage_start():
 		$game_over.visible = false
 		Global.stage_started = true
 		get_tree().reload_current_scene()
-		$stage.load_stage(Global.current_stage)
+		$stage.load_stage()
 			
 func remove_all_balls():
 	for ball in balls:

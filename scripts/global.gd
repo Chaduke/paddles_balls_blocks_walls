@@ -2,6 +2,7 @@
 extends Node
 
 var current_stage = 1
+var total_stages = 11
 var current_ball_size = 2
 var infinite_balls = false
 var game_started = false
@@ -29,12 +30,12 @@ func find_free_slot():
 	else:
 		return 0
 		
-func set_slot_inactive(slot):
-	if slot == 1:
+func set_slot_inactive(to_inactivate):
+	if to_inactivate == 1:
 		slot1 = false
-	elif slot == 2: 
+	elif to_inactivate == 2: 
 		slot2 = false
-	elif slot == 3:
+	elif to_inactivate == 3:
 		slot3 = false
-	elif slot == 4: 
+	elif to_inactivate == 4: 
 		slot4 = false
