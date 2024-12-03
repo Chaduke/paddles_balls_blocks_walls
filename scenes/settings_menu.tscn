@@ -48,4 +48,13 @@ BLOCKS
 and WALLS!"
 horizontal_alignment = 1
 
+[node name="back_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 904.0
+offset_top = 748.0
+offset_right = 949.0
+offset_bottom = 779.0
+text = "Back"
+
 [connection signal="toggled" from="show_background_checkbutton" to="." method="_on_show_background_checkbutton_toggled"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

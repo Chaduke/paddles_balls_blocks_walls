@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=12 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
 [ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/main_menu.tscn" id="2_u3m40"]
 [ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
+[ext_resource type="PackedScene" uid="uid://3381m75yvmic" path="res://scenes/game_over_menu.tscn" id="4_rx3or"]
 [ext_resource type="Texture2D" uid="uid://dh62r386qxuix" path="res://assets/images/skybox_sunny.png" id="4_w6qld"]
 [ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="5_l3s87"]
@@ -35,6 +36,10 @@ offset_right = 0.0
 process_mode = 3
 visible = false
 
+[node name="game_over_menu" parent="." instance=ExtResource("4_rx3or")]
+process_mode = 3
+visible = false
+
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)
 fov = 45.0
@@ -64,12 +69,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_enept")
-
-[node name="game_over" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.027, 7.72681, -37)
-visible = false
-text = "Game Over
-Click to restart level"
-font = ExtResource("5_l3s87")
-font_size = 300
-outline_size = 50

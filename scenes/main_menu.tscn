@@ -12,9 +12,11 @@ offset_left = 2.0
 offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("1_x3mcw")
 
 [node name="start_button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 831.0
 offset_top = 616.0
@@ -24,12 +26,24 @@ theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "START GAME"
 
+[node name="resume_button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 831.0
+offset_top = 616.0
+offset_right = 1048.0
+offset_bottom = 683.0
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 50
+text = "RESUME GAME"
+
 [node name="settings_button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 849.0
 offset_top = 701.0
 offset_right = 1021.0
 offset_bottom = 768.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
@@ -40,6 +54,7 @@ offset_left = 895.0
 offset_top = 785.0
 offset_right = 980.0
 offset_bottom = 852.0
+focus_mode = 0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
@@ -61,5 +76,6 @@ and WALLS!"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

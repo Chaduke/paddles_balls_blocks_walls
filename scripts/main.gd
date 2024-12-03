@@ -16,6 +16,7 @@ func set_globals():
 	# I call a get_tree().reload_current_scene()
 	Global.current_ball_size = 2
 	Global.infinite_balls = false
+	Global.stage_started = false
 	# set gravity to normal 
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
@@ -25,11 +26,8 @@ func _process(_delta):
 	if Global.game_started:
 		position_camera()
 		get_input()
-				
-	if Global.stage_started:
-		process_balls()
-	else:
-		check_stage_start()
+		if Global.stage_started:
+			process_balls()
 			
 func position_camera():
 	# this is just an "opening movement" thing so show off the 3D scenery
@@ -45,9 +43,7 @@ func get_input():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
 	if Input.is_action_just_pressed("spawn_ball") and game_ready:
-		spawn_ball()
-	if Input.is_action_just_pressed("reset"):
-		get_tree().reload_current_scene()
+		spawn_ball()	
 			
 func process_balls():
 	# balls loop
@@ -62,15 +58,18 @@ func process_balls():
 			break
 
 func game_over():
-	$game_over.visible = true
+	$game_over_menu.show()
+	set_globals()
+	get_tree().paused = true
 	Global.stage_started = false
-				
-func check_stage_start():
-	if Input.is_action_pressed("swing_paddle"):
-		$game_over.visible = false
-		Global.stage_started = true
-		get_tree().reload_current_scene()
-		$stage.load_stage()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func restart_stage():
+	# called from game_over_menu.gd
+	$game_over_menu.hide()
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			
 func remove_all_balls():
 	for ball in balls:

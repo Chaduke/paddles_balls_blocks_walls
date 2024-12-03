@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://3381m75yvmic"]
+
+[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_sgd61"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_grbse"]
+
+[node name="game_over_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sgd61")
+
+[node name="label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 424.0
+offset_right = 1236.0
+offset_bottom = 601.0
+theme_override_fonts/font = ExtResource("2_grbse")
+theme_override_font_sizes/font_size = 150
+text = "GAME OVER"
+
+[node name="restart_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 597.0
+offset_right = 1087.0
+offset_bottom = 664.0
+theme_override_fonts/font = ExtResource("2_grbse")
+theme_override_font_sizes/font_size = 50
+text = "Restart Level"
+
+[node name="quit_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 825.0
+offset_top = 671.0
+offset_right = 1084.0
+offset_bottom = 738.0
+theme_override_fonts/font = ExtResource("2_grbse")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
