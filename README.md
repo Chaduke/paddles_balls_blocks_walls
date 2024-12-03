@@ -18,9 +18,11 @@ TODO List:
 
 Short Term
 - Refactor all code and get core functionality complete and working
+- Make sure pickup items function as intended
 - Add "Total timer" for all levels
 - Keep track of player's best times 
 - Find out why the ball lands on the paddle sometimes and stops
+- Find out why some cracked yellow blocks remain on level completion 
 - Make a "max size" paddle pickup item
 - Make particles look more realistic
 
