@@ -3,7 +3,12 @@ extends Control
 
 func _ready():
 	$stage_cleared_label.text = "Stage " + str(Global.current_stage) + " cleared!"
-	
+	platform_specific_inits()
+
+func platform_specific_inits():
+	if OS.get_name()=="Web":
+		$quit_button.hide()	
+		
 func _on_next_stage_button_pressed():	
 	hide()
 	var main_scene = get_tree().root.get_child(1)

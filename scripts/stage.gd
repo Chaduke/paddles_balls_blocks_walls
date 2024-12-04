@@ -36,22 +36,26 @@ func set_non_blocks_count():
 func load_stage():
 	load_blocks()
 	$stage_label.text = "Stage " + str(Global.current_stage)
-	set_non_blocks_count()
-
+	set_non_blocks_count()	
+	
 func all_stages_cleared():
+	cleanup_stage()	
 	$all_stages_cleared_menu.show()	
-
-func stage_cleared():
+	
+func stage_cleared():	
+	cleanup_stage()	
+	$stage_cleared_menu.show()
+	
+func cleanup_stage():
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
 	var main_scene = get_tree().root.get_child(1)
 	main_scene.remove_all_balls()
 	clear_flow_arrows()
 	clear_metal_blocks()
-	get_tree().paused = true 
-	$stage_cleared_menu.show()
+	get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			
+	
 func clear_flow_arrows():	
 	for child in current_blocks.get_children():
 		if child.name.begins_with("flow_arrows"):

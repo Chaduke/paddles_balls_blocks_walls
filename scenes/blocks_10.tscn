@@ -463,6 +463,46 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 24.5, 0)
 visible = false
 
+[node name="flow_arrows_invis_right_26" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_27" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_28" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_29" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_30" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_31" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_32" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_33" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_34" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 27.5, 0)
+visible = false
+
+[node name="flow_arrows_invis_right_35" parent="." instance=ExtResource("4_ycovq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 27.5, 0)
+visible = false
+
 [node name="flow_arrows_invis_right_18" parent="." instance=ExtResource("4_ycovq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 20.5, 0)
 visible = false

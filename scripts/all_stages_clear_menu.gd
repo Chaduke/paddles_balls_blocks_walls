@@ -2,7 +2,11 @@
 extends Control
 
 func _ready():
-	pass 
+	platform_specific_inits()
+
+func platform_specific_inits():
+	if OS.get_name()=="Web":
+		$quit_button.hide()	
 
 func _on_restart_button_pressed():
 	Global.current_stage = 1

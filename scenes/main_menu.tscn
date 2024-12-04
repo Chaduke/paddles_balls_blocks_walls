@@ -77,14 +77,25 @@ horizontal_alignment = 1
 
 [node name="version_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 880.0
-offset_top = 548.0
-offset_right = 1004.0
-offset_bottom = 576.0
+offset_left = 1169.0
+offset_top = 465.0
+offset_right = 1293.0
+offset_bottom = 493.0
 theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Version 0.0.0"
+
+[node name="platform_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1170.0
+offset_top = 496.0
+offset_right = 1340.0
+offset_bottom = 524.0
+theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Platform Desktop"
 
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]

@@ -5,12 +5,14 @@ var balls = []
 var ball_scene = preload("res://scenes/ball.tscn")
 var balls_left = 10
 var game_ready = false
+var elapsed_time = 0.0
 
-func _ready():
+func _ready():	
 	set_globals()
 	if not Global.game_started:
 		$main_menu.show()
-	
+		get_tree().paused = true
+		
 func set_globals():
 	# after each stage is complete 
 	# I call a get_tree().reload_current_scene()
@@ -22,8 +24,23 @@ func set_globals():
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
 	Vector3(0, -1, 0))
 	Global.deactivate_all_slots()
+	# make sure inputs are setup properly based on platform
+	os_specific_inits()
 
-func _process(_delta):
+func os_specific_inits():
+	# web build
+	if OS.get_name() == "Web":
+		var escape_event = InputEventKey.new() 
+		escape_event.keycode = KEY_ESCAPE
+		var tab_event = InputEventKey.new() 
+		tab_event.keycode = KEY_TAB
+		InputMap.action_erase_event("ui_cancel",escape_event)
+		InputMap.action_add_event("ui_cancel", tab_event)
+		$web_shortcuts.show()
+		$desktop_shortcuts.hide()
+		
+func _process(delta):
+	elapsed_time+=delta
 	if Global.game_started:
 		position_camera()
 		get_input()
@@ -39,12 +56,39 @@ func position_camera():
 			game_ready = true
 			
 func get_input():
-	if Input.is_action_pressed("ui_cancel"):
-		$main_menu.visible = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
+	if Input.is_action_just_pressed("ui_cancel"):
+		if elapsed_time > 0.1 : toggle_main_menu()
 	if Input.is_action_just_pressed("spawn_ball") and game_ready:
-		spawn_ball()	
+		spawn_ball()
+	if Input.is_action_just_pressed("settings"):
+		if elapsed_time > 0.1 : toggle_settings()
+
+func toggle_main_menu():
+	$main_menu.show()
+	$main_menu.elapsed_time = 0.0
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+		
+func spawn_ball():
+	# spawning the first ball starts the stage
+	if not Global.stage_started:
+		Global.stage_started = true
+	# check if it's ok to spawn a ball
+	if decrement_balls():
+		var ball_instance = create_ball_instance()
+		setup_ball_collision(ball_instance)
+		# position the new ball in respect to the paddle 
+		ball_instance.position = $paddle.position + Vector3(0,1,0)
+		ball_instance.linear_velocity += Vector3(5,40,0)
+		# add the new ball to our list and to the main scene 
+		balls.append(ball_instance) 
+		add_child(ball_instance)
+			
+func toggle_settings():	
+		$settings_menu.show()
+		$settings_menu.elapsed_time = 0.0
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
 func process_balls():
 	# balls loop
@@ -62,7 +106,7 @@ func game_over():
 	$game_over_menu.show()
 	set_globals()
 	get_tree().paused = true
-	Global.stage_started = false
+	Global.stage_started = false	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func restart_stage():
@@ -116,22 +160,7 @@ func setup_ball_collision(ball_instance):
 			sphere_shape.radius = Global.current_ball_size / 4.0 - 0.1
 		else: 
 			print("Error: CollisionShape3D node or SphereShape3D shape not found.")
-			
-func spawn_ball():
-	# spawning the first ball starts the stage
-	if not Global.stage_started:
-		Global.stage_started = true
-	# check if it's ok to spawn a ball
-	if decrement_balls():
-		var ball_instance = create_ball_instance()
-		setup_ball_collision(ball_instance)
-		# position the new ball in respect to the paddle 
-		ball_instance.position = $paddle.position + Vector3(0,1,0)
-		ball_instance.linear_velocity += Vector3(5,40,0)
-		# add the new ball to our list and to the main scene 
-		balls.append(ball_instance) 
-		add_child(ball_instance)
-		
+					
 func update_ball_size():
 	for ball_instance in balls:
 		clear_existing_mesh_instance(ball_instance)

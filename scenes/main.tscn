@@ -23,21 +23,22 @@ sky = SubResource("Sky_jpksa")
 sky_custom_fov = 45.0
 
 [node name="main" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_qct0r")
 
 [node name="main_menu" parent="." instance=ExtResource("2_u3m40")]
-process_mode = 3
+process_mode = 2
 process_priority = 1
 visible = false
 offset_left = 0.0
 offset_right = 0.0
 
 [node name="settings_menu" parent="." instance=ExtResource("7_yw4vb")]
-process_mode = 3
+process_mode = 2
 visible = false
 
 [node name="game_over_menu" parent="." instance=ExtResource("4_rx3or")]
-process_mode = 3
+process_mode = 2
 visible = false
 
 [node name="camera" type="Camera3D" parent="."]
@@ -53,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -37)
 collision_mask = 5
 
 [node name="title_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2209, 26.3756, -37)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5395, 26.6086, -37)
 modulate = Color(0.278431, 0.917647, 0.666667, 1)
 outline_modulate = Color(0.505326, 0.0915123, 0.341284, 1)
 text = "Paddles
@@ -63,9 +64,29 @@ and Walls!"
 font = ExtResource("5_l3s87")
 font_size = 320
 outline_size = 61
+horizontal_alignment = 2
 
 [node name="stage" parent="." instance=ExtResource("4_mb6a1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_enept")
+
+[node name="web_shortcuts" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4, 21.0931, -37)
+visible = false
+text = "Keyboard Shortcuts :
+TAB - Toggle Main Menu
+S - Toggle Settings Menu"
+font_size = 100
+outline_size = 20
+horizontal_alignment = 2
+
+[node name="desktop_shortcuts" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4, 21.0931, -37)
+text = "Keyboard Shortcuts :
+ESC - Toggle Main Menu
+S - Toggle Settings Menu"
+font_size = 100
+outline_size = 20
+horizontal_alignment = 2

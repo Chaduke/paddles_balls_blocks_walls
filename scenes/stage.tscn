@@ -125,11 +125,11 @@ font = ExtResource("7_eeplf")
 font_size = 270
 
 [node name="stage_cleared_menu" parent="." instance=ExtResource("8_o0eev")]
-process_mode = 3
+process_mode = 2
 visible = false
 
 [node name="all_stages_cleared_menu" parent="." instance=ExtResource("9_gwbm1")]
-process_mode = 3
+process_mode = 2
 visible = false
 
 [node name="blocks_left_label" type="Label3D" parent="."]
