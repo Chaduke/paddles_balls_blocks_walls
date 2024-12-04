@@ -163,6 +163,8 @@ func check_existing_items():
 	return false
 	
 func set_target_position():
+	# check to see if we already have an existing item in a slot
+	# and if we should just add to it's timer rather than adding a new item
 	if check_existing_items():
 		return false
 	slot = Global.find_free_slot()

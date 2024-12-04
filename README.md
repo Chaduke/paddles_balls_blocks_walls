@@ -1,4 +1,12 @@
--Update Dec 3rd 2024
+-Update Dec 4th 2024:
+	
+The Web Version as I expected is causing a lot of nagging problems, one being that web browsers cache the content and wont update to the newest version unless the cache is cleared.  
+
+There are workarounds for this on the server side but I don't think that will work with Github pages (that I know of yet), so I'm giving itch.io a shot to see how it works there.
+
+Another issue is with the menus I've created for the Desktop version, compatibility problems are occuring using the Escape key on the web version, because the Escape key there is used to free the mouse cursor from the page canvas.
+
+So..now I need to look into how to use Godot to support multi-platform builds with the same code base, what is best practice, etc..
 
 Watch the intro video here :
 
