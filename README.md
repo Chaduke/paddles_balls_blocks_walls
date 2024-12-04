@@ -1,6 +1,7 @@
 -Update Dec 4th 2024:
 
 Hosting the web version now on itch.io and its working great.  I also ironed out many of the bugs I was dealing with the web version and new menus.  Now I'm ready to fill out the rest of the core features and test gameplay, the hopefully on to adding the rest of the levels!	
+version 0.0.5 - fixed a bug making level 6 impossible to finish 
 
 Watch the intro video here :
 
@@ -28,8 +29,6 @@ Short Term
 Long Term 
 - Create a clone of all 50 original levels from Block 1.30 (10 done)
 - Add 50 new unique levels
-- Create a Menu
-- Create a UI / HUD
 - Redo all sounds / music in Ableton Live
 
 =========================================================
