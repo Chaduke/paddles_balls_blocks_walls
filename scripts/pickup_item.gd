@@ -1,6 +1,7 @@
 # pickup_item.gd
-extends CharacterBody3D
+class_name PickupItem extends CharacterBody3D
 @export var item_type: String = "Random"
+@export var timer = 1
 
 # states to track movement of the pickup item
 var state
@@ -11,7 +12,7 @@ var elapsed_time = 0.0
 # the default pickup item timer is just 1
 # others will be changed based on what they are
 # like infinite balls is 20 or 30
-var timer = 1
+
 
 # slots for the pickup items to rest in on the right side 
 # while their timer counts down and their effects are enabled
@@ -150,9 +151,20 @@ func update_timed_item():
 		if item_type == "InfiniteBalls":
 			Global.infinite_balls = false
 		queue_free()
-				
+
+func check_existing_items():
+	if item_type in ["InfiniteBalls","GravityReverse"]:
+		var main_scene = get_tree().root.get_child(1)
+		for child in main_scene.get_children():
+			if child != self and child is PickupItem:
+				if child.item_type == item_type:
+					child.timer += timer
+					return true
+	return false
+	
 func set_target_position():
-	# set the target position based on how many are active
+	if check_existing_items():
+		return false
 	slot = Global.find_free_slot()
 	if slot > 0:
 		state = MOVING_RIGHT

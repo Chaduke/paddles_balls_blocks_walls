@@ -65,6 +65,7 @@ func clear_metal_blocks():
 func _process(_delta):	
 	var blocks_count = current_blocks.get_child_count() - non_blocks_count
 	# check if stage had been cleared 
+	$blocks_left_label.text = "Blocks Left " + str(blocks_count)
 	if current_blocks and blocks_count == 0:
 		stage_cleared()
 				

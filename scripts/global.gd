@@ -1,7 +1,7 @@
 # global.gd
 extends Node
 
-var current_stage = 1
+var current_stage = 0
 var total_stages = 11
 var current_ball_size = 2
 var infinite_balls = false
@@ -11,12 +11,15 @@ var accumlated_time = 0.0
 
 # settings 
 var show_background_3d = true
-var version = "0.0.1"
 
 var slot1 = false
 var slot2 = false
 var slot3 = false
 var slot4 = false
+
+func deactivate_all_slots():
+	for i in range(1,4):
+		set_slot_inactive(i)
 
 func find_free_slot():
 	if not slot1:

@@ -131,3 +131,8 @@ visible = false
 [node name="all_stages_cleared_menu" parent="." instance=ExtResource("9_gwbm1")]
 process_mode = 3
 visible = false
+
+[node name="blocks_left_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59405, 0.547598, 0)
+text = "Blocks Left 00"
+font_size = 100
