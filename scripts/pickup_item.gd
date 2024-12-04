@@ -33,9 +33,9 @@ func show_item():
 		$Grower.show()
 	elif item_type == "Shrinker":
 		$Shrinker.show()
-	elif item_type == "Smallballs":
+	elif item_type == "SmallBalls":
 		$Smallballs.show()
-	elif item_type == "Largeballs":
+	elif item_type == "LargeBalls":
 		$Largeballs.show()
 	elif item_type == "GravityReverse":
 		$GravityReverse.show()
@@ -43,23 +43,28 @@ func show_item():
 	elif item_type == "InfiniteBalls":
 		$InfiniteBalls.show()
 		timer = 20
+	elif item_type == "MaxPaddle":
+		$MaxPaddle.show()
+		timer = 20
 		
 func pick_random():
 	var rng = RandomNumberGenerator.new() 
 	rng.randomize() # Ensure randomness by randomizing the seed 
-	var random_int = rng.randi_range(0, 5)
+	var random_int = rng.randi_range(0, 6)
 	if random_int == 0:
 		item_type = "Grower"
 	elif random_int == 1:
 		item_type = "Shrinker"
 	elif random_int == 2:
-		item_type = "Largeballs"
+		item_type = "LargeBalls"
 	elif random_int == 3:
-		item_type = "Smallballs"
+		item_type = "SmallBalls"
 	elif random_int == 4:
 		item_type = "GravityReverse"
 	elif random_int == 5:
 		item_type = "InfiniteBalls"
+	elif random_int == 6:
+		item_type = "MaxPaddle"
 		
 func _process(delta):
 	if state == MOVING_UP:
@@ -99,9 +104,9 @@ func enable_item_effect():
 		paddle.grow_paddle()
 	elif item_type == "Shrinker":
 		paddle.shrink_paddle()
-	elif item_type == "Largeballs":
+	elif item_type == "LargeBalls":
 		grow_balls()
-	elif item_type == "Smallballs":
+	elif item_type == "SmallBalls":
 		shrink_balls()
 	elif item_type == "GravityReverse":
 		# change the Y vector to 1 instead of -1, reversing gravity pull
@@ -110,11 +115,12 @@ func enable_item_effect():
 		Vector3(0, 1, 0))
 	elif item_type == "InfiniteBalls":
 		Global.infinite_balls = true
-
+	elif item_type == "MaxPaddle":
+		paddle.maximize()
 		
 func grow_balls():
 	var current = Global.current_ball_size
-	if current < 8:
+	if current < 4:
 		Global.current_ball_size *=2
 		var main_scene = get_tree().root.get_child(1)
 		main_scene.update_ball_size()
@@ -124,6 +130,7 @@ func shrink_balls():
 	if current > 1:
 		@warning_ignore("integer_division")
 		Global.current_ball_size = int(Global.current_ball_size/2)
+		# print("Current ball size shrunk to " + str(Global.current_ball_size))
 		var main_scene = get_tree().root.get_child(1)
 		main_scene.update_ball_size()
 		
@@ -150,14 +157,22 @@ func update_timed_item():
 			Vector3(0, -1, 0))
 		if item_type == "InfiniteBalls":
 			Global.infinite_balls = false
+		if item_type == "MaxPaddle":
+			var paddle=get_tree().root.get_child(1).get_node("paddle")
+			paddle.normalize()
 		queue_free()
 
 func check_existing_items():
+	# make sure its in the list of types we want to time increment
 	if item_type in ["InfiniteBalls","GravityReverse"]:
 		var main_scene = get_tree().root.get_child(1)
 		for child in main_scene.get_children():
+			# make sure it's not us, but is this class
 			if child != self and child is PickupItem:
-				if child.item_type == item_type:
+				# make sure the item types match
+				# and that the item is already caught
+				# state 0 and 1 are prior to it hitting the paddle
+				if child.item_type == item_type and child.state > 1:
 					child.timer += timer
 					return true
 	return false

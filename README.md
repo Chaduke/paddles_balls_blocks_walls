@@ -1,12 +1,6 @@
 -Update Dec 4th 2024:
-	
-The Web Version as I expected is causing a lot of nagging problems, one being that web browsers cache the content and wont update to the newest version unless the cache is cleared.  
 
-There are workarounds for this on the server side but I don't think that will work with Github pages (that I know of yet), so I'm giving itch.io a shot to see how it works there.
-
-Another issue is with the menus I've created for the Desktop version, compatibility problems are occuring using the Escape key on the web version, because the Escape key there is used to free the mouse cursor from the page canvas.
-
-So..now I need to look into how to use Godot to support multi-platform builds with the same code base, what is best practice, etc..
+Hosting the web version now on itch.io and its working great.  I also ironed out many of the bugs I was dealing with the web version and new menus.  Now I'm ready to fill out the rest of the core features and test gameplay, the hopefully on to adding the rest of the levels!	
 
 Watch the intro video here :
 
@@ -14,7 +8,7 @@ https://youtu.be/HQ9_zqg4RUU?si=gQfzIGiknZz-U3oS
 
 I'll try to post update videos on or around every Sunday.  
 
-Play the web version here (expect bugs):
+Play the web version here (it is improving quickly but still expect bugs):
 
 https://chaduke.itch.io/pbbw
 
@@ -25,13 +19,10 @@ To play just use the mouse to move the paddle, left click "swings" the paddle an
 TODO List:
 
 Short Term
-- Refactor all code and get core functionality complete and working
-- Make sure pickup items function as intended
-- Add "Total timer" for all levels
+- Get core functionality complete and working
 - Keep track of player's best times 
 - Find out why the ball lands on the paddle sometimes and stops
 - Find out why some cracked yellow blocks remain on level completion 
-- Make a "max size" paddle pickup item
 - Make particles look more realistic
 
 Long Term 

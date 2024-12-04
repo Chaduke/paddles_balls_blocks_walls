@@ -130,15 +130,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 24.5, 0)
 
 [node name="block9" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 24.5, 0)
-item_type = "Largeballs"
+item_type = "MaxPaddle"
 
 [node name="block10" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 24.5, 0)
-item_type = "GravityReverse"
+item_type = "LargeBalls"
 
 [node name="block11" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 24.5, 0)
-item_type = "InfiniteBalls"
 
 [node name="block12" parent="." instance=ExtResource("1_twru7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 20.5, 0)
@@ -170,7 +169,7 @@ item_type = "Grower"
 
 [node name="block21" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 20.5, 0)
-item_type = "Grower"
+item_type = "Shrinker"
 
 [node name="block22" parent="." instance=ExtResource("2_xjti5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 20.5, 0)

@@ -225,7 +225,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15.5, 0)
 
 [node name="block82" parent="." instance=ExtResource("3_46yvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 15.5, 0)
-item_type = "InfiniteBalls"
+item_type = "LargeBalls"
 
 [node name="block84" parent="." instance=ExtResource("3_46yvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 15.5, 0)
@@ -233,11 +233,11 @@ item_type = "InfiniteBalls"
 
 [node name="block83" parent="." instance=ExtResource("3_46yvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 15.5, 0)
-item_type = "GravityReverse"
+item_type = "SmallBalls"
 
 [node name="block113" parent="." instance=ExtResource("3_46yvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 15.5, 0)
-item_type = "GravityReverse"
+item_type = "MaxPaddle"
 
 [node name="block_clear16" parent="." instance=ExtResource("4_iww8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 22.5, 0)

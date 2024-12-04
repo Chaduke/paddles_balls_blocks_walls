@@ -40,7 +40,7 @@ func load_stage():
 	
 func all_stages_cleared():
 	cleanup_stage()	
-	$all_stages_cleared_menu.show()	
+	$all_stages_cleared_menu.show()
 	
 func stage_cleared():	
 	cleanup_stage()	

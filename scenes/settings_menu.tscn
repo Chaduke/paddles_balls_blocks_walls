@@ -19,7 +19,6 @@ offset_top = 647.0
 offset_right = 1087.0
 offset_bottom = 712.0
 theme_override_font_sizes/font_size = 24
-button_pressed = true
 text = "Show 3D Background"
 
 [node name="settings_label" type="Label" parent="."]

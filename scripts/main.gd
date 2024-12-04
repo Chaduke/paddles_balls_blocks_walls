@@ -163,6 +163,7 @@ func setup_ball_collision(ball_instance):
 					
 func update_ball_size():
 	for ball_instance in balls:
+		# print("Updating ball size to " + str(Global.current_ball_size))
 		clear_existing_mesh_instance(ball_instance)
 		add_new_mesh_instance(ball_instance)
 		setup_ball_collision(ball_instance)

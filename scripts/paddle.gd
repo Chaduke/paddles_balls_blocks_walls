@@ -44,6 +44,14 @@ func shrink_paddle():
 	if current_size > 4: 
 		current_size -= 4 
 		update_paddle_model(current_size)
+
+func maximize():
+	current_size = 28
+	update_paddle_model(current_size)
+
+func normalize():
+	current_size = 8
+	update_paddle_model(current_size)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):	
