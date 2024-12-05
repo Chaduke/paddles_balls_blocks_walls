@@ -4,13 +4,30 @@ extends StaticBody3D
 var current_blocks
 var block_scene_paths = []
 var non_blocks_count = 0
+var ticks = 0
 
 func _ready():
 	add_scene_paths()
 	load_stage()
 	if not Global.show_background_3d:
 		$background_3d.hide()
-
+		
+func start_rsg():
+	$rsg_timer.start()
+	$ready_set_go_label.show()
+	
+func _on_rsg_timer_timeout():
+	ticks+=1
+	if ticks == 1:
+		$ready_set_go_label.text = "SET!"		
+	elif ticks==2:
+		$ready_set_go_label.text = "GO!!!"		
+	else:
+		var main_scene = get_tree().root.get_child(1)
+		main_scene.game_ready = true 
+		$rsg_timer.stop()
+		$ready_set_go_label.hide()
+		
 func add_scene_paths():
 	for i in range(Global.total_stages):
 		block_scene_paths.append("res://scenes/blocks_" + str(i) + ".tscn")
@@ -91,4 +108,3 @@ func load_next_stage():
 		get_tree().paused = false
 		get_tree().reload_current_scene()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		

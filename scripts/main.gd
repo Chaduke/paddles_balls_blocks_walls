@@ -5,6 +5,7 @@ var balls = []
 var ball_scene = preload("res://scenes/ball.tscn")
 var balls_left = 10
 var game_ready = false
+var camera_ready = false
 var elapsed_time = 0.0
 
 func _ready():	
@@ -49,11 +50,12 @@ func _process(delta):
 			
 func position_camera():
 	# this is just an "opening movement" thing so show off the 3D scenery
-	if not game_ready:
+	if not camera_ready:
 		if $camera.position.z < 0:
 			$camera.position.z += 4
 		else:
-			game_ready = true
+			camera_ready = true
+			$stage.start_rsg()
 			
 func get_input():
 	if Input.is_action_just_pressed("ui_cancel"):

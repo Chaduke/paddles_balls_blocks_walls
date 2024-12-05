@@ -1,24 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0vg8y4cjaynd"]
+[gd_scene load_steps=4 format=3 uid="uid://d0vg8y4cjaynd"]
 
 [ext_resource type="Script" path="res://scripts/block_yellow_cracked.gd" id="1_2goml"]
 [ext_resource type="PackedScene" uid="uid://uk7eo4vfkgjo" path="res://assets/models/block_yellow2.glb" id="1_qdqp0"]
-[ext_resource type="AudioStream" uid="uid://byxx6h2dntgo8" path="res://assets/wave/block.wav" id="3_gqu5l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y4vrd"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dsg66"]
-emission_shape = 1
-emission_sphere_radius = 1.0
-spread = 60.0
-initial_velocity_min = -5.0
-initial_velocity_max = 5.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyfon"]
-albedo_color = Color(1, 0.431373, 0.243137, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_s7cx4"]
-material = SubResource("StandardMaterial3D_hyfon")
-size = Vector3(0.2, 0.2, 0.2)
 
 [node name="block_yellow_cracked" type="Area3D"]
 collision_layer = 8
@@ -30,15 +15,4 @@ shape = SubResource("CapsuleShape3D_y4vrd")
 
 [node name="block_yellow2" parent="." instance=ExtResource("1_qdqp0")]
 
-[node name="block_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_gqu5l")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-emitting = false
-amount = 20
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_dsg66")
-draw_pass_1 = SubResource("BoxMesh_s7cx4")
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

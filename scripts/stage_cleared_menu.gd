@@ -20,7 +20,7 @@ func update_labels():
 		Global.stage_times_dict[Global.current_stage] = Global.stage_time
 		Global.save_times()
 	else:
-		$stage_time_congrats_label.text = "Sorry! You didn't beat your record -Stage Time- for this stage"
+		$stage_time_congrats_label.hide()
 		$old_best_stage_time_label.hide()
 		$new_best_stage_time_label.hide()
 	
@@ -33,7 +33,7 @@ func update_labels():
 		Global.total_times_dict[Global.current_stage] = Global.accumlated_time
 		Global.save_times()
 	else:
-		$total_time_congrats_label.text = "Sorry! You didn't beat your record -Total Time- for this stage"
+		$total_time_congrats_label.hide()
 		$old_best_total_time_label.hide()
 		$new_best_total_time_label.hide()
 	

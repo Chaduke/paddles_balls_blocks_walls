@@ -1,14 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqclg4jco6ayd"]
+[gd_scene load_steps=4 format=3 uid="uid://dqclg4jco6ayd"]
 
 [ext_resource type="PackedScene" uid="uid://cla3frnyj2uys" path="res://assets/models/block_yellow.glb" id="1_6wmgn"]
 [ext_resource type="Script" path="res://scripts/block.gd" id="1_m2mtj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0vcpp"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mxw7h"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_rhsxk"]
-size = Vector3(0.1, 0.1, 0.1)
 
 [node name="block" type="StaticBody3D"]
 script = ExtResource("1_m2mtj")
@@ -18,15 +13,5 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 shape = SubResource("CapsuleShape3D_0vcpp")
 
 [node name="block_yellow" parent="." instance=ExtResource("1_6wmgn")]
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-sub_emitter = NodePath(".")
-lifetime = 1.32
-explosiveness = 0.2
-randomness = 0.2
-process_material = SubResource("ParticleProcessMaterial_mxw7h")
-draw_pass_1 = SubResource("BoxMesh_rhsxk")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

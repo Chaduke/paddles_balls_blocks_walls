@@ -50,6 +50,7 @@ func start_game():
 	hide()	
 	get_tree().paused = false
 	Global.game_started = true
+	#OS.window_fullscreen = true
 
 func _on_resume_button_pressed():
 	resume_game()

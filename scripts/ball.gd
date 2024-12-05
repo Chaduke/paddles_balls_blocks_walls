@@ -1,5 +1,5 @@
 # ball.gd 
-extends RigidBody3D
+class_name Ball extends RigidBody3D
 
 @onready var bounce = $bounce
 @onready var block = $block
@@ -49,7 +49,7 @@ func paddle_collision(paddle_body):
 func block_collision(block_body):	
 	var block_model = block_body.get_child(1)
 	if block_model.name != "block_metal":
-		block.play()
+		pass
 	if block_model.name=="block_blue":
 		if block_model.visible==true:
 			# the regular model is visible

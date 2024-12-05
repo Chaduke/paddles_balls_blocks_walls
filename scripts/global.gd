@@ -1,7 +1,7 @@
 # global.gd
 extends Node
 
-var current_stage = 1
+var current_stage = 3
 # you have to count stage 0 here, 0 is the testing stage
 # so this number is the number of playable stages + 1
 var total_stages = 10
@@ -43,6 +43,7 @@ func load_time_dict(dict,file_path):
 		load_file = FileAccess.open(file_path, FileAccess.READ)
 		
 	var times_string = load_file.get_as_text()
+	load_file.close()
 	var temp_dict = JSON.parse_string(times_string)
 	dict.clear() 
 	for key in temp_dict.keys(): 
@@ -53,6 +54,7 @@ func save_time_dict(dict,file_path):
 	var save_file = FileAccess.open(file_path, FileAccess.WRITE)
 	var times_string = JSON.stringify(dict)
 	save_file.store_line(times_string)
+	save_file.close()
 	
 func reset_stage_times():
 	for i in range (1,101):
