@@ -133,6 +133,25 @@ process_mode = 2
 visible = false
 
 [node name="blocks_left_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59405, 0.547598, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983357, 0.493987, 0)
+modulate = Color(0.0313726, 0.490196, 1, 1)
 text = "Blocks Left 00"
 font_size = 100
+outline_size = 20
+horizontal_alignment = 2
+
+[node name="best_stage_time_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983357, 2.46317, 0)
+modulate = Color(1, 1, 0.380392, 1)
+text = "Best Stage Time 0m 0s 00"
+font_size = 100
+outline_size = 20
+horizontal_alignment = 2
+
+[node name="best_total_time_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.983357, 1.47135, 0)
+modulate = Color(1, 0.360784, 1, 1)
+text = "Best Total Time 0m 0s 00"
+font_size = 100
+outline_size = 20
+horizontal_alignment = 2

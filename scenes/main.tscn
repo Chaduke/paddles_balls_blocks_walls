@@ -90,3 +90,21 @@ S - Toggle Settings Menu"
 font_size = 100
 outline_size = 20
 horizontal_alignment = 2
+
+[node name="instructions_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.561, 14.8218, -37)
+text = "Instructions  :
+Use mouse to -
+move paddle left and right
+Left mouse button - 
+\"swing\" the paddle 
+Right mouse button -
+release balls
+
+Stage ends when - 
+all balls are lost 
+or all blocks are cleared
+Try to beat your best times!"
+font_size = 100
+outline_size = 20
+horizontal_alignment = 2

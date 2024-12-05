@@ -43,5 +43,59 @@ theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
+[node name="stage_time_congrats_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 704.0
+offset_right = 1001.0
+offset_bottom = 727.0
+text = "You beat your best time for stage 0!!
+"
+
+[node name="old_best_stage_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 731.0
+offset_right = 1000.0
+offset_bottom = 754.0
+text = "Old best stage time 0m 0s 00
+"
+
+[node name="new_best_stage_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 754.0
+offset_right = 1000.0
+offset_bottom = 777.0
+text = "New best stage time 0m 0s 00
+"
+
+[node name="total_time_congrats_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 801.0
+offset_right = 1054.0
+offset_bottom = 824.0
+text = "You beat your best \"total time\" for stage 0!!
+"
+
+[node name="old_best_total_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 828.0
+offset_right = 999.0
+offset_bottom = 851.0
+text = "Old best \"total time\" 0m 0s 00
+"
+
+[node name="new_best_total_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 851.0
+offset_right = 999.0
+offset_bottom = 874.0
+text = "New best \"total time\" 0m 0s 00
+"
+
 [connection signal="pressed" from="next_stage_button" to="." method="_on_next_stage_button_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

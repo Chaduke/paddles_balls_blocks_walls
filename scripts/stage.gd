@@ -34,19 +34,29 @@ func set_non_blocks_count():
 			non_blocks_count+=1
 			
 func load_stage():
+	Global.load_times()
 	load_blocks()
 	$stage_label.text = "Stage " + str(Global.current_stage)
-	set_non_blocks_count()	
+	set_non_blocks_count()
+	set_best_time_labels()
+
+func set_best_time_labels():
+	var best_stage_time = Global.stage_times_dict[Global.current_stage]
+	$best_stage_time_label.text = "Best Stage Time " + Global.format_time(best_stage_time)
+	var best_total_time = Global.total_times_dict[Global.current_stage]
+	$best_total_time_label.text = "Best Total Time " + Global.format_time(best_total_time)
 	
 func all_stages_cleared():
 	cleanup_stage()	
 	$all_stages_cleared_menu.show()
-	
-func stage_cleared():	
-	cleanup_stage()	
+		
+func stage_cleared():
+	cleanup_stage()
 	$stage_cleared_menu.show()
+	$stage_cleared_menu.update_labels()
 	
 func cleanup_stage():
+	Global.stage_time = $time_label.elapsed_time
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
 	var main_scene = get_tree().root.get_child(1)

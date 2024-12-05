@@ -1,7 +1,6 @@
--Update Dec 4th 2024:
+-Update Dec 5th 2024:
 
-Hosting the web version now on itch.io and its working great.  I also ironed out many of the bugs I was dealing with the web version and new menus.  Now I'm ready to fill out the rest of the core features and test gameplay, the hopefully on to adding the rest of the levels!	
-version 0.0.5 - fixed a bug making level 6 impossible to finish 
+version 0.0.6 - Added saving of stage times and total times to .json files.  Need to test the web version but seems to be working ok locally.
 
 Watch the intro video here :
 

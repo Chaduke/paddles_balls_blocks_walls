@@ -1,24 +1,33 @@
 # pickup_item.gd
 class_name PickupItem extends CharacterBody3D
 @export var item_type: String = "Random"
-@export var timer = 1
-
-# states to track movement of the pickup item
-var state
-enum {MOVING_UP,MOVING_DOWN,MOVING_RIGHT,COMPLETE}
-var start_position
-var elapsed_time = 0.0
 
 # the default pickup item timer is just 1
 # others will be changed based on what they are
 # like infinite balls is 20 or 30
+@export var timer = 1
+# we use elapsed_time to count up to the timer value
+# we could also create timer nodes
+var elapsed_time = 0.0
 
+# states to track movement of the pickup item
+var state
+enum {MOVING_UP,MOVING_DOWN,MOVING_RIGHT,COMPLETE}
+
+# we use start_position to move the item "up" from the block
+# its a just an extra little "for show" animation
+var start_position
 
 # slots for the pickup items to rest in on the right side 
 # while their timer counts down and their effects are enabled
-# they are defined in Global.gd
+# slots 1-4 are defined in Global.gd 
+# so they can be accessed outside this instance
 var slot = 0
 
+# this is the slot location on the right gutter
+# this gets assigned once the item is caught by the paddle
+# and an open slot is found for the item
+# at this point the item state will be 2 (moving right)
 var target_position = Vector3(0,0,0)
 
 func _ready():
@@ -87,7 +96,7 @@ func move_down():
 	if position.y < 0:
 		queue_free()
 		return
-						
+		
 	var collision = move_and_collide(Vector3(0,-0.1,0))
 	rotation.x+=0.1
 	if collision:
@@ -146,7 +155,7 @@ func move_right():
 		$pickup_timer.visible = true
 		rotation.x = 0
 
-func update_timed_item():	
+func update_timed_item():
 	var secs = int(elapsed_time) % 60
 	$pickup_timer.text = str(timer - secs)
 	if secs == timer:
@@ -163,15 +172,15 @@ func update_timed_item():
 		queue_free()
 
 func check_existing_items():
-	# make sure its in the list of types we want to time increment
-	if item_type in ["InfiniteBalls","GravityReverse"]:
+	# make sure it is in the list of item types we want to "time increment"
+	if item_type in ["InfiniteBalls","GravityReverse","MaxPaddle"]:
 		var main_scene = get_tree().root.get_child(1)
 		for child in main_scene.get_children():
 			# make sure it's not us, but is this class
 			if child != self and child is PickupItem:
 				# make sure the item types match
-				# and that the item is already caught
-				# state 0 and 1 are prior to it hitting the paddle
+				# and that the item is already caught by the paddle
+				# states 0 and 1 are prior to it hitting the paddle
 				if child.item_type == item_type and child.state > 1:
 					child.timer += timer
 					return true

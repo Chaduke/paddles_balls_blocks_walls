@@ -55,5 +55,24 @@ offset_right = 949.0
 offset_bottom = 779.0
 text = "Back"
 
+[node name="reset_times_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 708.0
+offset_right = 1010.0
+offset_bottom = 739.0
+text = "Reset Record Times"
+
+[node name="cancel_button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 852.0
+offset_top = 745.0
+offset_right = 1011.0
+offset_bottom = 776.0
+text = "Cancel"
+
 [connection signal="toggled" from="show_background_checkbutton" to="." method="_on_show_background_checkbutton_toggled"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="reset_times_button" to="." method="_on_reset_times_button_pressed"]
+[connection signal="pressed" from="cancel_button" to="." method="_on_cancel_button_pressed"]

@@ -34,3 +34,20 @@ func _on_show_background_checkbutton_toggled(toggled_on):
 	else:
 		background_3d.hide()
 		Global.show_background_3d = false
+
+func _on_reset_times_button_pressed():
+	if $cancel_button.visible:
+		Global.reset_stage_times()
+		Global.reset_total_times()
+		$cancel_button.hide()
+		$reset_times_button.text = "Reset Record Times"
+		var main_scene = get_tree().root.get_child(1)
+		var stage = main_scene.find_child("stage")
+		stage.set_best_time_labels()
+	else:
+		$cancel_button.show()
+		$reset_times_button.text = "Click to Confirm"
+
+func _on_cancel_button_pressed():
+	$cancel_button.hide()
+	$reset_times_button.text = "Reset Record Times"
