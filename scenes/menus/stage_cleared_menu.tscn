@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj6lqmg0h52uc"]
+
+[ext_resource type="Script" path="res://scripts/menus/stage_cleared_menu.gd" id="1_4quwe"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_lgh5i"]
+
+[node name="stage_cleared_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4quwe")
+
+[node name="stage_cleared_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 309.0
+offset_right = 1299.0
+offset_bottom = 463.0
+theme_override_colors/font_color = Color(0.0827758, 0.573088, 0.851634, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 110
+text = "Stage 0 Cleared!"
+
+[node name="next_stage_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 452.0
+offset_right = 1036.0
+offset_bottom = 519.0
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 50
+text = "Next Stage"
+
+[node name="quit_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 538.0
+offset_right = 1037.0
+offset_bottom = 605.0
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="stage_time_congrats_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 643.0
+offset_right = 1195.0
+offset_bottom = 679.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 30
+text = "You beat your best \"stage Time\" for stage 0!!
+"
+horizontal_alignment = 1
+
+[node name="old_best_stage_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 675.0
+offset_right = 1101.0
+offset_bottom = 711.0
+theme_override_colors/font_color = Color(1, 0.486275, 0, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 30
+text = "Old best stage time 0m 0s 00
+"
+horizontal_alignment = 1
+
+[node name="new_best_stage_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 708.0
+offset_right = 1107.0
+offset_bottom = 744.0
+theme_override_colors/font_color = Color(0.968627, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 30
+text = "New best stage time 0m 0s 00
+"
+horizontal_alignment = 1
+
+[node name="total_time_congrats_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 683.0
+offset_top = 771.0
+offset_right = 1185.0
+offset_bottom = 807.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 30
+text = "You beat your best \"total time\" for stage 0!!
+"
+horizontal_alignment = 1
+
+[node name="old_best_total_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 758.0
+offset_top = 804.0
+offset_right = 1100.0
+offset_bottom = 840.0
+theme_override_colors/font_color = Color(1, 0.482353, 0, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 30
+text = "Old best \"total time\" 0m 0s 00
+"
+horizontal_alignment = 1
+
+[node name="new_best_total_time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 837.0
+offset_right = 1111.0
+offset_bottom = 873.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_lgh5i")
+theme_override_font_sizes/font_size = 30
+text = "New best \"total time\" 0m 0s 00
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="next_stage_button" to="." method="_on_next_stage_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

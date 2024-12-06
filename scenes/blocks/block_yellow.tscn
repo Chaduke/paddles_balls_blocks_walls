@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqclg4jco6ayd"]
+
+[ext_resource type="PackedScene" uid="uid://cla3frnyj2uys" path="res://assets/models/block_yellow.glb" id="1_6wmgn"]
+[ext_resource type="Script" path="res://scripts/blocks/block_yellow.gd" id="1_m2mtj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0vcpp"]
+
+[node name="block_yellow" type="StaticBody3D" groups=["Blocks", "BreakableBlocks"]]
+script = ExtResource("1_m2mtj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0vcpp")
+
+[node name="block_yellow_model" parent="." groups=["Blocks"] instance=ExtResource("1_6wmgn")]
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

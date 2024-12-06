@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo14ca75e1vsq"]
+
+[ext_resource type="Script" path="res://scripts/blocks/block_blue_cracked.gd" id="1_loexn"]
+[ext_resource type="PackedScene" uid="uid://chw5nk82yqdi5" path="res://assets/models/block_blue2.glb" id="2_ulomb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0vcpp"]
+
+[node name="block_blue_cracked" type="Area3D" groups=["Blocks", "BreakableBlocks"]]
+script = ExtResource("1_loexn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0vcpp")
+
+[node name="block_blue_cracked_model" parent="." instance=ExtResource("2_ulomb")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

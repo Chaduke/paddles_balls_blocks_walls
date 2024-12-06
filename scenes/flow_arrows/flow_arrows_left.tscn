@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://q70iue8db5c6"]
+
+[ext_resource type="Script" path="res://scripts/flow_arrows/flow_arrows_left.gd" id="1_m46hq"]
+[ext_resource type="PackedScene" uid="uid://cr6m3wgjiwdd0" path="res://assets/models/flow_arrows_lr.glb" id="2_mnnfi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohruq"]
+size = Vector3(2, 0.9, 1)
+
+[node name="flow_arrows_left" type="Area3D" groups=["FlowArrows"]]
+collision_layer = 16
+script = ExtResource("1_m46hq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ohruq")
+
+[node name="flow_arrows_left_model" parent="." instance=ExtResource("2_mnnfi")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

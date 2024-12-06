@@ -3,7 +3,6 @@ extends StaticBody3D
 
 var current_blocks
 var block_scene_paths = []
-var non_blocks_count = 0
 var ticks = 0
 
 func _ready():
@@ -30,7 +29,7 @@ func _on_rsg_timer_timeout():
 		
 func add_scene_paths():
 	for i in range(Global.total_stages):
-		block_scene_paths.append("res://scenes/blocks_" + str(i) + ".tscn")
+		block_scene_paths.append("res://scenes/stage_blocks/blocks_" + str(i) + ".tscn")
 		
 func load_blocks():
 	# Remove previous stage's blocks  
@@ -41,21 +40,11 @@ func load_blocks():
 	current_blocks = new_blocks_scene.instantiate() 
 	add_child(current_blocks)
 
-func set_non_blocks_count():
-	# get count of metal blocks, flow arrows, etc
-	non_blocks_count = 0
-	for child in current_blocks.get_children():
-		if child.name.begins_with("block_metal"):
-			non_blocks_count+=1
-		if child.name.begins_with("flow_arrows"):
-			non_blocks_count+=1
-			
 func load_stage():
 	Global.load_times()
 	load_blocks()
-	$stage_label.text = "Stage " + str(Global.current_stage)
-	set_non_blocks_count()
-	set_best_time_labels()
+	$stage_label.text = "Stage " + str(Global.current_stage)	
+	if Global.current_stage > 0 : set_best_time_labels()
 
 func set_best_time_labels():
 	var best_stage_time = Global.stage_times_dict[Global.current_stage]
@@ -70,7 +59,7 @@ func all_stages_cleared():
 func stage_cleared():
 	cleanup_stage()
 	$stage_cleared_menu.show()
-	$stage_cleared_menu.update_labels()
+	if Global.current_stage > 0 : $stage_cleared_menu.update_labels()
 	
 func cleanup_stage():
 	Global.stage_time = $time_label.elapsed_time
@@ -85,19 +74,19 @@ func cleanup_stage():
 	
 func clear_flow_arrows():	
 	for child in current_blocks.get_children():
-		if child.name.begins_with("flow_arrows"):
+		if child.is_in_group("FlowArrows"):
 			child.queue_free()
 			
 func clear_metal_blocks():
 	for child in current_blocks.get_children():
-		if child.name.begins_with("block_metal"):
+		if child is BlockMetal:
 			child.queue_free()
 				
 func _process(_delta):	
-	var blocks_count = current_blocks.get_child_count() - non_blocks_count
+	var count = get_breakable_count()
 	# check if stage had been cleared 
-	$blocks_left_label.text = "Blocks Left " + str(blocks_count)
-	if current_blocks and blocks_count == 0:
+	$blocks_left_label.text = "Blocks Left " + str(count)
+	if count == 0:
 		stage_cleared()
 				
 func load_next_stage():
@@ -108,3 +97,12 @@ func load_next_stage():
 		get_tree().paused = false
 		get_tree().reload_current_scene()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func get_breakable_count():
+	var all_blocks = current_blocks.get_children()
+	var breakable_count = 0
+	for block in all_blocks:
+		if block.is_in_group("BreakableBlocks"):
+			breakable_count+=1
+	return breakable_count
+	

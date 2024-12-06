@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
-[ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/main_menu.tscn" id="2_u3m40"]
+[ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/menus/main_menu.tscn" id="2_u3m40"]
 [ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
-[ext_resource type="PackedScene" uid="uid://3381m75yvmic" path="res://scenes/game_over_menu.tscn" id="4_rx3or"]
+[ext_resource type="PackedScene" uid="uid://3381m75yvmic" path="res://scenes/menus/game_over_menu.tscn" id="4_rx3or"]
 [ext_resource type="Texture2D" uid="uid://dh62r386qxuix" path="res://assets/images/skybox_sunny.png" id="4_w6qld"]
 [ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="5_l3s87"]
-[ext_resource type="PackedScene" uid="uid://bs1eip3jtnoyk" path="res://scenes/settings_menu.tscn" id="7_yw4vb"]
+[ext_resource type="PackedScene" uid="uid://bs1eip3jtnoyk" path="res://scenes/menus/settings_menu.tscn" id="7_yw4vb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
 panorama = ExtResource("4_w6qld")
@@ -54,16 +54,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -37)
 collision_mask = 5
 
 [node name="title_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5395, 26.6086, -37)
-modulate = Color(0.278431, 0.917647, 0.666667, 1)
-outline_modulate = Color(0.505326, 0.0915123, 0.341284, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5738, 26.0606, -37)
+modulate = Color(0, 1, 0, 1)
+outline_modulate = Color(0.278437, 0.031194, 0.180586, 1)
 text = "Paddles
 Balls
 Blocks
 and Walls!"
 font = ExtResource("5_l3s87")
 font_size = 320
-outline_size = 61
+outline_size = 60
 horizontal_alignment = 2
 
 [node name="stage" parent="." instance=ExtResource("4_mb6a1")]
@@ -78,21 +78,24 @@ visible = false
 text = "Keyboard Shortcuts :
 TAB - Toggle Main Menu
 S - Toggle Settings Menu"
+font = ExtResource("5_l3s87")
 font_size = 100
 outline_size = 20
 horizontal_alignment = 2
 
 [node name="desktop_shortcuts" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4, 21.0931, -37)
+transform = Transform3D(0.998567, 0, -0.0535211, 0, 1, 0, 0.0535211, 0, 0.998567, -19.4476, 20.9226, -37)
+modulate = Color(1, 0.788235, 1, 1)
 text = "Keyboard Shortcuts :
 ESC - Toggle Main Menu
 S - Toggle Settings Menu"
-font_size = 100
+font = ExtResource("5_l3s87")
+font_size = 130
 outline_size = 20
 horizontal_alignment = 2
 
 [node name="instructions_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.561, 14.8218, -37)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5023, 14.6162, -37)
 text = "Instructions  :
 Use mouse to -
 move paddle left and right
@@ -105,6 +108,7 @@ Stage ends when -
 all balls are lost 
 or all blocks are cleared
 Try to beat your best times!"
-font_size = 100
+font = ExtResource("5_l3s87")
+font_size = 120
 outline_size = 20
 horizontal_alignment = 2

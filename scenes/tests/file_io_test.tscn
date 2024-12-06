@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://j0wo7yiyklcj"]
+
+[ext_resource type="Script" path="res://scripts/tests/file_io_test.gd" id="1_fin8c"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_q6raq"]
+
+[node name="file_io_test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fin8c")
+
+[node name="status_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 673.0
+offset_right = 1118.0
+offset_bottom = 696.0
+text = "Status"
+
+[node name="load_data_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 878.0
+offset_top = 557.0
+offset_right = 965.0
+offset_bottom = 588.0
+text = "Load Data"
+
+[node name="save_data_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 594.0
+offset_right = 964.0
+offset_bottom = 625.0
+text = "Save Data"
+
+[node name="stage_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 473.0
+offset_right = 936.0
+offset_bottom = 503.0
+scale = Vector2(1.209, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_q6raq")
+theme_override_font_sizes/font_size = 24
+text = "Stage
+"
+
+[node name="time_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 884.0
+offset_top = 503.0
+offset_right = 927.0
+offset_bottom = 533.0
+scale = Vector2(1.209, 1)
+theme_override_colors/font_color = Color(0, 0.972549, 0.984314, 1)
+theme_override_fonts/font = ExtResource("2_q6raq")
+theme_override_font_sizes/font_size = 24
+text = "Time
+"
+
+[node name="reset_times" type="Button" parent="."]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 630.0
+offset_right = 980.0
+offset_bottom = 661.0
+text = "Reset Times"
+
+[node name="instructions_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 435.0
+offset_right = 1226.0
+offset_bottom = 458.0
+text = "Use left and right arrow keys to browse data"
+
+[connection signal="pressed" from="load_data_button" to="." method="_on_load_data_button_pressed"]
+[connection signal="pressed" from="reset_times" to="." method="_on_reset_times_pressed"]

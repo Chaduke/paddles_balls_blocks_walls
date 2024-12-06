@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://j1f36r0x2sqm"]
+
+[ext_resource type="Script" path="res://scripts/block_explosion.gd" id="1_oxn4i"]
+[ext_resource type="AudioStream" uid="uid://byxx6h2dntgo8" path="res://assets/wave/block.wav" id="2_ye4ef"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nh4g"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyfon"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 0, 1)
+metallic = 0.12
+metallic_specular = 0.49
+roughness = 0.23
+
+[sub_resource type="BoxMesh" id="BoxMesh_7q7vf"]
+material = SubResource("StandardMaterial3D_hyfon")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="block_yellow_cracked_explosion" type="Node3D"]
+script = ExtResource("1_oxn4i")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 30
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7nh4g")
+draw_pass_1 = SubResource("BoxMesh_7q7vf")
+
+[node name="block_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ye4ef")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

@@ -26,12 +26,20 @@ Global="*res://scripts/global.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=4
+window/size/mode=3
+window/size/initial_position_type=0
+window/size/always_on_top=true
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[global_group]
+
+Blocks="Group that contains all block types"
+FlowArrows="Group for all flow arrow types pointing in different directions "
+BreakableBlocks="Sub-group for block types that are breakable, used for checking if the stage is clear "
 
 [input]
 

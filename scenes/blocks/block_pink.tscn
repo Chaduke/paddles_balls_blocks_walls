@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://caad1bitssj3a"]
+
+[ext_resource type="PackedScene" uid="uid://gw8cvc0767rs" path="res://assets/models/block_pink.glb" id="1_iu61l"]
+[ext_resource type="Script" path="res://scripts/blocks/block_pink.gd" id="1_lqar0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0vcpp"]
+
+[node name="block_pink" type="StaticBody3D" groups=["Blocks", "BreakableBlocks"]]
+script = ExtResource("1_lqar0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0vcpp")
+
+[node name="block_pink_model" parent="." groups=["Blocks"] instance=ExtResource("1_iu61l")]
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

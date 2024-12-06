@@ -81,7 +81,7 @@ func spawn_ball():
 		setup_ball_collision(ball_instance)
 		# position the new ball in respect to the paddle 
 		ball_instance.position = $paddle.position + Vector3(0,1,0)
-		ball_instance.linear_velocity += Vector3(5,40,0)
+		ball_instance.linear_velocity += Vector3(10,40,0)
 		# add the new ball to our list and to the main scene 
 		balls.append(ball_instance) 
 		add_child(ball_instance)

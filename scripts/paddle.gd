@@ -1,5 +1,5 @@
 # paddle.gd
-extends CharacterBody3D
+class_name Paddle extends CharacterBody3D
 @onready var mesh_instance_3d = $MeshInstance3D
 
 @export var paddle_models = { 
@@ -53,9 +53,8 @@ func maximize():
 func normalize():
 	current_size = 8
 	update_paddle_model(current_size)
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):	
+
+func _process(_delta):
 	if Input.is_action_pressed("swing_paddle"):
 		if position.y > 0.5:
 			position.y -= 0.3

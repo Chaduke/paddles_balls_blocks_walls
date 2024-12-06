@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba1a2vwk3fixx"]
+
+[ext_resource type="PackedScene" uid="uid://g67jsydrrjrg" path="res://assets/models/block_metal.glb" id="1_1b4ji"]
+[ext_resource type="Script" path="res://scripts/blocks/block_metal.gd" id="1_vk6tq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_75ete"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3j8t"]
+size = Vector3(2, 1, 1)
+
+[node name="block_metal" type="StaticBody3D" groups=["Blocks"]]
+physics_material_override = SubResource("PhysicsMaterial_75ete")
+script = ExtResource("1_vk6tq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_y3j8t")
+
+[node name="block_metal" parent="." instance=ExtResource("1_1b4ji")]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0vg8y4cjaynd"]
+
+[ext_resource type="Script" path="res://scripts/blocks/block_yellow_cracked.gd" id="1_17u1q"]
+[ext_resource type="PackedScene" uid="uid://uk7eo4vfkgjo" path="res://assets/models/block_yellow2.glb" id="2_wwr2k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y4vrd"]
+
+[node name="block_yellow_cracked" type="Area3D" groups=["Blocks", "BreakableBlocks"]]
+collision_layer = 8
+script = ExtResource("1_17u1q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_y4vrd")
+
+[node name="block_yellow_cracked_model" parent="." instance=ExtResource("2_wwr2k")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

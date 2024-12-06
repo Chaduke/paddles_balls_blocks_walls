@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://ce033rqf5dk2y"]
+
+[ext_resource type="PackedScene" uid="uid://c1wafjh8n28cj" path="res://scenes/flow_arrows/flow_arrows_up.tscn" id="1_qfrxa"]
+[ext_resource type="PackedScene" uid="uid://cj7ysalvfhdo4" path="res://scenes/blocks/block_blue.tscn" id="2_y8jj7"]
+[ext_resource type="PackedScene" uid="uid://dqclg4jco6ayd" path="res://scenes/blocks/block_yellow.tscn" id="3_gwqud"]
+[ext_resource type="PackedScene" uid="uid://chkwotwe3nvv" path="res://scenes/flow_arrows/flow_arrows_right.tscn" id="4_ixcmg"]
+[ext_resource type="PackedScene" uid="uid://q70iue8db5c6" path="res://scenes/flow_arrows/flow_arrows_left.tscn" id="5_31ouk"]
+[ext_resource type="PackedScene" uid="uid://c6jbfbb4d6ttm" path="res://scenes/flow_arrows/flow_arrows_down.tscn" id="6_2nanw"]
+[ext_resource type="PackedScene" uid="uid://caad1bitssj3a" path="res://scenes/blocks/block_pink.tscn" id="7_05wca"]
+[ext_resource type="PackedScene" uid="uid://sonrtvbb6nc0" path="res://scenes/blocks/block_clear.tscn" id="8_10rtp"]
+
+[node name="blocks_0" type="Node3D"]
+
+[node name="flow_arrows_up" parent="." instance=ExtResource("1_qfrxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 14.5, 0)
+
+[node name="block_blue" parent="." instance=ExtResource("2_y8jj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 14.5, 0)
+
+[node name="block_blue2" parent="." instance=ExtResource("2_y8jj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 14.5, 0)
+
+[node name="block_yellow" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 14.5, 0)
+
+[node name="block_yellow2" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 14.5, 0)
+
+[node name="flow_arrows_right" parent="." instance=ExtResource("4_ixcmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 17.5, 0)
+
+[node name="flow_arrows_left" parent="." instance=ExtResource("5_31ouk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 17.5, 0)
+
+[node name="flow_arrows_down" parent="." instance=ExtResource("6_2nanw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 14.5, 0)
+
+[node name="block_pink" parent="." instance=ExtResource("7_05wca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 14.5, 0)
+
+[node name="block_pink2" parent="." instance=ExtResource("7_05wca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 14.5, 0)
+
+[node name="block_clear" parent="." instance=ExtResource("8_10rtp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 14.5, 0)
+total_balls = 5
