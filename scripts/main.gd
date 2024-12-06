@@ -64,6 +64,8 @@ func get_input():
 		spawn_ball()
 	if Input.is_action_just_pressed("settings"):
 		if elapsed_time > 0.1 : toggle_settings()
+	if Input.is_action_just_pressed("reset"):
+		restart_stage()
 
 func toggle_main_menu():
 	$main_menu.show()
@@ -120,8 +122,8 @@ func restart_stage():
 			
 func remove_all_balls():
 	for ball in balls:
-		ball.queue_free() 
 		balls.erase(ball)
+		ball.queue_free()
 
 func decrement_balls():
 	var spare_balls = $stage/spare_balls

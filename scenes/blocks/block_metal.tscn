@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://scripts/blocks/block_metal.gd" id="1_vk6tq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_75ete"]
-friction = 0.0
-bounce = 1.0
+friction = 0.1
+bounce = 0.5
+absorbent = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3j8t"]
 size = Vector3(2, 1, 1)

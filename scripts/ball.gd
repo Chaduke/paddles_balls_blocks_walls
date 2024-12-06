@@ -33,13 +33,13 @@ func _process(_delta):
 func _on_body_exited(body):
 	if is_inside_tree():
 		if body is Paddle:
-			print("Collided with paddle")
+			# print("Collided with paddle")
 			paddle_collision(body)
 		elif body.is_in_group("Blocks"):
-			print("Collided with block - " + body.name)
+			# print("Collided with block - " + body.name)
 			block_collision(body)
 		else: 
-			print("Collided with " + body.name)
+			# print("Collided with " + body.name)
 			wall.play()
 		
 func paddle_collision(paddle_body):

@@ -1,6 +1,11 @@
--Update Dec 5th 2024:
+-Update Dec 6th 2024:
 
-version 0.0.6 - Added saving of stage times and total times to .json files.  Need to test the web version but seems to be working ok locally.
+version 0.0.7 - Major update, everything seems to be running much smoother now and you should be able to get through all 10 levels without getting super stuck.  If you do however, you can always use the "R" shortcut key to Restart the level at any time.  I updated the particle systems so its much more satisfying to break the blocks now!
+- Have fun and please report any bugs you find! 
+
+Much much more to come soon, I'll be working on this full time until its complete!
+
+P.S. Level 10 can be difficult but is very finshable, I spent of lot of time working on it today to get it right. 
 
 Watch the intro video here :
 
@@ -8,13 +13,13 @@ https://youtu.be/HQ9_zqg4RUU?si=gQfzIGiknZz-U3oS
 
 I'll try to post update videos on or around every Sunday.  
 
-Play the web version here (it is improving quickly but still expect bugs):
+Play the web version here (report any bugs you find):
 
 https://chaduke.itch.io/pbbw
 
-The game is still very much in development, has only 10 levels and needs a lot of tweaking here and there plus sounds, music, more 3D stuff, a very long list, but you can kind of get the gist of where I'm going with it.  It reminds me of a cross between breakout and pinball, for those of you old enough to remember pinball. 
+The game is still very much in development, has only 10 levels (out of 100 planned) and needs more sounds, music, 3D background, a very long list, but you can kind of get the gist of where I'm going with it.  It reminds me of a cross between breakout and pinball, for those of you old enough to remember pinball. 
 
-To play just use the mouse to move the paddle, left click "swings" the paddle and right click releases balls. Enjoy!
+For keyboard shortcuts and instructions check left column of the game.  I'll plan on making explanations for all the power-ups on the startup screen soon, but they're not too hard to figure out. 
 
 TODO List:
 

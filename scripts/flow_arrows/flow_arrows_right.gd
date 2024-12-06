@@ -2,27 +2,26 @@
 extends Area3D
 class_name FlowArrowsRight
 
-func _on_body_entered(body):	
-	#report(body," entered my area.")
-	if body is Ball: 
-		var entry_direction = body.global_transform.origin - global_transform.origin 
-		# Check the entry direction to apply force accordingly 
-		var yx = body.linear_velocity.x
-		body.linear_velocity.y *= 0.5
-		if entry_direction.x > 0: 
-			# Entered from the left
-			# give it a boost			
-			body.apply_central_impulse(Vector3(-yx, 0, 0))
-		else: 
-			# Entered from the right			
-			# add an impulse that is opposite its linear_velocity.x
-			# make it bounce
-			body.apply_central_impulse(Vector3(5, 0, 0))
-		#print("RigidBody3D entered from direction: ", entry_direction)	
+@export var lateral_force = 5
+@export var vertical_damping = 0.93
 
-func _on_body_exited(_body):
-	#report(body, " left my area.")
-	pass
+var current_body = null
+
+func _physics_process(_delta):
+	if current_body:
+		if current_body is Ball: 			
+			# set y to be in the middle			
+			current_body.linear_velocity.y *= vertical_damping
+			current_body.apply_central_force(Vector3(lateral_force, 0, 0))
+	
+func _on_body_entered(body):	
+	if not current_body:
+		current_body = body	
+		current_body.global_transform.origin.y = global_transform.origin.y
+		
+func _on_body_exited(body):
+	if body == current_body:
+		current_body = null
 	
 func report(body,event_string):
 	if body is Ball:
