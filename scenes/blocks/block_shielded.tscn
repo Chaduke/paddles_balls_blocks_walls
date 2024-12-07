@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf2fco4sxtgc4"]
+
+[ext_resource type="Script" path="res://scripts/blocks/block_shielded.gd" id="1_h7rnr"]
+[ext_resource type="PackedScene" uid="uid://cbkrmfag0ooux" path="res://assets/models/block_shielded.glb" id="1_w5ybp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8i2fx"]
+size = Vector3(2, 1, 1)
+
+[node name="block_shielded" type="Area3D" groups=["Blocks", "BreakableBlocks"]]
+script = ExtResource("1_h7rnr")
+
+[node name="collision_shape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_8i2fx")
+
+[node name="block_shielded_model" parent="." instance=ExtResource("1_w5ybp")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

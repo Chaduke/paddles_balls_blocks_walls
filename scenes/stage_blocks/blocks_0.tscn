@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ce033rqf5dk2y"]
+[gd_scene load_steps=10 format=3 uid="uid://ce033rqf5dk2y"]
 
 [ext_resource type="PackedScene" uid="uid://c1wafjh8n28cj" path="res://scenes/flow_arrows/flow_arrows_up.tscn" id="1_qfrxa"]
 [ext_resource type="PackedScene" uid="uid://cj7ysalvfhdo4" path="res://scenes/blocks/block_blue.tscn" id="2_y8jj7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6jbfbb4d6ttm" path="res://scenes/flow_arrows/flow_arrows_down.tscn" id="6_2nanw"]
 [ext_resource type="PackedScene" uid="uid://caad1bitssj3a" path="res://scenes/blocks/block_pink.tscn" id="7_05wca"]
 [ext_resource type="PackedScene" uid="uid://sonrtvbb6nc0" path="res://scenes/blocks/block_clear.tscn" id="8_10rtp"]
+[ext_resource type="PackedScene" uid="uid://bf2fco4sxtgc4" path="res://scenes/blocks/block_shielded.tscn" id="9_f06tu"]
 
 [node name="blocks_0" type="Node3D"]
 
@@ -33,14 +34,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 17.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 17.5, 0)
 
 [node name="flow_arrows_down" parent="." instance=ExtResource("6_2nanw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 23.5, 0)
 
 [node name="block_pink" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 23.5, 0)
 
 [node name="block_pink2" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 23.5, 0)
 
 [node name="block_clear" parent="." instance=ExtResource("8_10rtp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 14.5, 0)
 total_balls = 5
+
+[node name="block_shielded" parent="." instance=ExtResource("9_f06tu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 14.5, 0)
