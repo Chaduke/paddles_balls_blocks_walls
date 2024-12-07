@@ -1,11 +1,13 @@
--Update Dec 6th 2024:
+-Update Dec 7th 2024:
+
+version 0.0.8 coming today, I already added 5 more levels for a total of 15.  Will create web build this afternoon.
 
 version 0.0.7 - Major update, everything seems to be running much smoother now and you should be able to get through all 10 levels without getting super stuck.  If you do however, you can always use the "R" shortcut key to Restart the level at any time.  I updated the particle systems so its much more satisfying to break the blocks now!
 - Have fun and please report any bugs you find! 
 
 Much much more to come soon, I'll be working on this full time until its complete!
 
-P.S. Level 10 can be difficult but is very finshable, I spent of lot of time working on it today to get it right. 
+P.S. Level 10 can be difficult but is very finishable, I spent of lot of time working on it today to get it right. 
 
 Watch the intro video here :
 
