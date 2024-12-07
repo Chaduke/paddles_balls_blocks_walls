@@ -107,7 +107,7 @@ func move_down():
 			queue_free()
 
 func enable_item_effect():
-	var paddle=get_tree().root.get_child(1).get_node("paddle")
+	var paddle=get_tree().root.get_child(2).get_node("paddle")
 	if item_type == "Grower":
 		# change the paddle size if possible
 		paddle.grow_paddle()
@@ -131,7 +131,7 @@ func grow_balls():
 	var current = Global.current_ball_size
 	if current < 4:
 		Global.current_ball_size *=2
-		var main_scene = get_tree().root.get_child(1)
+		var main_scene = get_tree().root.get_child(2)
 		main_scene.update_ball_size()
 
 func shrink_balls():
@@ -140,7 +140,7 @@ func shrink_balls():
 		@warning_ignore("integer_division")
 		Global.current_ball_size = int(Global.current_ball_size/2)
 		# print("Current ball size shrunk to " + str(Global.current_ball_size))
-		var main_scene = get_tree().root.get_child(1)
+		var main_scene = get_tree().root.get_child(2)
 		main_scene.update_ball_size()
 		
 func move_right():
@@ -167,14 +167,14 @@ func update_timed_item():
 		if item_type == "InfiniteBalls":
 			Global.infinite_balls = false
 		if item_type == "MaxPaddle":
-			var paddle=get_tree().root.get_child(1).get_node("paddle")
+			var paddle=get_tree().root.get_child(2).get_node("paddle")
 			paddle.normalize()
 		queue_free()
 
 func check_existing_items():
 	# make sure it is in the list of item types we want to "time increment"
 	if item_type in ["InfiniteBalls","GravityReverse","MaxPaddle"]:
-		var main_scene = get_tree().root.get_child(1)
+		var main_scene = get_tree().root.get_child(2)
 		for child in main_scene.get_children():
 			# make sure it's not us, but is this class
 			if child != self and child is PickupItem:

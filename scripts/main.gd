@@ -77,10 +77,10 @@ func spawn_ball():
 	# spawning the first ball starts the stage
 	if not Global.stage_started:
 		Global.stage_started = true
+		GlobalAudioServer.play_music()
 	# check if it's ok to spawn a ball
 	if decrement_balls():
-		var ball_instance = create_ball_instance()
-		setup_ball_collision(ball_instance)
+		var ball_instance = create_ball_instance()		
 		# position the new ball in respect to the paddle 
 		ball_instance.position = $paddle.position + Vector3(0,1,0)
 		ball_instance.linear_velocity += Vector3(10,40,0)
@@ -142,18 +142,23 @@ func decrement_balls():
 func create_ball_instance():
 	var ball_instance = ball_scene.instantiate()
 	clear_existing_mesh_instance(ball_instance)
-	add_new_mesh_instance(ball_instance)		
+	add_new_mesh_instance(ball_instance)
+	setup_ball_collision(ball_instance)
 	return ball_instance
 
 func clear_existing_mesh_instance(ball_instance):
-	if ball_instance.has_node("MeshInstance3D"):
-		var mesh_instance = ball_instance.get_node("MeshInstance3D")
-		if mesh_instance: mesh_instance.queue_free()
+	#print("Attempting to clear ball_model for " + ball_instance.name)
+	for child in ball_instance.get_children():
+		#print(child.name)
+		if child.name.begins_with("ball"):
+			#print("Freeing model")
+			child.queue_free()
 		
 func add_new_mesh_instance(ball_instance):
-	var new_mesh_instance = ball_instance.ball_models[Global.current_ball_size].instantiate()
-	new_mesh_instance.name="MeshInstance3D"
+	#print("Attempting to add new ball_model for " + ball_instance.name)
+	var new_mesh_instance = ball_instance.ball_models[Global.current_ball_size].instantiate()	
 	ball_instance.add_child(new_mesh_instance)
+	#print("added instance with size " + str(Global.current_ball_size))
 	
 func setup_ball_collision(ball_instance):
 	# Update collision shape radius 
@@ -166,8 +171,8 @@ func setup_ball_collision(ball_instance):
 			print("Error: CollisionShape3D node or SphereShape3D shape not found.")
 					
 func update_ball_size():
+	#print("Updating ball size to " + str(Global.current_ball_size))	
 	for ball_instance in balls:
-		# print("Updating ball size to " + str(Global.current_ball_size))
 		clear_existing_mesh_instance(ball_instance)
 		add_new_mesh_instance(ball_instance)
 		setup_ball_collision(ball_instance)

@@ -8,7 +8,7 @@ var explosion_scene = preload("res://scenes/explosions/block_explosion_pink.tscn
 var block_pink_cracked_scene = preload("res://scenes/blocks/block_pink_cracked.tscn")
 
 func _on_tree_exiting():
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	var item_instance = item_scene.instantiate()
 	item_instance.position = global_position	
 	item_instance.item_type = item_type

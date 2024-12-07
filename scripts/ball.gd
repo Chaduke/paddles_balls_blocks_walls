@@ -1,10 +1,6 @@
 # ball.gd 
 class_name Ball extends RigidBody3D
 
-@onready var bounce = $bounce
-@onready var block = $block
-@onready var wall = $wall
-
 @export var ball_models = {
 	1:preload("res://assets/models/ball_small.glb"),
 	2:preload("res://assets/models/ball_regular.glb"),
@@ -40,13 +36,13 @@ func _on_body_exited(body):
 			block_collision(body)
 		else: 
 			# print("Collided with " + body.name)
-			wall.play()
+			$wall_sound.play()
 		
 func paddle_collision(paddle_body):
 	var diff = position.x - paddle_body.position.x
 	# linear_velocity.y *= 1.4
 	linear_velocity.x += diff * 3
-	bounce.play()
+	$paddle_sound.play()
 	
 func block_collision(block_body):
 	# we have to destroy our StaticBody3D types from here

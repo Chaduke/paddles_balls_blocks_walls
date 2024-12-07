@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://biup42biof5gs"]
 
 [ext_resource type="Script" path="res://scripts/block_explosion.gd" id="1_vqnhm"]
-[ext_resource type="AudioStream" uid="uid://byxx6h2dntgo8" path="res://assets/wave/block.wav" id="2_bn5xm"]
+[ext_resource type="AudioStream" uid="uid://hhqq4wnrf2w3" path="res://assets/wave/cracked.wav" id="2_egge3"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nh4g"]
 emission_shape = 3
@@ -35,6 +35,7 @@ process_material = SubResource("ParticleProcessMaterial_7nh4g")
 draw_pass_1 = SubResource("BoxMesh_7q7vf")
 
 [node name="block_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_bn5xm")
+stream = ExtResource("2_egge3")
+bus = &"Sound FX"
 
 [connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

@@ -37,10 +37,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 17.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 23.5, 0)
 
 [node name="block_pink" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 23.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 14.5, 0)
+item_type = "SmallBalls"
 
 [node name="block_pink2" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 23.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 14.5, 0)
+item_type = "LargeBalls"
 
 [node name="block_clear" parent="." instance=ExtResource("8_10rtp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 14.5, 0)

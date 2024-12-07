@@ -39,7 +39,7 @@ func update_labels():
 	
 func _on_next_stage_button_pressed():
 	hide()
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	var stage_scene = main_scene.find_child("stage")
 	stage_scene.load_next_stage()
 

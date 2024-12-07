@@ -6,7 +6,7 @@ var explosion_scene = preload("res://scenes/explosions/block_blue_cracked_explos
 var block_blue_cracked_scene = preload("res://scenes/blocks/block_blue_cracked.tscn")
 
 func _on_tree_exiting():
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	var stage = main_scene.find_child("stage")	
 	var new_explosion = explosion_scene.instantiate()
 	new_explosion.position = global_position	

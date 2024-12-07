@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfochh16du623"]
+[gd_scene load_steps=9 format=3 uid="uid://cfochh16du623"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_d5xv0"]
+[ext_resource type="AudioStream" uid="uid://cyr6mmhnjre2p" path="res://assets/wave/paddle.wav" id="3_0bxfm"]
 [ext_resource type="AudioStream" uid="uid://gtoabgmrm6l3" path="res://assets/wave/ball.wav" id="3_8hym1"]
 [ext_resource type="AudioStream" uid="uid://byxx6h2dntgo8" path="res://assets/wave/block.wav" id="4_o2jvh"]
+[ext_resource type="AudioStream" uid="uid://b5gdo23uujd01" path="res://assets/wave/ball_release.wav" id="5_5iyp2"]
 [ext_resource type="AudioStream" uid="uid://bm567m2wkpkra" path="res://assets/wave/wall.wav" id="5_sc14a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rf2yo"]
@@ -24,18 +26,30 @@ linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_d5xv0")
 
+[node name="ball_model" type="MeshInstance3D" parent="."]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_824ox")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-
-[node name="bounce" type="AudioStreamPlayer2D" parent="."]
+[node name="bounce_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_8hym1")
+bus = &"Sound FX"
 
-[node name="block" type="AudioStreamPlayer2D" parent="."]
+[node name="paddle_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0bxfm")
+bus = &"Sound FX"
+
+[node name="block_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_o2jvh")
+bus = &"Sound FX"
 
-[node name="wall" type="AudioStreamPlayer2D" parent="."]
+[node name="wall_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_sc14a")
+bus = &"Sound FX"
+
+[node name="BallRelease" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5iyp2")
+autoplay = true
+bus = &"Sound FX"
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

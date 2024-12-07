@@ -23,4 +23,5 @@ collision_layer = 32
 [node name="CollisionShape3D" type="CollisionShape3D" parent="magnetic_influence"]
 shape = SubResource("SphereShape3D_8728f")
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="magnetic_influence" to="." method="_on_magnetic_influence_body_entered"]

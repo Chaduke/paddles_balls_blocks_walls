@@ -30,6 +30,7 @@ func _ready():
 	platform_specific_inits()
 	if not Global.game_started:
 		$start_button.show()
+		GlobalAudioServer.play_game_intro()
 	else:
 		$resume_button.show()
 		
@@ -59,10 +60,10 @@ func resume_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hide()
 	get_tree().paused = false
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	main_scene.elapsed_time = 0.0	
 
 func _on_settings_button_pressed():
 	hide()
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	main_scene.get_node("settings_menu").show()

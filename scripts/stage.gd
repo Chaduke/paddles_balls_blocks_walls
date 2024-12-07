@@ -22,7 +22,7 @@ func _on_rsg_timer_timeout():
 	elif ticks==2:
 		$ready_set_go_label.text = "GO!!!"		
 	else:
-		var main_scene = get_tree().root.get_child(1)
+		var main_scene = get_tree().root.get_child(2)
 		main_scene.game_ready = true 
 		$rsg_timer.stop()
 		$ready_set_go_label.hide()
@@ -65,7 +65,7 @@ func cleanup_stage():
 	Global.stage_time = $time_label.elapsed_time
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	main_scene.remove_all_balls()
 	clear_flow_arrows()
 	clear_metal_blocks()
@@ -105,4 +105,3 @@ func get_breakable_count():
 		if block.is_in_group("BreakableBlocks"):
 			breakable_count+=1
 	return breakable_count
-	

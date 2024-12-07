@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7gudtyavm6j1"]
+
+[ext_resource type="Script" path="res://scripts/block_explosion.gd" id="1_rvfra"]
+[ext_resource type="AudioStream" uid="uid://b36jpdcbmmter" path="res://assets/wave/magnet_block.wav" id="2_i6faa"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nh4g"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puchk"]
+albedo_color = Color(0.400698, 0.400698, 0.400698, 1)
+metallic = 0.5
+roughness = 0.2
+
+[sub_resource type="TorusMesh" id="TorusMesh_oxlyf"]
+material = SubResource("StandardMaterial3D_puchk")
+inner_radius = 0.1
+outer_radius = 0.2
+rings = 16
+ring_segments = 8
+
+[node name="block_explosion_magnet" type="Node3D"]
+script = ExtResource("1_rvfra")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7nh4g")
+draw_pass_1 = SubResource("TorusMesh_oxlyf")
+
+[node name="block_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_i6faa")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

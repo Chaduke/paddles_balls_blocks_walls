@@ -10,7 +10,7 @@ func platform_specific_inits():
 	
 func _on_restart_button_pressed():
 	hide()
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	main_scene.restart_stage()
 
 func _on_quit_button_pressed():
