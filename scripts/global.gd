@@ -1,12 +1,18 @@
 # global.gd
 extends Node
 
-var current_stage = 8
+var current_stage = 2
 # you have to count stage 0 here, 0 is the testing stage
 # so this number is the number of playable stages + 1
 var total_stages = 16
 var current_ball_size = 2
 var infinite_balls = false
+
+# Experimental "Ball Mode"
+# true = new balls will be spawned as Rigidbody3D balls in ball.gd
+# false = new balls spawned as Area3D balls, ball_classic.gd
+var default_ball_mode = false
+
 var game_started = false
 var stage_started = false
 

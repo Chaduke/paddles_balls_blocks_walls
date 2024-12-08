@@ -15,4 +15,5 @@ shape = SubResource("CapsuleShape3D_y4vrd")
 
 [node name="block_yellow_cracked_model" parent="." instance=ExtResource("2_wwr2k")]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

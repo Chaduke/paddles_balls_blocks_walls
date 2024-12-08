@@ -3,6 +3,7 @@ extends Node3D
 
 var balls = []
 var ball_scene = preload("res://scenes/ball.tscn")
+var ball_classic_scene = preload("res://scenes/ball_classic.tscn")
 var balls_left = 10
 var game_ready = false
 var camera_ready = false
@@ -80,15 +81,15 @@ func spawn_ball():
 		GlobalAudioServer.play_music()
 	# check if it's ok to spawn a ball
 	if decrement_balls():
-		var ball_instance = create_ball_instance()		
+		var ball_instance = create_ball_instance()
 		# position the new ball in respect to the paddle 
-		ball_instance.position = $paddle.position + Vector3(0,1,0)
-		ball_instance.linear_velocity += Vector3(10,40,0)
+		ball_instance.position = $paddle.position + Vector3(0,1.1,0)
+		if Global.default_ball_mode: ball_instance.linear_velocity += Vector3(10,40,0)
 		# add the new ball to our list and to the main scene 
 		balls.append(ball_instance) 
 		add_child(ball_instance)
 			
-func toggle_settings():	
+func toggle_settings():
 		$settings_menu.show()
 		$settings_menu.elapsed_time = 0.0
 		get_tree().paused = true
@@ -140,10 +141,14 @@ func decrement_balls():
 			return false
 
 func create_ball_instance():
-	var ball_instance = ball_scene.instantiate()
-	clear_existing_mesh_instance(ball_instance)
-	add_new_mesh_instance(ball_instance)
-	setup_ball_collision(ball_instance)
+	var ball_instance
+	if Global.default_ball_mode:
+		ball_instance = ball_scene.instantiate()
+		clear_existing_mesh_instance(ball_instance)
+		add_new_mesh_instance(ball_instance)
+		setup_ball_collision(ball_instance)
+	else:
+		ball_instance = ball_classic_scene.instantiate()
 	return ball_instance
 
 func clear_existing_mesh_instance(ball_instance):
@@ -156,7 +161,7 @@ func clear_existing_mesh_instance(ball_instance):
 		
 func add_new_mesh_instance(ball_instance):
 	#print("Attempting to add new ball_model for " + ball_instance.name)
-	var new_mesh_instance = ball_instance.ball_models[Global.current_ball_size].instantiate()	
+	var new_mesh_instance = ball_instance.ball_models[Global.current_ball_size].instantiate()
 	ball_instance.add_child(new_mesh_instance)
 	#print("added instance with size " + str(Global.current_ball_size))
 	

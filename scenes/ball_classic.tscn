@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdk56ymrqdwe5"]
+
+[ext_resource type="Script" path="res://scripts/ball_classic.gd" id="1_odfor"]
+[ext_resource type="AudioStream" uid="uid://b5gdo23uujd01" path="res://assets/wave/ball_release.wav" id="2_lo1ky"]
+[ext_resource type="AudioStream" uid="uid://bm567m2wkpkra" path="res://assets/wave/wall.wav" id="3_5bpqi"]
+[ext_resource type="AudioStream" uid="uid://cyr6mmhnjre2p" path="res://assets/wave/paddle.wav" id="4_ug1eg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s0agh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aht7i"]
+albedo_color = Color(1, 0.490196, 1, 1)
+metallic = 0.27
+metallic_specular = 0.48
+roughness = 0.37
+
+[sub_resource type="SphereMesh" id="SphereMesh_4m1p2"]
+material = SubResource("StandardMaterial3D_aht7i")
+
+[node name="ball_classic" type="Area3D"]
+collision_mask = 31
+script = ExtResource("1_odfor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s0agh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4m1p2")
+
+[node name="ball_release_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lo1ky")
+
+[node name="wall_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5bpqi")
+
+[node name="paddle_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ug1eg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

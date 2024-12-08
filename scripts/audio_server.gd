@@ -1,5 +1,6 @@
 extends Node
 
+# music 
 var game_intro_music = preload("res://assets/music/game_intro1.mp3")
 var intro1_music = preload("res://assets/music/intro1.mp3")
 var intro2_music = preload("res://assets/music/intro2.mp3")
