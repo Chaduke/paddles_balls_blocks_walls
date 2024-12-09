@@ -32,20 +32,20 @@ text = "Realistic Ball Physics"
 
 [node name="settings_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 806.0
-offset_top = 567.0
-offset_right = 1065.0
-offset_bottom = 662.0
+offset_left = 804.0
+offset_top = 523.0
+offset_right = 1063.0
+offset_bottom = 618.0
 theme_override_fonts/font = ExtResource("1_ikejd")
 theme_override_font_sizes/font_size = 80
 text = "Settings"
 
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 734.0
-offset_top = 69.0
-offset_right = 1121.0
-offset_bottom = 550.0
+offset_left = 739.0
+offset_top = 29.0
+offset_right = 1126.0
+offset_bottom = 510.0
 theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ikejd")

@@ -3,8 +3,7 @@ extends StaticBody3D
 class_name BlockClear 
 
 var ball_scene = preload("res://scenes/ball.tscn")
-var timer = 0
-var timer_interval = 150
+
 var current_ball = 0
 @export var total_balls = 1
 
@@ -33,7 +32,7 @@ func release_ball():
 		ball_instance.linear_velocity.y += 10
 	else:
 		ball_instance.velocity.x = r
-		ball_instance.velocity.y = 10
+		ball_instance.velocity.y = 20
 	main_scene.balls.append(ball_instance) 
 	main_scene.add_child.call_deferred(ball_instance)
 

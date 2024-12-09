@@ -107,7 +107,7 @@ func move_down():
 			queue_free()
 
 func enable_item_effect():
-	var paddle=get_tree().root.get_child(2).get_node("paddle")
+	var paddle=Global.get_main().get_node("paddle")
 	if item_type == "Grower":
 		# change the paddle size if possible
 		paddle.grow_paddle()

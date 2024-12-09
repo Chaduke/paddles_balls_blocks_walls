@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvpl26rn0yrsj"]
+
+[ext_resource type="Script" path="res://scripts/menus/stage_selection_menu.gd" id="1_msl1i"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_tveu5"]
+[ext_resource type="Script" path="res://scenes/menus/grid_container.gd" id="3_home0"]
+[ext_resource type="PackedScene" uid="uid://c0es5jtggpd1i" path="res://scenes/menus/stage_button.tscn" id="4_uyocs"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ei68"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1g3r4"]
+
+[node name="stage_selection_menu" type="Control"]
+material = SubResource("CanvasItemMaterial_7ei68")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_msl1i")
+
+[node name="title_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 697.0
+offset_top = 100.0
+offset_right = 1253.0
+offset_bottom = 218.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_tveu5")
+theme_override_font_sizes/font_size = 100
+text = "Select a Stage"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+material = SubResource("CanvasItemMaterial_1g3r4")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 370.0
+anchor_bottom = 200.0
+offset_left = 50.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+script = ExtResource("3_home0")
+
+[node name="button1" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(25, 286)
+
+[node name="button2" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(387, 286)
+
+[node name="button3" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(746, 286)
+
+[node name="button4" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(1105, 286)
+
+[node name="button5" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(1464, 286)
+
+[node name="button6" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(22, 574)
+
+[node name="button7" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(384, 574)
+
+[node name="button8" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(743, 574)
+
+[node name="button9" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(1102, 574)
+
+[node name="button10" parent="GridContainer" instance=ExtResource("4_uyocs")]
+position = Vector2(1461, 574)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ri0ex0d0kbm"]
+
+[ext_resource type="PackedScene" uid="uid://cvpl26rn0yrsj" path="res://scenes/menus/stage_selection_menu.tscn" id="1_00fm7"]
+[ext_resource type="Script" path="res://scripts/tests/stage_selector_test.gd" id="1_8ckwj"]
+
+[node name="StageSelectorTest" type="Node2D"]
+script = ExtResource("1_8ckwj")
+
+[node name="stage_selection_menu" parent="." instance=ExtResource("1_00fm7")]

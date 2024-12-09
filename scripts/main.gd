@@ -67,6 +67,11 @@ func get_input():
 		restart_stage()
 	if Input.is_action_just_pressed("ball_gun"):
 		$ball_gun_timer.start()
+	if Input.is_action_just_pressed("select_stage"):
+		$stage_selection_menu.show()
+		$stage_selection_menu.elapsed_time = 0.0
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)		
+		get_tree().paused = true
 
 func toggle_main_menu():
 	$main_menu.show()
@@ -89,7 +94,7 @@ func spawn_ball():
 			ball_instance.linear_velocity += Vector3(10,40,0)
 		else:
 			ball_instance.velocity.x = 2
-			ball_instance.velocity.y = 10
+			ball_instance.velocity.y = 30
 		# add the new ball to our list and to the main scene 
 		balls.append(ball_instance) 
 		add_child(ball_instance)

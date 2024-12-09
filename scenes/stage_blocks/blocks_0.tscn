@@ -16,10 +16,10 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 17.5, 0)
 
 [node name="block_blue" parent="." instance=ExtResource("2_y8jj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 19.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 14.5, 0)
 
 [node name="block_blue2" parent="." instance=ExtResource("2_y8jj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 14.5, 0)
 
 [node name="block_yellow" parent="." instance=ExtResource("3_gwqud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 14.5, 0)

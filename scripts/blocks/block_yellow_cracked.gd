@@ -12,9 +12,8 @@ func _on_area_entered(area):
 	if area is BallClassic:
 		explode_and_exit()
 
-func explode_and_exit():
-	var main_scene = get_tree().root.get_child(2)
+func explode_and_exit():	
 	var new_explosion = explosion_scene.instantiate()
 	new_explosion.position = global_position	
-	main_scene.add_child.call_deferred(new_explosion)
+	Global.get_main().add_child.call_deferred(new_explosion)
 	queue_free()	

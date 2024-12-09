@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=14 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
+[ext_resource type="PackedScene" uid="uid://cvpl26rn0yrsj" path="res://scenes/menus/stage_selection_menu.tscn" id="2_jnlbq"]
 [ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/menus/main_menu.tscn" id="2_u3m40"]
 [ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
 [ext_resource type="PackedScene" uid="uid://3381m75yvmic" path="res://scenes/menus/game_over_menu.tscn" id="4_rx3or"]
@@ -26,6 +27,10 @@ sky_custom_fov = 45.0
 [node name="main" type="Node3D"]
 process_mode = 1
 script = ExtResource("1_qct0r")
+
+[node name="stage_selection_menu" parent="." instance=ExtResource("2_jnlbq")]
+process_mode = 2
+visible = false
 
 [node name="main_menu" parent="." instance=ExtResource("2_u3m40")]
 process_mode = 2

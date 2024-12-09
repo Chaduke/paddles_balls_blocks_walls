@@ -33,6 +33,13 @@ var slot2 = false
 var slot3 = false
 var slot4 = false
 
+func get_main():
+	var m = get_tree().root.get_child(2)
+	return m
+	
+func get_stage():
+	return get_main().find_child("stage")
+	
 func ball_offset():
 	return (current_ball_size / 4.0 + 0.5)
 	
