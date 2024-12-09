@@ -1,19 +1,13 @@
--Update Dec 7th 2024:
+-Update Dec 8th 2024:
+Weekly devlog video here: 
+	
+https://youtu.be/enxrOY7YXz0?si=iKd1OGy0U4hhD4du
+
+I'll try to post update videos on or around every Sunday. 
+Much much more to come soon, I'll be working on this full time until its complete! 
+	
 version 0.0.8 released! I already added 5 more levels for a total of 15. Also started experimenting with basic music and sound, will be spending a lot of time on that next week!
 Tommorrow I'll be working on a weekly devlog video and try to have it done by the end of day.
-
-Dec 6th - version 0.0.7 - Major update, everything seems to be running much smoother now and you should be able to get through all 10 levels without getting super stuck.  If you do however, you can always use the "R" shortcut key to Restart the level at any time.  I updated the particle systems so its much more satisfying to break the blocks now!
-- Have fun and please report any bugs you find! 
-
-Much much more to come soon, I'll be working on this full time until its complete!
-
-P.S. Level 10 can be difficult but is very finishable, I spent of lot of time working on it today to get it right. 
-
-Watch the intro video here :
-
-https://youtu.be/HQ9_zqg4RUU?si=gQfzIGiknZz-U3oS
-
-I'll try to post update videos on or around every Sunday.  
 
 Play the web version here (report any bugs you find):
 

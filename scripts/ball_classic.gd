@@ -7,7 +7,7 @@ var velocity = Vector3(0,0,0)
 func _ready():
 	velocity.x = 1
 	velocity.y = 10
-	$ball_release_sound.play()
+	$release_sound.play()
 
 func _process(delta):
 	position += velocity * delta
@@ -23,11 +23,15 @@ func _on_body_entered(body):
 		
 func wall_collision():
 	$wall_sound.play()
-	if position.y > 28 and position.x > -18.5 and position.x < 12:
+	# print("Wall collision occured at " + str(global_position))
+	if position.y > 28.5: 
 		# ball is at the ceiling
 		velocity.y = -velocity.y
+		position.y = 28.5-0.01
 	else:
 		velocity.x = -velocity.x
+		if position.x > 11.5: position.x = 11.5-0.01
+		if position.x < -17.5: position.x = -17.5+0.01
 
 func paddle_collision(paddle_body):
 	var diff = position.x - paddle_body.position.x
@@ -37,10 +41,34 @@ func paddle_collision(paddle_body):
 	$paddle_sound.play()
 	
 func block_collision(block_body):
+	# collision response	
+	var diff = global_position - block_body.global_position
+	# print("Ball entered from this position : " + str(diff))
+	var offset = 0.0
+	if diff.y > 0 and diff.y > abs(diff.x / 2):
+		# its from the top		
+		velocity.y = -velocity.y
+		offset = 1 - diff.y
+		position.y += offset+0.01
+	elif diff.y < 0 and abs(diff.y) > abs(diff.x / 2):
+		# its from the bottom
+		velocity.y = -velocity.y
+		offset = 1 + diff.y
+		position.y -= offset+0.01
+	else:
+		velocity.x = -velocity.x
+		if diff.x > 0:
+			# right side
+			offset = 1.5 - diff.x
+			position.x += offset+0.01
+		else:
+			# left side 
+			offset = 1.5 + diff.x
+			position.x -= offset+0.01
+			
 	# we have to destroy our StaticBody3D types from here
 	# for some reason there's no signal to allow it to destroy itself on collision
-	# Area3Ds however, like the cracked blocks, have an _on_body_entered signal
-	velocity.y= -velocity.y
+	# Area3Ds however, like the cracked blocks, have an _on_body_entered signal	
 	if block_body is BlockBlue:
 		block_body.queue_free()
 	elif block_body is BlockYellow:

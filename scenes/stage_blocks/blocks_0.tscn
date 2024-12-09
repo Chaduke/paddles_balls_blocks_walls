@@ -13,40 +13,40 @@
 [node name="blocks_0" type="Node3D"]
 
 [node name="flow_arrows_up" parent="." instance=ExtResource("1_qfrxa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 17.5, 0)
 
 [node name="block_blue" parent="." instance=ExtResource("2_y8jj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 19.5, 0)
 
 [node name="block_blue2" parent="." instance=ExtResource("2_y8jj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 14.5, 0)
 
 [node name="block_yellow" parent="." instance=ExtResource("3_gwqud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 14.5, 0)
 
 [node name="block_yellow2" parent="." instance=ExtResource("3_gwqud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5, 26.5, 0)
 
 [node name="flow_arrows_right" parent="." instance=ExtResource("4_ixcmg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 19.5, 0)
 
 [node name="flow_arrows_left" parent="." instance=ExtResource("5_31ouk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 21.5, 0)
 
 [node name="flow_arrows_down" parent="." instance=ExtResource("6_2nanw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 23.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 23.5, 0)
 
 [node name="block_pink" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 14.5, 0)
 item_type = "SmallBalls"
 
 [node name="block_pink2" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 26.5, 0)
 item_type = "LargeBalls"
 
 [node name="block_clear" parent="." instance=ExtResource("8_10rtp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5, 26.5, 0)
 total_balls = 5
 
 [node name="block_shielded" parent="." instance=ExtResource("9_f06tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 14.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 26.5, 0)

@@ -126,7 +126,7 @@ func remove_all_balls():
 		balls.erase(ball)
 		ball.queue_free()
 
-func decrement_balls():
+func decrement_balls(): 
 	var spare_balls = $stage/spare_balls
 	if spare_balls.get_child_count() > 0 and not Global.infinite_balls:
 		var spare_ball = spare_balls.get_child(0)
@@ -144,11 +144,11 @@ func create_ball_instance():
 	var ball_instance
 	if Global.default_ball_mode:
 		ball_instance = ball_scene.instantiate()
-		clear_existing_mesh_instance(ball_instance)
-		add_new_mesh_instance(ball_instance)
-		setup_ball_collision(ball_instance)
 	else:
 		ball_instance = ball_classic_scene.instantiate()
+	#clear_existing_mesh_instance(ball_instance)
+	#add_new_mesh_instance(ball_instance)
+	#setup_ball_collision(ball_instance)
 	return ball_instance
 
 func clear_existing_mesh_instance(ball_instance):
@@ -161,9 +161,33 @@ func clear_existing_mesh_instance(ball_instance):
 		
 func add_new_mesh_instance(ball_instance):
 	#print("Attempting to add new ball_model for " + ball_instance.name)
-	var new_mesh_instance = ball_instance.ball_models[Global.current_ball_size].instantiate()
+	var new_mesh_instance
+	if Global.default_ball_mode:
+		new_mesh_instance = ball_instance.ball_models[Global.current_ball_size].instantiate()
+	else:
+		new_mesh_instance = create_procedural_ball()
 	ball_instance.add_child(new_mesh_instance)
 	#print("added instance with size " + str(Global.current_ball_size))
+	
+func create_procedural_ball():
+	# Step 1: Create MeshInstance3D and SphereMesh 
+	var mesh_instance = MeshInstance3D.new() 
+	var sphere_mesh = SphereMesh.new() 
+	# Set radius 
+	sphere_mesh.radius = float(Global.current_ball_size / 4)
+	# Set height
+	sphere_mesh.height = sphere_mesh.radius * 2
+	# Step 2: Assign SphereMesh to MeshInstance3D 
+	mesh_instance.mesh = sphere_mesh 
+	# Step 3: Create and configure StandardMaterial3D 
+	var material = StandardMaterial3D.new() 
+	material.albedo_color = Color(1, 0.49, 1) 
+	# RGB: 255, 125, 255 (pink)
+	material.metallic = 0.3 
+	material.roughness = 0.3 
+	# Step 4: Assign material to MeshInstance3D 
+	mesh_instance.material_override = material
+	return mesh_instance
 	
 func setup_ball_collision(ball_instance):
 	# Update collision shape radius 

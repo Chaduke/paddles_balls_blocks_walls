@@ -9,9 +9,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aht7i"]
 albedo_color = Color(1, 0.490196, 1, 1)
-metallic = 0.27
+metallic = 0.3
 metallic_specular = 0.48
-roughness = 0.37
+roughness = 0.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_4m1p2"]
 material = SubResource("StandardMaterial3D_aht7i")
@@ -23,10 +23,10 @@ script = ExtResource("1_odfor")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_s0agh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="ball_model" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_4m1p2")
 
-[node name="ball_release_sound" type="AudioStreamPlayer" parent="."]
+[node name="release_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lo1ky")
 
 [node name="wall_sound" type="AudioStreamPlayer" parent="."]
