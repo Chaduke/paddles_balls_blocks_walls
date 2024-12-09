@@ -9,10 +9,10 @@ func _process(delta):
 			if elapsed_time > 0.1 and other_menus_closed(): 
 				resume_game()
 		else:
-			get_tree().quit()
+			if elapsed_time > 0.1: get_tree().quit()
 
 func other_menus_closed():
-	var main_scene = get_tree().root.get_child(1)
+	var main_scene = get_tree().root.get_child(2)
 	var game_over_menu = main_scene.find_child("game_over_menu")
 	var stage = main_scene.find_child("stage")
 	var stage_cleared_menu = stage.find_child("stage_cleared_menu")
@@ -39,7 +39,11 @@ func platform_specific_inits():
 		$quit_button.hide()
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	var main_scene = get_tree().root.get_child(2)
+	var confirm = main_scene.find_child("confirm_quit_menu")
+	confirm.show()
+	confirm.previous_menu = self
+	hide()
 
 func _on_start_button_pressed():
 	start_game()

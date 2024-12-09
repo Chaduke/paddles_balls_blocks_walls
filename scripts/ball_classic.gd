@@ -2,7 +2,9 @@
 extends Area3D
 class_name BallClassic
 
-var velocity = Vector3(0,0,0)
+var velocity = Vector3(0.0,0.0,0.0)
+var acceleration = Vector3(0.0,-10.0,0.0)
+
 var x_velocity_limit = 50
 var y_velocity_limit = 50
 
@@ -10,14 +12,13 @@ var top_bounds = 0.0
 var left_bounds = 0.0
 var right_bounds = 0.0
 
-func _ready():
-	velocity.x = 1
-	velocity.y = 10
+func _ready():	
 	$release_sound.play()
 	update_bounds()
 
 func _process(delta):
 	limit_ball_velocity()
+	velocity += acceleration * delta
 	position += velocity * delta
 	
 func limit_ball_velocity():
@@ -40,8 +41,8 @@ func _on_body_entered(body):
 		block_collision(body)
 	elif body is Stage:
 		wall_collision()
-	else:
-		print_debug("Collided with something other than paddle, block or stage : " + body.name)
+	#else:
+		#print_debug("Collided with something other than paddle, block or stage : " + body.name)
 		
 func update_bounds():
 	var ball_offset = Global.ball_offset()

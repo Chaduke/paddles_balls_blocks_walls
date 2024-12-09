@@ -118,15 +118,31 @@ func enable_item_effect():
 	elif item_type == "SmallBalls":
 		shrink_balls()
 	elif item_type == "GravityReverse":
-		# change the Y vector to 1 instead of -1, reversing gravity pull
-		PhysicsServer3D.area_set_param(get_world_3d().space, 
-		PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
-		Vector3(0, 1, 0))
+		reverse_gravity()	
 	elif item_type == "InfiniteBalls":
 		Global.infinite_balls = true
 	elif item_type == "MaxPaddle":
 		paddle.maximize()
 		
+func reverse_gravity():
+	# change the Y vector to 1 instead of -1, reversing gravity pull
+	PhysicsServer3D.area_set_param(get_world_3d().space, 
+	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
+	Vector3(0, 1, 0))
+	var main_scene = get_tree().root.get_child(2)
+	for ball in main_scene.balls:
+		if ball is BallClassic:
+			ball.acceleration.y = 10.0
+			
+func restore_gravity():
+	PhysicsServer3D.area_set_param(get_world_3d().space, 
+	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
+	Vector3(0, -1, 0))
+	var main_scene = get_tree().root.get_child(2)
+	for ball in main_scene.balls:
+		if ball is BallClassic:
+			ball.acceleration.y = -10.0
+				
 func grow_balls():
 	var current = Global.current_ball_size
 	if current < 4:
@@ -161,9 +177,7 @@ func update_timed_item():
 	if secs == timer:
 		Global.set_slot_inactive(slot)
 		if item_type == "GravityReverse":
-			PhysicsServer3D.area_set_param(get_world_3d().space, 
-			PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
-			Vector3(0, -1, 0))
+			restore_gravity()	
 		if item_type == "InfiniteBalls":
 			Global.infinite_balls = false
 		if item_type == "MaxPaddle":

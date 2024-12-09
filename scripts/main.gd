@@ -38,8 +38,6 @@ func os_specific_inits():
 		tab_event.keycode = KEY_TAB
 		InputMap.action_erase_event("ui_cancel",escape_event)
 		InputMap.action_add_event("ui_cancel", tab_event)
-		$web_shortcuts.show()
-		$desktop_shortcuts.hide()
 		
 func _process(delta):
 	elapsed_time+=delta
@@ -61,12 +59,14 @@ func position_camera():
 func get_input():
 	if Input.is_action_just_pressed("ui_cancel"):
 		if elapsed_time > 0.1 : toggle_main_menu()
-	if Input.is_action_just_pressed("spawn_ball") and game_ready:
+	if Input.is_action_just_pressed("spawn_ball") and game_ready:		
 		spawn_ball()
 	if Input.is_action_just_pressed("settings"):
 		if elapsed_time > 0.1 : toggle_settings()
 	if Input.is_action_just_pressed("reset"):
 		restart_stage()
+	if Input.is_action_just_pressed("ball_gun"):
+		$ball_gun_timer.start()
 
 func toggle_main_menu():
 	$main_menu.show()
@@ -85,7 +85,11 @@ func spawn_ball():
 		# position the new ball in respect to the paddle 
 		var ball_offset = Global.ball_offset() + 0.1
 		ball_instance.position = $paddle.position + Vector3(0,ball_offset,0)
-		if Global.default_ball_mode: ball_instance.linear_velocity += Vector3(10,40,0)
+		if Global.default_ball_mode: 
+			ball_instance.linear_velocity += Vector3(10,40,0)
+		else:
+			ball_instance.velocity.x = 2
+			ball_instance.velocity.y = 10
 		# add the new ball to our list and to the main scene 
 		balls.append(ball_instance) 
 		add_child(ball_instance)
@@ -133,7 +137,9 @@ func decrement_balls():
 		var spare_ball = spare_balls.get_child(0)
 		spare_ball.queue_free()
 		balls_left-=1
-		if balls_left < 0: balls_left = 0	
+		if balls_left < 0: 
+			balls_left = 0
+			$ball_gun_timer.stop()
 		return true
 	else:
 		if Global.infinite_balls:
@@ -199,10 +205,13 @@ func setup_ball_collision(ball_instance):
 			sphere_shape.radius = Global.current_ball_size / 4.0 - 0.1
 		else: 
 			print("Error: CollisionShape3D node or SphereShape3D shape not found.")
-					
+
 func update_ball_size():
 	#print("Updating ball size to " + str(Global.current_ball_size))	
 	for ball_instance in balls:
 		clear_existing_mesh_instance(ball_instance)
 		add_new_mesh_instance(ball_instance)
 		setup_ball_collision(ball_instance)
+
+func _on_ball_gun_timer_timeout():
+	spawn_ball()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=13 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
 [ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/menus/main_menu.tscn" id="2_u3m40"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dh62r386qxuix" path="res://assets/images/skybox_sunny.png" id="4_w6qld"]
 [ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="5_l3s87"]
+[ext_resource type="PackedScene" uid="uid://byjm4pu2nw2ew" path="res://scenes/menus/confirm_quit_menu.tscn" id="5_ug5jo"]
 [ext_resource type="PackedScene" uid="uid://bs1eip3jtnoyk" path="res://scenes/menus/settings_menu.tscn" id="7_yw4vb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
@@ -41,6 +42,10 @@ visible = false
 process_mode = 2
 visible = false
 
+[node name="confirm_quit_menu" parent="." instance=ExtResource("5_ug5jo")]
+process_mode = 2
+visible = false
+
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)
 fov = 45.0
@@ -72,32 +77,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_enept")
 
-[node name="web_shortcuts" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4, 21.0931, -37)
-visible = false
-text = "Keyboard Shortcuts :
-TAB - Toggle Main Menu
-S - Toggle Settings Menu
-R - Restart Stage"
-font = ExtResource("5_l3s87")
-font_size = 100
-outline_size = 20
-horizontal_alignment = 2
-
-[node name="desktop_shortcuts" type="Label3D" parent="."]
-transform = Transform3D(0.998567, 0, -0.0535211, 0, 1, 0, 0.0535211, 0, 0.998567, -19.4476, 20.9226, -37)
+[node name="keyboard" type="Label3D" parent="."]
+transform = Transform3D(0.998567, 0, -0.0535211, 0, 1, 0, 0.0535211, 0, 0.998567, -19.4476, 19.5169, -37)
 modulate = Color(1, 0.788235, 1, 1)
 text = "Keyboard Shortcuts :
 ESC - Toggle Main Menu
+(web version use TAB)
 S - Toggle Settings Menu
-R - Restart Stage"
+R - Restart Stage
+G - Ball Gun"
 font = ExtResource("5_l3s87")
 font_size = 130
 outline_size = 20
 horizontal_alignment = 2
 
 [node name="instructions_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5023, 14.6162, -37)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5023, 11.7037, -37)
 text = "Instructions  :
 Use mouse to -
 move paddle left and right
@@ -114,3 +109,8 @@ font = ExtResource("5_l3s87")
 font_size = 120
 outline_size = 20
 horizontal_alignment = 2
+
+[node name="ball_gun_timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="ball_gun_timer" to="." method="_on_ball_gun_timer_timeout"]

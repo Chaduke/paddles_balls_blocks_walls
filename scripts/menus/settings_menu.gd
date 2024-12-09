@@ -51,3 +51,6 @@ func _on_reset_times_button_pressed():
 func _on_cancel_button_pressed():
 	$cancel_button.hide()
 	$reset_times_button.text = "Reset Record Times"
+
+func _on_ball_physics_checkbutton_toggled(toggled_on):
+	Global.default_ball_mode = toggled_on

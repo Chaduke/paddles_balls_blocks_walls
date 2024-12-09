@@ -1,3 +1,9 @@
+# audio_server.gd
+
+# this is experimental, not even sure if its a good idea
+# I think for music it could work but sounds seem to work 
+# better attached to individual scenes that make them 
+# probably should rename this to "music server" or "music manager"
 extends Node
 
 # music 

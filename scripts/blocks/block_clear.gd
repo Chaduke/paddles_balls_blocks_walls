@@ -27,13 +27,13 @@ func release_ball():
 	ball_instance.position = global_transform.origin
 	var rng = RandomNumberGenerator.new() 
 	rng.randomize() 
-	var random_int = rng.randi_range(-10,10)
+	var r = rng.randf_range(-10,10)
 	if Global.default_ball_mode:
-		ball_instance.linear_velocity.x += random_int
+		ball_instance.linear_velocity.x += r
 		ball_instance.linear_velocity.y += 10
 	else:
-		ball_instance.velocity.x += random_int
-		ball_instance.velocity.y += 10
+		ball_instance.velocity.x = r
+		ball_instance.velocity.y = 10
 	main_scene.balls.append(ball_instance) 
 	main_scene.add_child.call_deferred(ball_instance)
 

@@ -21,6 +21,15 @@ offset_bottom = 712.0
 theme_override_font_sizes/font_size = 24
 text = "Show 3D Background"
 
+[node name="ball_physics_checkbutton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 693.0
+offset_right = 1085.0
+offset_bottom = 758.0
+theme_override_font_sizes/font_size = 24
+text = "Realistic Ball Physics"
+
 [node name="settings_label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 806.0
@@ -49,18 +58,18 @@ horizontal_alignment = 1
 
 [node name="back_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 904.0
-offset_top = 748.0
-offset_right = 949.0
-offset_bottom = 779.0
+offset_left = 901.0
+offset_top = 809.0
+offset_right = 946.0
+offset_bottom = 840.0
 text = "Back"
 
 [node name="reset_times_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 851.0
-offset_top = 708.0
-offset_right = 1010.0
-offset_bottom = 739.0
+offset_left = 848.0
+offset_top = 769.0
+offset_right = 1007.0
+offset_bottom = 800.0
 text = "Reset Record Times"
 
 [node name="cancel_button" type="Button" parent="."]
@@ -73,6 +82,7 @@ offset_bottom = 776.0
 text = "Cancel"
 
 [connection signal="toggled" from="show_background_checkbutton" to="." method="_on_show_background_checkbutton_toggled"]
+[connection signal="toggled" from="ball_physics_checkbutton" to="." method="_on_ball_physics_checkbutton_toggled"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="reset_times_button" to="." method="_on_reset_times_button_pressed"]
 [connection signal="pressed" from="cancel_button" to="." method="_on_cancel_button_pressed"]

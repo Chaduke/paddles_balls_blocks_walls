@@ -59,6 +59,7 @@ func normalize():
 
 func _process(_delta):
 	if Input.is_action_pressed("swing_paddle"):
+		if OS.get_name() == "Web": Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		if position.y > 0.5:
 			position.y -= 0.3
 			if position.y < 0.5:

@@ -15,4 +15,8 @@ func _on_restart_button_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
 
 func _on_quit_button_pressed():
-	get_tree().quit()
+	var main_scene = get_tree().root.get_child(2)
+	var confirm = main_scene.find_child("confirm_quit_menu")
+	confirm.show()
+	confirm.previous_menu = self
+	hide()

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://byjm4pu2nw2ew"]
+
+[ext_resource type="Script" path="res://scripts/menus/confirm_quit_menu.gd" id="1_f5v7h"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_r3ruj"]
+
+[node name="confirm_quit_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5v7h")
+
+[node name="confirm_quit_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 277.0
+offset_right = 1711.0
+offset_bottom = 814.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = ExtResource("2_r3ruj")
+theme_override_font_sizes/font_size = 150
+text = "Really Quit?
+ENTER or SPACE  to confirm
+ESC to Cancel"
+horizontal_alignment = 1

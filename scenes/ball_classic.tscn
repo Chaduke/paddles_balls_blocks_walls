@@ -18,6 +18,7 @@ material = SubResource("StandardMaterial3D_aht7i")
 
 [node name="ball_classic" type="Area3D"]
 collision_mask = 31
+priority = 1
 script = ExtResource("1_odfor")
 
 [node name="ball_model" type="MeshInstance3D" parent="."]
