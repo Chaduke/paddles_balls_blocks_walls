@@ -83,7 +83,8 @@ func spawn_ball():
 	if decrement_balls():
 		var ball_instance = create_ball_instance()
 		# position the new ball in respect to the paddle 
-		ball_instance.position = $paddle.position + Vector3(0,1.1,0)
+		var ball_offset = Global.ball_offset() + 0.1
+		ball_instance.position = $paddle.position + Vector3(0,ball_offset,0)
 		if Global.default_ball_mode: ball_instance.linear_velocity += Vector3(10,40,0)
 		# add the new ball to our list and to the main scene 
 		balls.append(ball_instance) 
@@ -146,19 +147,19 @@ func create_ball_instance():
 		ball_instance = ball_scene.instantiate()
 	else:
 		ball_instance = ball_classic_scene.instantiate()
-	#clear_existing_mesh_instance(ball_instance)
-	#add_new_mesh_instance(ball_instance)
-	#setup_ball_collision(ball_instance)
+	clear_existing_mesh_instance(ball_instance)
+	add_new_mesh_instance(ball_instance)
+	setup_ball_collision(ball_instance)
 	return ball_instance
 
 func clear_existing_mesh_instance(ball_instance):
 	#print("Attempting to clear ball_model for " + ball_instance.name)
 	for child in ball_instance.get_children():
 		#print(child.name)
-		if child.name.begins_with("ball"):
+		if child.name.begins_with("ball") or child is MeshInstance3D:
 			#print("Freeing model")
 			child.queue_free()
-		
+
 func add_new_mesh_instance(ball_instance):
 	#print("Attempting to add new ball_model for " + ball_instance.name)
 	var new_mesh_instance
@@ -174,7 +175,7 @@ func create_procedural_ball():
 	var mesh_instance = MeshInstance3D.new() 
 	var sphere_mesh = SphereMesh.new() 
 	# Set radius 
-	sphere_mesh.radius = float(Global.current_ball_size / 4)
+	sphere_mesh.radius = Global.current_ball_size / 4.0
 	# Set height
 	sphere_mesh.height = sphere_mesh.radius * 2
 	# Step 2: Assign SphereMesh to MeshInstance3D 

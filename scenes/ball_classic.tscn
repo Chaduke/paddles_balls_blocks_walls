@@ -5,8 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://bm567m2wkpkra" path="res://assets/wave/wall.wav" id="3_5bpqi"]
 [ext_resource type="AudioStream" uid="uid://cyr6mmhnjre2p" path="res://assets/wave/paddle.wav" id="4_ug1eg"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_s0agh"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aht7i"]
 albedo_color = Color(1, 0.490196, 1, 1)
 metallic = 0.3
@@ -16,15 +14,17 @@ roughness = 0.3
 [sub_resource type="SphereMesh" id="SphereMesh_4m1p2"]
 material = SubResource("StandardMaterial3D_aht7i")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_s0agh"]
+
 [node name="ball_classic" type="Area3D"]
 collision_mask = 31
 script = ExtResource("1_odfor")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_s0agh")
-
 [node name="ball_model" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_4m1p2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s0agh")
 
 [node name="release_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lo1ky")

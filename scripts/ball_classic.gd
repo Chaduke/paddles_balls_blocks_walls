@@ -3,14 +3,34 @@ extends Area3D
 class_name BallClassic
 
 var velocity = Vector3(0,0,0)
+var x_velocity_limit = 50
+var y_velocity_limit = 50
+
+var top_bounds = 0.0
+var left_bounds = 0.0
+var right_bounds = 0.0
 
 func _ready():
 	velocity.x = 1
 	velocity.y = 10
 	$release_sound.play()
+	update_bounds()
 
 func _process(delta):
+	limit_ball_velocity()
 	position += velocity * delta
+	
+func limit_ball_velocity():
+	if abs(velocity.x) > x_velocity_limit:
+		if velocity.x > 0:
+			velocity.x = x_velocity_limit
+		else:
+			velocity.x = -x_velocity_limit
+	if abs(velocity.y) > y_velocity_limit:
+		if velocity.y > 0:
+			velocity.y = y_velocity_limit
+		else:
+			velocity.y = -y_velocity_limit
 
 func _on_body_entered(body):
 	# print(body.name)
@@ -18,26 +38,44 @@ func _on_body_entered(body):
 		paddle_collision(body)
 	elif body.is_in_group("Blocks"):
 		block_collision(body)
-	else:
+	elif body is Stage:
 		wall_collision()
+	else:
+		print_debug("Collided with something other than paddle, block or stage : " + body.name)
 		
+func update_bounds():
+	var ball_offset = Global.ball_offset()
+	top_bounds = 29.5 - ball_offset
+	right_bounds = 12.5 - ball_offset
+	left_bounds = -18.5 + ball_offset
+
 func wall_collision():
 	$wall_sound.play()
-	# print("Wall collision occured at " + str(global_position))
-	if position.y > 28.5: 
+	# print("Stage collision occured at " + str(global_position))
+	update_bounds()
+	# print("T : " + str(top_bounds) + " R : " + str(right_bounds) + " L : " + str(left_bounds))
+	if position.y > top_bounds: 
 		# ball is at the ceiling
 		velocity.y = -velocity.y
-		position.y = 28.5-0.01
+		position.y = top_bounds-0.01
+		# print("Velocity Y adjusted to : " + str(velocity.y))
+		# print("Position Y adjusted to : " + str(position.y))
 	else:
 		velocity.x = -velocity.x
-		if position.x > 11.5: position.x = 11.5-0.01
-		if position.x < -17.5: position.x = -17.5+0.01
+		# print("Velocity  X adjusted to : " + str(velocity.x))
+		if position.x > right_bounds: position.x = right_bounds-0.01
+		if position.x < left_bounds: position.x = left_bounds+0.01
+		# print("Position X adjusted to : " + str(position.x))
 
 func paddle_collision(paddle_body):
 	var diff = position.x - paddle_body.position.x
-	# linear_velocity.y *= 1.4
 	velocity.x += diff * 3
-	velocity.y= -velocity.y
+	# check if paddle is in "upswing"
+	if paddle_body.upswing:
+		velocity.y= -velocity.y * 1.5
+	else:
+		velocity.y= -velocity.y
+	position.y = paddle_body.position.y + Global.ball_offset() + 0.1
 	$paddle_sound.play()
 	
 func block_collision(block_body):
@@ -48,22 +86,22 @@ func block_collision(block_body):
 	if diff.y > 0 and diff.y > abs(diff.x / 2):
 		# its from the top		
 		velocity.y = -velocity.y
-		offset = 1 - diff.y
+		offset = Global.ball_offset() - diff.y
 		position.y += offset+0.01
 	elif diff.y < 0 and abs(diff.y) > abs(diff.x / 2):
 		# its from the bottom
 		velocity.y = -velocity.y
-		offset = 1 + diff.y
+		offset = Global.ball_offset() + diff.y
 		position.y -= offset+0.01
 	else:
 		velocity.x = -velocity.x
 		if diff.x > 0:
 			# right side
-			offset = 1.5 - diff.x
+			offset = Global.ball_offset() + 0.5 - diff.x
 			position.x += offset+0.01
 		else:
 			# left side 
-			offset = 1.5 + diff.x
+			offset = Global.ball_offset() + 0.5 + diff.x
 			position.x -= offset+0.01
 			
 	# we have to destroy our StaticBody3D types from here

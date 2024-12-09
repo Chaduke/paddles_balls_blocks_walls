@@ -1,5 +1,6 @@
 # stage.gd
 extends StaticBody3D
+class_name Stage
 
 var current_blocks
 var block_scene_paths = []

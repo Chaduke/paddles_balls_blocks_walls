@@ -17,6 +17,9 @@ var left_bounds
 var right_bounds
 @onready var collision_shape_3d = $CollisionShape3D
 
+# to detect if we should give the "classic" ball a boost
+var upswing = false
+
 func _ready():
 	update_paddle_model(current_size)
 	
@@ -63,8 +66,11 @@ func _process(_delta):
 	else:
 		if position.y < 2.5:
 			position.y +=0.3
+			upswing = true
 			if position.y > 2.5:
 				position.y = 2.5
+		else:
+			upswing = false
 
 func _input(event):
 	if event is InputEventMouseMotion:

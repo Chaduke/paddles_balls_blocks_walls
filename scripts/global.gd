@@ -33,6 +33,9 @@ var slot2 = false
 var slot3 = false
 var slot4 = false
 
+func ball_offset():
+	return (current_ball_size / 4.0 + 0.5)
+	
 func load_times():
 	load_time_dict(stage_times_dict,"user://stage_times.json")
 	load_time_dict(total_times_dict,"user://total_times.json")
