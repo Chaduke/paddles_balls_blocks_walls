@@ -19,9 +19,9 @@ func start_rsg():
 func _on_rsg_timer_timeout():
 	ticks+=1
 	if ticks == 1:
-		$ready_set_go_label.text = "SET!"		
+		$ready_set_go_label.text = "SET!"
 	elif ticks==2:
-		$ready_set_go_label.text = "GO!!!"		
+		$ready_set_go_label.text = "GO!!!"
 	else:
 		var main_scene = get_tree().root.get_child(2)
 		main_scene.game_ready = true 

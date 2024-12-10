@@ -24,3 +24,5 @@ offset_right = 214.0
 offset_bottom = 237.0
 text = "Stage 0"
 label_settings = SubResource("LabelSettings_kuyvf")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -16,8 +16,8 @@ func _on_magnetic_influence_body_entered(body):
 			body.linear_velocity.y -= 10
 
 func _on_tree_exiting():
-	# add explosion	
-	var main_scene = get_tree().root.get_child(2)
-	var new_explosion = explosion_scene.instantiate()
-	new_explosion.position = global_position
-	main_scene.add_child.call_deferred(new_explosion)
+	if not Global.creating_thumbnails:
+		# add explosion	
+		var new_explosion = explosion_scene.instantiate()
+		new_explosion.position = global_position
+		Global.get_main().add_child.call_deferred(new_explosion)

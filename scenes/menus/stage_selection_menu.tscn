@@ -79,3 +79,22 @@ position = Vector2(1102, 574)
 
 [node name="button10" parent="GridContainer" instance=ExtResource("4_uyocs")]
 position = Vector2(1461, 574)
+
+[node name="next_page" type="Button" parent="."]
+layout_mode = 0
+offset_left = 981.0
+offset_top = 876.0
+offset_right = 1068.0
+offset_bottom = 907.0
+text = "Next Page"
+
+[node name="previous_page" type="Button" parent="."]
+layout_mode = 0
+offset_left = 825.0
+offset_top = 875.0
+offset_right = 942.0
+offset_bottom = 906.0
+text = "Previous Page"
+
+[connection signal="pressed" from="next_page" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="previous_page" to="." method="_on_previous_page_pressed"]

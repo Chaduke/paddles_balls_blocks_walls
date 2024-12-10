@@ -8,10 +8,7 @@ var total_stages = 16
 var current_ball_size = 2
 var infinite_balls = false
 
-# Experimental "Ball Mode"
-# true = new balls will be spawned as Rigidbody3D balls in ball.gd
-# false = new balls spawned as Area3D balls, ball_classic.gd
-var default_ball_mode = false
+
 
 var game_started = false
 var stage_started = false
@@ -26,6 +23,12 @@ var total_times_dict = {}
 
 # settings 
 var show_background_3d = false
+# Experimental "Ball Mode"
+# true = new balls will be spawned as Rigidbody3D balls in ball.gd
+# false = new balls spawned as Area3D balls, ball_classic.gd
+var default_ball_mode = false
+
+var creating_thumbnails = false
 
 # slots for item pickups 
 var slot1 = false
