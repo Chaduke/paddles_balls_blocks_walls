@@ -82,13 +82,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_enept")
 
-[node name="keyboard" type="Label3D" parent="."]
+[node name="keyboard_shortcuts_label" type="Label3D" parent="."]
 transform = Transform3D(0.998567, 0, -0.0535211, 0, 1, 0, 0.0535211, 0, 0.998567, -19.4476, 19.5169, -37)
 modulate = Color(1, 0.788235, 1, 1)
 text = "Keyboard Shortcuts :
 ESC - Toggle Main Menu
 (web version use TAB)
-S - Toggle Settings Menu
+F2 - Toggle Settings Menu
+S - Toggle Stage Selection
 R - Restart Stage
 G - Ball Gun"
 font = ExtResource("5_l3s87")

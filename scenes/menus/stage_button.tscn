@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0es5jtggpd1i"]
+[gd_scene load_steps=4 format=3 uid="uid://c0es5jtggpd1i"]
 
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_l3rus"]
-[ext_resource type="Script" path="res://scripts/menus/stage_button.gd" id="1_ldpcf"]
 [ext_resource type="Texture2D" uid="uid://dogmco051bl77" path="res://assets/images/placeholder_334x200.png" id="2_4dhqf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kuyvf"]
@@ -9,7 +8,6 @@ font = ExtResource("1_l3rus")
 font_size = 30
 
 [node name="stage_button" type="Node2D"]
-script = ExtResource("1_ldpcf")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(334, 200)

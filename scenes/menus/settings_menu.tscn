@@ -28,6 +28,7 @@ offset_top = 693.0
 offset_right = 1085.0
 offset_bottom = 758.0
 theme_override_font_sizes/font_size = 24
+button_pressed = true
 text = "Realistic Ball Physics"
 
 [node name="settings_label" type="Label" parent="."]

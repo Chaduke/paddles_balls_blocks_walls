@@ -1,11 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8x25syqaw2al"]
+[gd_scene load_steps=9 format=3 uid="uid://b8x25syqaw2al"]
 
 [ext_resource type="Script" path="res://scripts/tests/thumbnailer.gd" id="1_1s4a3"]
 
-[node name="Thumbnailer" type="Node3D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vy57b"]
+
+[sub_resource type="Sky" id="Sky_i5sj1"]
+sky_material = SubResource("ProceduralSkyMaterial_vy57b")
+
+[sub_resource type="Environment" id="Environment_cv7xc"]
+background_mode = 2
+sky = SubResource("Sky_i5sj1")
+
+[sub_resource type="World3D" id="World3D_ko8gm"]
+environment = SubResource("Environment_cv7xc")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nsbg6"]
+
+[sub_resource type="Sky" id="Sky_hqm5m"]
+sky_material = SubResource("ProceduralSkyMaterial_nsbg6")
+
+[sub_resource type="Environment" id="Environment_7di8q"]
+background_mode = 2
+sky = SubResource("Sky_hqm5m")
+volumetric_fog_density = 0.3138
+
+[node name="Thumbnailer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_1s4a3")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 23, 24)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(334, 200)
+layout_mode = 0
+offset_left = 824.0
+offset_top = 457.0
+offset_right = 1158.0
+offset_bottom = 657.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_ko8gm")
+handle_input_locally = false
+size = Vector2i(334, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 15, 37)
+environment = SubResource("Environment_7di8q")
+current = true
+fov = 45.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
