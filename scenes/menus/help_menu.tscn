@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbpcvj3b5lxed"]
+
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_6rw06"]
+[ext_resource type="Script" path="res://scripts/menus/help_menu.gd" id="1_s2bks"]
+[ext_resource type="PackedScene" uid="uid://cla3frnyj2uys" path="res://assets/models/block_yellow.glb" id="2_52qab"]
+[ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="3_i03cs"]
+[ext_resource type="PackedScene" uid="uid://uk7eo4vfkgjo" path="res://assets/models/block_yellow2.glb" id="5_2tdje"]
+
+[node name="help_menu" type="Node3D"]
+script = ExtResource("1_s2bks")
+
+[node name="title_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3495, 27.5793, 0)
+modulate = Color(1, 0.490196, 1, 1)
+text = "Help Menu"
+font = ExtResource("1_6rw06")
+font_size = 500
+outline_size = 100
+
+[node name="yellow_block_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05336, 25.3166, 0)
+modulate = Color(1, 1, 0, 1)
+text = "Yellow Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 0
+
+[node name="cracked_yellow_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08053, 23.6155, 0)
+modulate = Color(1, 1, 0, 1)
+text = "Cracked Yellow"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 0
+
+[node name="yellow_block_desc_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7562, 25.3078, 0)
+text = "Just a standard block you have to break"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="cracked_yellow_desc_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2808, 23.596, 0)
+text = "The ball wont bounce off this"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="block_yellow" parent="." instance=ExtResource("2_52qab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3023, 25.2253, 0)
+
+[node name="walls" parent="." instance=ExtResource("3_i03cs")]
+
+[node name="cracked_yellow" parent="." instance=ExtResource("5_2tdje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2533, 23.5825, 0)

@@ -12,41 +12,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oyrka")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 105.0
+offset_right = 1132.0
+offset_bottom = 950.0
+color = Color(0.345098, 0.345098, 0.345098, 1)
+
 [node name="show_background_checkbutton" type="CheckButton" parent="."]
 layout_mode = 0
-offset_left = 793.0
-offset_top = 647.0
-offset_right = 1087.0
-offset_bottom = 712.0
+offset_left = 787.0
+offset_top = 733.0
+offset_right = 1081.0
+offset_bottom = 798.0
 theme_override_font_sizes/font_size = 24
 text = "Show 3D Background"
 
 [node name="ball_physics_checkbutton" type="CheckButton" parent="."]
 layout_mode = 0
-offset_left = 791.0
-offset_top = 693.0
-offset_right = 1085.0
-offset_bottom = 758.0
+offset_left = 785.0
+offset_top = 779.0
+offset_right = 1079.0
+offset_bottom = 844.0
 theme_override_font_sizes/font_size = 24
-button_pressed = true
 text = "Realistic Ball Physics"
 
 [node name="settings_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 804.0
-offset_top = 523.0
-offset_right = 1063.0
-offset_bottom = 618.0
+offset_left = 798.0
+offset_top = 609.0
+offset_right = 1057.0
+offset_bottom = 704.0
 theme_override_fonts/font = ExtResource("1_ikejd")
 theme_override_font_sizes/font_size = 80
 text = "Settings"
 
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 739.0
-offset_top = 29.0
-offset_right = 1126.0
-offset_bottom = 510.0
+offset_left = 733.0
+offset_top = 115.0
+offset_right = 1120.0
+offset_bottom = 596.0
 theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ikejd")
@@ -59,18 +66,18 @@ horizontal_alignment = 1
 
 [node name="back_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 901.0
-offset_top = 809.0
-offset_right = 946.0
-offset_bottom = 840.0
+offset_left = 895.0
+offset_top = 895.0
+offset_right = 940.0
+offset_bottom = 926.0
 text = "Back"
 
 [node name="reset_times_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 848.0
-offset_top = 769.0
-offset_right = 1007.0
-offset_bottom = 800.0
+offset_left = 842.0
+offset_top = 855.0
+offset_right = 1001.0
+offset_bottom = 886.0
 text = "Reset Record Times"
 
 [node name="cancel_button" type="Button" parent="."]

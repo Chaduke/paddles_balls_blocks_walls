@@ -24,7 +24,7 @@ var show_background_3d = false
 # Experimental "Ball Mode"
 # true = new balls will be spawned as Rigidbody3D balls in ball.gd
 # false = new balls spawned as Area3D balls, ball_classic.gd
-var default_ball_mode = true
+var default_ball_mode = false
 
 var creating_thumbnails = false
 

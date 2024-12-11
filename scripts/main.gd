@@ -70,8 +70,18 @@ func get_input():
 	if Input.is_action_just_pressed("select_stage"):
 		$stage_selection_menu.show()
 		$stage_selection_menu.elapsed_time = 0.0
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)		
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
+	if Input.is_action_just_pressed("help_menu"):
+		toggle_help_menu()
+
+func toggle_help_menu():
+	if $help_menu.active:	
+		$camera.position = Vector3(0,15,0)
+		$help_menu.active = false
+	else:
+		$camera.position = Vector3(18.5,45,0)
+		$help_menu.active = true
 
 func toggle_main_menu():
 	$main_menu.show()

@@ -12,17 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f5v7h")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 128.0
+offset_right = 1652.0
+offset_bottom = 900.0
+color = Color(0.345098, 0.345098, 0.345098, 1)
+
 [node name="confirm_quit_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 277.0
-offset_right = 1711.0
-offset_bottom = 814.0
+offset_left = 192.0
+offset_top = 291.0
+offset_right = 1699.0
+offset_bottom = 747.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_outline_size = 14
 theme_override_fonts/font = ExtResource("2_r3ruj")
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 120
 text = "Really Quit?
 ENTER or SPACE  to confirm
 ESC to Cancel"

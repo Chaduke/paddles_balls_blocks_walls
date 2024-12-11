@@ -19,6 +19,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_msl1i")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1887.0
+offset_bottom = 1032.0
+color = Color(0.345098, 0.345098, 0.345098, 1)
+
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 697.0
@@ -39,10 +45,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 370.0
 anchor_bottom = 200.0
-offset_left = 50.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 10.0
+offset_left = 42.0
+offset_top = -17.0
+offset_right = 42.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
@@ -82,19 +88,37 @@ position = Vector2(1461, 574)
 
 [node name="next_page" type="Button" parent="."]
 layout_mode = 0
-offset_left = 981.0
-offset_top = 876.0
-offset_right = 1068.0
-offset_bottom = 907.0
+offset_left = 984.0
+offset_top = 824.0
+offset_right = 1106.0
+offset_bottom = 868.0
+theme_override_fonts/font = ExtResource("2_tveu5")
+theme_override_font_sizes/font_size = 30
 text = "Next Page"
 
 [node name="previous_page" type="Button" parent="."]
 layout_mode = 0
-offset_left = 825.0
-offset_top = 875.0
-offset_right = 942.0
-offset_bottom = 906.0
+offset_left = 796.0
+offset_top = 825.0
+offset_right = 958.0
+offset_bottom = 869.0
+theme_override_fonts/font = ExtResource("2_tveu5")
+theme_override_font_sizes/font_size = 30
 text = "Previous Page"
+
+[node name="pages_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 759.0
+offset_top = 884.0
+offset_right = 1146.0
+offset_bottom = 920.0
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_tveu5")
+theme_override_font_sizes/font_size = 30
+text = "you can use left and right arrows"
+horizontal_alignment = 1
+uppercase = true
 
 [connection signal="pressed" from="next_page" to="." method="_on_next_page_pressed"]
 [connection signal="pressed" from="previous_page" to="." method="_on_previous_page_pressed"]

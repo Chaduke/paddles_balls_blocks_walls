@@ -30,11 +30,16 @@ func load_thumbnails():
 		
 func _process(delta):
 	elapsed_time+=delta
-	if visible and Input.is_action_just_pressed("select_stage") and elapsed_time > 0.1:
-		hide()
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		Global.get_main().elapsed_time = 0.0
-		get_tree().paused = false
+	if visible:
+		if Input.is_action_just_pressed("select_stage") and elapsed_time > 0.1:
+			hide()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.get_main().elapsed_time = 0.0
+			get_tree().paused = false
+		if Input.is_action_just_pressed("ui_text_caret_left"):
+			previous_page()
+		if Input.is_action_just_pressed("ui_text_caret_right"):
+			next_page()
 
 func update_stage_buttons():
 	for i in range(10):
@@ -60,12 +65,18 @@ func _on_texture_button_pressed(stage_number):
 	get_tree().reload_current_scene()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _on_next_page_pressed():
+func next_page():
 	current_page += 1
-	if current_page > int(Global.total_stages/10.0) : current_page = int(Global.total_stages/10.0)
+	if current_page > int(Global.total_stages/10.0) : current_page = 0
 	update_stage_buttons()
+		
+func _on_next_page_pressed():
+	next_page()
 
 func _on_previous_page_pressed():
+	previous_page()	
+
+func previous_page():
 	current_page -= 1
 	if current_page < 0: current_page = int(Global.total_stages/10.0)
-	update_stage_buttons()
+	update_stage_buttons()	

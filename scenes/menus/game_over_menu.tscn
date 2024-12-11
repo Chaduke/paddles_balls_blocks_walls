@@ -12,32 +12,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sgd61")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 125.0
+offset_right = 1628.0
+offset_bottom = 921.0
+color = Color(0.344076, 0.344076, 0.344076, 1)
+
 [node name="label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 590.0
-offset_top = 430.0
-offset_right = 1160.0
-offset_bottom = 607.0
+offset_left = 675.0
+offset_top = 398.0
+offset_right = 1245.0
+offset_bottom = 575.0
 theme_override_fonts/font = ExtResource("2_grbse")
 theme_override_font_sizes/font_size = 150
 text = "GAME OVER"
 
 [node name="restart_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 752.0
-offset_top = 603.0
-offset_right = 1011.0
-offset_bottom = 670.0
+offset_left = 837.0
+offset_top = 571.0
+offset_right = 1096.0
+offset_bottom = 638.0
 theme_override_fonts/font = ExtResource("2_grbse")
 theme_override_font_sizes/font_size = 50
 text = "Restart Level"
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 749.0
-offset_top = 677.0
-offset_right = 1008.0
-offset_bottom = 744.0
+offset_left = 834.0
+offset_top = 645.0
+offset_right = 1093.0
+offset_bottom = 712.0
 theme_override_fonts/font = ExtResource("2_grbse")
 theme_override_font_sizes/font_size = 50
 text = "Quit"

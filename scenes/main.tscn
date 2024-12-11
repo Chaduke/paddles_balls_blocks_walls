@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=15 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
 [ext_resource type="PackedScene" uid="uid://cvpl26rn0yrsj" path="res://scenes/menus/stage_selection_menu.tscn" id="2_jnlbq"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="5_l3s87"]
 [ext_resource type="PackedScene" uid="uid://byjm4pu2nw2ew" path="res://scenes/menus/confirm_quit_menu.tscn" id="5_ug5jo"]
 [ext_resource type="PackedScene" uid="uid://bs1eip3jtnoyk" path="res://scenes/menus/settings_menu.tscn" id="7_yw4vb"]
+[ext_resource type="PackedScene" uid="uid://dbpcvj3b5lxed" path="res://scenes/menus/help_menu.tscn" id="11_j2wm8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
 panorama = ExtResource("4_w6qld")
@@ -88,6 +89,7 @@ modulate = Color(1, 0.788235, 1, 1)
 text = "Keyboard Shortcuts :
 ESC - Toggle Main Menu
 (web version use TAB)
+F1 - Help Menu
 F2 - Toggle Settings Menu
 S - Toggle Stage Selection
 R - Restart Stage
@@ -118,5 +120,8 @@ horizontal_alignment = 2
 
 [node name="ball_gun_timer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="help_menu" parent="." instance=ExtResource("11_j2wm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, -37)
 
 [connection signal="timeout" from="ball_gun_timer" to="." method="_on_ball_gun_timer_timeout"]
