@@ -2,6 +2,9 @@
 extends Area3D
 class_name FlowArrowsDown
 
+@export var downward_impulse_amount = 1
+@export var lateral_damping = 0.9
+
 func _on_body_entered(body):	
 	#report(body," entered my area.")
 	if body is Ball: 
@@ -19,6 +22,7 @@ func _on_body_entered(body):
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is BallClassic:
+		area.velocity.x *= lateral_damping
 		var diff_y = area.global_transform.origin.y - global_transform.origin.y
 		if diff_y < 0:
 			# ball (area) y location is less than these arrows
@@ -37,6 +41,8 @@ func _on_area_entered(area: Area3D) -> void:
 			# to place the ball outside the collision zone
 			# and avoid any kind of double collisions
 			#area.position.y -= offset
+		else:
+			area.velocity.y -= downward_impulse_amount
 			
 func report(body,event_string):
 	if body is Ball:

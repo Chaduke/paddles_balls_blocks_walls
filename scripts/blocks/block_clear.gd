@@ -7,6 +7,11 @@ var ball_scene = preload("res://scenes/ball.tscn")
 var current_ball = 0
 @export var total_balls = 1
 
+func _ready() -> void:
+	if total_balls > 1:
+		$block_clear_model.hide()
+		$block_clear_model_2.show()
+		
 func start_timer():	
 	call_deferred("disable_collision")	
 	if total_balls == 1:

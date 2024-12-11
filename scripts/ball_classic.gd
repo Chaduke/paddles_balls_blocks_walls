@@ -42,8 +42,7 @@ func _on_body_entered(body):
 	elif body is Stage:
 		wall_collision()
 	#else:
-		#print_debug("Collided with something other than paddle, block or stage : " + body.name)
-		
+		#print_debug("Collided with something other than paddle, block or stage : " + body.name)				
 func update_bounds():
 	var ball_offset = Global.ball_offset()
 	top_bounds = 29.5 - ball_offset
@@ -54,6 +53,7 @@ func wall_collision():
 	$wall_sound.play()
 	# print("Stage collision occured at " + str(global_position))
 	update_bounds()
+	velocity *= 0.95
 	# print("T : " + str(top_bounds) + " R : " + str(right_bounds) + " L : " + str(left_bounds))
 	if position.y > top_bounds: 
 		# ball is at the ceiling
@@ -121,4 +121,4 @@ func block_collision(block_body):
 	elif block_body is BlockMetal:
 		# reduce the chances of ball getting stuck bouncing between
 		# metal blocks and / or walls
-		velocity *= 0.99
+		velocity *= 0.95

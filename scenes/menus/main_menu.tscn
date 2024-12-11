@@ -21,7 +21,7 @@ offset_left = 521.0
 offset_top = 121.0
 offset_right = 1439.0
 offset_bottom = 971.0
-color = Color(0.345098, 0.345098, 0.345098, 1)
+color = Color(0.345098, 0.345098, 0.345098, 0.588235)
 
 [node name="start_button" type="Button" parent="."]
 visible = false

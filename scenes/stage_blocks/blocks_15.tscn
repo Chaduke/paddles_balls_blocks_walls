@@ -468,12 +468,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 26.5, 0)
 
 [node name="flow_arrows_down" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 28.5, 0)
+downward_impulse_amount = 20
 
 [node name="flow_arrows_down2" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 26.5, 0)
 
 [node name="flow_arrows_down18" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 26.5, 0)
+downward_impulse_amount = 20
 
 [node name="flow_arrows_down19" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 25.5, 0)
@@ -483,6 +485,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 24.5, 0)
 
 [node name="flow_arrows_down32" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 24.5, 0)
+downward_impulse_amount = 15
 
 [node name="flow_arrows_down33" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 23.5, 0)
@@ -507,6 +510,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 17.5, 0)
 
 [node name="flow_arrows_down43" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 22.5, 0)
+downward_impulse_amount = 10
 
 [node name="flow_arrows_down44" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 21.5, 0)
@@ -528,9 +532,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 16.5, 0)
 
 [node name="flow_arrows_down41" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 15.5, 0)
-
-[node name="flow_arrows_down42" parent="." instance=ExtResource("4_kuutf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 14.5, 0)
 
 [node name="flow_arrows_down21" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 23.5, 0)
@@ -646,6 +647,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 28.5, 0)
 [node name="flow_arrows_left12" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 28.5, 0)
 
+[node name="flow_arrows_left14" parent="." instance=ExtResource("5_yn0lg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 28.5, 0)
+
 [node name="flow_arrows_left15" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 26.5, 0)
 
@@ -672,6 +676,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 26.5, 0)
 
 [node name="flow_arrows_left25" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 24.5, 0)
+lateral_force = 20
 
 [node name="flow_arrows_left26" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 24.5, 0)
@@ -687,6 +692,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 24.5, 0)
 
 [node name="flow_arrows_left31" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 22.5, 0)
+lateral_force = 10
 
 [node name="flow_arrows_left32" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 22.5, 0)
@@ -702,6 +708,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 26.5, 0)
 
 [node name="flow_arrows_left13" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 28.5, 0)
+lateral_force = 30
 vertical_damping = 0.1
 
 [node name="flow_arrows_right" parent="." instance=ExtResource("6_rynhd")]
@@ -715,6 +722,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 10.5, 0)
 
 [node name="flow_arrows_right13" parent="." instance=ExtResource("6_rynhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 12.5, 0)
+lateral_force = 20
 
 [node name="flow_arrows_right14" parent="." instance=ExtResource("6_rynhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 12.5, 0)
@@ -739,6 +747,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 14.5, 0)
 
 [node name="flow_arrows_right23" parent="." instance=ExtResource("6_rynhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 14.5, 0)
+
+[node name="flow_arrows_right24" parent="." instance=ExtResource("6_rynhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 14.5, 0)
+lateral_force = 10
 
 [node name="flow_arrows_right19" parent="." instance=ExtResource("6_rynhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 12.5, 0)

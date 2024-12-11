@@ -1,10 +1,10 @@
 # global.gd
 extends Node
 
-var current_stage = 8
+var current_stage = 16
 # you have to count stage 0 in total_stages, 0 is the testing stage
 # so total_stages is the number of playable stages + 1
-var total_stages = 16
+var total_stages = 17
 var current_ball_size = 2
 var infinite_balls = false
 
@@ -15,16 +15,17 @@ var stage_started = false
 var stage_time = 0.0
 var accumlated_time = 0.0
 
+# settings 
+var show_background_3d = false
+
+# ball physics mode
+# true = new balls will be spawned as Rigidbody3D balls as defined in ball.gd
+# false = new balls spawned as Area3D balls, defined in ball_classic.gd
+var default_ball_mode = false
+
 # dictionaries to store record times
 var stage_times_dict = {}
 var total_times_dict = {}
-
-# settings 
-var show_background_3d = false
-# Experimental "Ball Mode"
-# true = new balls will be spawned as Rigidbody3D balls in ball.gd
-# false = new balls spawned as Area3D balls, ball_classic.gd
-var default_ball_mode = false
 
 var creating_thumbnails = false
 
