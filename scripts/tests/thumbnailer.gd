@@ -11,7 +11,10 @@ func _process(_delta):
 
 func take_thumbnail():	
 	var image = $SubViewportContainer/SubViewport.get_texture().get_image()
-	image.save_png("res://assets/images/thumbnails/stage" + str(Global.current_stage) + ".png")
+	var stage_string = str(Global.current_stage)
+	if Global.current_stage < 10:
+		stage_string = "0" + stage_string
+	image.save_png("res://assets/images/thumbnails/stage" + stage_string + ".png")
 	print("Thumbnail for stage " + str(Global.current_stage) + " saved.")
 	Global.current_stage += 1
 	if Global.current_stage < Global.total_stages:

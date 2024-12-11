@@ -17,15 +17,16 @@ func load_thumbnails_old():
 		var texture = ImageTexture.create_from_image(image)
 		thumbnails.append(texture)
 		
-func load_thumbnails():	
+func load_thumbnails():
+	thumbnails.clear()
 	var dir = DirAccess.get_files_at("res://assets/images/thumbnails/")
 	for file in dir:
-		file = file.replace(".import", "")
-		var new_texture = ResourceLoader.load("res://assets/images/thumbnails/" + file)
-		# Check if the loaded file is indeed a texture
-		if new_texture is Texture2D:
-			# Now we can add them for the array
-			thumbnails.append(new_texture)
+		if file.ends_with(".png"):
+			var new_texture = ResourceLoader.load("res://assets/images/thumbnails/" + file)
+			# Check if the loaded file is indeed a texture
+			if new_texture is Texture2D:
+				# Now we can add them for the array
+				thumbnails.append(new_texture)
 		
 func _process(delta):
 	elapsed_time+=delta
@@ -40,7 +41,7 @@ func update_stage_buttons():
 		var stage_button = $GridContainer.get_child(i)
 		stage_button.hide()
 			
-	var start_stage = current_page * STAGES_PER_PAGE
+	var start_stage = current_page * STAGES_PER_PAGE + 1
 	var end_stage = min(start_stage + STAGES_PER_PAGE, Global.total_stages)
 
 	for stage_number in range(start_stage, end_stage):
@@ -49,7 +50,7 @@ func update_stage_buttons():
 		if stage_button.get_node("TextureButton").pressed.is_connected(_on_texture_button_pressed):
 			stage_button.get_node("TextureButton").pressed.disconnect(_on_texture_button_pressed)
 		stage_button.get_node("TextureButton").pressed.connect(_on_texture_button_pressed.bind(stage_number))
-		stage_button.get_node("TextureButton").texture_normal = thumbnails[stage_number]
+		stage_button.get_node("TextureButton").texture_normal = thumbnails[stage_number-1]
 		stage_button.show()
 	
 func _on_texture_button_pressed(stage_number):
