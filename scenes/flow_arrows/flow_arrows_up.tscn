@@ -16,5 +16,7 @@ shape = SubResource("BoxShape3D_ohruq")
 
 [node name="flow_arrows_up_model" parent="." instance=ExtResource("1_bsrhu")]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

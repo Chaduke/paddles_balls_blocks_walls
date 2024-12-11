@@ -5,7 +5,7 @@ class_name BlockMagnet
 var explosion_scene = preload("res://scenes/explosions/block_explosion_magnet.tscn")
 
 func _on_magnetic_influence_body_entered(body):
-	if body.name.begins_with("ball"):
+	if body is Ball:
 		if body.position.x > position.x:
 			body.linear_velocity.x += 10
 		else:
@@ -21,3 +21,14 @@ func _on_tree_exiting():
 		var new_explosion = explosion_scene.instantiate()
 		new_explosion.position = global_position
 		Global.get_main().add_child.call_deferred(new_explosion)
+
+func _on_magnetic_influence_area_entered(area: Area3D) -> void:
+	if area is BallClassic:
+		if area.position.x > position.x:
+			area.velocity.x += 5
+		else:
+			area.velocity.x -= 5
+		if area.position.y > position.y:
+			area.velocity.y += 5
+		else:
+			area.velocity.y -= 5
