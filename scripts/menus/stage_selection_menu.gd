@@ -21,12 +21,12 @@ func load_thumbnails():
 	thumbnails.clear()
 	var dir = DirAccess.get_files_at("res://assets/images/thumbnails/")
 	for file in dir:
-		if file.ends_with(".png"):
-			var new_texture = ResourceLoader.load("res://assets/images/thumbnails/" + file)
-			# Check if the loaded file is indeed a texture
-			if new_texture is Texture2D:
-				# Now we can add them for the array
-				thumbnails.append(new_texture)
+		file = file.replace(".import","")
+		var new_texture = ResourceLoader.load("res://assets/images/thumbnails/" + file)
+		# Check if the loaded file is indeed a texture
+		if new_texture is Texture2D:
+			# Now we can add them for the array
+			thumbnails.append(new_texture)
 		
 func _process(delta):
 	elapsed_time+=delta

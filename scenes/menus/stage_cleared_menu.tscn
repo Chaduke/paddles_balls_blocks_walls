@@ -14,18 +14,18 @@ script = ExtResource("1_4quwe")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 264.0
-offset_right = 1352.0
-offset_bottom = 869.0
+offset_left = 437.0
+offset_top = 239.0
+offset_right = 1250.0
+offset_bottom = 844.0
 color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [node name="stage_cleared_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 568.0
-offset_top = 278.0
-offset_right = 1333.0
-offset_bottom = 432.0
+offset_left = 466.0
+offset_top = 253.0
+offset_right = 1231.0
+offset_bottom = 407.0
 theme_override_colors/font_color = Color(0.0827758, 0.573088, 0.851634, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 110
@@ -34,30 +34,30 @@ horizontal_alignment = 1
 
 [node name="next_stage_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 829.0
-offset_top = 415.0
-offset_right = 1050.0
-offset_bottom = 482.0
+offset_left = 727.0
+offset_top = 390.0
+offset_right = 948.0
+offset_bottom = 457.0
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 50
 text = "Next Stage"
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 830.0
-offset_top = 501.0
-offset_right = 1051.0
-offset_bottom = 568.0
+offset_left = 728.0
+offset_top = 476.0
+offset_right = 949.0
+offset_bottom = 543.0
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="stage_time_congrats_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 696.0
-offset_top = 606.0
-offset_right = 1209.0
-offset_bottom = 642.0
+offset_left = 594.0
+offset_top = 581.0
+offset_right = 1107.0
+offset_bottom = 617.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -67,10 +67,10 @@ horizontal_alignment = 1
 
 [node name="old_best_stage_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 780.0
-offset_top = 638.0
-offset_right = 1115.0
-offset_bottom = 674.0
+offset_left = 678.0
+offset_top = 613.0
+offset_right = 1013.0
+offset_bottom = 649.0
 theme_override_colors/font_color = Color(1, 0.486275, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -80,10 +80,10 @@ horizontal_alignment = 1
 
 [node name="new_best_stage_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 770.0
-offset_top = 671.0
-offset_right = 1121.0
-offset_bottom = 707.0
+offset_left = 668.0
+offset_top = 646.0
+offset_right = 1019.0
+offset_bottom = 682.0
 theme_override_colors/font_color = Color(0.968627, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -93,10 +93,10 @@ horizontal_alignment = 1
 
 [node name="total_time_congrats_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 697.0
-offset_top = 734.0
-offset_right = 1199.0
-offset_bottom = 770.0
+offset_left = 595.0
+offset_top = 709.0
+offset_right = 1097.0
+offset_bottom = 745.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -106,10 +106,10 @@ horizontal_alignment = 1
 
 [node name="old_best_total_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 772.0
-offset_top = 767.0
-offset_right = 1114.0
-offset_bottom = 803.0
+offset_left = 670.0
+offset_top = 742.0
+offset_right = 1012.0
+offset_bottom = 778.0
 theme_override_colors/font_color = Color(1, 0.482353, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -119,10 +119,10 @@ horizontal_alignment = 1
 
 [node name="new_best_total_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 766.0
-offset_top = 800.0
-offset_right = 1125.0
-offset_bottom = 836.0
+offset_left = 664.0
+offset_top = 775.0
+offset_right = 1023.0
+offset_bottom = 811.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30

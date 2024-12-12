@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccv5dudmwpces"]
+
+[ext_resource type="Texture2D" uid="uid://8intu1lrnkjg" path="res://assets/images/thumbnails/stage01.png" id="1_recap"]
+[ext_resource type="Texture2D" uid="uid://t13u83djygyn" path="res://assets/images/thumbnails/stage02.png" id="2_hyggu"]
+[ext_resource type="Texture2D" uid="uid://bba3ewcppineb" path="res://assets/images/thumbnails/stage03.png" id="3_ecy8j"]
+[ext_resource type="Texture2D" uid="uid://pkctj3eh6mac" path="res://assets/images/thumbnails/stage04.png" id="4_0pac0"]
+[ext_resource type="Texture2D" uid="uid://bypd7w4odjj8w" path="res://assets/images/thumbnails/stage05.png" id="5_clqrw"]
+
+[node name="stage_selection_menu_web" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="stage01" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 153.0
+offset_bottom = 40.0
+texture = ExtResource("1_recap")
+
+[node name="stage02" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 358.0
+offset_right = 692.0
+offset_bottom = 200.0
+texture = ExtResource("2_hyggu")
+
+[node name="stage03" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 722.0
+offset_top = 2.0
+offset_right = 1056.0
+offset_bottom = 202.0
+texture = ExtResource("3_ecy8j")
+
+[node name="stage04" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 2.0
+offset_right = 1414.0
+offset_bottom = 202.0
+texture = ExtResource("4_0pac0")
+
+[node name="stage05" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1468.0
+offset_top = 2.0
+offset_right = 1802.0
+offset_bottom = 202.0
+texture = ExtResource("5_clqrw")

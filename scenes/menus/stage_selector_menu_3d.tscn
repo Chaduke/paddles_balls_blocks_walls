@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://863pmb534e7"]
+
+[ext_resource type="Texture2D" uid="uid://t13u83djygyn" path="res://assets/images/thumbnails/stage02.png" id="1_gmuuy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voqrr"]
+albedo_texture = ExtResource("1_gmuuy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xwiqm"]
+material = SubResource("StandardMaterial3D_voqrr")
+size = Vector2(0.334, 0.2)
+
+[node name="stage_selector_menu3d" type="Node3D"]
+
+[node name="stage1_quad" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_xwiqm")
+
+[node name="stage2_quad" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_xwiqm")
+
+[node name="stage3_quad" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_xwiqm")

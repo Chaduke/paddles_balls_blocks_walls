@@ -14,18 +14,18 @@ script = ExtResource("1_f5v7h")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 128.0
-offset_right = 1652.0
-offset_bottom = 900.0
+offset_left = 176.0
+offset_top = 156.0
+offset_right = 1580.0
+offset_bottom = 928.0
 color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [node name="confirm_quit_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 291.0
-offset_right = 1699.0
-offset_bottom = 747.0
+offset_left = 120.0
+offset_top = 319.0
+offset_right = 1627.0
+offset_bottom = 775.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5

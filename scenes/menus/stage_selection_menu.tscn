@@ -21,16 +21,18 @@ script = ExtResource("1_msl1i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1887.0
-offset_bottom = 1032.0
+offset_left = 16.0
+offset_top = 43.0
+offset_right = 1903.0
+offset_bottom = 1075.0
 color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 697.0
-offset_top = 100.0
-offset_right = 1253.0
-offset_bottom = 218.0
+offset_left = 713.0
+offset_top = 143.0
+offset_right = 1269.0
+offset_bottom = 261.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -45,10 +47,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 370.0
 anchor_bottom = 200.0
-offset_left = 42.0
-offset_top = -17.0
-offset_right = 42.0
-offset_bottom = -17.0
+offset_left = 58.0
+offset_top = 26.0
+offset_right = 58.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
@@ -88,30 +90,30 @@ position = Vector2(1461, 574)
 
 [node name="next_page" type="Button" parent="."]
 layout_mode = 0
-offset_left = 984.0
-offset_top = 824.0
-offset_right = 1106.0
-offset_bottom = 868.0
+offset_left = 1000.0
+offset_top = 867.0
+offset_right = 1122.0
+offset_bottom = 911.0
 theme_override_fonts/font = ExtResource("2_tveu5")
 theme_override_font_sizes/font_size = 30
 text = "Next Page"
 
 [node name="previous_page" type="Button" parent="."]
 layout_mode = 0
-offset_left = 796.0
-offset_top = 825.0
-offset_right = 958.0
-offset_bottom = 869.0
+offset_left = 812.0
+offset_top = 868.0
+offset_right = 974.0
+offset_bottom = 912.0
 theme_override_fonts/font = ExtResource("2_tveu5")
 theme_override_font_sizes/font_size = 30
 text = "Previous Page"
 
 [node name="pages_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 759.0
-offset_top = 884.0
-offset_right = 1146.0
-offset_bottom = 920.0
+offset_left = 775.0
+offset_top = 927.0
+offset_right = 1162.0
+offset_bottom = 963.0
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tveu5")

@@ -22,6 +22,7 @@ func _on_area_entered(area: Area3D) -> void:
 		var diff = area.global_position - global_position
 		if diff.y > 0 and diff.y > abs(diff.x / 2):
 			# its from the top
+			area.velocity.y = -area.velocity.y
 			queue_free()
 		elif diff.y < 0 and abs(diff.y) > abs(diff.x / 2):
 			# its from the bottom

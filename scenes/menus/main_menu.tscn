@@ -17,19 +17,19 @@ script = ExtResource("1_x3mcw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 521.0
-offset_top = 121.0
-offset_right = 1439.0
-offset_bottom = 971.0
+offset_left = 431.0
+offset_top = 107.0
+offset_right = 1349.0
+offset_bottom = 957.0
 color = Color(0.345098, 0.345098, 0.345098, 0.588235)
 
 [node name="start_button" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 852.0
-offset_top = 695.0
-offset_right = 1069.0
-offset_bottom = 762.0
+offset_left = 766.0
+offset_top = 688.0
+offset_right = 983.0
+offset_bottom = 755.0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "START GAME"
@@ -37,20 +37,20 @@ text = "START GAME"
 [node name="resume_button" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 843.0
-offset_top = 698.0
-offset_right = 1078.0
-offset_bottom = 765.0
+offset_left = 757.0
+offset_top = 691.0
+offset_right = 992.0
+offset_bottom = 758.0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "RESUME GAME"
 
 [node name="settings_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 874.0
-offset_top = 788.0
-offset_right = 1046.0
-offset_bottom = 855.0
+offset_left = 784.0
+offset_top = 774.0
+offset_right = 956.0
+offset_bottom = 841.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
@@ -58,10 +58,10 @@ text = "SETTINGS"
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 920.0
-offset_top = 872.0
-offset_right = 1005.0
-offset_bottom = 939.0
+offset_left = 830.0
+offset_top = 858.0
+offset_right = 915.0
+offset_bottom = 925.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
@@ -69,10 +69,10 @@ text = "QUIT"
 
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 731.0
-offset_top = 119.0
-offset_right = 1195.0
-offset_bottom = 696.0
+offset_left = 641.0
+offset_top = 105.0
+offset_right = 1105.0
+offset_bottom = 682.0
 theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4x3ge")
@@ -85,10 +85,10 @@ horizontal_alignment = 1
 
 [node name="version_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1226.0
-offset_top = 602.0
-offset_right = 1350.0
-offset_bottom = 630.0
+offset_left = 1136.0
+offset_top = 588.0
+offset_right = 1260.0
+offset_bottom = 616.0
 theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -96,10 +96,10 @@ text = "Version 0.0.0"
 
 [node name="platform_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1227.0
-offset_top = 633.0
-offset_right = 1397.0
-offset_bottom = 661.0
+offset_left = 1137.0
+offset_top = 619.0
+offset_right = 1307.0
+offset_bottom = 647.0
 theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20

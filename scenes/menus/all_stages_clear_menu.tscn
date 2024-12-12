@@ -14,18 +14,18 @@ script = ExtResource("1_1sd8v")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 507.0
-offset_top = 160.0
-offset_right = 1476.0
-offset_bottom = 982.0
+offset_left = 386.0
+offset_top = 127.0
+offset_right = 1355.0
+offset_bottom = 949.0
 color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [node name="all_stages_clear_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 579.0
-offset_top = 210.0
-offset_right = 1399.0
-offset_bottom = 521.0
+offset_left = 458.0
+offset_top = 177.0
+offset_right = 1278.0
+offset_bottom = 488.0
 theme_override_colors/font_color = Color(0.952941, 0.239216, 0, 1)
 theme_override_fonts/font = ExtResource("2_7js2y")
 theme_override_font_sizes/font_size = 130
@@ -35,10 +35,10 @@ horizontal_alignment = 1
 
 [node name="restart_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 874.0
-offset_top = 549.0
-offset_right = 1095.0
-offset_bottom = 616.0
+offset_left = 753.0
+offset_top = 516.0
+offset_right = 974.0
+offset_bottom = 583.0
 theme_override_fonts/font = ExtResource("2_7js2y")
 theme_override_font_sizes/font_size = 50
 text = "Restart
@@ -46,20 +46,20 @@ text = "Restart
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 874.0
-offset_top = 625.0
-offset_right = 1095.0
-offset_bottom = 692.0
+offset_left = 753.0
+offset_top = 592.0
+offset_right = 974.0
+offset_bottom = 659.0
 theme_override_fonts/font = ExtResource("2_7js2y")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="note_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 628.0
-offset_top = 728.0
-offset_right = 1369.0
-offset_bottom = 927.0
+offset_left = 507.0
+offset_top = 695.0
+offset_right = 1248.0
+offset_bottom = 926.0
 text = "You've completed all the levels I have so far! If you've enjoyed playing this game please check back at chaduke.itch.io for regular development updates.  Also check out my YouTube channel - youtube.com/chaddore - for video updates at least once a week.  Also consider supporting my work at - chaduke.github.io/support-me  I plan on making 100 levels, tons of cool sounds, 3D backgrounds and original music with many different ways to customize your experience.    
 
 You taking the time to play my game means the world to me! 
