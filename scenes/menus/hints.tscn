@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://nf8j81o8so2t"]
+
+[node name="hints" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="hint1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 996.0
+offset_right = 1115.0
+offset_bottom = 1079.0
+text = "Trying using the \"ball gun\".  Press G to release all your spare balls in quick succession!  Even better try it with the Infinte Balls pickup item actuve to spray balls everywhere for its duration!"
+autowrap_mode = 3

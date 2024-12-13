@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj6lqmg0h52uc"]
+[gd_scene load_steps=4 format=3 uid="uid://cj6lqmg0h52uc"]
 
 [ext_resource type="Script" path="res://scripts/menus/stage_cleared_menu.gd" id="1_4quwe"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_lgh5i"]
+[ext_resource type="PackedScene" uid="uid://nf8j81o8so2t" path="res://scenes/menus/hints.tscn" id="3_r3523"]
 
 [node name="stage_cleared_menu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 script = ExtResource("1_4quwe")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -17,8 +19,8 @@ layout_mode = 0
 offset_left = 437.0
 offset_top = 239.0
 offset_right = 1250.0
-offset_bottom = 844.0
-color = Color(0.345098, 0.345098, 0.345098, 1)
+offset_bottom = 570.0
+color = Color(0.345098, 0.345098, 0.345098, 0.501961)
 
 [node name="stage_cleared_label" type="Label" parent="."]
 layout_mode = 0
@@ -54,10 +56,10 @@ text = "Quit"
 
 [node name="stage_time_congrats_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 594.0
-offset_top = 581.0
-offset_right = 1107.0
-offset_bottom = 617.0
+offset_left = 596.0
+offset_top = 640.0
+offset_right = 1109.0
+offset_bottom = 676.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -67,10 +69,10 @@ horizontal_alignment = 1
 
 [node name="old_best_stage_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 678.0
-offset_top = 613.0
-offset_right = 1013.0
-offset_bottom = 649.0
+offset_left = 680.0
+offset_top = 672.0
+offset_right = 1015.0
+offset_bottom = 708.0
 theme_override_colors/font_color = Color(1, 0.486275, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -80,10 +82,10 @@ horizontal_alignment = 1
 
 [node name="new_best_stage_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 668.0
-offset_top = 646.0
-offset_right = 1019.0
-offset_bottom = 682.0
+offset_left = 670.0
+offset_top = 705.0
+offset_right = 1021.0
+offset_bottom = 741.0
 theme_override_colors/font_color = Color(0.968627, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -93,10 +95,10 @@ horizontal_alignment = 1
 
 [node name="total_time_congrats_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 595.0
-offset_top = 709.0
-offset_right = 1097.0
-offset_bottom = 745.0
+offset_left = 597.0
+offset_top = 768.0
+offset_right = 1099.0
+offset_bottom = 804.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -106,10 +108,10 @@ horizontal_alignment = 1
 
 [node name="old_best_total_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 670.0
-offset_top = 742.0
-offset_right = 1012.0
-offset_bottom = 778.0
+offset_left = 672.0
+offset_top = 801.0
+offset_right = 1014.0
+offset_bottom = 837.0
 theme_override_colors/font_color = Color(1, 0.482353, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
@@ -119,16 +121,21 @@ horizontal_alignment = 1
 
 [node name="new_best_total_time_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 664.0
-offset_top = 775.0
-offset_right = 1023.0
-offset_bottom = 811.0
+offset_left = 666.0
+offset_top = 834.0
+offset_right = 1025.0
+offset_bottom = 870.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("1_lgh5i")
 theme_override_font_sizes/font_size = 30
 text = "New best \"total time\" 0m 0s 00
 "
 horizontal_alignment = 1
+
+[node name="hints" parent="." instance=ExtResource("3_r3523")]
+layout_mode = 1
+offset_top = 1.0
+offset_bottom = 1.0
 
 [connection signal="pressed" from="next_stage_button" to="." method="_on_next_stage_button_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

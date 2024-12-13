@@ -48,51 +48,67 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 22.5, 0)
 
 [node name="block_metal" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 27.5, 0)
+damping_value = 0.95
 
 [node name="block_metal2" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal3" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal4" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal5" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal6" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal7" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal8" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal9" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal10" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal60" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal62" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal63" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal64" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal65" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal66" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal121" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 23.5, 0)
@@ -105,366 +121,486 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 23.5, 0)
 
 [node name="block_metal67" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal105" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 13.5, 0)
+damping_value = 0.95
 
 [node name="block_metal106" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 13.5, 0)
+damping_value = 0.95
 
 [node name="block_metal107" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 13.5, 0)
+damping_value = 0.95
 
 [node name="block_metal108" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 13.5, 0)
+damping_value = 0.95
 
 [node name="block_metal132" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 15.5, 0)
+damping_value = 0.93
 
 [node name="block_metal133" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 15.5, 0)
 
 [node name="block_metal134" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 15.5, 0)
+damping_value = 0.93
 
 [node name="block_metal109" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 13.5, 0)
+damping_value = 0.95
 
 [node name="block_metal110" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 13.5, 0)
+damping_value = 0.93
 
 [node name="block_metal68" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal11" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal12" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 27.5, 0)
+damping_value = 0.93
 
 [node name="block_metal13" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 27.5, 0)
+damping_value = 0.95
 
 [node name="block_metal14" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal27" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal15" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal16" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal17" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal18" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal19" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal20" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal21" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal22" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal23" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal24" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal25" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal26" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 9.5, 0)
+damping_value = 0.93
 
 [node name="block_metal28" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 10.5, 0)
+damping_value = 0.95
 
 [node name="block_metal29" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 11.5, 0)
+damping_value = 0.95
 
 [node name="block_metal30" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 12.5, 0)
+damping_value = 0.95
 
 [node name="block_metal31" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 13.5, 0)
+damping_value = 0.95
 
 [node name="block_metal32" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 14.5, 0)
+damping_value = 0.95
 
 [node name="block_metal33" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 15.5, 0)
+damping_value = 0.95
 
 [node name="block_metal34" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 16.5, 0)
+damping_value = 0.95
 
 [node name="block_metal35" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 17.5, 0)
+damping_value = 0.95
 
 [node name="block_metal36" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 18.5, 0)
+damping_value = 0.95
 
 [node name="block_metal37" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 19.5, 0)
+damping_value = 0.95
 
 [node name="block_metal38" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 20.5, 0)
+damping_value = 0.95
 
 [node name="block_metal39" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 21.5, 0)
+damping_value = 0.95
 
 [node name="block_metal40" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 22.5, 0)
+damping_value = 0.95
 
 [node name="block_metal41" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 23.5, 0)
+damping_value = 0.95
 
 [node name="block_metal42" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 24.5, 0)
+damping_value = 0.95
 
 [node name="block_metal43" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 25.5, 0)
+damping_value = 0.95
 
 [node name="block_metal45" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal46" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 12.5, 0)
+damping_value = 0.93
 
 [node name="block_metal47" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 13.5, 0)
+damping_value = 0.93
 
 [node name="block_metal48" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 14.5, 0)
+damping_value = 0.93
 
 [node name="block_metal49" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 15.5, 0)
+damping_value = 0.93
 
 [node name="block_metal50" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 16.5, 0)
+damping_value = 0.93
 
 [node name="block_metal51" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 17.5, 0)
+damping_value = 0.93
 
 [node name="block_metal52" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 18.5, 0)
+damping_value = 0.93
 
 [node name="block_metal53" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 19.5, 0)
+damping_value = 0.93
 
 [node name="block_metal54" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 20.5, 0)
+damping_value = 0.93
 
 [node name="block_metal55" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 21.5, 0)
+damping_value = 0.93
 
 [node name="block_metal56" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 22.5, 0)
+damping_value = 0.93
 
 [node name="block_metal57" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 23.5, 0)
+damping_value = 0.93
 
 [node name="block_metal58" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 24.5, 0)
+damping_value = 0.93
 
 [node name="block_metal69" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 18.5, 0)
+damping_value = 0.93
 
 [node name="block_metal70" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 19.5, 0)
+damping_value = 0.93
 
 [node name="block_metal71" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 20.5, 0)
+damping_value = 0.93
 
 [node name="block_metal100" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 15.5, 0)
+damping_value = 0.93
 
 [node name="block_metal101" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 16.5, 0)
+damping_value = 0.93
 
 [node name="block_metal103" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 13.5, 0)
+damping_value = 0.93
 
 [node name="block_metal104" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 14.5, 0)
+damping_value = 0.93
 
 [node name="block_metal102" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 17.5, 0)
+damping_value = 0.93
 
 [node name="block_metal72" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 21.5, 0)
+damping_value = 0.93
 
 [node name="block_metal73" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 22.5, 0)
+damping_value = 0.93
 
 [node name="block_metal74" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 23.5, 0)
+damping_value = 0.93
 
 [node name="block_metal111" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 18.5, 0)
+damping_value = 0.93
 
 [node name="block_metal112" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 19.5, 0)
+damping_value = 0.93
 
 [node name="block_metal113" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 20.5, 0)
+damping_value = 0.93
 
 [node name="block_metal114" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 15.5, 0)
+damping_value = 0.93
 
 [node name="block_metal115" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 16.5, 0)
+damping_value = 0.93
 
 [node name="block_metal116" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 14.5, 0)
+damping_value = 0.93
 
 [node name="block_metal117" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 17.5, 0)
+damping_value = 0.93
 
 [node name="block_metal118" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 21.5, 0)
+damping_value = 0.93
 
 [node name="block_metal119" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 22.5, 0)
+damping_value = 0.93
 
 [node name="block_metal120" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 23.5, 0)
+damping_value = 0.93
 
 [node name="block_metal124" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 18.5, 0)
+damping_value = 0.93
 
 [node name="block_metal125" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 19.5, 0)
+damping_value = 0.93
 
 [node name="block_metal126" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 20.5, 0)
+damping_value = 0.93
 
 [node name="block_metal127" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 16.5, 0)
+damping_value = 0.93
 
 [node name="block_metal128" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 17.5, 0)
+damping_value = 0.93
 
 [node name="block_metal129" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 21.5, 0)
+damping_value = 0.93
 
 [node name="block_metal135" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 18.5, 0)
+damping_value = 0.93
 
 [node name="block_metal136" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 19.5, 0)
+damping_value = 0.93
 
 [node name="block_metal137" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 20.5, 0)
+damping_value = 0.93
 
 [node name="block_metal138" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 16.5, 0)
+damping_value = 0.93
 
 [node name="block_metal139" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 17.5, 0)
+damping_value = 0.93
 
 [node name="block_metal140" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 21.5, 0)
+damping_value = 0.93
 
 [node name="block_metal130" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 22.5, 0)
+damping_value = 0.93
 
 [node name="block_metal131" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 23.5, 0)
+damping_value = 0.93
 
 [node name="block_metal75" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 24.5, 0)
+damping_value = 0.93
 
 [node name="block_metal61" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 25.5, 0)
+damping_value = 0.95
 
 [node name="block_metal83" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 26.5, 0)
+damping_value = 0.95
 
 [node name="block_metal76" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 18.5, 0)
+damping_value = 0.95
 
 [node name="block_metal84" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal85" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal86" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal87" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal88" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal89" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal90" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal91" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal92" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal93" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 11.5, 0)
+damping_value = 0.93
 
 [node name="block_metal77" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 19.5, 0)
+damping_value = 0.95
 
 [node name="block_metal78" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 20.5, 0)
+damping_value = 0.95
 
 [node name="block_metal79" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 21.5, 0)
+damping_value = 0.95
 
 [node name="block_metal80" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 22.5, 0)
+damping_value = 0.95
 
 [node name="block_metal81" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 23.5, 0)
+damping_value = 0.95
 
 [node name="block_metal94" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 12.5, 0)
+damping_value = 0.95
 
 [node name="block_metal95" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 13.5, 0)
+damping_value = 0.95
 
 [node name="block_metal96" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 14.5, 0)
+damping_value = 0.95
 
 [node name="block_metal97" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 15.5, 0)
+damping_value = 0.95
 
 [node name="block_metal98" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 16.5, 0)
+damping_value = 0.95
 
 [node name="block_metal99" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 17.5, 0)
+damping_value = 0.95
 
 [node name="block_metal82" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 24.5, 0)
+damping_value = 0.95
 
 [node name="block_metal59" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 25.5, 0)
+damping_value = 0.93
 
 [node name="block_metal44" parent="." instance=ExtResource("3_f5swi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 26.5, 0)
+damping_value = 0.95
 
 [node name="flow_arrows_down" parent="." instance=ExtResource("4_kuutf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 28.5, 0)
@@ -613,42 +749,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 11.5, 0)
 
 [node name="flow_arrows_left" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left2" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left3" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left4" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left5" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left6" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left7" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left8" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left9" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left10" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left11" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left12" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left14" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 28.5, 0)
+lateral_force = 2
 
 [node name="flow_arrows_left15" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 26.5, 0)
@@ -708,7 +857,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 26.5, 0)
 
 [node name="flow_arrows_left13" parent="." instance=ExtResource("5_yn0lg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 28.5, 0)
-lateral_force = 30
+lateral_force = 10
 vertical_damping = 0.1
 
 [node name="flow_arrows_right" parent="." instance=ExtResource("6_rynhd")]

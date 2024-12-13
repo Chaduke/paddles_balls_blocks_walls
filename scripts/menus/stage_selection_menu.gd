@@ -64,6 +64,7 @@ func _on_texture_button_pressed(stage_number):
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.stage_selected = true
 
 func next_page():
 	current_page += 1

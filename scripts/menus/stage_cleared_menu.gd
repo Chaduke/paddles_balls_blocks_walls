@@ -26,7 +26,8 @@ func update_labels():
 	
 	var best_total_time = Global.total_times_dict[Global.current_stage]
 	$old_best_total_time_label.text = "Old Best Total Time " + Global.format_time(best_total_time)
-	if Global.accumlated_time < best_total_time:
+	
+	if Global.accumlated_time < best_total_time and not Global.stage_selected:
 		$total_time_congrats_label.text = "You beat your best -Total Time- for Stage " + str(Global.current_stage)
 		$new_best_total_time_label.text = "New Best Total Time " + Global.format_time(Global.accumlated_time)
 		# store the new total time record

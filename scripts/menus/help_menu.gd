@@ -8,5 +8,6 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if active:
-		$block_yellow.rotate(Vector3(0.0,1.0,0.0),0.02)
-		$cracked_yellow.rotate(Vector3(0.0,1.0,0.0),0.03)
+		$block_yellow.rotate(Vector3(0.0,1.0,0.0),0.015)
+		$cracked_yellow.rotate(Vector3(0.0,1.0,0.0),0.02)
+		$block_blue.rotate(Vector3(0.0,1.0,0.0),0.025)

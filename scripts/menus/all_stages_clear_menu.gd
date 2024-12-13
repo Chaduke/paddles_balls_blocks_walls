@@ -10,6 +10,7 @@ func platform_specific_inits():
 
 func _on_restart_button_pressed():
 	Global.current_stage = 1
+	Global.accumlated_time = 0.0
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbpcvj3b5lxed"]
+[gd_scene load_steps=7 format=3 uid="uid://dbpcvj3b5lxed"]
 
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_6rw06"]
 [ext_resource type="Script" path="res://scripts/menus/help_menu.gd" id="1_s2bks"]
 [ext_resource type="PackedScene" uid="uid://cla3frnyj2uys" path="res://assets/models/block_yellow.glb" id="2_52qab"]
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="3_i03cs"]
 [ext_resource type="PackedScene" uid="uid://uk7eo4vfkgjo" path="res://assets/models/block_yellow2.glb" id="5_2tdje"]
+[ext_resource type="PackedScene" uid="uid://c3732jixb2xai" path="res://assets/models/block_blue.glb" id="6_xthru"]
 
 [node name="help_menu" type="Node3D"]
 script = ExtResource("1_s2bks")
@@ -21,6 +22,15 @@ outline_size = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05336, 25.3166, 0)
 modulate = Color(1, 1, 0, 1)
 text = "Yellow Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 0
+
+[node name="blue_block_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30347, 22.0689, 0)
+modulate = Color(0, 0, 1, 1)
+text = "Blue Block"
 font = ExtResource("1_6rw06")
 font_size = 250
 outline_size = 50
@@ -43,6 +53,14 @@ font_size = 200
 outline_size = 40
 horizontal_alignment = 0
 
+[node name="blue_block_desc_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9231, 22.1356, 0)
+text = "Just like the yellow block"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
 [node name="cracked_yellow_desc_label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2808, 23.596, 0)
 text = "The ball wont bounce off this"
@@ -58,3 +76,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3023, 25.2253, 0)
 
 [node name="cracked_yellow" parent="." instance=ExtResource("5_2tdje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2533, 23.5825, 0)
+
+[node name="block_blue" parent="." instance=ExtResource("6_xthru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2393, 22.0896, 0)

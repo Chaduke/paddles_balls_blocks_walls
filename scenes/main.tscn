@@ -84,7 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 0, -37)
 environment = SubResource("Environment_enept")
 
 [node name="keyboard_shortcuts_label" type="Label3D" parent="."]
-transform = Transform3D(0.998567, 0, -0.0535211, 0, 1, 0, 0.0535211, 0, 0.998567, -19.4476, 19.5169, -37)
+transform = Transform3D(0.998567, 0, -0.0535211, 0, 1, 0, 0.0535211, 0, 0.998567, -19.4476, 9.60803, -37)
 modulate = Color(1, 0.788235, 1, 1)
 text = "Keyboard Shortcuts :
 ESC - Toggle Main Menu
@@ -100,7 +100,7 @@ outline_size = 20
 horizontal_alignment = 2
 
 [node name="instructions_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5023, 11.7037, -37)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5023, 17.6467, -37)
 text = "Instructions  :
 Use mouse to -
 move paddle left and right
