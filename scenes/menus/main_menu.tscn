@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqykai0fkxblq"]
+[gd_scene load_steps=4 format=3 uid="uid://cqykai0fkxblq"]
 
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_4x3ge"]
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_x3mcw"]
+[ext_resource type="AudioStream" uid="uid://b5gdo23uujd01" path="res://assets/wave/ball_release.wav" id="3_0ukmk"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -105,7 +106,14 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Platform Desktop"
 
+[node name="button_enter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0ukmk")
+
+[connection signal="mouse_entered" from="start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="resume_button" to="." method="_on_resume_button_mouse_entered"]
 [connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="settings_button" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="quit_button" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

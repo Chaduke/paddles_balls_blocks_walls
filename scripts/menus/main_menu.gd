@@ -72,3 +72,17 @@ func _on_settings_button_pressed():
 	hide()
 	var main_scene = get_tree().root.get_child(2)
 	main_scene.get_node("settings_menu").show()
+
+func _on_start_button_mouse_entered() -> void:
+	if $start_button.visible:
+		$button_enter.play()
+
+func _on_resume_button_mouse_entered() -> void:
+	if $resume_button.visible:
+		$button_enter.play()
+
+func _on_settings_button_mouse_entered() -> void:
+	$button_enter.play()
+
+func _on_quit_button_mouse_entered() -> void:
+	$button_enter.play()

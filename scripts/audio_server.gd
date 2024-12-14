@@ -12,6 +12,8 @@ var intro1_music = preload("res://assets/music/intro1.mp3")
 var intro2_music = preload("res://assets/music/intro2.mp3")
 var stage3_music = preload("res://assets/music/stage3.mp3")
 var stage5_music = preload("res://assets/music/intro5.mp3")
+var stage6_music = preload("res://assets/music/intro6.mp3")
+var stage7_music = preload("res://assets/music/intro7.mp3")
 
 func play_music():
 	if Global.current_stage == 1:
@@ -22,6 +24,12 @@ func play_music():
 		$music_player.play()
 	elif Global.current_stage == 5:
 		$music_player.stream = stage5_music
+		$music_player.play()
+	elif Global.current_stage == 6:
+		$music_player.stream = stage6_music
+		$music_player.play()
+	elif Global.current_stage == 7:
+		$music_player.stream = stage7_music
 		$music_player.play()
 
 func _on_music_player_finished():
