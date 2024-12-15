@@ -12,4 +12,9 @@ bus = &"Music"
 [node name="sound_player" type="AudioStreamPlayer" parent="."]
 bus = &"Sound FX"
 
+[node name="replay_timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="finished" from="music_player" to="." method="_on_music_player_finished"]
+[connection signal="timeout" from="replay_timer" to="." method="_on_replay_timer_timeout"]

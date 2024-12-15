@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccv5dudmwpces"]
+[gd_scene load_steps=24 format=3 uid="uid://ccv5dudmwpces"]
 
+[ext_resource type="Script" path="res://scripts/menus/stage_selection_menu_web.gd" id="1_m3gy3"]
 [ext_resource type="Texture2D" uid="uid://8intu1lrnkjg" path="res://assets/images/thumbnails/stage01.png" id="1_recap"]
 [ext_resource type="Texture2D" uid="uid://t13u83djygyn" path="res://assets/images/thumbnails/stage02.png" id="2_hyggu"]
 [ext_resource type="Texture2D" uid="uid://bba3ewcppineb" path="res://assets/images/thumbnails/stage03.png" id="3_ecy8j"]
@@ -10,87 +11,540 @@
 [ext_resource type="Texture2D" uid="uid://cllpuy2cou3qy" path="res://assets/images/thumbnails/stage08.png" id="8_yfwe5"]
 [ext_resource type="Texture2D" uid="uid://dkfu6vvi7ioa2" path="res://assets/images/thumbnails/stage09.png" id="9_0ap0v"]
 [ext_resource type="Texture2D" uid="uid://ckmva5wes8dna" path="res://assets/images/thumbnails/stage10.png" id="10_u8a2k"]
+[ext_resource type="Texture2D" uid="uid://cpry1ccujv31p" path="res://assets/images/thumbnails/stage11.png" id="13_w7mla"]
+[ext_resource type="Texture2D" uid="uid://cj7217gehnccu" path="res://assets/images/thumbnails/stage12.png" id="14_a22s7"]
+[ext_resource type="Texture2D" uid="uid://ch5jcdgyxgk14" path="res://assets/images/thumbnails/stage13.png" id="15_dvguy"]
+[ext_resource type="Texture2D" uid="uid://bhu6s3e1s0wys" path="res://assets/images/thumbnails/stage14.png" id="16_4qpyb"]
+[ext_resource type="Texture2D" uid="uid://ccq8ty14kyks4" path="res://assets/images/thumbnails/stage15.png" id="17_vsxox"]
+[ext_resource type="Texture2D" uid="uid://lvr3ul7nldc4" path="res://assets/images/thumbnails/stage16.png" id="18_tsfn2"]
+[ext_resource type="Texture2D" uid="uid://seqjqhwk7yir" path="res://assets/images/thumbnails/stage17.png" id="19_pf3wa"]
+[ext_resource type="Texture2D" uid="uid://42cjvv6vby0p" path="res://assets/images/thumbnails/stage18.png" id="20_jvaag"]
+[ext_resource type="Texture2D" uid="uid://1ex6wxwm44np" path="res://assets/images/thumbnails/stage19.png" id="21_athlm"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="21_vfo0n"]
+[ext_resource type="Texture2D" uid="uid://caq4xwwnefpex" path="res://assets/images/thumbnails/stage20.png" id="22_glnv3"]
+[ext_resource type="AudioStream" uid="uid://b5gdo23uujd01" path="res://assets/wave/ball_release.wav" id="23_cani8"]
 
 [node name="stage_selection_menu_web" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_m3gy3")
 
-[node name="stage01" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 369.0
-offset_right = 393.0
-offset_bottom = 569.0
+offset_left = 44.0
+offset_top = 130.0
+offset_right = 1853.0
+offset_bottom = 1047.0
+color = Color(0.345098, 0.345098, 0.345098, 1)
+
+[node name="stages_01_thru_10" type="Node2D" parent="."]
+visible = false
+
+[node name="stage01" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 70.0
+offset_top = 300.0
+offset_right = 404.0
+offset_bottom = 500.0
+tooltip_text = "Stage 1"
 texture = ExtResource("1_recap")
 
-[node name="stage02" type="TextureRect" parent="."]
+[node name="stage01_label" type="Label" parent="stages_01_thru_10/stage01"]
 layout_mode = 0
-offset_left = 417.0
-offset_top = 369.0
-offset_right = 751.0
-offset_bottom = 569.0
+offset_left = -1.0
+offset_top = 207.0
+offset_right = 330.0
+offset_bottom = 291.0
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 1"
+horizontal_alignment = 1
+
+[node name="stage02" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 429.0
+offset_top = 300.0
+offset_right = 763.0
+offset_bottom = 500.0
+tooltip_text = "Stage 2"
 texture = ExtResource("2_hyggu")
 
-[node name="stage03" type="TextureRect" parent="."]
+[node name="stage02_label" type="Label" parent="stages_01_thru_10/stage02"]
 layout_mode = 0
-offset_left = 781.0
-offset_top = 371.0
-offset_right = 1115.0
-offset_bottom = 571.0
+offset_left = -11.0
+offset_top = 207.0
+offset_right = 320.0
+offset_bottom = 291.0
+tooltip_text = "Stage 2"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 2"
+horizontal_alignment = 1
+
+[node name="stage03" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 788.0
+offset_top = 300.0
+offset_right = 1122.0
+offset_bottom = 500.0
 texture = ExtResource("3_ecy8j")
 
-[node name="stage04" type="TextureRect" parent="."]
+[node name="stage03_label" type="Label" parent="stages_01_thru_10/stage03"]
 layout_mode = 0
-offset_left = 1139.0
-offset_top = 371.0
-offset_right = 1473.0
-offset_bottom = 571.0
+offset_left = -27.0
+offset_top = 205.0
+offset_right = 304.0
+offset_bottom = 289.0
+tooltip_text = "Stage 3"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 3"
+horizontal_alignment = 1
+
+[node name="stage04" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 1147.0
+offset_top = 300.0
+offset_right = 1481.0
+offset_bottom = 500.0
 texture = ExtResource("4_0pac0")
 
-[node name="stage05" type="TextureRect" parent="."]
+[node name="stage04_label" type="Label" parent="stages_01_thru_10/stage04"]
 layout_mode = 0
-offset_left = 1527.0
-offset_top = 371.0
-offset_right = 1861.0
-offset_bottom = 571.0
+offset_left = -15.0
+offset_top = 208.0
+offset_right = 316.0
+offset_bottom = 292.0
+tooltip_text = "Stage 4"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 4"
+horizontal_alignment = 1
+
+[node name="stage05" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 1506.0
+offset_top = 300.0
+offset_right = 1840.0
+offset_bottom = 500.0
 texture = ExtResource("5_clqrw")
 
-[node name="stage06" type="TextureRect" parent="."]
+[node name="stage05_label" type="Label" parent="stages_01_thru_10/stage05"]
 layout_mode = 0
-offset_left = 54.0
-offset_top = 604.0
-offset_right = 388.0
-offset_bottom = 804.0
+offset_top = 205.0
+offset_right = 331.0
+offset_bottom = 289.0
+tooltip_text = "Stage 5"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 5"
+horizontal_alignment = 1
+
+[node name="stage06" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 70.0
+offset_top = 600.0
+offset_right = 404.0
+offset_bottom = 800.0
 texture = ExtResource("6_ist2q")
 
-[node name="stage07" type="TextureRect" parent="."]
+[node name="stage06_label" type="Label" parent="stages_01_thru_10/stage06"]
 layout_mode = 0
-offset_left = 412.0
-offset_top = 604.0
-offset_right = 746.0
-offset_bottom = 804.0
+offset_left = -11.0
+offset_top = 204.0
+offset_right = 320.0
+offset_bottom = 288.0
+tooltip_text = "Stage 6"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 6"
+horizontal_alignment = 1
+
+[node name="stage07" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 429.0
+offset_top = 600.0
+offset_right = 763.0
+offset_bottom = 800.0
 texture = ExtResource("7_5k737")
 
-[node name="stage08" type="TextureRect" parent="."]
+[node name="stage07_label" type="Label" parent="stages_01_thru_10/stage07"]
 layout_mode = 0
-offset_left = 776.0
-offset_top = 606.0
-offset_right = 1110.0
-offset_bottom = 806.0
+offset_left = -7.0
+offset_top = 208.0
+offset_right = 324.0
+offset_bottom = 292.0
+tooltip_text = "Stage 7"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 7"
+horizontal_alignment = 1
+
+[node name="stage08" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 788.0
+offset_top = 600.0
+offset_right = 1122.0
+offset_bottom = 800.0
 texture = ExtResource("8_yfwe5")
 
-[node name="stage09" type="TextureRect" parent="."]
+[node name="stage08_label" type="Label" parent="stages_01_thru_10/stage08"]
 layout_mode = 0
-offset_left = 1134.0
-offset_top = 606.0
-offset_right = 1468.0
-offset_bottom = 806.0
+offset_left = 2.0
+offset_top = 208.0
+offset_right = 333.0
+offset_bottom = 292.0
+tooltip_text = "Stage 8"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 8"
+horizontal_alignment = 1
+
+[node name="stage09" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 1147.0
+offset_top = 600.0
+offset_right = 1481.0
+offset_bottom = 800.0
 texture = ExtResource("9_0ap0v")
 
-[node name="stage10" type="TextureRect" parent="."]
+[node name="stage09_label" type="Label" parent="stages_01_thru_10/stage09"]
 layout_mode = 0
-offset_left = 1522.0
-offset_top = 606.0
-offset_right = 1856.0
-offset_bottom = 806.0
+offset_left = -8.0
+offset_top = 205.0
+offset_right = 323.0
+offset_bottom = 289.0
+tooltip_text = "Stage 9"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 9"
+horizontal_alignment = 1
+
+[node name="stage10" type="TextureRect" parent="stages_01_thru_10"]
+offset_left = 1506.0
+offset_top = 600.0
+offset_right = 1840.0
+offset_bottom = 800.0
 texture = ExtResource("10_u8a2k")
+
+[node name="stage10_label" type="Label" parent="stages_01_thru_10/stage10"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 205.0
+offset_right = 326.0
+offset_bottom = 289.0
+tooltip_text = "Stage 10"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 10"
+horizontal_alignment = 1
+
+[node name="stages_11_thru_20" type="Node2D" parent="."]
+visible = false
+
+[node name="stage11" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 70.0
+offset_top = 300.0
+offset_right = 404.0
+offset_bottom = 500.0
+tooltip_text = "Stage 11"
+texture = ExtResource("13_w7mla")
+
+[node name="stage11_label" type="Label" parent="stages_11_thru_20/stage11"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 207.0
+offset_right = 330.0
+offset_bottom = 291.0
+tooltip_text = "Stage 11"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 11"
+horizontal_alignment = 1
+
+[node name="stage12" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 429.0
+offset_top = 300.0
+offset_right = 763.0
+offset_bottom = 500.0
+tooltip_text = "Stage 12"
+texture = ExtResource("14_a22s7")
+
+[node name="stage12_label" type="Label" parent="stages_11_thru_20/stage12"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 207.0
+offset_right = 320.0
+offset_bottom = 291.0
+tooltip_text = "Stage 12"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 12"
+horizontal_alignment = 1
+
+[node name="stage13" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 788.0
+offset_top = 300.0
+offset_right = 1122.0
+offset_bottom = 500.0
+tooltip_text = "Stage 13"
+texture = ExtResource("15_dvguy")
+
+[node name="stage13_label" type="Label" parent="stages_11_thru_20/stage13"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 205.0
+offset_right = 304.0
+offset_bottom = 289.0
+tooltip_text = "Stage 13"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 13"
+horizontal_alignment = 1
+
+[node name="stage14" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 1147.0
+offset_top = 300.0
+offset_right = 1481.0
+offset_bottom = 500.0
+tooltip_text = "Stage 14
+"
+texture = ExtResource("16_4qpyb")
+
+[node name="stage14_label" type="Label" parent="stages_11_thru_20/stage14"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 208.0
+offset_right = 316.0
+offset_bottom = 292.0
+tooltip_text = "Stage 14"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 14"
+horizontal_alignment = 1
+
+[node name="stage15" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 1506.0
+offset_top = 300.0
+offset_right = 1840.0
+offset_bottom = 500.0
+tooltip_text = "Stage 15"
+texture = ExtResource("17_vsxox")
+
+[node name="stage15_label" type="Label" parent="stages_11_thru_20/stage15"]
+layout_mode = 0
+offset_top = 205.0
+offset_right = 331.0
+offset_bottom = 289.0
+tooltip_text = "Stage 15"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 15"
+horizontal_alignment = 1
+
+[node name="stage16" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 70.0
+offset_top = 600.0
+offset_right = 404.0
+offset_bottom = 800.0
+tooltip_text = "Stage 16"
+texture = ExtResource("18_tsfn2")
+
+[node name="stage16_label" type="Label" parent="stages_11_thru_20/stage16"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 204.0
+offset_right = 320.0
+offset_bottom = 288.0
+tooltip_text = "Stage 16"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 16"
+horizontal_alignment = 1
+
+[node name="stage17" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 429.0
+offset_top = 600.0
+offset_right = 763.0
+offset_bottom = 800.0
+tooltip_text = "Stage 17"
+texture = ExtResource("19_pf3wa")
+
+[node name="stage17_label" type="Label" parent="stages_11_thru_20/stage17"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 208.0
+offset_right = 324.0
+offset_bottom = 292.0
+tooltip_text = "Stage 17"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 17"
+horizontal_alignment = 1
+
+[node name="stage18" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 788.0
+offset_top = 600.0
+offset_right = 1122.0
+offset_bottom = 800.0
+texture = ExtResource("20_jvaag")
+
+[node name="stage18_label" type="Label" parent="stages_11_thru_20/stage18"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 208.0
+offset_right = 333.0
+offset_bottom = 292.0
+tooltip_text = "Stage 18"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 18"
+horizontal_alignment = 1
+
+[node name="stage19" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 1147.0
+offset_top = 600.0
+offset_right = 1481.0
+offset_bottom = 800.0
+tooltip_text = "Stage 19"
+texture = ExtResource("21_athlm")
+
+[node name="stage19_label" type="Label" parent="stages_11_thru_20/stage19"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 205.0
+offset_right = 323.0
+offset_bottom = 289.0
+tooltip_text = "Stage 19"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 19"
+horizontal_alignment = 1
+
+[node name="stage20" type="TextureRect" parent="stages_11_thru_20"]
+offset_left = 1506.0
+offset_top = 600.0
+offset_right = 1840.0
+offset_bottom = 800.0
+tooltip_text = "Stage 20"
+texture = ExtResource("22_glnv3")
+
+[node name="stage20_label" type="Label" parent="stages_11_thru_20/stage20"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 205.0
+offset_right = 326.0
+offset_bottom = 289.0
+tooltip_text = "Stage 20"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 20"
+horizontal_alignment = 1
+
+[node name="title_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 713.0
+offset_top = 143.0
+offset_right = 1269.0
+offset_bottom = 261.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 100
+text = "Select a Stage"
+
+[node name="next_page" type="Button" parent="."]
+layout_mode = 0
+offset_left = 979.0
+offset_top = 903.0
+offset_right = 1101.0
+offset_bottom = 947.0
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 30
+text = "Next Page"
+
+[node name="previous_page" type="Button" parent="."]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 904.0
+offset_right = 953.0
+offset_bottom = 948.0
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 30
+text = "Previous Page"
+
+[node name="pages_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 956.0
+offset_right = 1141.0
+offset_bottom = 992.0
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 30
+text = "you can use left and right arrows"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="go_back_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 994.0
+offset_right = 1139.0
+offset_bottom = 1030.0
+theme_override_colors/font_color = Color(0.987007, 0.633126, 0.129375, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 30
+text = "press \"S\" again to go back to game"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="hover_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_cani8")
+
+[node name="mouse_location" type="Label" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 64.0
+offset_right = 308.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 30
+text = "Mouse Location : 100,100"
+
+[connection signal="pressed" from="next_page" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="previous_page" to="." method="_on_previous_page_pressed"]

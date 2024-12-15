@@ -121,4 +121,5 @@ func block_collision(block_body):
 	elif block_body is BlockMetal:
 		# reduce the chances of ball getting stuck bouncing between
 		# metal blocks and / or walls
-		velocity *= block_body.damping_value
+		velocity.x *= block_body.damping_value_x
+		velocity.y *= block_body.damping_value_y

@@ -68,10 +68,17 @@ func get_input():
 	if Input.is_action_just_pressed("ball_gun"):
 		$ball_gun_timer.start()
 	if Input.is_action_just_pressed("select_stage"):
-		$stage_selection_menu.show()
-		$stage_selection_menu.elapsed_time = 0.0
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
+		if OS.get_name() == "Web":
+			$stage_selection_menu_web.show()
+			$stage_selection_menu_web.elapsed_time = 0.0
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().paused = true
+		else:
+			$stage_selection_menu_web.show()
+			$stage_selection_menu_web.elapsed_time = 0.0
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().paused = true
+				
 	if Input.is_action_just_pressed("help_menu"):
 		toggle_help_menu()
 

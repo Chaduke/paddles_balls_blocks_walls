@@ -71,105 +71,138 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 25.5, 0)
 
 [node name="block_metal" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 24.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal2" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 24.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal3" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 24.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal7" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 23.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal8" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 22.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal11" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 21.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal13" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 20.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal14" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 20.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal15" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 19.5, 0)
 
 [node name="block_metal16" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 19.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal17" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 18.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal19" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 17.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal20" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 16.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal21" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 15.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal22" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 14.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal23" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 13.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal24" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 12.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal25" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 11.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal26" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 10.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal27" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 17.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal28" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 16.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal29" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 15.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal30" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 14.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal31" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 13.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal32" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 12.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal33" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 11.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal34" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 10.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal18" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 18.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal12" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 21.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal4" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 24.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal9" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 23.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal10" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 22.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal5" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 24.5, 0)
+damping_value_x = 1.0
 
 [node name="block_metal6" parent="." instance=ExtResource("2_ej3d4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 24.5, 0)
+damping_value_x = 1.0
 
 [node name="block_blue" parent="." instance=ExtResource("3_75wj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 21.5, 0)
