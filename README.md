@@ -1,32 +1,31 @@
--Update Dec 8th 2024:
-Weekly devlog video here: 
-	
-https://youtu.be/enxrOY7YXz0?si=iKd1OGy0U4hhD4du
+-Update Dec 15th 2024:
+
+New Weekly devlog video here: 
+
+(Week 3 done!) 	
+https://youtu.be/Sv_BUqnT01Y
 
 I'll try to post update videos on or around every Sunday. 
 Much much more to come soon, I'll be working on this full time until its complete! 
-	
-version 0.0.8 released! I already added 5 more levels for a total of 15. Also started experimenting with basic music and sound, will be spending a lot of time on that next week!
-Tommorrow I'll be working on a weekly devlog video and try to have it done by the end of day.
 
 Play the web version here (report any bugs you find):
 
 https://chaduke.itch.io/pbbw
 
-The game is still very much in development, has only 15 levels (out of 100 planned) and needs more sounds, music, 3D background, a very long list, but you can kind of get the gist of where I'm going with it.  It reminds me of a cross between breakout and pinball, for those of you old enough to remember pinball. 
+The game is still very much in development, it now has 20 stages (out of 100 planned) but needs more sounds, music, 3D backgrounds, but its progressing fast!  
+It reminds me of a cross between breakout and pinball, if you're old enough to remember pinball. 
 
 For keyboard shortcuts and instructions check left column of the game.  I'll plan on making explanations for all the power-ups on the startup screen soon, but they're not too hard to figure out. 
 
 TODO List:
 
 Short Term
-- Add more stages as time permits
+- Add 10 more stages for a total of 30 by next week Dec 22, 2024
 - Add custom music and sounds for stages, menus, wherever it seems to fit and feel right.
-- Start studying basic shaders
-- Start experimenting with custom animations
+- Convert menus to fully 3D
 
 Long Term 
-- Create a clone of all 50 original levels from Block 1.30 (10 done)
+- Create a clone of all 50 original levels from Block 1.30 (20 done)
 - Add 50 new unique levels
 - Create original sounds, music, themes and customization features
 - Create teaching videos on modding the game and Godot tips / short tutorials

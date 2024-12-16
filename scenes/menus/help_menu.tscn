@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbpcvj3b5lxed"]
+[gd_scene load_steps=9 format=3 uid="uid://dbpcvj3b5lxed"]
 
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_6rw06"]
 [ext_resource type="Script" path="res://scripts/menus/help_menu.gd" id="1_s2bks"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="3_i03cs"]
 [ext_resource type="PackedScene" uid="uid://uk7eo4vfkgjo" path="res://assets/models/block_yellow2.glb" id="5_2tdje"]
 [ext_resource type="PackedScene" uid="uid://c3732jixb2xai" path="res://assets/models/block_blue.glb" id="6_xthru"]
+[ext_resource type="PackedScene" uid="uid://b8gt1p7beegar" path="res://assets/models/base_male_animated.glb" id="7_744ky"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gvbpn"]
 
 [node name="help_menu" type="Node3D"]
 script = ExtResource("1_s2bks")
@@ -79,3 +82,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2533, 23.5825, 0)
 
 [node name="block_blue" parent="." instance=ExtResource("6_xthru")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2393, 22.0896, 0)
+
+[node name="the_dude" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0653, 0, 0)
+
+[node name="base_male_animated" parent="the_dude" instance=ExtResource("7_744ky")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="the_dude"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982287, 0)
+shape = SubResource("CapsuleShape3D_gvbpn")

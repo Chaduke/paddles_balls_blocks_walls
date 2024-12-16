@@ -38,7 +38,6 @@ offset_bottom = 1047.0
 color = Color(0.345098, 0.345098, 0.345098, 1)
 
 [node name="stages_01_thru_10" type="Node2D" parent="."]
-visible = false
 
 [node name="stage01" type="TextureRect" parent="stages_01_thru_10"]
 offset_left = 70.0

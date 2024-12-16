@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dps7krkaewx52"]
+
+[ext_resource type="PackedScene" uid="uid://b0djq2v0unmgt" path="res://scenes/characters/base_male_animated.tscn" id="1_ql74r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl1cr"]
+size = Vector3(16, 0.1, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0wkt0"]
+size = Vector3(16, 0.1, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yv2jl"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yeopk"]
+size = Vector3(5, 0.5, 5)
+
+[node name="character_test_scene" type="Node3D"]
+
+[node name="base_male_animated" parent="." instance=ExtResource("1_ql74r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.939693, 0.241845, -0.241845, 0, 0.707107, 0.707107, 0.34202, -0.664463, 0.664463, 0.00283813, 8.31526, 0.0144043)
+shadow_enabled = true
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_dl1cr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("BoxMesh_0wkt0")
+
+[node name="platform1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48629, 0.958449, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform1"]
+shape = SubResource("BoxShape3D_yv2jl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="platform1"]
+mesh = SubResource("BoxMesh_yeopk")
