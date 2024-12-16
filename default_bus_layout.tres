@@ -1,10 +1,16 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cju67n3pl2q78"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://cju67n3pl2q78"]
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_g63ub"]
 resource_name = "Limiter"
+threshold_db = -6.0
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_u5b3e"]
+resource_name = "Limiter"
+ceiling_db = -6.0
+threshold_db = -12.0
 
 [resource]
-bus/0/volume_db = 0.267241
+bus/0/volume_db = 0.662756
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_g63ub")
 bus/0/effect/0/enabled = true
 bus/1/name = &"Music"
@@ -19,3 +25,5 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0694828
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectLimiter_u5b3e")
+bus/2/effect/0/enabled = true

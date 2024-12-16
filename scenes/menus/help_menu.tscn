@@ -1,20 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbpcvj3b5lxed"]
+[gd_scene load_steps=8 format=3 uid="uid://dbpcvj3b5lxed"]
 
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_6rw06"]
 [ext_resource type="Script" path="res://scripts/menus/help_menu.gd" id="1_s2bks"]
 [ext_resource type="PackedScene" uid="uid://cla3frnyj2uys" path="res://assets/models/block_yellow.glb" id="2_52qab"]
-[ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="3_i03cs"]
 [ext_resource type="PackedScene" uid="uid://uk7eo4vfkgjo" path="res://assets/models/block_yellow2.glb" id="5_2tdje"]
 [ext_resource type="PackedScene" uid="uid://c3732jixb2xai" path="res://assets/models/block_blue.glb" id="6_xthru"]
-[ext_resource type="PackedScene" uid="uid://b8gt1p7beegar" path="res://assets/models/base_male_animated.glb" id="7_744ky"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gvbpn"]
+[ext_resource type="PackedScene" uid="uid://ba85juxvpvvr" path="res://assets/models/walls_for_menus.glb" id="6_y5vw4"]
+[ext_resource type="PackedScene" uid="uid://chw5nk82yqdi5" path="res://assets/models/block_blue2.glb" id="7_j2iyw"]
 
 [node name="help_menu" type="Node3D"]
 script = ExtResource("1_s2bks")
 
 [node name="title_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3495, 27.5793, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.891, 27.5793, 0)
 modulate = Color(1, 0.490196, 1, 1)
 text = "Help Menu"
 font = ExtResource("1_6rw06")
@@ -22,7 +20,7 @@ font_size = 500
 outline_size = 100
 
 [node name="yellow_block_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05336, 25.3166, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63753, 24.6647, 0)
 modulate = Color(1, 1, 0, 1)
 text = "Yellow Block"
 font = ExtResource("1_6rw06")
@@ -31,7 +29,7 @@ outline_size = 50
 horizontal_alignment = 0
 
 [node name="blue_block_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30347, 22.0689, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88764, 21.417, 0)
 modulate = Color(0, 0, 1, 1)
 text = "Blue Block"
 font = ExtResource("1_6rw06")
@@ -39,8 +37,17 @@ font_size = 250
 outline_size = 50
 horizontal_alignment = 0
 
+[node name="cracked_blue_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75285, 19.9628, 0)
+modulate = Color(0, 0, 1, 1)
+text = "Cracked Blue"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 0
+
 [node name="cracked_yellow_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08053, 23.6155, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6647, 22.9636, 0)
 modulate = Color(1, 1, 0, 1)
 text = "Cracked Yellow"
 font = ExtResource("1_6rw06")
@@ -49,7 +56,7 @@ outline_size = 50
 horizontal_alignment = 0
 
 [node name="yellow_block_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7562, 25.3078, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3404, 24.6559, 0)
 text = "Just a standard block you have to break"
 font = ExtResource("1_6rw06")
 font_size = 200
@@ -57,15 +64,23 @@ outline_size = 40
 horizontal_alignment = 0
 
 [node name="blue_block_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9231, 22.1356, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5073, 21.4837, 0)
 text = "Just like the yellow block"
 font = ExtResource("1_6rw06")
 font_size = 200
 outline_size = 40
 horizontal_alignment = 0
 
+[node name="cracked_blue_desc_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5441, 19.9357, 0)
+text = "Just like cracked yellow (for now)"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
 [node name="cracked_yellow_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2808, 23.596, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.865, 22.9441, 0)
 text = "The ball wont bounce off this"
 font = ExtResource("1_6rw06")
 font_size = 200
@@ -73,21 +88,15 @@ outline_size = 40
 horizontal_alignment = 0
 
 [node name="block_yellow" parent="." instance=ExtResource("2_52qab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3023, 25.2253, 0)
-
-[node name="walls" parent="." instance=ExtResource("3_i03cs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8865, 24.5734, 0)
 
 [node name="cracked_yellow" parent="." instance=ExtResource("5_2tdje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2533, 23.5825, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8375, 22.9306, 0)
 
 [node name="block_blue" parent="." instance=ExtResource("6_xthru")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2393, 22.0896, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8235, 21.4377, 0)
 
-[node name="the_dude" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0653, 0, 0)
+[node name="walls_for_menus" parent="." instance=ExtResource("6_y5vw4")]
 
-[node name="base_male_animated" parent="the_dude" instance=ExtResource("7_744ky")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="the_dude"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982287, 0)
-shape = SubResource("CapsuleShape3D_gvbpn")
+[node name="cracked_blue" parent="." instance=ExtResource("7_j2iyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.815, 19.92, 0)

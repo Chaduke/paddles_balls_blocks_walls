@@ -63,6 +63,8 @@ func stage_cleared():
 	if Global.current_stage > 0 : $stage_cleared_menu.update_labels()
 	
 func cleanup_stage():
+	var replay_timer = GlobalAudioServer.get_node("replay_timer")
+	replay_timer.stop()
 	Global.stage_time = $time_label.elapsed_time
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false

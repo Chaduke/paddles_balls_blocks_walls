@@ -255,6 +255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 20.5, 0)
 
 [node name="block_clear112" parent="." instance=ExtResource("2_ax5up")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 20.5, 0)
+total_balls = 5
 
 [node name="block_clear113" parent="." instance=ExtResource("2_ax5up")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 20.5, 0)

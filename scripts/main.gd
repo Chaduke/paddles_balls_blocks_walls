@@ -55,7 +55,7 @@ func position_camera():
 		else:
 			camera_ready = true
 			$stage.start_rsg()
-			
+
 func get_input():
 	if Input.is_action_just_pressed("ui_cancel"):
 		if elapsed_time > 0.1 : toggle_main_menu()
@@ -68,27 +68,31 @@ func get_input():
 	if Input.is_action_just_pressed("ball_gun"):
 		$ball_gun_timer.start()
 	if Input.is_action_just_pressed("select_stage"):
-		if OS.get_name() == "Web":
-			$stage_selection_menu_web.show()
-			$stage_selection_menu_web.elapsed_time = 0.0
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().paused = true
-		else:
-			$stage_selection_menu_web.show()
-			$stage_selection_menu_web.elapsed_time = 0.0
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().paused = true
-				
+		toggle_stage_selection()
 	if Input.is_action_just_pressed("help_menu"):
 		toggle_help_menu()
 
+func toggle_stage_selection():
+	if OS.get_name() == "Web":
+		$stage_selection_menu_web.show()
+		$stage_selection_menu_web.elapsed_time = 0.0
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+	else:
+		$stage_selection_menu_web.show()
+		$stage_selection_menu_web.elapsed_time = 0.0
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+
 func toggle_help_menu():
-	if $help_menu.active:	
-		$camera.position = Vector3(0,15,0)
+	if $help_menu.active:
+		$camera.lerping = true
+		$camera.target_position = Vector3(0,15,0)
 		$help_menu.active = false
 	else:
-		$camera.position = Vector3(18.5,45,0)
-		$help_menu.active = true
+		$camera.lerping = true
+		$camera.target_position = Vector3(0,45,0)
+		$help_menu.active = true		
 
 func toggle_main_menu():
 	$main_menu.show()
