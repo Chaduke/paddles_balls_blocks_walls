@@ -125,6 +125,7 @@ func enable_item_effect():
 		paddle.maximize()
 		
 func reverse_gravity():
+	Global.gravity_reversed = true
 	# change the Y vector to 1 instead of -1, reversing gravity pull
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
@@ -134,7 +135,8 @@ func reverse_gravity():
 		if ball is BallClassic:
 			ball.acceleration.y = 10.0
 			
-func restore_gravity():
+func restore_gravity():	
+	Global.gravity_reversed = false
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
 	Vector3(0, -1, 0))

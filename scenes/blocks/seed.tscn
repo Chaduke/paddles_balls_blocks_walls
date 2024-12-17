@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi3v1sumnnps0"]
+
+[ext_resource type="Script" path="res://scripts/blocks/seed.gd" id="1_qowhe"]
+[ext_resource type="PackedScene" uid="uid://kww3g6lvybpp" path="res://assets/models/seed.glb" id="2_udue4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jl2uk"]
+height = 1.0
+
+[node name="seed" type="Area3D" groups=["Blocks", "BreakableBlocks"]]
+script = ExtResource("1_qowhe")
+
+[node name="seed2" parent="." instance=ExtResource("2_udue4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_jl2uk")
+
+[node name="germination_timer" type="Timer" parent="." groups=["Blocks"]]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="germination_timer" to="." method="_on_germination_timer_timeout"]

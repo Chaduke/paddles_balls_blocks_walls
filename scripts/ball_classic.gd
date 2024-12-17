@@ -12,7 +12,9 @@ var top_bounds = 0.0
 var left_bounds = 0.0
 var right_bounds = 0.0
 
-func _ready():	
+func _ready():
+	if Global.gravity_reversed:
+		acceleration.y = 10.0	
 	$release_sound.play()
 	update_bounds()
 
@@ -123,3 +125,9 @@ func block_collision(block_body):
 		# metal blocks and / or walls
 		velocity.x *= block_body.damping_value_x
 		velocity.y *= block_body.damping_value_y
+	elif block_body is BlockGreen:
+		# make sure to spawn a seed
+		velocity.x *= block_body.damping_value_x
+		velocity.y *= block_body.damping_value_y
+		block_body.queue_free()
+		

@@ -35,5 +35,7 @@ draw_pass_1 = SubResource("TorusMesh_oxlyf")
 
 [node name="block_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_i6faa")
+volume_db = -10.0
+bus = &"Sound FX"
 
 [connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

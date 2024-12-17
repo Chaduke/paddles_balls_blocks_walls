@@ -11,28 +11,27 @@ spread = 20.0
 initial_velocity_min = 5.0
 initial_velocity_max = 10.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyfon"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.490196, 0.784314, 1)
-metallic = 0.12
-metallic_specular = 0.49
-roughness = 0.23
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cr0nw"]
+albedo_color = Color(0, 1, 0, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7q7vf"]
-material = SubResource("StandardMaterial3D_hyfon")
-size = Vector3(0.2, 0.2, 0.2)
+[sub_resource type="SphereMesh" id="SphereMesh_3lha4"]
+material = SubResource("StandardMaterial3D_cr0nw")
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
 
 [node name="block_pink_cracked_explosion" type="Node3D"]
 script = ExtResource("1_jdm14")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 30
+amount = 50
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7nh4g")
-draw_pass_1 = SubResource("BoxMesh_7q7vf")
+draw_pass_1 = SubResource("SphereMesh_3lha4")
 
 [node name="block_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_y2ixc")

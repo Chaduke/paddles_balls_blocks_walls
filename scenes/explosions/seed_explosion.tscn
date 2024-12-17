@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjs5vhgdk068a"]
+
+[ext_resource type="Script" path="res://scripts/block_explosion.gd" id="1_s5cb3"]
+[ext_resource type="AudioStream" uid="uid://hhqq4wnrf2w3" path="res://assets/wave/cracked.wav" id="2_rs3xw"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nh4g"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lptk2"]
+albedo_color = Color(0.469761, 0.250261, 0.0212336, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_c2tbk"]
+material = SubResource("StandardMaterial3D_lptk2")
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[node name="seed_explosion" type="Node3D"]
+script = ExtResource("1_s5cb3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7nh4g")
+draw_pass_1 = SubResource("SphereMesh_c2tbk")
+
+[node name="block_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rs3xw")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]
