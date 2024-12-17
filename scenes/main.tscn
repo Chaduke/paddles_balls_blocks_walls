@@ -130,7 +130,7 @@ horizontal_alignment = 2
 wait_time = 0.1
 
 [node name="help_menu" parent="." instance=ExtResource("11_j2wm8")]
-process_mode = 2
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 30, -37)
 
 [connection signal="timeout" from="ball_gun_timer" to="." method="_on_ball_gun_timer_timeout"]

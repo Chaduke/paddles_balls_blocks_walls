@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbpcvj3b5lxed"]
+[gd_scene load_steps=13 format=3 uid="uid://dbpcvj3b5lxed"]
 
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_6rw06"]
 [ext_resource type="Script" path="res://scripts/menus/help_menu.gd" id="1_s2bks"]
@@ -7,96 +7,221 @@
 [ext_resource type="PackedScene" uid="uid://c3732jixb2xai" path="res://assets/models/block_blue.glb" id="6_xthru"]
 [ext_resource type="PackedScene" uid="uid://ba85juxvpvvr" path="res://assets/models/walls_for_menus.glb" id="6_y5vw4"]
 [ext_resource type="PackedScene" uid="uid://chw5nk82yqdi5" path="res://assets/models/block_blue2.glb" id="7_j2iyw"]
+[ext_resource type="PackedScene" uid="uid://gw8cvc0767rs" path="res://assets/models/block_pink.glb" id="8_6miro"]
+[ext_resource type="PackedScene" uid="uid://cv5vmspei11ur" path="res://assets/models/block_pink_cracked.glb" id="9_8ns22"]
+[ext_resource type="PackedScene" uid="uid://2gt4aksr4a5a" path="res://assets/models/block_clear2.glb" id="10_f31c6"]
+[ext_resource type="PackedScene" uid="uid://bljj8ip47jnsu" path="res://assets/models/block_clear.glb" id="11_5g823"]
+[ext_resource type="PackedScene" uid="uid://g67jsydrrjrg" path="res://assets/models/block_metal.glb" id="12_on7xt"]
 
 [node name="help_menu" type="Node3D"]
 script = ExtResource("1_s2bks")
 
 [node name="title_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.891, 27.5793, 0)
-modulate = Color(1, 0.490196, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.891, 26.5647, 0)
+modulate = Color(1, 0, 0, 1)
 text = "Help Menu"
 font = ExtResource("1_6rw06")
 font_size = 500
 outline_size = 100
 
-[node name="yellow_block_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63753, 24.6647, 0)
+[node name="title_label2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7718, 28.2774, 0)
+text = "Press F1 to go Back"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 50
+
+[node name="walls_for_menus" parent="." instance=ExtResource("6_y5vw4")]
+
+[node name="yellow_blocks" type="Node3D" parent="."]
+
+[node name="yellow_block_label" type="Label3D" parent="yellow_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 24.3723, 0)
 modulate = Color(1, 1, 0, 1)
 text = "Yellow Block"
 font = ExtResource("1_6rw06")
 font_size = 250
 outline_size = 50
-horizontal_alignment = 0
+horizontal_alignment = 2
 
-[node name="blue_block_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88764, 21.417, 0)
-modulate = Color(0, 0, 1, 1)
-text = "Blue Block"
-font = ExtResource("1_6rw06")
-font_size = 250
-outline_size = 50
-horizontal_alignment = 0
-
-[node name="cracked_blue_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75285, 19.9628, 0)
-modulate = Color(0, 0, 1, 1)
-text = "Cracked Blue"
-font = ExtResource("1_6rw06")
-font_size = 250
-outline_size = 50
-horizontal_alignment = 0
-
-[node name="cracked_yellow_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6647, 22.9636, 0)
+[node name="cracked_yellow_label" type="Label3D" parent="yellow_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 22.6712, 0)
 modulate = Color(1, 1, 0, 1)
 text = "Cracked Yellow"
 font = ExtResource("1_6rw06")
 font_size = 250
 outline_size = 50
-horizontal_alignment = 0
+horizontal_alignment = 2
 
-[node name="yellow_block_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3404, 24.6559, 0)
-text = "Just a standard block you have to break"
+[node name="yellow_block_desc_label" type="Label3D" parent="yellow_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 24.3635, 0)
+text = "Small and regular balls crack it"
 font = ExtResource("1_6rw06")
 font_size = 200
 outline_size = 40
 horizontal_alignment = 0
 
-[node name="blue_block_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5073, 21.4837, 0)
-text = "Just like the yellow block"
+[node name="cracked_yellow_desc_label" type="Label3D" parent="yellow_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 22.6517, 0)
+text = "Balls destroy this one"
 font = ExtResource("1_6rw06")
 font_size = 200
 outline_size = 40
 horizontal_alignment = 0
 
-[node name="cracked_blue_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5441, 19.9357, 0)
-text = "Just like cracked yellow (for now)"
+[node name="block_yellow" parent="yellow_blocks" instance=ExtResource("2_52qab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2849, 24.281, 0)
+
+[node name="cracked_yellow" parent="yellow_blocks" instance=ExtResource("5_2tdje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2849, 22.6382, 0)
+
+[node name="blue_blocks" type="Node3D" parent="."]
+
+[node name="blue_block_label" type="Label3D" parent="blue_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 21.1246, 0)
+modulate = Color(0, 0, 1, 1)
+outline_modulate = Color(0.682755, 0.693676, 0.69835, 1)
+text = "Blue Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="cracked_blue_label" type="Label3D" parent="blue_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 19.6704, 0)
+modulate = Color(0, 0, 1, 1)
+outline_modulate = Color(0.776224, 0.78821, 0.770328, 1)
+text = "Cracked Blue"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="blue_block_desc_label" type="Label3D" parent="blue_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 21.1913, 0)
+text = "Stronger than the yellow block"
 font = ExtResource("1_6rw06")
 font_size = 200
 outline_size = 40
 horizontal_alignment = 0
 
-[node name="cracked_yellow_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.865, 22.9441, 0)
-text = "The ball wont bounce off this"
+[node name="cracked_blue_desc_label" type="Label3D" parent="blue_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 19.6433, 0)
+text = "Just like the cracked yellow"
 font = ExtResource("1_6rw06")
 font_size = 200
 outline_size = 40
 horizontal_alignment = 0
 
-[node name="block_yellow" parent="." instance=ExtResource("2_52qab")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8865, 24.5734, 0)
+[node name="block_blue" parent="blue_blocks" instance=ExtResource("6_xthru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2849, 21.1453, 0)
 
-[node name="cracked_yellow" parent="." instance=ExtResource("5_2tdje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8375, 22.9306, 0)
+[node name="cracked_blue" parent="blue_blocks" instance=ExtResource("7_j2iyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2849, 19.6276, 0)
 
-[node name="block_blue" parent="." instance=ExtResource("6_xthru")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8235, 21.4377, 0)
+[node name="pink_blocks" type="Node3D" parent="."]
 
-[node name="walls_for_menus" parent="." instance=ExtResource("6_y5vw4")]
+[node name="pink_block_label" type="Label3D" parent="pink_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 17.9182, 0)
+modulate = Color(1, 0.490196, 1, 1)
+text = "Pink Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
 
-[node name="cracked_blue" parent="." instance=ExtResource("7_j2iyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.815, 19.92, 0)
+[node name="cracked_pink_label" type="Label3D" parent="pink_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 16.464, 0)
+modulate = Color(1, 0.490196, 1, 1)
+text = "Cracked Pink"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="pink_block_desc_label" type="Label3D" parent="pink_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 17.9849, 0)
+text = "Drops a pickup item when hit"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="cracked_pink_desc_label" type="Label3D" parent="pink_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 16.4368, 0)
+text = "Explodes like the other cracked blocks"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="block_pink" parent="pink_blocks" instance=ExtResource("8_6miro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2849, 18.0297, 0)
+
+[node name="cracked_pink" parent="pink_blocks" instance=ExtResource("9_8ns22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2849, 16.3969, 0)
+
+[node name="clear_blocks" type="Node3D" parent="."]
+
+[node name="clear_block_label" type="Label3D" parent="clear_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 14.9478, 0)
+modulate = Color(1, 0.490196, 1, 1)
+outline_modulate = Color(0, 0, 1, 1)
+text = "Pink ball Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="clear_block_label_desc" type="Label3D" parent="clear_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 15.0145, 0)
+text = "A cage with a single ball trapped in it"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="blue_ball_block_label" type="Label3D" parent="clear_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 13.4851, 0)
+modulate = Color(0, 0, 1, 1)
+outline_modulate = Color(1, 0.490196, 1, 1)
+text = "Blue Ball Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="blue_ball_block_label_desc" type="Label3D" parent="clear_blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 13.5518, 0)
+text = "A cage that releases two or more balls"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="blue_ball_block" parent="clear_blocks" instance=ExtResource("10_f31c6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.285, 13.4655, 0)
+
+[node name="pink_ball_block" parent="clear_blocks" instance=ExtResource("11_5g823")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.285, 14.843, 0)
+
+[node name="metal_block_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 11.9523, 0)
+modulate = Color(0.377919, 0.377919, 0.377919, 1)
+text = "Metal Block
+"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="metal_block_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 12.1106, 0)
+text = "This block cannot be broken, slows ball"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="metal_block" parent="." instance=ExtResource("12_on7xt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.285, 11.962, 0)

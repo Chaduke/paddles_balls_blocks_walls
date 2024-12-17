@@ -1,0 +1,171 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb7xcvpwtkuws"]
+
+[ext_resource type="PackedScene" uid="uid://caad1bitssj3a" path="res://scenes/blocks/block_pink.tscn" id="1_6dyss"]
+[ext_resource type="PackedScene" uid="uid://bf2fco4sxtgc4" path="res://scenes/blocks/block_shielded.tscn" id="2_7ixnj"]
+
+[node name="blocks_21" type="Node3D"]
+
+[node name="block_pink" parent="." instance=ExtResource("1_6dyss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 24.5, 0)
+
+[node name="block_shielded" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 24.5, 0)
+
+[node name="block_shielded9" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 23.5, 0)
+
+[node name="block_shielded10" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 23.5, 0)
+
+[node name="block_shielded11" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 23.5, 0)
+
+[node name="block_shielded12" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 23.5, 0)
+
+[node name="block_shielded13" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 23.5, 0)
+
+[node name="block_shielded14" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 23.5, 0)
+
+[node name="block_shielded15" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 23.5, 0)
+
+[node name="block_shielded16" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 23.5, 0)
+
+[node name="block_shielded17" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 23.5, 0)
+
+[node name="block_shielded18" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 23.5, 0)
+
+[node name="block_shielded19" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 23.5, 0)
+
+[node name="block_shielded20" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 22.5, 0)
+
+[node name="block_shielded21" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 22.5, 0)
+
+[node name="block_shielded22" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 22.5, 0)
+
+[node name="block_shielded23" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 22.5, 0)
+
+[node name="block_shielded24" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 22.5, 0)
+
+[node name="block_shielded25" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 22.5, 0)
+
+[node name="block_shielded26" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 22.5, 0)
+
+[node name="block_shielded27" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 22.5, 0)
+
+[node name="block_shielded28" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 22.5, 0)
+
+[node name="block_shielded29" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 22.5, 0)
+
+[node name="block_shielded30" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 22.5, 0)
+
+[node name="block_shielded31" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 21.5, 0)
+
+[node name="block_shielded32" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 21.5, 0)
+
+[node name="block_shielded33" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 21.5, 0)
+
+[node name="block_shielded34" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 21.5, 0)
+
+[node name="block_shielded35" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 21.5, 0)
+
+[node name="block_shielded36" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 21.5, 0)
+
+[node name="block_shielded37" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 21.5, 0)
+
+[node name="block_shielded38" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 21.5, 0)
+
+[node name="block_shielded39" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 21.5, 0)
+
+[node name="block_shielded40" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 21.5, 0)
+
+[node name="block_shielded41" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 21.5, 0)
+
+[node name="block_shielded2" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 24.5, 0)
+
+[node name="block_pink2" parent="." instance=ExtResource("1_6dyss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 24.5, 0)
+
+[node name="block_shielded3" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 24.5, 0)
+
+[node name="block_shielded4" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 24.5, 0)
+
+[node name="block_pink3" parent="." instance=ExtResource("1_6dyss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 24.5, 0)
+
+[node name="block_shielded5" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 24.5, 0)
+
+[node name="block_shielded6" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 24.5, 0)
+
+[node name="block_shielded7" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 24.5, 0)
+
+[node name="block_shielded8" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 24.5, 0)
+
+[node name="block_pink4" parent="." instance=ExtResource("1_6dyss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 20.5, 0)
+
+[node name="block_shielded42" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 20.5, 0)
+
+[node name="block_shielded43" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 20.5, 0)
+
+[node name="block_pink5" parent="." instance=ExtResource("1_6dyss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 20.5, 0)
+
+[node name="block_shielded44" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 20.5, 0)
+
+[node name="block_shielded45" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 20.5, 0)
+
+[node name="block_pink6" parent="." instance=ExtResource("1_6dyss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 20.5, 0)
+
+[node name="block_shielded46" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 20.5, 0)
+
+[node name="block_shielded47" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 20.5, 0)
+
+[node name="block_shielded48" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 20.5, 0)
+
+[node name="block_shielded49" parent="." instance=ExtResource("2_7ixnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 20.5, 0)
