@@ -19,7 +19,7 @@ func _input(event):
 func load_level():
 	if current_button > 0:
 		Global.current_stage = current_button
-		# print("Current stage set to: ", Global.current_stage)
+		#print("Current stage set to: ", Global.current_stage)
 		get_tree().paused = false
 		get_tree().reload_current_scene()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -69,7 +69,7 @@ func update_pages():
 		start_stage_string = "0" + start_stage_string
 	var end_stage_string = str((current_page + 1) * 10)
 	var group_string = "stages_" + start_stage_string + "_thru_" + end_stage_string
-	# print("Group string = " + group_string)
+	#print("Group string = " + group_string)
 	for child in get_children():
 		if child.name.begins_with("stages"):
 			if child.name == group_string:
