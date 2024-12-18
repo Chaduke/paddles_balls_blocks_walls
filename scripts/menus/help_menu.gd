@@ -17,4 +17,13 @@ func _process(_delta: float) -> void:
 		$clear_blocks/blue_ball_block.rotate(Vector3(0.0,1.0,0.0),0.05)
 		$clear_blocks/pink_ball_block.rotate(Vector3(0.0,1.0,0.0),0.055)
 		$metal_block.rotate(Vector3(0.0,1.0,0.0),0.05)
-  
+		$magnetic_block.rotate(Vector3(0.0,1.0,0.0),0.045)
+		$shielded_block.rotate(Vector3(0.0,1.0,0.0),0.04)
+		
+		if Input.is_action_just_pressed("menu_2"):
+			active = false
+			var camera = Global.get_main().get_node("camera")
+			var help_menu_2 = Global.get_main().get_node("help_menu_2")
+			camera.lerping = true
+			camera.target_position = Vector3(45,45,0)
+			help_menu_2.active = true

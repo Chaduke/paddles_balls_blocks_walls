@@ -30,7 +30,10 @@ func _ready():
 	platform_specific_inits()
 	if not Global.game_started:
 		$start_button.show()
-		GlobalAudioServer.play_game_intro()
+		if OS.get_name()=="Web":
+			$start_audio_button.show()
+		else:
+			MusicServer.play_game_intro()
 	else:
 		$resume_button.show()
 		
@@ -86,3 +89,6 @@ func _on_settings_button_mouse_entered() -> void:
 
 func _on_quit_button_mouse_entered() -> void:
 	$button_enter.play()
+
+func _on_start_audio_button_pressed() -> void:
+	MusicServer.play_game_intro()

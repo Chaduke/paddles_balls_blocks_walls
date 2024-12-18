@@ -104,7 +104,7 @@ func spawn_ball():
 	# spawning the first ball starts the stage
 	if not Global.stage_started:
 		Global.stage_started = true
-		GlobalAudioServer.play_music()
+		MusicServer.play_music()
 	# check if it's ok to spawn a ball
 	if decrement_balls():
 		var ball_instance = create_ball_instance()

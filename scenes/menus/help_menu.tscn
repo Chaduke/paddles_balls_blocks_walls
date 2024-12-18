@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbpcvj3b5lxed"]
+[gd_scene load_steps=17 format=3 uid="uid://dbpcvj3b5lxed"]
 
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_6rw06"]
 [ext_resource type="Script" path="res://scripts/menus/help_menu.gd" id="1_s2bks"]
@@ -12,21 +12,40 @@
 [ext_resource type="PackedScene" uid="uid://2gt4aksr4a5a" path="res://assets/models/block_clear2.glb" id="10_f31c6"]
 [ext_resource type="PackedScene" uid="uid://bljj8ip47jnsu" path="res://assets/models/block_clear.glb" id="11_5g823"]
 [ext_resource type="PackedScene" uid="uid://g67jsydrrjrg" path="res://assets/models/block_metal.glb" id="12_on7xt"]
+[ext_resource type="PackedScene" uid="uid://c7yuq45apg8uo" path="res://assets/models/block_magnet.glb" id="13_m1trp"]
+[ext_resource type="PackedScene" uid="uid://cbkrmfag0ooux" path="res://assets/models/block_shielded.glb" id="14_5sht4"]
+[ext_resource type="PackedScene" uid="uid://dhgbq3rf5l5in" path="res://assets/models/flow_arrows.glb" id="15_2k67i"]
+[ext_resource type="PackedScene" uid="uid://cr6m3wgjiwdd0" path="res://assets/models/flow_arrows_lr.glb" id="16_872sa"]
 
 [node name="help_menu" type="Node3D"]
 script = ExtResource("1_s2bks")
 
 [node name="title_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.891, 26.5647, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3281, 26.5647, 0)
 modulate = Color(1, 0, 0, 1)
 text = "Help Menu"
 font = ExtResource("1_6rw06")
 font_size = 500
 outline_size = 100
 
+[node name="title_label3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.963, 26.5647, 0)
+modulate = Color(1, 0, 0, 1)
+text = "(Part 1)"
+font = ExtResource("1_6rw06")
+font_size = 300
+outline_size = 100
+
 [node name="title_label2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7718, 28.2774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3496, 28.2774, 0)
 text = "Press F1 to go Back"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 50
+
+[node name="title_label4" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7553, 28.2774, 0)
+text = "Press 2 to to see part 2"
 font = ExtResource("1_6rw06")
 font_size = 200
 outline_size = 50
@@ -225,3 +244,83 @@ horizontal_alignment = 0
 
 [node name="metal_block" parent="." instance=ExtResource("12_on7xt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.285, 11.962, 0)
+
+[node name="magnetic_block_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 10.4301, 0)
+modulate = Color(0.0962047, 0.0962048, 0.0962047, 1)
+outline_modulate = Color(0.791999, 0.791999, 0.791999, 1)
+text = "Magnetic Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="magnetic_block_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 10.5884, 0)
+text = "This block repels the ball "
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="shielded_block_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5849, 8.96827, 0)
+modulate = Color(0.94902, 0.529412, 0, 1)
+outline_modulate = Color(0.783523, 0.783523, 0.783523, 1)
+text = "Shielded Block"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="flow_arrows_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.533, 7.56733, 0)
+modulate = Color(0.884439, 0.965776, 0.979101, 1)
+outline_modulate = Color(0.273873, 0.273873, 0.273872, 1)
+text = "Flow Arrows"
+font = ExtResource("1_6rw06")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="shielded_block_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 9.01544, 0)
+text = "Can only be destroyed from above"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="flow_arrows_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 7.58513, 0)
+text = "The ball flows in the direction they point"
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="flow_arrows_label_desc2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.998567, 0.0535211, 0, -0.0535211, 0.998567, 18.0849, 6.28303, 0)
+text = "The ball will bounce off going against them "
+font = ExtResource("1_6rw06")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="magnetic_block" parent="." instance=ExtResource("13_m1trp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.285, 10.528, 0)
+
+[node name="shielded_block" parent="." instance=ExtResource("14_5sht4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.292, 8.898, 0)
+
+[node name="flow_arrows2" parent="." instance=ExtResource("15_2k67i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3, 7.48027, 0)
+
+[node name="flow_arrows_lr" parent="." instance=ExtResource("16_872sa")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 16.3, 6.11973, 0)
+
+[node name="flow_arrows_lr2" parent="." instance=ExtResource("16_872sa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3, 4.76249, 0)
+
+[node name="flow_arrows3" parent="." instance=ExtResource("15_2k67i")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 16.3, 3.50632, 0)

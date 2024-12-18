@@ -1,7 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
-[ext_resource type="PackedScene" uid="uid://cvpl26rn0yrsj" path="res://scenes/menus/stage_selection_menu.tscn" id="2_jnlbq"]
 [ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/menus/main_menu.tscn" id="2_u3m40"]
 [ext_resource type="PackedScene" uid="uid://ccv5dudmwpces" path="res://scenes/menus/stage_selection_menu_web.tscn" id="3_iu5p8"]
 [ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bs1eip3jtnoyk" path="res://scenes/menus/settings_menu.tscn" id="7_yw4vb"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="8_np30c"]
 [ext_resource type="PackedScene" uid="uid://dbpcvj3b5lxed" path="res://scenes/menus/help_menu.tscn" id="11_j2wm8"]
+[ext_resource type="PackedScene" uid="uid://bqv7xrknanwmu" path="res://scenes/menus/help_menu_2.tscn" id="13_766ao"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
 panorama = ExtResource("4_w6qld")
@@ -30,10 +30,6 @@ sky_custom_fov = 45.0
 [node name="main" type="Node3D"]
 process_mode = 1
 script = ExtResource("1_qct0r")
-
-[node name="stage_selection_menu" parent="." instance=ExtResource("2_jnlbq")]
-process_mode = 2
-visible = false
 
 [node name="stage_selection_menu_web" parent="." instance=ExtResource("3_iu5p8")]
 process_mode = 2
@@ -132,5 +128,8 @@ wait_time = 0.1
 [node name="help_menu" parent="." instance=ExtResource("11_j2wm8")]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 30, -37)
+
+[node name="help_menu_2" parent="." instance=ExtResource("13_766ao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 30, -37)
 
 [connection signal="timeout" from="ball_gun_timer" to="." method="_on_ball_gun_timer_timeout"]

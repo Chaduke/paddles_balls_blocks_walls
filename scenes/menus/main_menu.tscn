@@ -68,6 +68,18 @@ theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
+[node name="start_audio_button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1138.0
+offset_top = 657.0
+offset_right = 1300.0
+offset_bottom = 690.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 20
+text = "Start Audio"
+
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 641.0
@@ -117,3 +129,4 @@ stream = ExtResource("3_0ukmk")
 [connection signal="pressed" from="settings_button" to="." method="_on_settings_button_pressed"]
 [connection signal="mouse_entered" from="quit_button" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="start_audio_button" to="." method="_on_start_audio_button_pressed"]

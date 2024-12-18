@@ -15,6 +15,7 @@ func _ready():
 func start_rsg():
 	$rsg_timer.start()
 	$ready_set_go_label.show()
+	MusicServer.play_intro_music()
 	
 func _on_rsg_timer_timeout():
 	ticks+=1
@@ -63,7 +64,7 @@ func stage_cleared():
 	if Global.current_stage > 0 : $stage_cleared_menu.update_labels()
 	
 func cleanup_stage():
-	var replay_timer = GlobalAudioServer.get_node("replay_timer")
+	var replay_timer = MusicServer.get_node("replay_timer")
 	replay_timer.stop()
 	Global.stage_time = $time_label.elapsed_time
 	Global.accumlated_time = $total_time_label.elapsed_time

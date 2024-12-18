@@ -1,16 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://ql14bcewd5ld"]
 
-[ext_resource type="Script" path="res://scripts/audio_server.gd" id="1_rwdiu"]
+[ext_resource type="Script" path="res://scripts/music_server.gd" id="1_rwdiu"]
 
-[node name="AudioServer" type="Node"]
+[node name="MusicServer" type="Node"]
 process_mode = 3
 script = ExtResource("1_rwdiu")
 
 [node name="music_player" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
-
-[node name="sound_player" type="AudioStreamPlayer" parent="."]
-bus = &"Sound FX"
 
 [node name="replay_timer" type="Timer" parent="."]
 wait_time = 10.0

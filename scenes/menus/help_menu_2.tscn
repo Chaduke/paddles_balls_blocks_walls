@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqv7xrknanwmu"]
+
+[ext_resource type="Script" path="res://scripts/menus/help_menu_2.gd" id="1_4548o"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_tiyip"]
+[ext_resource type="PackedScene" uid="uid://ba85juxvpvvr" path="res://assets/models/walls_for_menus.glb" id="3_qqsas"]
+[ext_resource type="PackedScene" uid="uid://ddr0svip01mdr" path="res://assets/models/grower.glb" id="4_32lwm"]
+[ext_resource type="PackedScene" uid="uid://dyfbs5or03n2f" path="res://assets/models/shrinker.glb" id="5_d1db8"]
+
+[node name="help_menu_2" type="Node3D"]
+script = ExtResource("1_4548o")
+
+[node name="title_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2588, 26.5647, 0)
+modulate = Color(1, 0, 0, 1)
+text = "Help Menu"
+font = ExtResource("2_tiyip")
+font_size = 500
+outline_size = 100
+
+[node name="part2_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6182, 26.4314, 0)
+modulate = Color(1, 0, 0, 1)
+text = "(part 2)"
+font = ExtResource("2_tiyip")
+font_size = 300
+outline_size = 100
+
+[node name="title_label2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6888, 28.2774, 0)
+text = "Press F1 to go Back"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 50
+
+[node name="title_label3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3938, 28.2774, 0)
+text = "Press 1 to see part 1"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 50
+
+[node name="walls_for_menus" parent="." instance=ExtResource("3_qqsas")]
+
+[node name="grower_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2374, 24.3723, 0)
+modulate = Color(0.0729816, 0.594314, 1.34766e-06, 1)
+text = "Grower"
+font = ExtResource("2_tiyip")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="grower_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7374, 24.3635, 0)
+text = "Makes your paddle grow by one size"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="grower_model" parent="." instance=ExtResource("4_32lwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0022, 24.3009, 0)
+
+[node name="shrinker_model" parent="." instance=ExtResource("5_d1db8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.992, 22.9292, 0)
+
+[node name="shrinker_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2374, 23.0424, 0)
+modulate = Color(0.72052, 0.394526, 0.0094729, 1)
+text = "Shrinker"
+font = ExtResource("2_tiyip")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="shrinker_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7374, 23.0336, 0)
+text = "Makes your paddle shrink by one size"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
