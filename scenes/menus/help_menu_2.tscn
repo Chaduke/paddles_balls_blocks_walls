@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqv7xrknanwmu"]
+[gd_scene load_steps=11 format=3 uid="uid://bqv7xrknanwmu"]
 
 [ext_resource type="Script" path="res://scripts/menus/help_menu_2.gd" id="1_4548o"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_tiyip"]
 [ext_resource type="PackedScene" uid="uid://ba85juxvpvvr" path="res://assets/models/walls_for_menus.glb" id="3_qqsas"]
 [ext_resource type="PackedScene" uid="uid://ddr0svip01mdr" path="res://assets/models/grower.glb" id="4_32lwm"]
 [ext_resource type="PackedScene" uid="uid://dyfbs5or03n2f" path="res://assets/models/shrinker.glb" id="5_d1db8"]
+[ext_resource type="PackedScene" uid="uid://du8igq6t1n36s" path="res://assets/models/gravity_reverse.glb" id="6_cdxt1"]
+[ext_resource type="PackedScene" uid="uid://b3k4hnop68elq" path="res://assets/models/maxpaddle.glb" id="7_wapud"]
+[ext_resource type="PackedScene" uid="uid://22r3q04noqmr" path="res://assets/models/largeballs.glb" id="8_nd73h"]
+[ext_resource type="PackedScene" uid="uid://bwvcotd83mrs3" path="res://assets/models/smallballs.glb" id="9_0kjdt"]
+[ext_resource type="PackedScene" uid="uid://blrcu1s44ofh7" path="res://assets/models/infinite_balls.glb" id="10_dfdl5"]
 
 [node name="help_menu_2" type="Node3D"]
 script = ExtResource("1_4548o")
@@ -42,7 +47,7 @@ outline_size = 50
 [node name="walls_for_menus" parent="." instance=ExtResource("3_qqsas")]
 
 [node name="grower_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2374, 24.3723, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2921, 24.1526, 0)
 modulate = Color(0.0729816, 0.594314, 1.34766e-06, 1)
 text = "Grower"
 font = ExtResource("2_tiyip")
@@ -51,7 +56,7 @@ outline_size = 50
 horizontal_alignment = 2
 
 [node name="grower_label_desc" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7374, 24.3635, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7921, 24.1438, 0)
 text = "Makes your paddle grow by one size"
 font = ExtResource("2_tiyip")
 font_size = 200
@@ -59,13 +64,13 @@ outline_size = 40
 horizontal_alignment = 0
 
 [node name="grower_model" parent="." instance=ExtResource("4_32lwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0022, 24.3009, 0)
+transform = Transform3D(0.999945, -0.0104718, 0, 0.0104718, 0.999945, 0, 0, 0, 1, 16.0569, 24.0812, 0)
 
 [node name="shrinker_model" parent="." instance=ExtResource("5_d1db8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.992, 22.9292, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0467, 22.5907, 0)
 
 [node name="shrinker_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2374, 23.0424, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2921, 22.6327, 0)
 modulate = Color(0.72052, 0.394526, 0.0094729, 1)
 text = "Shrinker"
 font = ExtResource("2_tiyip")
@@ -74,9 +79,111 @@ outline_size = 50
 horizontal_alignment = 2
 
 [node name="shrinker_label_desc" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7374, 23.0336, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7921, 22.6239, 0)
 text = "Makes your paddle shrink by one size"
 font = ExtResource("2_tiyip")
 font_size = 200
 outline_size = 40
 horizontal_alignment = 0
+
+[node name="gravity_reverse_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2921, 21.161, 0)
+modulate = Color(1, 1, 0, 1)
+text = "Gravity Reverse"
+font = ExtResource("2_tiyip")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="max_paddle_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2921, 19.6516, 0)
+modulate = Color(0, 0.490196, 1, 1)
+text = "Max Paddle"
+font = ExtResource("2_tiyip")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="large_balls_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2921, 18.132, 0)
+modulate = Color(0.684834, 7.71055e-05, 0.567993, 1)
+text = "Large Balls"
+font = ExtResource("2_tiyip")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="small_balls_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2921, 16.7315, 0)
+modulate = Color(0, 0, 0.568627, 1)
+outline_modulate = Color(0.262932, 0.262932, 0.262932, 1)
+text = "Small Balls"
+font = ExtResource("2_tiyip")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="infinite_balls_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2921, 15.1882, 0)
+modulate = Color(0.883438, 1.54018e-06, 0.501795, 1)
+outline_modulate = Color(0, 0.0901961, 0.588235, 1)
+text = "Infinite Balls"
+font = ExtResource("2_tiyip")
+font_size = 250
+outline_size = 50
+horizontal_alignment = 2
+
+[node name="gravity_reverse_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7921, 21.2725, 0)
+text = "The Ceiling becomes the Floor!"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="max_paddle_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7921, 19.7529, 0)
+text = "Paddle becomes maximum width"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="large_balls_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7921, 18.1743, 0)
+text = "All balls become double size"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="small_balls_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7921, 16.7734, 0)
+text = "All balls become half size"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="infinite_balls_label_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7921, 15.2301, 0)
+text = "release as many as you like while it lasts"
+font = ExtResource("2_tiyip")
+font_size = 200
+outline_size = 40
+horizontal_alignment = 0
+
+[node name="gravity_reverse_model" parent="." instance=ExtResource("6_cdxt1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0475, 21.1943, 0)
+
+[node name="max_paddle_model" parent="." instance=ExtResource("7_wapud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0167, 19.4522, 0)
+
+[node name="large_balls_model" parent="." instance=ExtResource("8_nd73h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9758, 18.1151, 0)
+
+[node name="small_balls_model" parent="." instance=ExtResource("9_0kjdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9189, 16.6719, 0)
+
+[node name="infinite_balls_model" parent="." instance=ExtResource("10_dfdl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.882, 15.1544, 0)

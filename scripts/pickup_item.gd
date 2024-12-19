@@ -30,6 +30,9 @@ var slot = 0
 # at this point the item state will be 2 (moving right)
 var target_position = Vector3(0,0,0)
 
+var grower_sound = preload("res://assets/wave/grower.wav")
+var shrinker_sound = preload("res://assets/wave/shrinker.wav")
+
 func _ready():
 	state = MOVING_UP
 	start_position = position
@@ -109,9 +112,12 @@ func move_down():
 func enable_item_effect():
 	var paddle=Global.get_main().get_node("paddle")
 	if item_type == "Grower":
-		# change the paddle size if possible
+		$AudioStreamPlayer.stream = grower_sound
+		$AudioStreamPlayer.play()
 		paddle.grow_paddle()
 	elif item_type == "Shrinker":
+		$AudioStreamPlayer.stream = shrinker_sound
+		$AudioStreamPlayer.play()
 		paddle.shrink_paddle()
 	elif item_type == "LargeBalls":
 		grow_balls()

@@ -48,3 +48,6 @@ visible = false
 
 [node name="MaxPaddle" parent="." instance=ExtResource("9_nnmh0")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound FX"

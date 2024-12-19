@@ -20,6 +20,7 @@ func set_globals():
 	# I call a get_tree().reload_current_scene()
 	Global.current_ball_size = 2
 	Global.infinite_balls = false
+	Global.gravity_reversed = false
 	Global.stage_started = false
 	# set gravity to normal 
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
