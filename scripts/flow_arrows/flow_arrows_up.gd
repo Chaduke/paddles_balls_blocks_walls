@@ -2,7 +2,7 @@
 extends Area3D
 class_name FlowArrowsUp
 
-@export var upward_impulse_amount = 1
+@export var upward_impulse_amount = 1.1
 @export var upward_force_amount = 0.1
 
 var current_body = null

@@ -2,7 +2,7 @@
 extends Area3D
 class_name FlowArrowsDown
 
-@export var downward_impulse_amount = 1
+@export var downward_impulse_amount = 1.0
 @export var lateral_damping = 0.9
 
 func _on_body_entered(body):	

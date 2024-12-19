@@ -23,7 +23,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 26.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 26.5, 0)
 
 [node name="block_yellow" parent="." instance=ExtResource("3_gwqud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 26.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 17.5, 0)
+
+[node name="block_yellow3" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 17.5, 0)
+
+[node name="block_yellow4" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 17.5, 0)
+
+[node name="block_yellow5" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 17.5, 0)
+
+[node name="block_yellow6" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 17.5, 0)
+
+[node name="block_yellow7" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 17.5, 0)
+
+[node name="block_yellow8" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 17.5, 0)
+
+[node name="block_yellow9" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 17.5, 0)
+
+[node name="block_yellow10" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 17.5, 0)
+
+[node name="block_yellow11" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 16.5, 0)
+
+[node name="block_yellow12" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 16.5, 0)
+
+[node name="block_yellow13" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 16.5, 0)
+
+[node name="block_yellow14" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 16.5, 0)
+
+[node name="block_yellow15" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 16.5, 0)
+
+[node name="block_yellow16" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 16.5, 0)
+
+[node name="block_yellow17" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 16.5, 0)
+
+[node name="block_yellow18" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 16.5, 0)
+
+[node name="block_yellow19" parent="." instance=ExtResource("3_gwqud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 16.5, 0)
 
 [node name="block_yellow2" parent="." instance=ExtResource("3_gwqud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 26.5, 0)
@@ -38,15 +89,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 21.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 23.5, 0)
 
 [node name="block_pink" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 26.5, 0)
-item_type = "GravityReverse"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 15.5, 0)
+item_type = "LargeBalls"
 
 [node name="block_pink3" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 26.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 15.5, 0)
 item_type = "LargeBalls"
 
 [node name="block_pink4" parent="." instance=ExtResource("7_05wca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 26.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 15.5, 0)
 item_type = "LargeBalls"
 
 [node name="block_pink2" parent="." instance=ExtResource("7_05wca")]
@@ -61,43 +112,43 @@ total_balls = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 26.5, 0)
 
 [node name="block_green" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 18.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 24.5, 0)
 
 [node name="block_green2" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 18.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 24.5, 0)
 
 [node name="block_green3" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 18.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 24.5, 0)
 
 [node name="block_green4" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 18.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 24.5, 0)
 
 [node name="block_green5" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 18.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 24.5, 0)
 
 [node name="block_green6" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 18.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 24.5, 0)
 
 [node name="block_green7" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 18.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 24.5, 0)
 
 [node name="block_green8" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 23.5, 0)
 
 [node name="block_green9" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 23.5, 0)
 
 [node name="block_green10" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 23.5, 0)
 
 [node name="block_green11" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 23.5, 0)
 
 [node name="block_green12" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 23.5, 0)
 
 [node name="block_green13" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 23.5, 0)
 
 [node name="block_green14" parent="." instance=ExtResource("10_axm60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 17.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 23.5, 0)

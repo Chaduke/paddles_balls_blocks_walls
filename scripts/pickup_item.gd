@@ -240,6 +240,10 @@ func set_target_position():
 			target_position = Vector3(15,8,-37)
 		elif slot == 4:
 			target_position = Vector3(18,8,-37)
+		elif slot == 5:
+			target_position = Vector3(15,6,-37)
+		elif slot == 6:
+			target_position = Vector3(18,6,-37)
 		return true
 	else:
 		return false

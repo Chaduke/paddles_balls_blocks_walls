@@ -1,10 +1,10 @@
 # global.gd
 extends Node
 
-var current_stage = 1
+var current_stage = 36
 # you have to count stage 0 in total_stages, 0 is the testing stage
 # so total_stages is the number of playable stages + 1
-var total_stages = 36
+var total_stages = 37
 var current_ball_size = 2
 var infinite_balls = false
 var gravity_reversed = false
@@ -39,6 +39,8 @@ var slot1 = false
 var slot2 = false
 var slot3 = false
 var slot4 = false
+var slot5 = false
+var slot6 = false
 
 func get_main():
 	var m = get_tree().root.get_child(2)
@@ -92,7 +94,7 @@ func reset_total_times():
 	save_time_dict(total_times_dict,"user://total_times.json")
 
 func deactivate_all_slots():
-	for i in range(1,4):
+	for i in range(1,7):
 		set_slot_inactive(i)
 
 func find_free_slot():
@@ -108,6 +110,12 @@ func find_free_slot():
 	elif not slot4:
 		slot4 = true
 		return 4
+	elif not slot5:
+		slot5 = true
+		return 5
+	elif not slot6:
+		slot6 = true
+		return 6
 	else:
 		return 0
 		
@@ -120,6 +128,10 @@ func set_slot_inactive(to_inactivate):
 		slot3 = false
 	elif to_inactivate == 4: 
 		slot4 = false
+	elif to_inactivate == 5: 
+		slot5 = false
+	elif to_inactivate == 6: 
+		slot6 = false
 
 func format_time(time):
 	# Calculate minutes, seconds, and hundredths from the time

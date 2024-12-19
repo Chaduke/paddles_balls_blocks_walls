@@ -19,9 +19,10 @@ func _ready():
 	update_bounds()
 
 func _process(delta):
-	limit_ball_velocity()
+	limit_ball_velocity()	
 	velocity += acceleration * delta
 	position += velocity * delta
+	bounds_check()
 	
 func limit_ball_velocity():
 	if abs(velocity.x) > x_velocity_limit:
@@ -50,6 +51,20 @@ func update_bounds():
 	top_bounds = 29.5 - ball_offset
 	right_bounds = 12.5 - ball_offset
 	left_bounds = -18.5 + ball_offset
+	
+func bounds_check():
+	if position.x < left_bounds: 
+		position.x = left_bounds
+		velocity.x = abs(velocity.x)
+		#print("Corrected left bounds")
+	if position.x > right_bounds: 
+		position.x = right_bounds
+		velocity.x = -abs(velocity.x)
+		#print("Corrected right bounds")
+	if position.y > top_bounds: 
+		position.y = top_bounds
+		velocity.y = -abs(velocity.y)
+		#print("Corrected top bounds")
 
 func wall_collision():
 	$wall_sound.play()
@@ -59,15 +74,18 @@ func wall_collision():
 	# print("T : " + str(top_bounds) + " R : " + str(right_bounds) + " L : " + str(left_bounds))
 	if position.y > top_bounds: 
 		# ball is at the ceiling
-		velocity.y = -velocity.y
+		velocity.y = -abs(velocity.y)
 		position.y = top_bounds-0.01
 		# print("Velocity Y adjusted to : " + str(velocity.y))
 		# print("Position Y adjusted to : " + str(position.y))
-	else:
-		velocity.x = -velocity.x
+	else:		
 		# print("Velocity  X adjusted to : " + str(velocity.x))
-		if position.x > right_bounds: position.x = right_bounds-0.01
-		if position.x < left_bounds: position.x = left_bounds+0.01
+		if position.x > right_bounds: 
+			position.x = right_bounds-0.01
+			velocity.x = -abs(velocity.x)
+		if position.x < left_bounds: 
+			position.x = left_bounds+0.01
+			velocity.x = abs(velocity.x)
 		# print("Position X adjusted to : " + str(position.x))
 
 func paddle_collision(paddle_body):
@@ -80,10 +98,9 @@ func paddle_collision(paddle_body):
 		velocity.y= -velocity.y
 	position.y = paddle_body.position.y + Global.ball_offset() + 0.1
 	$paddle_sound.play()
-	
-func block_collision(block_body):
-	# collision response	
-	var diff = global_position - block_body.global_position
+
+func block_collision_response(block_position):
+	var diff = global_position - block_position
 	# print("Ball entered from this position : " + str(diff))
 	var offset = 0.0
 	if diff.y > 0 and diff.y > abs(diff.x / 2):
@@ -107,6 +124,12 @@ func block_collision(block_body):
 			offset = Global.ball_offset() + 0.5 + diff.x
 			position.x -= offset+0.01
 			
+func block_collision(block_body):
+	if Global.current_ball_size==4 and block_body is BlockYellow:
+		pass
+		# don't bounce
+	else:
+		block_collision_response(block_body.global_position)
 	# we have to destroy our StaticBody3D types from here
 	# for some reason there's no signal to allow it to destroy itself on collision
 	# Area3Ds however, like the cracked blocks, have an _on_body_entered signal	
