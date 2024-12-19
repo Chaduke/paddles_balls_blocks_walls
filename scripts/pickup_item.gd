@@ -32,6 +32,11 @@ var target_position = Vector3(0,0,0)
 
 var grower_sound = preload("res://assets/wave/grower.wav")
 var shrinker_sound = preload("res://assets/wave/shrinker.wav")
+var max_paddle_sound = preload("res://assets/wave/max_paddle.wav")
+var infinite_balls_sound = preload("res://assets/wave/infinite_balls.wav")
+var large_balls_sound = preload("res://assets/wave/large_balls.wav")
+var small_balls_sound = preload("res://assets/wave/small_balls.wav")
+var gravity_reverse_sound = preload("res://assets/wave/gravity_reverse.wav")
 
 func _ready():
 	state = MOVING_UP
@@ -120,14 +125,24 @@ func enable_item_effect():
 		$AudioStreamPlayer.play()
 		paddle.shrink_paddle()
 	elif item_type == "LargeBalls":
+		$AudioStreamPlayer.stream = large_balls_sound
+		$AudioStreamPlayer.play()
 		grow_balls()
 	elif item_type == "SmallBalls":
+		$AudioStreamPlayer.stream = small_balls_sound
+		$AudioStreamPlayer.play()
 		shrink_balls()
 	elif item_type == "GravityReverse":
+		$AudioStreamPlayer.stream = gravity_reverse_sound
+		$AudioStreamPlayer.play()
 		reverse_gravity()	
 	elif item_type == "InfiniteBalls":
 		Global.infinite_balls = true
+		$AudioStreamPlayer.stream = infinite_balls_sound
+		$AudioStreamPlayer.play()
 	elif item_type == "MaxPaddle":
+		$AudioStreamPlayer.stream = max_paddle_sound
+		$AudioStreamPlayer.play()
 		paddle.maximize()
 		
 func reverse_gravity():
