@@ -274,7 +274,7 @@ outline_size = 50
 horizontal_alignment = 2
 
 [node name="flow_arrows_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.533, 7.56733, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.533, 6.52317, 0)
 modulate = Color(0.884439, 0.965776, 0.979101, 1)
 outline_modulate = Color(0.273873, 0.273873, 0.273872, 1)
 text = "Flow Arrows"
@@ -292,7 +292,7 @@ outline_size = 40
 horizontal_alignment = 0
 
 [node name="flow_arrows_label_desc" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 7.58513, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0849, 6.68336, 0)
 text = "The ball flows in the direction they point"
 font = ExtResource("1_6rw06")
 font_size = 200
@@ -300,7 +300,7 @@ outline_size = 40
 horizontal_alignment = 0
 
 [node name="flow_arrows_label_desc2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.998567, 0.0535211, 0, -0.0535211, 0.998567, 18.0849, 6.28303, 0)
+transform = Transform3D(1, 0, 0, 0, 0.998567, 0.0535211, 0, -0.0535211, 0.998567, 18.0849, 5.38126, 0)
 text = "The ball will bounce off going against them "
 font = ExtResource("1_6rw06")
 font_size = 200
@@ -314,13 +314,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.285, 10.528, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.292, 8.898, 0)
 
 [node name="flow_arrows2" parent="." instance=ExtResource("15_2k67i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3, 7.48027, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3, 6.5785, 0)
 
 [node name="flow_arrows_lr" parent="." instance=ExtResource("16_872sa")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 16.3, 6.11973, 0)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 16.3, 5.21796, 0)
 
 [node name="flow_arrows_lr2" parent="." instance=ExtResource("16_872sa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3, 4.76249, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3, 3.86072, 0)
 
 [node name="flow_arrows3" parent="." instance=ExtResource("15_2k67i")]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 16.3, 3.50632, 0)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 16.3, 2.60455, 0)

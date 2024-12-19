@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlgwmenuhetf5"]
+
+[ext_resource type="Script" path="res://scripts/blocks/block_magnet_cracked.gd" id="1_kdu10"]
+[ext_resource type="PackedScene" uid="uid://c38dytrj30wjl" path="res://assets/models/block_magnet_cracked.glb" id="2_45dqh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8eiq3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mx01s"]
+radius = 3.0
+
+[node name="block_magnet_cracked" type="Area3D" groups=["Blocks", "BreakableBlocks"]]
+script = ExtResource("1_kdu10")
+
+[node name="block_magnet_cracked_model" parent="." instance=ExtResource("2_45dqh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_8eiq3")
+
+[node name="magnetic_influence" type="Area3D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="magnetic_influence"]
+shape = SubResource("SphereShape3D_mx01s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="magnetic_influence" to="." method="_on_magnetic_influence_area_entered"]
+[connection signal="body_entered" from="magnetic_influence" to="." method="_on_magnetic_influence_body_entered"]
