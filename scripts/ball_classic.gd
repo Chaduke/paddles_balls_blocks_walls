@@ -14,7 +14,7 @@ var right_bounds = 0.0
 
 func _ready():
 	if Global.gravity_reversed:
-		acceleration.y = 10.0	
+		acceleration.y = 15.0
 	$release_sound.play()
 	update_bounds()
 

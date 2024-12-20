@@ -1,10 +1,10 @@
 # global.gd
 extends Node
 
-var current_stage = 1
+var current_stage = 45
 # you have to count stage 0 in total_stages, 0 is the testing stage
 # so total_stages is the number of playable stages + 1
-var total_stages = 41
+var total_stages = 46
 var current_ball_size = 2
 var infinite_balls = false
 var gravity_reversed = false

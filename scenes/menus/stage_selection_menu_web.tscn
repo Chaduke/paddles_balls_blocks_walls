@@ -74,6 +74,7 @@ offset_left = -1.0
 offset_top = 207.0
 offset_right = 330.0
 offset_bottom = 291.0
+tooltip_text = "Stage 1"
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
 theme_override_font_sizes/font_size = 70
@@ -107,6 +108,7 @@ offset_left = 788.0
 offset_top = 300.0
 offset_right = 1122.0
 offset_bottom = 500.0
+tooltip_text = "Stage 3"
 texture = ExtResource("3_ecy8j")
 
 [node name="stage03_label" type="Label" parent="stages_01_thru_10/stage03"]
@@ -128,6 +130,7 @@ offset_left = 1147.0
 offset_top = 300.0
 offset_right = 1481.0
 offset_bottom = 500.0
+tooltip_text = "Stage 4"
 texture = ExtResource("4_0pac0")
 
 [node name="stage04_label" type="Label" parent="stages_01_thru_10/stage04"]
@@ -149,6 +152,7 @@ offset_left = 1506.0
 offset_top = 300.0
 offset_right = 1840.0
 offset_bottom = 500.0
+tooltip_text = "Stage 5"
 texture = ExtResource("5_clqrw")
 
 [node name="stage05_label" type="Label" parent="stages_01_thru_10/stage05"]
@@ -169,6 +173,7 @@ offset_left = 70.0
 offset_top = 600.0
 offset_right = 404.0
 offset_bottom = 800.0
+tooltip_text = "Stage 6"
 texture = ExtResource("6_ist2q")
 
 [node name="stage06_label" type="Label" parent="stages_01_thru_10/stage06"]
@@ -190,6 +195,7 @@ offset_left = 429.0
 offset_top = 600.0
 offset_right = 763.0
 offset_bottom = 800.0
+tooltip_text = "Stage 7"
 texture = ExtResource("7_5k737")
 
 [node name="stage07_label" type="Label" parent="stages_01_thru_10/stage07"]
@@ -211,6 +217,7 @@ offset_left = 788.0
 offset_top = 600.0
 offset_right = 1122.0
 offset_bottom = 800.0
+tooltip_text = "Stage 8"
 texture = ExtResource("8_yfwe5")
 
 [node name="stage08_label" type="Label" parent="stages_01_thru_10/stage08"]
@@ -232,6 +239,7 @@ offset_left = 1147.0
 offset_top = 600.0
 offset_right = 1481.0
 offset_bottom = 800.0
+tooltip_text = "Stage 9"
 texture = ExtResource("9_0ap0v")
 
 [node name="stage09_label" type="Label" parent="stages_01_thru_10/stage09"]
@@ -253,6 +261,7 @@ offset_left = 1506.0
 offset_top = 600.0
 offset_right = 1840.0
 offset_bottom = 800.0
+tooltip_text = "Stage 10"
 texture = ExtResource("10_u8a2k")
 
 [node name="stage10_label" type="Label" parent="stages_01_thru_10/stage10"]
@@ -641,7 +650,7 @@ offset_left = -7.0
 offset_top = 208.0
 offset_right = 324.0
 offset_bottom = 292.0
-tooltip_text = "Stage 17"
+tooltip_text = "Stage 27"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -716,13 +725,14 @@ text = "Stage 30"
 horizontal_alignment = 1
 
 [node name="stages_31_thru_40" type="Node2D" parent="."]
+visible = false
 
 [node name="stage31" type="TextureRect" parent="stages_31_thru_40"]
 offset_left = 70.0
 offset_top = 300.0
 offset_right = 404.0
 offset_bottom = 500.0
-tooltip_text = "Stage 21"
+tooltip_text = "Stage 31"
 texture = ExtResource("33_amg0n")
 
 [node name="stage31_label" type="Label" parent="stages_31_thru_40/stage31"]
@@ -731,7 +741,7 @@ offset_left = -1.0
 offset_top = 207.0
 offset_right = 330.0
 offset_bottom = 291.0
-tooltip_text = "Stage 21"
+tooltip_text = "Stage 31"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -744,7 +754,7 @@ offset_left = 429.0
 offset_top = 300.0
 offset_right = 763.0
 offset_bottom = 500.0
-tooltip_text = "Stage 22"
+tooltip_text = "Stage 32"
 texture = ExtResource("34_mbfkl")
 
 [node name="stage32_label" type="Label" parent="stages_31_thru_40/stage32"]
@@ -753,7 +763,7 @@ offset_left = -11.0
 offset_top = 207.0
 offset_right = 320.0
 offset_bottom = 291.0
-tooltip_text = "Stage 22"
+tooltip_text = "Stage 32"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -766,7 +776,7 @@ offset_left = 788.0
 offset_top = 300.0
 offset_right = 1122.0
 offset_bottom = 500.0
-tooltip_text = "Stage 23"
+tooltip_text = "Stage 33"
 texture = ExtResource("35_0a7ds")
 
 [node name="stage33_label" type="Label" parent="stages_31_thru_40/stage33"]
@@ -775,7 +785,7 @@ offset_left = -27.0
 offset_top = 205.0
 offset_right = 304.0
 offset_bottom = 289.0
-tooltip_text = "Stage 23"
+tooltip_text = "Stage 33"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -788,7 +798,7 @@ offset_left = 1147.0
 offset_top = 300.0
 offset_right = 1481.0
 offset_bottom = 500.0
-tooltip_text = "Stage 24
+tooltip_text = "Stage 34
 "
 texture = ExtResource("36_u0g0n")
 
@@ -798,7 +808,7 @@ offset_left = -15.0
 offset_top = 208.0
 offset_right = 316.0
 offset_bottom = 292.0
-tooltip_text = "Stage 24"
+tooltip_text = "Stage 34"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -811,7 +821,7 @@ offset_left = 1506.0
 offset_top = 300.0
 offset_right = 1840.0
 offset_bottom = 500.0
-tooltip_text = "Stage 25"
+tooltip_text = "Stage 35"
 texture = ExtResource("37_bqbtg")
 
 [node name="stage35_label" type="Label" parent="stages_31_thru_40/stage35"]
@@ -819,7 +829,7 @@ layout_mode = 0
 offset_top = 205.0
 offset_right = 331.0
 offset_bottom = 289.0
-tooltip_text = "Stage 25"
+tooltip_text = "Stage 35"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -832,7 +842,7 @@ offset_left = 70.0
 offset_top = 600.0
 offset_right = 404.0
 offset_bottom = 800.0
-tooltip_text = "Stage 26
+tooltip_text = "Stage 36
 "
 texture = ExtResource("38_a17es")
 
@@ -842,7 +852,7 @@ offset_left = -11.0
 offset_top = 204.0
 offset_right = 320.0
 offset_bottom = 288.0
-tooltip_text = "Stage 26"
+tooltip_text = "Stage 36"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -855,7 +865,7 @@ offset_left = 429.0
 offset_top = 600.0
 offset_right = 763.0
 offset_bottom = 800.0
-tooltip_text = "Stage 17"
+tooltip_text = "Stage 37"
 texture = ExtResource("39_jt64n")
 
 [node name="stage37_label" type="Label" parent="stages_31_thru_40/stage37"]
@@ -864,7 +874,7 @@ offset_left = -7.0
 offset_top = 208.0
 offset_right = 324.0
 offset_bottom = 292.0
-tooltip_text = "Stage 17"
+tooltip_text = "Stage 37"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -877,7 +887,7 @@ offset_left = 788.0
 offset_top = 600.0
 offset_right = 1122.0
 offset_bottom = 800.0
-tooltip_text = "Stage 28"
+tooltip_text = "Stage 38"
 texture = ExtResource("40_kqioe")
 
 [node name="stage38_label" type="Label" parent="stages_31_thru_40/stage38"]
@@ -886,7 +896,7 @@ offset_left = 2.0
 offset_top = 208.0
 offset_right = 333.0
 offset_bottom = 292.0
-tooltip_text = "Stage 28"
+tooltip_text = "Stage 38"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -899,7 +909,7 @@ offset_left = 1147.0
 offset_top = 600.0
 offset_right = 1481.0
 offset_bottom = 800.0
-tooltip_text = "Stage 29"
+tooltip_text = "Stage 39"
 texture = ExtResource("41_6giv3")
 
 [node name="stage39_label" type="Label" parent="stages_31_thru_40/stage39"]
@@ -908,7 +918,7 @@ offset_left = -8.0
 offset_top = 205.0
 offset_right = 323.0
 offset_bottom = 289.0
-tooltip_text = "Stage 19"
+tooltip_text = "Stage 39"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
@@ -921,7 +931,7 @@ offset_left = 1506.0
 offset_top = 600.0
 offset_right = 1840.0
 offset_bottom = 800.0
-tooltip_text = "Stage 30"
+tooltip_text = "Stage 40"
 texture = ExtResource("42_hfq80")
 
 [node name="stage40_label" type="Label" parent="stages_31_thru_40/stage40"]
@@ -930,12 +940,237 @@ offset_left = -5.0
 offset_top = 205.0
 offset_right = 326.0
 offset_bottom = 289.0
-tooltip_text = "Stage 30"
+tooltip_text = "Stage 40"
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
 theme_override_fonts/font = ExtResource("21_vfo0n")
 theme_override_font_sizes/font_size = 70
 text = "Stage 40"
+horizontal_alignment = 1
+
+[node name="stages_41_thru_50" type="Node2D" parent="."]
+visible = false
+
+[node name="stage41" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 70.0
+offset_top = 300.0
+offset_right = 404.0
+offset_bottom = 500.0
+tooltip_text = "Stage 41"
+texture = ExtResource("33_amg0n")
+
+[node name="stage41_label" type="Label" parent="stages_41_thru_50/stage41"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 207.0
+offset_right = 330.0
+offset_bottom = 291.0
+tooltip_text = "Stage 41"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 41"
+horizontal_alignment = 1
+
+[node name="stage42" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 429.0
+offset_top = 300.0
+offset_right = 763.0
+offset_bottom = 500.0
+tooltip_text = "Stage 42"
+texture = ExtResource("34_mbfkl")
+
+[node name="stage42_label" type="Label" parent="stages_41_thru_50/stage42"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 207.0
+offset_right = 320.0
+offset_bottom = 291.0
+tooltip_text = "Stage 42"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 42"
+horizontal_alignment = 1
+
+[node name="stage43" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 788.0
+offset_top = 300.0
+offset_right = 1122.0
+offset_bottom = 500.0
+tooltip_text = "Stage 43"
+texture = ExtResource("35_0a7ds")
+
+[node name="stage43_label" type="Label" parent="stages_41_thru_50/stage43"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 205.0
+offset_right = 304.0
+offset_bottom = 289.0
+tooltip_text = "Stage 43"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 43"
+horizontal_alignment = 1
+
+[node name="stage44" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 1147.0
+offset_top = 300.0
+offset_right = 1481.0
+offset_bottom = 500.0
+tooltip_text = "Stage 44
+"
+texture = ExtResource("36_u0g0n")
+
+[node name="stage44_label" type="Label" parent="stages_41_thru_50/stage44"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 208.0
+offset_right = 316.0
+offset_bottom = 292.0
+tooltip_text = "Stage 44
+"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 44"
+horizontal_alignment = 1
+
+[node name="stage45" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 1506.0
+offset_top = 300.0
+offset_right = 1840.0
+offset_bottom = 500.0
+tooltip_text = "Stage 45"
+texture = ExtResource("37_bqbtg")
+
+[node name="stage45_label" type="Label" parent="stages_41_thru_50/stage45"]
+layout_mode = 0
+offset_top = 205.0
+offset_right = 331.0
+offset_bottom = 289.0
+tooltip_text = "Stage 45"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 45"
+horizontal_alignment = 1
+
+[node name="stage46" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 70.0
+offset_top = 600.0
+offset_right = 404.0
+offset_bottom = 800.0
+tooltip_text = "Stage 46
+"
+texture = ExtResource("38_a17es")
+
+[node name="stage46_label" type="Label" parent="stages_41_thru_50/stage46"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 204.0
+offset_right = 320.0
+offset_bottom = 288.0
+tooltip_text = "Stage 46"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 46"
+horizontal_alignment = 1
+
+[node name="stage47" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 429.0
+offset_top = 600.0
+offset_right = 763.0
+offset_bottom = 800.0
+tooltip_text = "Stage 47"
+texture = ExtResource("39_jt64n")
+
+[node name="stage47_label" type="Label" parent="stages_41_thru_50/stage47"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 208.0
+offset_right = 324.0
+offset_bottom = 292.0
+tooltip_text = "Stage 47"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 47"
+horizontal_alignment = 1
+
+[node name="stage48" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 788.0
+offset_top = 600.0
+offset_right = 1122.0
+offset_bottom = 800.0
+tooltip_text = "Stage 48"
+texture = ExtResource("40_kqioe")
+
+[node name="stage48_label" type="Label" parent="stages_41_thru_50/stage48"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 208.0
+offset_right = 333.0
+offset_bottom = 292.0
+tooltip_text = "Stage 48"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 48"
+horizontal_alignment = 1
+
+[node name="stage49" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 1147.0
+offset_top = 600.0
+offset_right = 1481.0
+offset_bottom = 800.0
+tooltip_text = "Stage 49"
+texture = ExtResource("41_6giv3")
+
+[node name="stage49_label" type="Label" parent="stages_41_thru_50/stage49"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 205.0
+offset_right = 323.0
+offset_bottom = 289.0
+tooltip_text = "Stage 49"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 49"
+horizontal_alignment = 1
+
+[node name="stage50" type="TextureRect" parent="stages_41_thru_50"]
+offset_left = 1506.0
+offset_top = 600.0
+offset_right = 1840.0
+offset_bottom = 800.0
+tooltip_text = "Stage 50"
+texture = ExtResource("42_hfq80")
+
+[node name="stage50_label" type="Label" parent="stages_41_thru_50/stage50"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 205.0
+offset_right = 326.0
+offset_bottom = 289.0
+tooltip_text = "Stage 50"
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.490196, 1, 1)
+theme_override_fonts/font = ExtResource("21_vfo0n")
+theme_override_font_sizes/font_size = 70
+text = "Stage 50"
 horizontal_alignment = 1
 
 [node name="title_label" type="Label" parent="."]

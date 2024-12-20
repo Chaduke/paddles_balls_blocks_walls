@@ -154,7 +154,8 @@ func reverse_gravity():
 	var main_scene = get_tree().root.get_child(2)
 	for ball in main_scene.balls:
 		if ball is BallClassic:
-			ball.acceleration.y = 10.0
+			# make reverse gravity a little more apparent
+			ball.acceleration.y = 15
 			
 func restore_gravity():	
 	Global.gravity_reversed = false
