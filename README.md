@@ -1,8 +1,9 @@
--Update Dec 17th 2024:
+-Update Dec 19th 2024:
 
-I already finished adding levels 21 thru 30 but I didn't fully test so you may find some strangeness. Please report any bugs if you have the time.
+Version 0.1.4
+Today is a rather large update.  I now have stages up to 40 complete and added all the sound for the item pickups, defintely gives the game a unique feel!  Check it out!
 
-New Weekly devlog video here: 
+Weekly devlog video here: 
 
 (Week 3 done!) 	
 https://youtu.be/Sv_BUqnT01Y
@@ -14,7 +15,7 @@ Play the web version here (report any bugs you find):
 
 https://chaduke.itch.io/pbbw
 
-The game is still very much in development, it now has 30 stages (out of 100 planned) but needs more sounds, music, 3D backgrounds, but its progressing fast!  
+The game is still very much in development, it now has 40 stages (out of 100 planned) but needs more sounds, music, 3D backgrounds, but its progressing fast!  
 It reminds me of a cross between breakout and pinball, if you're old enough to remember pinball. 
 
 For keyboard shortcuts and instructions check left column of the game.  I'll plan on making explanations for all the power-ups on the startup screen soon, but they're not too hard to figure out. 
@@ -22,13 +23,13 @@ For keyboard shortcuts and instructions check left column of the game.  I'll pla
 TODO List:
 
 Short Term
-- Add 10 more stages for a total of 30 by next week Dec 22, 2024 (Done already)
+- Add 10 more stages for a total of 50 by next week Dec 22, 2024 
 - Add custom music and sounds for stages, menus, wherever it seems to fit and feel right. (working on it)
 - Convert menus to fully 3D (still working on Help Menu)
 
 Long Term 
-- Create a clone of all 50 original levels from Block 1.30 (20 done)
-- Add 50 new unique levels
+- Create a clone of all 50 original levels from Block 1.30 (40 done)
+- Add 50 new unique stages
 - Create original sounds, music, themes and customization features
 - Create teaching videos on modding the game and Godot tips / short tutorials
 
