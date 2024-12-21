@@ -5,7 +5,7 @@
 # better attached to individual scenes that make them 
 # probably should rename this to "music server" or "music manager"
 extends Node
-
+var current_music = 0
 # music 
 var game_intro_music = preload("res://assets/music/game_intro1.mp3")
 
@@ -28,14 +28,16 @@ func setup_music_paths():
 func play_music():
 	var i = Global.current_stage-1
 	if random_music: i = get_random_music()
+	current_music = i
 	var stage_music_path = stage_paths[i]
 	if ResourceLoader.exists(stage_music_path):
 		$music_player.stream = load(stage_paths[i])
 		$music_player.play()
+		#print("Playing song " + str(i))
 
 func play_intro_music():
 	var i = Global.current_stage-1
-	if random_music: i = get_random_music()
+	if random_music: i = get_random_intro_music()
 	var intro_music_path = intro_paths[i]
 	if ResourceLoader.exists(intro_music_path):
 		$music_player.stream = load(intro_paths[i])
@@ -44,6 +46,7 @@ func play_intro_music():
 func _on_music_player_finished():
 	if Global.stage_started:
 		$replay_timer.start()
+		#print("Replay timer started")
 				
 func play_game_intro():
 	$music_player.stream = game_intro_music
@@ -57,7 +60,7 @@ func get_random_music():
 	var i = 0
 	var rng = RandomNumberGenerator.new() 
 	rng.randomize() 
-	var stage_music_path = ""	
+	var stage_music_path = ""
 	while not found:
 		# pick a random number
 		i = rng.randi_range(0,Global.total_stages-1)
@@ -66,4 +69,20 @@ func get_random_music():
 			if ResourceLoader.exists(stage_music_path): found = true
 			stage_played.append(i)
 			if len(stage_played) > Global.total_stages-1: stage_played.clear()
+	return i
+	
+func get_random_intro_music():
+	var found = false
+	var i = 0
+	var rng = RandomNumberGenerator.new() 
+	rng.randomize() 
+	var music_path = ""
+	while not found:
+		# pick a random number
+		i = rng.randi_range(0,Global.total_stages-1)
+		if i not in intro_played:
+			music_path = intro_paths[i]
+			if ResourceLoader.exists(music_path): found = true
+			intro_played.append(i)
+			if len(intro_played) > Global.total_stages-1: intro_played.clear()
 	return i

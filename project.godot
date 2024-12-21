@@ -12,7 +12,7 @@ config_version=5
 
 config/name="paddles_balls_blocks_walls"
 config/description="A breakout clone with 3D graphics and ball / paddle physics.  Its like a cross between Breakout and Pinball and it is awesomely fun. "
-config/version="0.1.4"
+config/version="0.1.5"
 run/main_scene="res://scenes/main.tscn"
 run/enable_alt_space_menu=true
 config/features=PackedStringArray("4.3", "Forward Plus")

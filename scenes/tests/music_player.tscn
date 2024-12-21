@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhmdd0jm6tx1l"]
+
+[ext_resource type="Script" path="res://scripts/tests/music_player.gd" id="1_atgfg"]
+
+[node name="music_player" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_atgfg")
+
+[node name="song_playing_label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 137.0
+offset_bottom = 23.0
+text = "Song 0"
+
+[node name="played_size" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 195.0
+offset_bottom = 54.0
+text = "Songs Played 0"

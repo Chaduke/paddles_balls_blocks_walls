@@ -1,7 +1,7 @@
 -Update Dec 19th 2024:
 
-Version 0.1.4
-Today is a rather large update.  I now have stages up to 40 complete and added all the sound for the item pickups, defintely gives the game a unique feel!  Check it out!
+Version 0.1.5
+Finshed up to 52 levels now. 
 
 Weekly devlog video here: 
 
