@@ -49,3 +49,7 @@ func report(body,event_string):
 		print("Ball " + body.name + event_string)
 	else:
 		print("Body " + body.name + event_string)
+
+
+func _on_area_exited(_area: Area3D) -> void:
+	pass # Replace with function body.

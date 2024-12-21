@@ -13,7 +13,7 @@ func _physics_process(_delta):
 		current_body.linear_velocity.y *= vertical_damping
 		current_body.apply_central_force(Vector3(-lateral_force, 0, 0))
 	if current_area:
-		current_area.velocity.y *= 0.999
+		current_area.velocity.y *= vertical_damping
 		current_area.velocity.x -= lateral_force * 0.1
 	
 func _on_body_entered(body):
