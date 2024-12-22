@@ -28,7 +28,7 @@ func set_globals():
 	Vector3(0, -1, 0))
 	Global.deactivate_all_slots()
 	# make sure inputs are setup properly based on platform
-	os_specific_inits()	
+	os_specific_inits()
 
 func os_specific_inits():
 	# web build

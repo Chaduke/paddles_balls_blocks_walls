@@ -4,6 +4,7 @@ class_name BlockMagnet
 
 var explosion_scene = preload("res://scenes/explosions/block_explosion_magnet.tscn")
 var block_magnet_cracked_scene = preload("res://scenes/blocks/block_magnet_cracked.tscn")
+
 @export var influence_x = 10
 @export var influence_y = 10
 @export var leave_cracked = false

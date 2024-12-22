@@ -33,7 +33,7 @@ window/size/always_on_top=true
 
 [editor]
 
-movie_writer/movie_file="D:/blender/block2025/videos/promo/green_blocks.avi"
+movie_writer/movie_file="D:/blender/block2025/videos/devlog20241222/playability.avi"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 

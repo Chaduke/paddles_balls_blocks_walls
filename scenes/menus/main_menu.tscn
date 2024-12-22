@@ -16,21 +16,21 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_x3mcw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="title_rect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 431.0
 offset_top = 107.0
-offset_right = 1349.0
-offset_bottom = 957.0
+offset_right = 943.0
+offset_bottom = 712.0
 color = Color(0.345098, 0.345098, 0.345098, 0.588235)
 
 [node name="start_button" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 766.0
-offset_top = 688.0
-offset_right = 983.0
-offset_bottom = 755.0
+offset_left = 1057.0
+offset_top = 668.0
+offset_right = 1274.0
+offset_bottom = 735.0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "START GAME"
@@ -38,20 +38,20 @@ text = "START GAME"
 [node name="resume_button" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 757.0
-offset_top = 691.0
-offset_right = 992.0
-offset_bottom = 758.0
+offset_left = 1048.0
+offset_top = 671.0
+offset_right = 1283.0
+offset_bottom = 738.0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
 text = "RESUME GAME"
 
 [node name="settings_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 784.0
-offset_top = 774.0
-offset_right = 956.0
-offset_bottom = 841.0
+offset_left = 1075.0
+offset_top = 754.0
+offset_right = 1247.0
+offset_bottom = 821.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
@@ -59,10 +59,10 @@ text = "SETTINGS"
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 830.0
-offset_top = 858.0
-offset_right = 915.0
-offset_bottom = 925.0
+offset_left = 1112.0
+offset_top = 831.0
+offset_right = 1197.0
+offset_bottom = 898.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 50
@@ -71,10 +71,10 @@ text = "QUIT"
 [node name="start_audio_button" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 1138.0
-offset_top = 657.0
-offset_right = 1300.0
-offset_bottom = 690.0
+offset_left = 1006.0
+offset_top = 547.0
+offset_right = 1168.0
+offset_bottom = 580.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_4x3ge")
 theme_override_font_sizes/font_size = 20
@@ -82,10 +82,10 @@ text = "Start Audio"
 
 [node name="title_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 105.0
-offset_right = 1105.0
-offset_bottom = 682.0
+offset_left = 456.0
+offset_top = 124.0
+offset_right = 920.0
+offset_bottom = 701.0
 theme_override_colors/font_color = Color(0.666667, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4x3ge")
@@ -98,10 +98,10 @@ horizontal_alignment = 1
 
 [node name="version_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1136.0
-offset_top = 588.0
-offset_right = 1260.0
-offset_bottom = 616.0
+offset_left = 1066.0
+offset_top = 452.0
+offset_right = 1190.0
+offset_bottom = 480.0
 theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -109,10 +109,10 @@ text = "Version 0.0.0"
 
 [node name="platform_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1137.0
-offset_top = 619.0
-offset_right = 1307.0
-offset_bottom = 647.0
+offset_left = 1067.0
+offset_top = 483.0
+offset_right = 1237.0
+offset_bottom = 511.0
 theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
@@ -120,6 +120,98 @@ text = "Platform Desktop"
 
 [node name="button_enter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0ukmk")
+
+[node name="game_mode_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 752.0
+offset_right = 534.0
+offset_bottom = 779.0
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 22
+text = "Game Mode"
+
+[node name="timed_mode_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 844.0
+offset_right = 776.0
+offset_bottom = 946.0
+text = "In \"Timed\" mode, you have 10 balls that reset on completion of every stage, and you try to finish stages as fast as possible.  The game keeps your best times recorded."
+autowrap_mode = 3
+
+[node name="arcade_mode_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 846.0
+offset_right = 779.0
+offset_bottom = 948.0
+text = "In \"Arcade\" mode, you start with 3 balls and you earn points for blocks destroyed.  You  earn an extra ball every 10000 points.  How high can you get?"
+autowrap_mode = 3
+
+[node name="game_mode_list" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 778.0
+offset_right = 568.0
+offset_bottom = 841.0
+item_count = 2
+item_0/text = "Timed"
+item_1/text = "Arcade"
+
+[node name="stages_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1068.0
+offset_top = 141.0
+offset_right = 1162.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("1_4x3ge")
+theme_override_font_sizes/font_size = 22
+text = "Stages"
+
+[node name="old_stages_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 244.0
+offset_right = 1323.0
+offset_bottom = 376.0
+text = "The \"Old\" stages are clones of the original fifty game stages that inspired this one from Block 1.30 by Kenta, made in the early 2000s.  "
+autowrap_mode = 3
+
+[node name="new_stages_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 245.0
+offset_right = 1335.0
+offset_bottom = 401.0
+text = "The \"New\" stages are brand new custom stages created by me, Chaduke.  I plan on creating fifty total, with new block types, powerups and other features. "
+autowrap_mode = 3
+
+[node name="stages_list" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 169.0
+offset_right = 1196.0
+offset_bottom = 232.0
+item_count = 2
+item_0/text = "Old"
+item_1/text = "New"
+
+[node name="game_mode_cover_rect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 732.0
+offset_right = 957.0
+offset_bottom = 976.0
+color = Color(0.345098, 0.345098, 0.345098, 0.588235)
+
+[node name="stages_cover_rect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 117.0
+offset_right = 1407.0
+offset_bottom = 396.0
+color = Color(0.345098, 0.345098, 0.345098, 0.588235)
 
 [connection signal="mouse_entered" from="start_button" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
@@ -130,3 +222,5 @@ stream = ExtResource("3_0ukmk")
 [connection signal="mouse_entered" from="quit_button" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="start_audio_button" to="." method="_on_start_audio_button_pressed"]
+[connection signal="item_selected" from="game_mode_list" to="." method="_on_game_mode_list_item_selected"]
+[connection signal="item_selected" from="stages_list" to="." method="_on_stages_list_item_selected"]

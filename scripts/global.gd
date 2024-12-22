@@ -1,16 +1,24 @@
 # global.gd
 extends Node
 
-var current_stage = 15
+var current_stage = 53
 # you have to count stage 0 in total_stages, 0 is the testing stage
 # so total_stages is the number of playable stages + 1
-var total_stages = 53
+var total_stages = 54
 var current_ball_size = 2
 var infinite_balls = false
 var gravity_reversed = false
 
 var game_started = false
 var stage_started = false
+
+const TIMED = 0
+const ARCADE = 1
+var game_mode = ARCADE
+
+const OLD = 0
+const NEW = 1
+var stages_mode = OLD
 
 # if stage is selected from the menu
 # don't compute total time

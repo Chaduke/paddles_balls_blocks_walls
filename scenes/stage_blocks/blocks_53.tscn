@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://6qos5g7hjmun"]
+
+[ext_resource type="PackedScene" uid="uid://tq71msfs14t3" path="res://scenes/blocks/moving_block.tscn" id="1_mfecl"]
+
+[node name="blocks_53" type="Node3D"]
+
+[node name="moving_block" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 28.5, 0)
+velocity = Vector3(3, 0, 0)
+
+[node name="moving_block2" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 27.5, 0)
+velocity = Vector3(-3, 0, 0)
+
+[node name="moving_block3" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 26.5, 0)
+velocity = Vector3(4, 0, 0)
+
+[node name="moving_block4" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 25.5, 0)
+velocity = Vector3(-4, 0, 0)
+
+[node name="moving_block5" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 24.5, 0)
+velocity = Vector3(5, 0, 0)
+
+[node name="moving_block6" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 23.5, 0)
+velocity = Vector3(-5, 0, 0)
+
+[node name="moving_block7" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 22.5, 0)
+velocity = Vector3(6, 0, 0)
+
+[node name="moving_block8" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 21.5, 0)
+velocity = Vector3(-6, 0, 0)
+
+[node name="moving_block9" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 20.5, 0)
+velocity = Vector3(7, 0, 0)
+
+[node name="moving_block10" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 19.5, 0)
+velocity = Vector3(-7, 0, 0)
+
+[node name="moving_block11" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 18.5, 0)
+velocity = Vector3(8, 0, 0)
+
+[node name="moving_block12" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 17.5, 0)
+velocity = Vector3(-8, 0, 0)
+
+[node name="moving_block13" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 16.5, 0)
+velocity = Vector3(3, 0, 0)
+acceleration = Vector3(1, 0, 0)
+
+[node name="moving_block14" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15.5, 0)
+velocity = Vector3(-3, 0, 0)
+
+[node name="moving_block15" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 14.5, 0)
+velocity = Vector3(4, 0, 0)
+
+[node name="moving_block16" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 13.5, 0)
+velocity = Vector3(-4, 0.1, 0)
+
+[node name="moving_block17" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 12.5, 0)
+velocity = Vector3(5, 0, 0)
+
+[node name="moving_block18" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 11.5, 0)
+velocity = Vector3(-5, 0, 0)
+
+[node name="moving_block19" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 10.5, 0)
+velocity = Vector3(6, 0, 0)
+
+[node name="moving_block20" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 9.5, 0)
+velocity = Vector3(-6, 0, 0)
+acceleration = Vector3(-1, 0, 0)
+
+[node name="moving_block21" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 8.5, 0)
+velocity = Vector3(7, 0, 0)
+
+[node name="moving_block22" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 7.5, 0)
+velocity = Vector3(-7, 0, 0)
+
+[node name="moving_block23" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 6.5, 0)
+velocity = Vector3(8, 0, 0)
+
+[node name="moving_block24" parent="." instance=ExtResource("1_mfecl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5.5, 0)
+velocity = Vector3(-8, 0, 0)
