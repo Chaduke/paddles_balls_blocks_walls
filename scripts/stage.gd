@@ -9,6 +9,8 @@ var ticks = 0
 func _ready():
 	add_scene_paths()
 	load_stage()
+	if Global.game_mode == Global.ARCADE:
+		adjust_ball_display()
 	if not Global.show_background_3d:
 		$background_3d.hide()
 		
@@ -40,8 +42,18 @@ func load_blocks():
 	var scene_path = block_scene_paths[Global.current_stage] 
 	var new_blocks_scene = load(scene_path) 
 	current_blocks = new_blocks_scene.instantiate() 
-	add_child(current_blocks)
+	add_child(current_blocks)	
 
+func adjust_ball_display():
+	#print("Adjusting Ball Display...")
+	for i in range(10,0,-1):
+		#print("i = " + str(i))
+		if i > Global.balls_left:
+			var spare_ball_name = "ball_regular" + str(i)
+			var ball_to_remove = $spare_balls.get_node(spare_ball_name)
+			#print("Removing " + spare_ball_name)
+			ball_to_remove.queue_free()
+	
 func load_stage():
 	Global.load_times()
 	load_blocks()

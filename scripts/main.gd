@@ -4,7 +4,6 @@ extends Node3D
 var balls = []
 var ball_scene = preload("res://scenes/ball.tscn")
 var ball_classic_scene = preload("res://scenes/ball_classic.tscn")
-var balls_left = 10
 var game_ready = false
 var camera_ready = false
 var elapsed_time = 0.0
@@ -18,6 +17,9 @@ func _ready():
 func set_globals():
 	# after each stage is complete 
 	# I call a get_tree().reload_current_scene()
+	if Global.game_mode == Global.TIMED:
+		Global.balls_left = 10
+		
 	Global.current_ball_size = 2
 	Global.infinite_balls = false
 	Global.gravity_reversed = false
@@ -135,7 +137,7 @@ func process_balls():
 			balls.erase(ball)
 			ball.queue_free()
 			# check for game over condition
-			if len(balls) == 0 and balls_left == 0:
+			if len(balls) == 0 and Global.balls_left == 0:
 				game_over()
 			break
 
@@ -163,9 +165,9 @@ func decrement_balls():
 	if spare_balls.get_child_count() > 0 and not Global.infinite_balls:
 		var spare_ball = spare_balls.get_child(0)
 		spare_ball.queue_free()
-		balls_left-=1
-		if balls_left < 0: 
-			balls_left = 0
+		Global.balls_left-=1
+		if Global.balls_left < 0: 
+			Global.balls_left = 0
 			$ball_gun_timer.stop()
 		return true
 	else:
