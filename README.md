@@ -20,7 +20,7 @@ For keyboard shortcuts and instructions check left column of the game.  I'll pla
 TODO List:
 
 Short Term
-- 
+- Get Arcade mode working properly. 
 - Add more custom stages and music. 
 - Convert menus to fully 3D (Help Menu mostly done)
 
