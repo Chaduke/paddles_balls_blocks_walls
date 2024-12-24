@@ -95,7 +95,7 @@ font_size = 300
 outline_size = 50
 
 [node name="time_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2218, 22.5904, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2819, 23.3711, 0)
 text = "0m 0s 00"
 font = ExtResource("7_eeplf")
 font_size = 200
@@ -104,7 +104,7 @@ horizontal_alignment = 0
 script = ExtResource("8_jrwyw")
 
 [node name="total_time_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.96, 19.5699, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0201, 20.3506, 0)
 text = "0m 0s 00"
 font = ExtResource("7_eeplf")
 font_size = 200
@@ -124,7 +124,7 @@ font_size = 270
 outline_size = 40
 
 [node name="stage_time_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0174, 23.7552, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0775, 24.5359, 0)
 modulate = Color(1, 0, 0.0745098, 1)
 text = "stage time
 "
@@ -133,13 +133,29 @@ font_size = 270
 outline_size = 40
 
 [node name="total_time_label2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0174, 20.7687, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0775, 21.5494, 0)
 modulate = Color(1, 0, 0.0745098, 1)
 text = "total time
 "
 font = ExtResource("7_eeplf")
 font_size = 270
 outline_size = 40
+
+[node name="score_title_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0775, 18.6068, 0)
+modulate = Color(1, 0, 0.0745098, 1)
+text = "Score
+"
+font = ExtResource("7_eeplf")
+font_size = 270
+outline_size = 40
+
+[node name="score_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0201, 17.2879, 0)
+text = "0"
+font = ExtResource("7_eeplf")
+font_size = 200
+outline_size = 35
 
 [node name="stage_cleared_menu" parent="." instance=ExtResource("8_o0eev")]
 process_mode = 2

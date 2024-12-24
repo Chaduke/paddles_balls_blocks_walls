@@ -16,4 +16,5 @@ func explode_and_exit():
 	var new_explosion = explosion_scene.instantiate()
 	new_explosion.position = global_position	
 	Global.get_main().add_child.call_deferred(new_explosion)
-	queue_free()	
+	Global.update_score(5)
+	queue_free()

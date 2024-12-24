@@ -26,11 +26,11 @@ func disable_collision():
 	$CollisionShape3D.disabled = true
 	
 func release_ball():
-	var main_scene = get_tree().root.get_child(2)
-	var ball_instance = main_scene.create_ball_instance()
+	var ball_controller = Global.get_main().get_node("ball_controller")
+	var ball_instance = ball_controller.create_ball_instance()
 	ball_instance.position = global_transform.origin
 	var rng = RandomNumberGenerator.new() 
-	rng.randomize() 
+	rng.randomize()
 	var r = rng.randf_range(-10,10)
 	if Global.default_ball_mode:
 		ball_instance.linear_velocity.x += r
@@ -38,8 +38,9 @@ func release_ball():
 	else:
 		ball_instance.velocity.x = r
 		ball_instance.velocity.y = 20
-	main_scene.balls.append(ball_instance) 
-	main_scene.add_child.call_deferred(ball_instance)
+	ball_instance.released = true
+	ball_controller.balls.append(ball_instance) 
+	Global.get_main().add_child.call_deferred(ball_instance)
 
 func _on_timer_timeout():
 	if (current_ball < total_balls):

@@ -3,7 +3,7 @@ extends Area3D
 class_name BallClassic
 
 var velocity = Vector3(0.0,0.0,0.0)
-var acceleration = Vector3(0.0,-10.0,0.0)
+var acceleration = Vector3(0.0,0.0,0.0)
 
 var x_velocity_limit = 50
 var y_velocity_limit = 50
@@ -12,14 +12,14 @@ var top_bounds = 0.0
 var left_bounds = 0.0
 var right_bounds = 0.0
 
+var released = false
+
 func _ready():
-	if Global.gravity_reversed:
-		acceleration.y = 15.0
 	$release_sound.play()
 	update_bounds()
 
 func _process(delta):
-	limit_ball_velocity()	
+	limit_ball_velocity()
 	velocity += acceleration * delta
 	position += velocity * delta
 	bounds_check()
@@ -38,14 +38,14 @@ func limit_ball_velocity():
 
 func _on_body_entered(body):
 	# print(body.name)
-	if body is Paddle:
+	if body is Paddle and released:
 		paddle_collision(body)
 	elif body.is_in_group("Blocks"):
 		block_collision(body)
 	elif body is Stage:
 		wall_collision()
 	#else:
-		#print_debug("Collided with something other than paddle, block or stage : " + body.name)				
+		#print_debug("Collided with something other than paddle, block or stage : " + body.name)
 func update_bounds():
 	var ball_offset = Global.ball_offset()
 	top_bounds = 29.5 - ball_offset
@@ -65,6 +65,11 @@ func bounds_check():
 		position.y = top_bounds
 		velocity.y = -abs(velocity.y)
 		#print("Corrected top bounds")
+	# check if we've left the screen 
+	# if so signal the ball controller
+	if position.y < 0:
+		#print("Calling ball lost from ball_classic")
+		Global.get_main().get_node("ball_controller").ball_lost(self)
 
 func wall_collision():
 	$wall_sound.play()
@@ -89,15 +94,15 @@ func wall_collision():
 		# print("Position X adjusted to : " + str(position.x))
 
 func paddle_collision(paddle_body):
-	var diff = position.x - paddle_body.position.x
-	velocity.x += diff * 3
-	# check if paddle is in "upswing"
-	if paddle_body.upswing:
-		velocity.y= -velocity.y * 1.5
-	else:
-		velocity.y= -velocity.y
-	position.y = paddle_body.position.y + Global.ball_offset() + 0.1
-	$paddle_sound.play()
+		var diff = position.x - paddle_body.position.x
+		velocity.x += diff * 3
+		# check if paddle is in "upswing"
+		if paddle_body.upswing:
+			velocity.y= -velocity.y * 1.5
+		else:
+			velocity.y= -velocity.y
+		position.y = paddle_body.position.y + Global.ball_offset() + 0.1
+		$paddle_sound.play()
 
 func block_collision_response(block_position):
 	var diff = global_position - block_position
@@ -137,6 +142,7 @@ func block_collision(block_body):
 		block_body.queue_free()
 	elif block_body is BlockYellow:
 		block_body.queue_free()
+		Global.update_score(10)
 	elif block_body is BlockPink:
 		block_body.queue_free()
 	elif block_body is BlockClear:

@@ -103,8 +103,7 @@ func move_up():
 func move_down():
 	if position.y < 0:
 		queue_free()
-		return
-		
+		return		
 	var collision = move_and_collide(Vector3(0,-0.1,0))
 	rotation.x+=0.1
 	if collision:
@@ -135,7 +134,7 @@ func enable_item_effect():
 	elif item_type == "GravityReverse":
 		$AudioStreamPlayer.stream = gravity_reverse_sound
 		$AudioStreamPlayer.play()
-		reverse_gravity()	
+		reverse_gravity()
 	elif item_type == "InfiniteBalls":
 		Global.infinite_balls = true
 		$AudioStreamPlayer.stream = infinite_balls_sound
@@ -151,37 +150,28 @@ func reverse_gravity():
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
 	Vector3(0, 1, 0))
-	var main_scene = get_tree().root.get_child(2)
-	for ball in main_scene.balls:
-		if ball is BallClassic:
-			# make reverse gravity a little more apparent
-			ball.acceleration.y = 15
+	Global.get_main().get_node("ball_controller").reverse_gravity()
 			
-func restore_gravity():	
+func restore_gravity():
 	Global.gravity_reversed = false
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
 	Vector3(0, -1, 0))
-	var main_scene = get_tree().root.get_child(2)
-	for ball in main_scene.balls:
-		if ball is BallClassic:
-			ball.acceleration.y = -10.0
+	Global.get_main().get_node("ball_controller").restore_gravity()
 				
 func grow_balls():
 	var current = Global.current_ball_size
 	if current < 4:
 		Global.current_ball_size *=2
-		var main_scene = get_tree().root.get_child(2)
-		main_scene.update_ball_size()
+		Global.get_main().get_node("ball_controller").update_ball_size()
 
 func shrink_balls():
 	var current = Global.current_ball_size
 	if current > 1:
 		@warning_ignore("integer_division")
 		Global.current_ball_size = int(Global.current_ball_size/2)
-		# print("Current ball size shrunk to " + str(Global.current_ball_size))
-		var main_scene = get_tree().root.get_child(2)
-		main_scene.update_ball_size()
+		# print("Current ball size shrunk to " + str(Global.current_ball_size))		
+		Global.get_main().get_node("ball_controller").update_ball_size()
 		
 func move_right():
 	# Current position 
@@ -201,19 +191,17 @@ func update_timed_item():
 	if secs == timer:
 		Global.set_slot_inactive(slot)
 		if item_type == "GravityReverse":
-			restore_gravity()	
-		if item_type == "InfiniteBalls":
+			restore_gravity()
+		elif item_type == "InfiniteBalls":
 			Global.infinite_balls = false
-		if item_type == "MaxPaddle":
-			var paddle=get_tree().root.get_child(2).get_node("paddle")
-			paddle.normalize()
+		elif item_type == "MaxPaddle":
+			Global.get_main().get_node("paddle").normalize()
 		queue_free()
 
 func check_existing_items():
 	# make sure it is in the list of item types we want to "time increment"
-	if item_type in ["InfiniteBalls","GravityReverse","MaxPaddle"]:
-		var main_scene = get_tree().root.get_child(2)
-		for child in main_scene.get_children():
+	if item_type in ["InfiniteBalls","GravityReverse","MaxPaddle"]:		
+		for child in Global.get_main().get_children():
 			# make sure it's not us, but is this class
 			if child != self and child is PickupItem:
 				# make sure the item types match

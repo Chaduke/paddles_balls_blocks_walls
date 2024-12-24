@@ -10,12 +10,10 @@ func platform_specific_inits():
 	
 func _on_restart_button_pressed():
 	hide()
-	var main_scene = get_tree().root.get_child(2)
-	main_scene.restart_stage()
+	Global.get_main().restart_stage()
 
-func _on_quit_button_pressed():
-	var main_scene = get_tree().root.get_child(2)
-	var confirm = main_scene.find_child("confirm_quit_menu")
+func _on_quit_button_pressed():	
+	var confirm = Global.get_main().find_child("confirm_quit_menu")
 	confirm.show()
 	confirm.previous_menu = self
 	hide()

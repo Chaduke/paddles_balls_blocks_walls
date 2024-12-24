@@ -25,4 +25,5 @@ shape = SubResource("SphereShape3D_8728f")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="area_entered" from="magnetic_influence" to="." method="_on_magnetic_influence_area_entered"]
+[connection signal="area_exited" from="magnetic_influence" to="." method="_on_magnetic_influence_area_exited"]
 [connection signal="body_entered" from="magnetic_influence" to="." method="_on_magnetic_influence_body_entered"]

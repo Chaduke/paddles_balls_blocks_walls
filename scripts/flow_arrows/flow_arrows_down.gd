@@ -4,6 +4,7 @@ class_name FlowArrowsDown
 
 @export var downward_impulse_amount = 1.0
 @export var lateral_damping = 0.9
+@export var x_random_range = 0.0
 
 func _on_body_entered(body):	
 	#report(body," entered my area.")
@@ -32,6 +33,7 @@ func _on_area_entered(area: Area3D) -> void:
 			# we don't want the ball to move against the arrows direction
 			# so we reverse the ball velocity
 			area.velocity.y = -area.velocity.y
+			area.velocity.x += randf_range(-x_random_range,x_random_range)
 			# SKIP THIS REPOSITION FOR DOWN ARROWS 
 			# ASS IT CAUSES THE BALL TO SHOOT STRAIGHT DOWN REALLY FAST
 			# get the radius of the ball depending on its size 

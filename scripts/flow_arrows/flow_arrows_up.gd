@@ -4,6 +4,7 @@ class_name FlowArrowsUp
 
 @export var upward_impulse_amount = 1.1
 @export var upward_force_amount = 0.1
+@export var x_random_range = 0.0
 
 var current_body = null
 var current_area = null
@@ -30,7 +31,7 @@ func _on_body_entered(body):
 			body.apply_central_impulse(Vector3(0, upward_impulse_amount, 0))
 		#print("RigidBody3D entered from direction: ", entry_direction)	
 
-func _on_body_exited(body):	
+func _on_body_exited(body):
 	if body == current_body:
 		current_body = null
 	
@@ -47,8 +48,10 @@ func _on_area_entered(area: Area3D) -> void:
 		# Check the entry direction to apply force accordingly 
 		if entry_direction.y > 0: 
 			# Entered from the top 
-			# make it bounce up sinc ethe arrows are pointing up	
-			area.velocity.y = -area.velocity.y
+			# make it bounce up since the arrows are pointing up	
+			area.velocity.y = abs(area.velocity.y)
+			# give it a random bounce to left or right
+			area.velocity.x += randf_range(-x_random_range,x_random_range)
 		else: 
 			# Entered from the bottom 
 			# give it an upward velocity boost

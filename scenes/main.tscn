@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=18 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
 [ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/menus/main_menu.tscn" id="2_u3m40"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkpskgpuqpts5" path="res://scenes/paddle.tscn" id="5_478fp"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="5_l3s87"]
 [ext_resource type="PackedScene" uid="uid://byjm4pu2nw2ew" path="res://scenes/menus/confirm_quit_menu.tscn" id="5_ug5jo"]
+[ext_resource type="PackedScene" uid="uid://b1fm3b7eoxu6" path="res://scenes/ball_controller.tscn" id="7_bqjly"]
 [ext_resource type="PackedScene" uid="uid://bs1eip3jtnoyk" path="res://scenes/menus/settings_menu.tscn" id="7_yw4vb"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="8_np30c"]
 [ext_resource type="PackedScene" uid="uid://dbpcvj3b5lxed" path="res://scenes/menus/help_menu.tscn" id="11_j2wm8"]
@@ -53,6 +54,8 @@ visible = false
 [node name="confirm_quit_menu" parent="." instance=ExtResource("5_ug5jo")]
 process_mode = 2
 visible = false
+
+[node name="ball_controller" parent="." instance=ExtResource("7_bqjly")]
 
 [node name="camera" type="Camera3D" parent="."]
 process_mode = 3

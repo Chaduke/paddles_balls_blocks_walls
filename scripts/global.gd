@@ -16,6 +16,7 @@ const TIMED = 0
 const ARCADE = 1
 var game_mode = ARCADE
 var balls_left = 3
+var score = 0
 
 const OLD = 0
 const NEW = 1
@@ -50,7 +51,7 @@ var slot3 = false
 var slot4 = false
 var slot5 = false
 var slot6 = false
-
+	
 func get_main():
 	var m = get_tree().root.get_child(2)
 	return m
@@ -155,3 +156,7 @@ func format_hundredths(h):
 	if h < 10: 
 		hundredths_str = "0" + hundredths_str 
 	return hundredths_str
+
+func update_score(amount):
+	score+=amount
+	get_stage().get_node("score_label").text = str(score)

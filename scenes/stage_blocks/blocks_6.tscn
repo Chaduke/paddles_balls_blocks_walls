@@ -55,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 28.5, 0)
 
 [node name="block15" parent="." instance=ExtResource("6_mxmg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 27.5, 0)
+item_type = "SmallBalls"
 
 [node name="block14" parent="." instance=ExtResource("6_mxmg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 28.5, 0)
@@ -118,6 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 24.5, 0)
 
 [node name="flow_arrows_up20" parent="." instance=ExtResource("4_bmj8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 25.5, 0)
+x_random_range = 5.0
 
 [node name="flow_arrows_up41" parent="." instance=ExtResource("4_bmj8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 6.5, 0)
@@ -178,6 +180,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 24.5, 0)
 
 [node name="flow_arrows_up60" parent="." instance=ExtResource("4_bmj8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 25.5, 0)
+x_random_range = 5.0
 
 [node name="block_blue" parent="." instance=ExtResource("4_660wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 25.5, 0)
@@ -542,79 +545,99 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 6.5, 0)
 [node name="flow_arrows_down" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 6.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down2" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 7.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down3" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 8.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down4" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 9.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down5" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 10.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down6" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 11.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down7" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 12.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down8" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 13.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down9" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 14.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down10" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 15.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down11" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 16.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down12" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 17.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down13" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 18.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down14" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 19.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down15" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 20.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down16" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 21.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down17" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 22.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down18" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 23.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down19" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 24.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0
 
 [node name="flow_arrows_down20" parent="." instance=ExtResource("5_m24xc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 25.5, 0)
 downward_impulse_amount = 0.1
+x_random_range = 5.0

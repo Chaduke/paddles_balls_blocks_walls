@@ -15,6 +15,7 @@ func _ready():
 		$background_3d.hide()
 		
 func start_rsg():
+	ticks = 0
 	$rsg_timer.start()
 	$ready_set_go_label.show()
 	MusicServer.play_intro_music()
@@ -26,8 +27,7 @@ func _on_rsg_timer_timeout():
 	elif ticks==2:
 		$ready_set_go_label.text = "GO!!!"
 	else:
-		var main_scene = get_tree().root.get_child(2)
-		main_scene.game_ready = true 
+		Global.get_main().set_game_ready()
 		$rsg_timer.stop()
 		$ready_set_go_label.hide()
 		
@@ -67,10 +67,11 @@ func set_best_time_labels():
 	$best_total_time_label.text = "Best Total Time " + Global.format_time(best_total_time)
 	
 func all_stages_cleared():
-	cleanup_stage()	
+	cleanup_stage()
 	$all_stages_cleared_menu.show()
 		
 func stage_cleared():
+	if Global.game_mode == Global.ARCADE: Global.balls_left+=1
 	cleanup_stage()
 	$stage_cleared_menu.show()
 	if Global.current_stage > 0 : $stage_cleared_menu.update_labels()
@@ -81,12 +82,11 @@ func cleanup_stage():
 	Global.stage_time = $time_label.elapsed_time
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
-	var main_scene = get_tree().root.get_child(2)
-	main_scene.remove_all_balls()
+	Global.get_main().get_node("ball_controller").remove_all_balls()
 	clear_flow_arrows()
 	clear_metal_blocks()
 	get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)	
 	
 func clear_flow_arrows():	
 	for child in current_blocks.get_children():
