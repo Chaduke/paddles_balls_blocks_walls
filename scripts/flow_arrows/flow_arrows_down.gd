@@ -5,8 +5,12 @@ class_name FlowArrowsDown
 @export var downward_impulse_amount = 1.0
 @export var lateral_damping = 0.9
 @export var x_random_range = 0.0
+var current_ball = null 
 
-func _on_body_entered(body):	
+func _process(delta: float) -> void:
+	if current_ball:
+		current_ball.velocity.y += downward_impulse_amount * delta * 0.1
+func _on_body_entered(body):
 	#report(body," entered my area.")
 	if body is Ball: 
 		var entry_direction = body.global_transform.origin - global_transform.origin 
@@ -23,6 +27,7 @@ func _on_body_entered(body):
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is BallClassic:
+		current_ball = area
 		area.velocity.x *= lateral_damping
 		var diff_y = area.global_transform.origin.y - global_transform.origin.y
 		if diff_y < 0:
@@ -46,12 +51,6 @@ func _on_area_entered(area: Area3D) -> void:
 		else:
 			area.velocity.y -= downward_impulse_amount
 			
-func report(body,event_string):
-	if body is Ball:
-		print("Ball " + body.name + event_string)
-	else:
-		print("Body " + body.name + event_string)
-
-
-func _on_area_exited(_area: Area3D) -> void:
-	pass # Replace with function body.
+func _on_area_exited(area: Area3D) -> void:
+	if area == current_ball:
+		current_ball = null

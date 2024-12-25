@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dcn6jjvjds3ev"]
+[gd_scene load_steps=19 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
 [ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/menus/main_menu.tscn" id="2_u3m40"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/camera.gd" id="8_np30c"]
 [ext_resource type="PackedScene" uid="uid://dbpcvj3b5lxed" path="res://scenes/menus/help_menu.tscn" id="11_j2wm8"]
 [ext_resource type="PackedScene" uid="uid://bqv7xrknanwmu" path="res://scenes/menus/help_menu_2.tscn" id="13_766ao"]
+[ext_resource type="PackedScene" uid="uid://df5g72iocw8qk" path="res://scenes/hand_cursor.tscn" id="15_lxcj4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
 panorama = ExtResource("4_w6qld")
@@ -62,6 +63,9 @@ process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)
 fov = 45.0
 script = ExtResource("8_np30c")
+
+[node name="hand_cursor" parent="camera" instance=ExtResource("15_lxcj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 20, 0)

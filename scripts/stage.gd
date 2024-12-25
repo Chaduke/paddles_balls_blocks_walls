@@ -5,14 +5,17 @@ class_name Stage
 var current_blocks
 var block_scene_paths = []
 var ticks = 0
+var stage_cleared_label_scene=preload("res://scenes/timed_labels/stage_cleared_label.tscn")
+var cleared = false
 
-func _ready():
+func _ready():	
 	add_scene_paths()
 	load_stage()
 	if Global.game_mode == Global.ARCADE:
 		adjust_ball_display()
 	if not Global.show_background_3d:
 		$background_3d.hide()
+	Global.update_score(0)
 		
 func start_rsg():
 	ticks = 0
@@ -71,10 +74,12 @@ func all_stages_cleared():
 	$all_stages_cleared_menu.show()
 		
 func stage_cleared():
+	cleared = true 
+	MusicServer.stop_music()
 	if Global.game_mode == Global.ARCADE: Global.balls_left+=1
 	cleanup_stage()
-	$stage_cleared_menu.show()
-	if Global.current_stage > 0 : $stage_cleared_menu.update_labels()
+	var new_scene = stage_cleared_label_scene.instantiate()
+	add_child(new_scene)	
 	
 func cleanup_stage():
 	var replay_timer = MusicServer.get_node("replay_timer")
@@ -83,12 +88,12 @@ func cleanup_stage():
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
 	Global.get_main().get_node("ball_controller").remove_all_balls()
-	clear_flow_arrows()
-	clear_metal_blocks()
-	get_tree().paused = true
+	# clear_flow_arrows()
+	# clear_metal_blocks()
+	# get_tree().paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)	
 	
-func clear_flow_arrows():	
+func clear_flow_arrows():
 	for child in current_blocks.get_children():
 		if child.is_in_group("FlowArrows"):
 			child.queue_free()
@@ -98,13 +103,14 @@ func clear_metal_blocks():
 		if child is BlockMetal:
 			child.queue_free()
 				
-func _process(_delta):	
+func update_stage():
 	var count = get_breakable_count()
 	# check if stage had been cleared 
 	$blocks_left_label.text = "Blocks Left " + str(count)
 	if count == 0:
-		stage_cleared()
-				
+		if not cleared:
+			stage_cleared()
+
 func load_next_stage():
 	Global.current_stage += 1 
 	if Global.current_stage == Global.total_stages:

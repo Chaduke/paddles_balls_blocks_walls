@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://wwtn715rnkc0"]
+
+[ext_resource type="Script" path="res://scripts/timed_labels/stage_cleared_label.gd" id="1_88wry"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_a1abc"]
+[ext_resource type="AudioStream" uid="uid://byfqp1i6s14mg" path="res://assets/wave/sword_swipe.wav" id="3_gjstu"]
+
+[node name="stage_cleared_label" type="Node3D"]
+script = ExtResource("1_88wry")
+
+[node name="Label3D" type="Label3D" parent="."]
+modulate = Color(0.940466, 8.71167e-06, 0.426361, 1)
+text = "Stage 0 Cleared!"
+font = ExtResource("2_a1abc")
+font_size = 350
+outline_size = 50
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="sliding_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gjstu")
+autoplay = true
+bus = &"Sound FX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

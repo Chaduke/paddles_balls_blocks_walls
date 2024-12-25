@@ -98,7 +98,7 @@ func paddle_collision(paddle_body):
 		velocity.x += diff * 3
 		# check if paddle is in "upswing"
 		if paddle_body.upswing:
-			velocity.y= -velocity.y * 1.5
+			velocity.y=-velocity.y * 2
 		else:
 			velocity.y= -velocity.y
 		position.y = paddle_body.position.y + Global.ball_offset() + 0.1
@@ -142,7 +142,6 @@ func block_collision(block_body):
 		block_body.queue_free()
 	elif block_body is BlockYellow:
 		block_body.queue_free()
-		Global.update_score(10)
 	elif block_body is BlockPink:
 		block_body.queue_free()
 	elif block_body is BlockClear:

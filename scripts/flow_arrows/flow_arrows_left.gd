@@ -9,7 +9,7 @@ var current_body = null
 var current_area = null
 
 func _physics_process(_delta):
-	if current_body:				
+	if current_body:
 		current_body.linear_velocity.y *= vertical_damping
 		current_body.apply_central_force(Vector3(-lateral_force, 0, 0))
 	if current_area:
@@ -28,8 +28,12 @@ func _on_body_exited(body):
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is BallClassic:
-		current_area = area	
-
+		current_area = area
+		var diff = area.position - global_position		
+		if diff.x < 0:
+			# entered from left
+			area.velocity.x = -abs(area.velocity.x) * 0.5			
+			
 func _on_area_exited(area: Area3D) -> void:
 	if area == current_area:
 		current_area = null

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://df5g72iocw8qk"]
+
+[ext_resource type="Script" path="res://scripts/hand_cursor.gd" id="1_mtuyc"]
+[ext_resource type="PackedScene" uid="uid://btusvluxh1hqm" path="res://assets/models/hand_cursor.glb" id="2_4rwqm"]
+
+[node name="hand_cursor" type="Node3D"]
+script = ExtResource("1_mtuyc")
+
+[node name="hand_cursor_model" parent="." instance=ExtResource("2_4rwqm")]

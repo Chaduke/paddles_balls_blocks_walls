@@ -34,6 +34,9 @@ func play_music():
 		$music_player.stream = load(stage_paths[i])
 		$music_player.play()
 		#print("Playing song " + str(i))
+		
+func stop_music():
+	$music_player.stop()
 
 func play_intro_music():
 	var i = Global.current_stage-1

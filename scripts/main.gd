@@ -68,8 +68,10 @@ func get_input():
 			$ball_controller.spawn_ball()
 		elif Global.game_mode==Global.ARCADE:
 			if $ball_controller.remove_ball_from_paddle():
-				#print("Ball removed from paddle")
-				pass
+				# spawning the first ball starts the stage
+				if not Global.stage_started:
+					Global.stage_started = true
+					MusicServer.play_music()
 			else:
 				#print("No ball to remove")
 				pass

@@ -4,6 +4,9 @@ class_name BlockClear
 
 var ball_scene = preload("res://scenes/ball.tscn")
 
+var timed_score_scene = preload("res://scenes/timed_labels/timed_score_label.tscn")
+@export var score_value = 20
+
 var current_ball = 0
 @export var total_balls = 1
 
@@ -41,6 +44,12 @@ func release_ball():
 	ball_instance.released = true
 	ball_controller.balls.append(ball_instance) 
 	Global.get_main().add_child.call_deferred(ball_instance)
+	
+	var timed_score = timed_score_scene.instantiate()
+	timed_score.position = global_position
+	timed_score.position.z += 1
+	timed_score.set_score(score_value)
+	Global.get_main().add_child.call_deferred(timed_score)
 
 func _on_timer_timeout():
 	if (current_ball < total_balls):

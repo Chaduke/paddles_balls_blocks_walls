@@ -89,7 +89,6 @@ func attach_ball_to_paddle():
 
 func remove_all_balls():
 	for ball in balls:
-		balls.erase(ball)
 		ball.queue_free()
 
 func decrement_balls(): 

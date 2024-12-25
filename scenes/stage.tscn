@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://phyfuyw0hpjf"]
+[gd_scene load_steps=13 format=3 uid="uid://phyfuyw0hpjf"]
 
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_7ig21"]
 [ext_resource type="PackedScene" uid="uid://dnnm22n6y6evb" path="res://assets/models/walls.glb" id="1_ijncp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cj6lqmg0h52uc" path="res://scenes/menus/stage_cleared_menu.tscn" id="8_o0eev"]
 [ext_resource type="PackedScene" uid="uid://65yr7ubbdaki" path="res://scenes/backgrounds/forest.tscn" id="8_y451n"]
 [ext_resource type="PackedScene" uid="uid://dgi18ced4wf7k" path="res://scenes/menus/all_stages_clear_menu.tscn" id="9_gwbm1"]
+[ext_resource type="AudioStream" uid="uid://gtoabgmrm6l3" path="res://assets/wave/ball.wav" id="10_fpcxh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uj3rf"]
 size = Vector3(40, 1, 1)
@@ -151,7 +152,7 @@ font_size = 270
 outline_size = 40
 
 [node name="score_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0201, 17.2879, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.02, 17.288, 1)
 text = "0"
 font = ExtResource("7_eeplf")
 font_size = 200
@@ -191,6 +192,10 @@ font = ExtResource("7_eeplf")
 font_size = 150
 outline_size = 40
 horizontal_alignment = 2
+
+[node name="sound_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_fpcxh")
+bus = &"Sound FX"
 
 [node name="rsg_timer" type="Timer" parent="."]
 wait_time = 0.5

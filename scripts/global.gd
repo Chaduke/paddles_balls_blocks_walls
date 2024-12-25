@@ -1,7 +1,7 @@
 # global.gd
 extends Node
 
-var current_stage = 1
+var current_stage = 2
 # you have to count stage 0 in total_stages, 0 is the testing stage
 # so total_stages is the number of playable stages + 1
 var total_stages = 54
@@ -51,7 +51,7 @@ var slot3 = false
 var slot4 = false
 var slot5 = false
 var slot6 = false
-	
+
 func get_main():
 	var m = get_tree().root.get_child(2)
 	return m
@@ -157,6 +157,9 @@ func format_hundredths(h):
 		hundredths_str = "0" + hundredths_str 
 	return hundredths_str
 
-func update_score(amount):
+func update_score(amount):	
 	score+=amount
 	get_stage().get_node("score_label").text = str(score)
+	if amount > 0:
+		get_stage().get_node("sound_player").play()
+	get_stage().update_stage()
