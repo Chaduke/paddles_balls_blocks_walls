@@ -112,10 +112,10 @@ func toggle_help_menu():
 		$help_menu.active = true
 
 func toggle_main_menu():
-	$main_menu.show()
-	$main_menu.elapsed_time = 0.0
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().paused = true
+	$camera.target_position = Vector3(48,15,0)
+	$camera.lerping = true
+	Global.toggle_cursor()
+	#get_tree().paused = true
 			
 func toggle_settings():
 		$settings_menu.show()

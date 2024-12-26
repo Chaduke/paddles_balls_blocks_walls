@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://tnd8h7srvs4k"]
+[gd_scene load_steps=9 format=3 uid="uid://tnd8h7srvs4k"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu_3d.gd" id="1_6snv3"]
 [ext_resource type="PackedScene" uid="uid://di60k8xnxponj" path="res://assets/models/title_3d.glb" id="2_jufs3"]
 [ext_resource type="PackedScene" uid="uid://ba85juxvpvvr" path="res://assets/models/walls_for_menus.glb" id="3_mpgav"]
 [ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="4_ps3a5"]
 [ext_resource type="PackedScene" uid="uid://cog1gfsb0iu47" path="res://scenes/menus/play_button_3d.tscn" id="5_d1m3i"]
-[ext_resource type="PackedScene" uid="uid://cnj61jpfqldye" path="res://assets/models/selector_rect_3d.glb" id="5_uv7is"]
+[ext_resource type="PackedScene" uid="uid://rxnxytphdd8u" path="res://scenes/menus/settings_button_3d.tscn" id="7_goyks"]
+[ext_resource type="PackedScene" uid="uid://hwkncn0qcmky" path="res://scenes/menus/quit_button_3d.tscn" id="8_fc77n"]
+[ext_resource type="PackedScene" uid="uid://bpur82eyuh5js" path="res://scenes/menus/selector_rect_3d.tscn" id="9_r20rk"]
 
 [node name="main_menu_3d" type="Node3D"]
 script = ExtResource("1_6snv3")
@@ -16,7 +18,7 @@ transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195
 [node name="walls_for_menus" parent="." instance=ExtResource("3_mpgav")]
 
 [node name="stages_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 25.2746, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 25.5871, 0)
 modulate = Color(1, 1, 0, 1)
 text = "Stages"
 font = ExtResource("4_ps3a5")
@@ -31,25 +33,8 @@ font = ExtResource("4_ps3a5")
 font_size = 300
 outline_size = 50
 
-[node name="settings_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.788, 7.29128, 0)
-modulate = Color(0, 1, 1, 1)
-text = "Settings"
-font = ExtResource("4_ps3a5")
-font_size = 500
-outline_size = 50
-
-[node name="quit_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.788, 4.68911, 0)
-modulate = Color(0, 1, 1, 1)
-text = "Quit
-"
-font = ExtResource("4_ps3a5")
-font_size = 500
-outline_size = 50
-
 [node name="old_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 23.8706, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.858, 24, 0)
 modulate = Color(1, 0, 1, 1)
 text = "Old"
 font = ExtResource("4_ps3a5")
@@ -57,7 +42,7 @@ font_size = 250
 outline_size = 50
 
 [node name="arcade_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4334, 10.1152, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.433, 10, 0)
 modulate = Color(1, 0, 1, 1)
 text = "Arcade"
 font = ExtResource("4_ps3a5")
@@ -65,7 +50,7 @@ font_size = 250
 outline_size = 50
 
 [node name="timed_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3293, 8.76841, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.329, 8.75, 0)
 modulate = Color(1, 0, 1, 1)
 text = "Timed
 "
@@ -74,7 +59,7 @@ font_size = 250
 outline_size = 50
 
 [node name="new_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 22.7636, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.858, 22.75, 0)
 modulate = Color(1, 0, 1, 1)
 text = "New
 "
@@ -103,11 +88,19 @@ outline_size = 10
 autowrap_mode = 3
 width = 2000.0
 
-[node name="selector_rect_3d" parent="." instance=ExtResource("5_uv7is")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8497, 23.7958, 0)
-
-[node name="selector_rect_3d2" parent="." instance=ExtResource("5_uv7is")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3882, 8.69076, 0)
-
 [node name="play_button_3d" parent="." instance=ExtResource("5_d1m3i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7534, 9.84209, 0)
+
+[node name="settings_button_3d" parent="." instance=ExtResource("7_goyks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5977, 7.02239, 0)
+
+[node name="settings_button_3d2" parent="." instance=ExtResource("8_fc77n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.44, 4.254, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="selector_rect_3d" parent="." instance=ExtResource("9_r20rk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.876, 23.9053, 0)
+
+[node name="selector_rect_3d2" parent="." instance=ExtResource("9_r20rk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.359, 9.90731, 0)

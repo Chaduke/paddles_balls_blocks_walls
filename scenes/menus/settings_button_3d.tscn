@@ -1,23 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cog1gfsb0iu47"]
+[gd_scene load_steps=4 format=3 uid="uid://rxnxytphdd8u"]
 
-[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="1_i5y55"]
-[ext_resource type="Script" path="res://scripts/menus/play_button_3d.gd" id="1_t8fxs"]
+[ext_resource type="Script" path="res://scripts/menus/settings_button_3d.gd" id="1_dsg5o"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_ud0hk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_if4w3"]
-size = Vector3(10.2508, 2.13902, 1)
+size = Vector3(9.19283, 2.13902, 1)
 
-[node name="play_button_3d" type="Area3D"]
-script = ExtResource("1_t8fxs")
+[node name="settings_button_3d" type="Area3D"]
+script = ExtResource("1_dsg5o")
 
 [node name="Label3D" type="Label3D" parent="."]
 modulate = Color(0, 1, 1, 1)
-text = "Play Game"
-font = ExtResource("1_i5y55")
+text = "Settings"
+font = ExtResource("2_ud0hk")
 font_size = 500
 outline_size = 50
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0922012, 0.0103378, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100769, 0.0103378, 0)
 shape = SubResource("BoxShape3D_if4w3")
 
 [node name="spin_timer" type="Timer" parent="."]

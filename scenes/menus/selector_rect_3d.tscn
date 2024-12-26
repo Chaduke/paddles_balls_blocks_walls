@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpur82eyuh5js"]
+
+[ext_resource type="PackedScene" uid="uid://cnj61jpfqldye" path="res://assets/models/selector_rect_3d.glb" id="1_gyard"]
+[ext_resource type="Script" path="res://scripts/menus/selector_rect_3d.gd" id="1_kpegf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i4djc"]
+size = Vector3(3.62103, 1.22949, 1)
+
+[node name="selector_rect_3d" type="Area3D"]
+script = ExtResource("1_kpegf")
+
+[node name="selector_rect_3d_model" parent="." instance=ExtResource("1_gyard")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00106812, 0.0451689, 0)
+shape = SubResource("BoxShape3D_i4djc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
