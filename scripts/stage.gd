@@ -7,12 +7,12 @@ var block_scene_paths = []
 var ticks = 0
 var stage_cleared_label_scene=preload("res://scenes/timed_labels/stage_cleared_label.tscn")
 var cleared = false
+var blocks_cleared = 0
+var points_gained = 0
 
 func _ready():	
 	add_scene_paths()
 	load_stage()
-	if Global.game_mode == Global.ARCADE:
-		adjust_ball_display()
 	if not Global.show_background_3d:
 		$background_3d.hide()
 	Global.update_score(0)
@@ -60,7 +60,7 @@ func adjust_ball_display():
 func load_stage():
 	Global.load_times()
 	load_blocks()
-	$stage_label.text = "Stage " + str(Global.current_stage)	
+	$stage_label.text = "Stage " + str(Global.current_stage)
 	if Global.current_stage > 0 : set_best_time_labels()
 
 func set_best_time_labels():

@@ -14,7 +14,7 @@ func _ready() -> void:
 		$ahh_sound.play()
 	
 func _on_tree_exiting() -> void:
-	if not Global.creating_thumbnails:	
+	if not Global.creating_thumbnails and not Global.quitting:	
 		var new_explosion = explosion_scene.instantiate()
 		new_explosion.position = global_position	
 		Global.get_main().add_child.call_deferred(new_explosion)

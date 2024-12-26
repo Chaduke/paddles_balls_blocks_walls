@@ -5,6 +5,12 @@ var game_ready = false
 var camera_ready = false
 var elapsed_time = 0.0
 
+func clean_and_quit():
+	print("Removing all resources then exiting...")
+	Global.quitting = true
+	queue_free()
+	get_tree().quit()
+	
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_globals()
@@ -112,9 +118,17 @@ func toggle_help_menu():
 		$help_menu.active = true
 
 func toggle_main_menu():
-	$camera.target_position = Vector3(48,15,0)
-	$camera.lerping = true
+	if $main_menu_3d.active:
+		$camera.target_position = Vector3(0,15,0)
+		$camera.lerping = true
+		$main_menu_3d.active = false
+	else:
+		$camera.target_position = Vector3(48,15,0)
+		$camera.lerping = true
+		$main_menu_3d.active = true
 	Global.toggle_cursor()
+		
+		
 	#get_tree().paused = true
 			
 func toggle_settings():

@@ -18,7 +18,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("swing_paddle") and current:
 		current = null
 		get_parent().play_click_sound()
-		get_parent().start_game()
+		if Global.game_started:
+			Global.get_main().toggle_main_menu()
+		else:
+			get_parent().start_game()
 		
 func _on_area_entered(area: Area3D) -> void:
 	#print("Area : " + area.name + " entered mine")

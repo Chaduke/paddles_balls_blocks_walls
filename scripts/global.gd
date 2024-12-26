@@ -43,6 +43,7 @@ var stage_times_dict = {}
 var total_times_dict = {}
 
 var creating_thumbnails = false
+var quitting = false
 
 # slots for item pickups 
 var slot1 = false
@@ -164,8 +165,10 @@ func format_hundredths(h):
 		hundredths_str = "0" + hundredths_str 
 	return hundredths_str
 
-func update_score(amount):	
+func update_score(amount):
 	score+=amount
+	get_stage().points_gained+=amount
+	get_stage().blocks_cleared+=1
 	get_stage().get_node("score_label").text = str(score)
 	if amount > 0:
 		get_stage().get_node("sound_player").play()

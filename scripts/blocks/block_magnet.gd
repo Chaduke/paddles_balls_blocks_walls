@@ -29,7 +29,7 @@ func _on_magnetic_influence_body_entered(body):
 			body.linear_velocity.y -= influence_y
 
 func _on_tree_exiting():
-	if not Global.creating_thumbnails:
+	if not Global.creating_thumbnails and not Global.quitting:
 		# add explosion	
 		var new_explosion = explosion_scene.instantiate()
 		new_explosion.position = global_position

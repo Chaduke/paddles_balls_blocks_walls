@@ -8,7 +8,7 @@ var timed_score_scene = preload("res://scenes/timed_labels/timed_score_label.tsc
 @export var score_value = 10
 
 func _on_tree_exiting():
-	if not Global.creating_thumbnails:
+	if not Global.creating_thumbnails and not Global.quitting:
 		var new_explosion = explosion_scene.instantiate()
 		new_explosion.position = global_position	
 		Global.get_main().add_child.call_deferred(new_explosion)

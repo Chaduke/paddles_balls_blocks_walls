@@ -68,7 +68,7 @@ font_size = 250
 outline_size = 50
 
 [node name="old_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 19.081, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 19.2581, 0)
 text = "The \"Old\" stages are clones of the original fifty game stages that inspired this one from Block 1.30 by Kenta, made in the early 2000s.  
 "
 font = ExtResource("4_ps3a5")
@@ -77,10 +77,32 @@ outline_size = 10
 autowrap_mode = 3
 width = 2000.0
 
-[node name="arcade_mode_desc" type="Label3D" parent="."]
+[node name="new_desc_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 18.9039, 0)
+visible = false
+text = "The \"New\" stages are brand new custom stages created by me, Chaduke.  I plan on creating fifty total, with new block types, powerups and other features. 
+"
+font = ExtResource("4_ps3a5")
+font_size = 170
+outline_size = 10
+autowrap_mode = 3
+width = 2000.0
+
+[node name="arcade_desc_label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6648, 4.70304, 0)
 text = "In \"Arcade\" mode, you start with 3 balls and you earn points for blocks destroyed.  You earn an extra ball every 10000 points.  
 How high can you get?
+"
+font = ExtResource("4_ps3a5")
+font_size = 170
+outline_size = 10
+autowrap_mode = 3
+width = 2000.0
+
+[node name="timed_desc_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6648, 4.74436, 0)
+visible = false
+text = "In \"Timed\" mode, you have 10 balls that reset on completion of every stage, and you try to finish stages as fast as possible.  The game keeps your best times recorded.
 "
 font = ExtResource("4_ps3a5")
 font_size = 170
@@ -104,3 +126,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.876, 23.9053, 0)
 
 [node name="selector_rect_3d2" parent="." instance=ExtResource("9_r20rk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.359, 9.90731, 0)
+id = 1

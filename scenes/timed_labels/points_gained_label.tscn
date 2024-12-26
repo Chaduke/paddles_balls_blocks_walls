@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbsdpewt8ts8q"]
+
+[ext_resource type="Script" path="res://scripts/timed_labels/points_gianed_label.gd" id="1_7de71"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_22kxa"]
+[ext_resource type="AudioStream" uid="uid://byfqp1i6s14mg" path="res://assets/wave/sword_swipe.wav" id="3_oddct"]
+
+[node name="points_gained_label" type="Node3D"]
+script = ExtResource("1_7de71")
+
+[node name="Label3D" type="Label3D" parent="."]
+modulate = Color(1, 1, 0, 1)
+text = "Points Gained 0"
+font = ExtResource("2_22kxa")
+font_size = 350
+outline_size = 50
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="sliding_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oddct")
+autoplay = true
+bus = &"Sound FX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

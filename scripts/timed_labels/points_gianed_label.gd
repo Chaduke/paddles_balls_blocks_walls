@@ -1,13 +1,13 @@
-# stage_cleared_label.gd
+# points_gained_label.gd
 extends Node3D
 
 var lerping = false
-const target_position = Vector3(-2,16.5,-36)
-var blocks_cleared_scene = preload("res://scenes/timed_labels/blocks_cleared_label.tscn")
+const target_position = Vector3(-2,12.5,-36)
+# var points_gained_scene = preload("res://scenes/timed_labels/points_gained_label.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lerping = true
-	$Label3D.text = "Stage " + str(Global.current_stage) + " Cleared!"
+	$Label3D.text = "Points gained : " + str(Global.get_stage().points_gained)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -20,5 +20,6 @@ func _process(_delta: float) -> void:
 			$Timer.start()
 
 func _on_timer_timeout() -> void:
-	var new_scene = blocks_cleared_scene.instantiate()
-	Global.get_stage().add_child(new_scene)
+	pass
+	#var new_scene = points_gained_scene.instantiate()
+	#Global.get_stage().add_child(new_scene)

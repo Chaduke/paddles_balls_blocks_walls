@@ -4,9 +4,12 @@ var current = null
 var lerping = false
 var target_position = Vector3(0,0,0)
 var move_down = true
+@export var id = 0
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("swing_paddle") and current and not lerping:
+		get_parent().play_sliding_sound()
+		get_parent().slider_changed(id,move_down)
 		target_position = global_position
 		if move_down:
 			target_position.y-=1.25
@@ -15,7 +18,6 @@ func _process(_delta: float) -> void:
 			target_position.y+=1.25
 			move_down=true
 		lerping = true
-		get_parent().play_sliding_sound()
 	if lerping: move_to_target()
 
 func _on_area_entered(area: Area3D) -> void:
