@@ -1,7 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dcn6jjvjds3ev"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_qct0r"]
-[ext_resource type="PackedScene" uid="uid://cqykai0fkxblq" path="res://scenes/menus/main_menu.tscn" id="2_u3m40"]
 [ext_resource type="PackedScene" uid="uid://ccv5dudmwpces" path="res://scenes/menus/stage_selection_menu_web.tscn" id="3_iu5p8"]
 [ext_resource type="PackedScene" uid="uid://phyfuyw0hpjf" path="res://scenes/stage.tscn" id="4_mb6a1"]
 [ext_resource type="PackedScene" uid="uid://3381m75yvmic" path="res://scenes/menus/game_over_menu.tscn" id="4_rx3or"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dbpcvj3b5lxed" path="res://scenes/menus/help_menu.tscn" id="11_j2wm8"]
 [ext_resource type="PackedScene" uid="uid://bqv7xrknanwmu" path="res://scenes/menus/help_menu_2.tscn" id="13_766ao"]
 [ext_resource type="PackedScene" uid="uid://df5g72iocw8qk" path="res://scenes/hand_cursor.tscn" id="15_lxcj4"]
+[ext_resource type="PackedScene" uid="uid://tnd8h7srvs4k" path="res://scenes/menus/main_menu_3d.tscn" id="16_3s4ar"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6o1mp"]
 panorama = ExtResource("4_w6qld")
@@ -37,13 +37,6 @@ script = ExtResource("1_qct0r")
 process_mode = 2
 visible = false
 
-[node name="main_menu" parent="." instance=ExtResource("2_u3m40")]
-process_mode = 2
-process_priority = 1
-visible = false
-offset_left = 0.0
-offset_right = 0.0
-
 [node name="settings_menu" parent="." instance=ExtResource("7_yw4vb")]
 process_mode = 2
 visible = false
@@ -60,12 +53,12 @@ visible = false
 
 [node name="camera" type="Camera3D" parent="."]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, -200)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 15, 0)
 fov = 45.0
 script = ExtResource("8_np30c")
 
 [node name="hand_cursor" parent="camera" instance=ExtResource("15_lxcj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -37)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 20, 0)
@@ -138,5 +131,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 30, -37)
 
 [node name="help_menu_2" parent="." instance=ExtResource("13_766ao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 30, -37)
+
+[node name="main_menu_3d" parent="." instance=ExtResource("16_3s4ar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, -37)
 
 [connection signal="timeout" from="ball_gun_timer" to="." method="_on_ball_gun_timer_timeout"]

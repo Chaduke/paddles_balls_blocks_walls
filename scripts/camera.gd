@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if lerping: move_to_target()
 		
-func move_to_target():		
+func move_to_target():
 	var current_position = global_transform.origin
 	if current_position.distance_to(target_position) > 0.01:
 		# Interpolate towards target position 

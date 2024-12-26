@@ -5,12 +5,13 @@ var game_ready = false
 var camera_ready = false
 var elapsed_time = 0.0
 
-func _ready():	
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_globals()
-	if not Global.game_started:
-		$main_menu.show()
-		get_tree().paused = true
-		
+	#if not Global.game_started:		
+		#$main_menu.show()
+		#get_tree().paused = true
+				
 func set_globals():
 	# after each stage is complete 
 	# I call a get_tree().reload_current_scene()

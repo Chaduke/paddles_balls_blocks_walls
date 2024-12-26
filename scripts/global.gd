@@ -52,6 +52,13 @@ var slot4 = false
 var slot5 = false
 var slot6 = false
 
+func toggle_cursor():
+	var cursor = get_main().get_node("camera").get_node("hand_cursor")
+	if cursor.visible:
+		cursor.hide()
+	else:
+		cursor.show()
+	
 func get_main():
 	var m = get_tree().root.get_child(2)
 	return m

@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://tnd8h7srvs4k"]
+
+[ext_resource type="Script" path="res://scripts/menus/main_menu_3d.gd" id="1_6snv3"]
+[ext_resource type="PackedScene" uid="uid://di60k8xnxponj" path="res://assets/models/title_3d.glb" id="2_jufs3"]
+[ext_resource type="PackedScene" uid="uid://ba85juxvpvvr" path="res://assets/models/walls_for_menus.glb" id="3_mpgav"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="4_ps3a5"]
+[ext_resource type="PackedScene" uid="uid://cog1gfsb0iu47" path="res://scenes/menus/play_button_3d.tscn" id="5_d1m3i"]
+[ext_resource type="PackedScene" uid="uid://cnj61jpfqldye" path="res://assets/models/selector_rect_3d.glb" id="5_uv7is"]
+
+[node name="main_menu_3d" type="Node3D"]
+script = ExtResource("1_6snv3")
+
+[node name="title_3d" parent="." instance=ExtResource("2_jufs3")]
+transform = Transform3D(1, 0, 0, 0, 0.996195, -0.0871557, 0, 0.0871557, 0.996195, 8.22402, 20.1908, 0)
+
+[node name="walls_for_menus" parent="." instance=ExtResource("3_mpgav")]
+
+[node name="stages_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 25.2746, 0)
+modulate = Color(1, 1, 0, 1)
+text = "Stages"
+font = ExtResource("4_ps3a5")
+font_size = 300
+outline_size = 50
+
+[node name="game_mode_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7483, 11.3951, 0)
+modulate = Color(1, 1, 0, 1)
+text = "Game Mode"
+font = ExtResource("4_ps3a5")
+font_size = 300
+outline_size = 50
+
+[node name="settings_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.788, 7.29128, 0)
+modulate = Color(0, 1, 1, 1)
+text = "Settings"
+font = ExtResource("4_ps3a5")
+font_size = 500
+outline_size = 50
+
+[node name="quit_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.788, 4.68911, 0)
+modulate = Color(0, 1, 1, 1)
+text = "Quit
+"
+font = ExtResource("4_ps3a5")
+font_size = 500
+outline_size = 50
+
+[node name="old_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 23.8706, 0)
+modulate = Color(1, 0, 1, 1)
+text = "Old"
+font = ExtResource("4_ps3a5")
+font_size = 250
+outline_size = 50
+
+[node name="arcade_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4334, 10.1152, 0)
+modulate = Color(1, 0, 1, 1)
+text = "Arcade"
+font = ExtResource("4_ps3a5")
+font_size = 250
+outline_size = 50
+
+[node name="timed_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3293, 8.76841, 0)
+modulate = Color(1, 0, 1, 1)
+text = "Timed
+"
+font = ExtResource("4_ps3a5")
+font_size = 250
+outline_size = 50
+
+[node name="new_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 22.7636, 0)
+modulate = Color(1, 0, 1, 1)
+text = "New
+"
+font = ExtResource("4_ps3a5")
+font_size = 250
+outline_size = 50
+
+[node name="old_desc_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 19.081, 0)
+text = "The \"Old\" stages are clones of the original fifty game stages that inspired this one from Block 1.30 by Kenta, made in the early 2000s.  
+"
+font = ExtResource("4_ps3a5")
+font_size = 170
+outline_size = 10
+autowrap_mode = 3
+width = 2000.0
+
+[node name="arcade_mode_desc" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6648, 4.70304, 0)
+text = "In \"Arcade\" mode, you start with 3 balls and you earn points for blocks destroyed.  You earn an extra ball every 10000 points.  
+How high can you get?
+"
+font = ExtResource("4_ps3a5")
+font_size = 170
+outline_size = 10
+autowrap_mode = 3
+width = 2000.0
+
+[node name="selector_rect_3d" parent="." instance=ExtResource("5_uv7is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8497, 23.7958, 0)
+
+[node name="selector_rect_3d2" parent="." instance=ExtResource("5_uv7is")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3882, 8.69076, 0)
+
+[node name="play_button_3d" parent="." instance=ExtResource("5_d1m3i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7534, 9.84209, 0)

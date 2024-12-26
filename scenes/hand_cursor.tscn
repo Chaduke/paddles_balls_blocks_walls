@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://df5g72iocw8qk"]
+[gd_scene load_steps=4 format=3 uid="uid://df5g72iocw8qk"]
 
 [ext_resource type="Script" path="res://scripts/hand_cursor.gd" id="1_mtuyc"]
 [ext_resource type="PackedScene" uid="uid://btusvluxh1hqm" path="res://assets/models/hand_cursor.glb" id="2_4rwqm"]
 
-[node name="hand_cursor" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_h656p"]
+size = Vector3(1.32385, 1.2731, 1)
+
+[node name="hand_cursor" type="Area3D"]
 script = ExtResource("1_mtuyc")
 
 [node name="hand_cursor_model" parent="." instance=ExtResource("2_4rwqm")]
+
+[node name="location_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.911656, 0)
+visible = false
+text = "(10,10,10)"
+font_size = 100
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05127, 0.4254, 0)
+shape = SubResource("BoxShape3D_h656p")

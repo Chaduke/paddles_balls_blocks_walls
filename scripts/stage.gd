@@ -88,10 +88,12 @@ func cleanup_stage():
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
 	Global.get_main().get_node("ball_controller").remove_all_balls()
-	# clear_flow_arrows()
-	# clear_metal_blocks()
+	Global.get_main().get_node("paddle").queue_free()
+	clear_flow_arrows()
+	clear_metal_blocks()
 	# get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)	
+	Global.toggle_cursor()
+	
 	
 func clear_flow_arrows():
 	for child in current_blocks.get_children():
