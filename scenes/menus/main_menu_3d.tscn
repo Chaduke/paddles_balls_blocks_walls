@@ -89,6 +89,7 @@ autowrap_mode = 3
 width = 2000.0
 
 [node name="arcade_desc_label" type="Label3D" parent="."]
+process_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6648, 4.70304, 0)
 text = "In \"Arcade\" mode, you start with 3 balls and you earn points for blocks destroyed.  You earn an extra ball every 10000 points.  
 How high can you get?

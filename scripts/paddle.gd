@@ -57,7 +57,7 @@ func normalize():
 	current_size = 8
 	update_paddle_model(current_size)
 
-func _process(_delta):
+func _process(_delta):	
 	if Input.is_action_pressed("swing_paddle"):
 		if OS.get_name() == "Web": Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		if position.y > 0.5:

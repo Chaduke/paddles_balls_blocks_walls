@@ -84,15 +84,15 @@ func pick_random():
 		item_type = "MaxPaddle"
 		
 func _process(delta):
-	if state == MOVING_UP:
-		move_up()
-	elif state == MOVING_DOWN:
-		move_down()
-	elif state == MOVING_RIGHT:
-		move_right()
-	else:
-		elapsed_time+=delta
-		update_timed_item()
+		if state == MOVING_UP:
+			move_up()
+		elif state == MOVING_DOWN:
+			move_down()
+		elif state == MOVING_RIGHT:
+			move_right()
+		else:
+			elapsed_time+=delta
+			update_timed_item()
 
 func move_up():	
 	if position.y < start_position.y + 2:
@@ -103,7 +103,7 @@ func move_up():
 func move_down():
 	if position.y < 0:
 		queue_free()
-		return		
+		return
 	var collision = move_and_collide(Vector3(0,-0.1,0))
 	rotation.x+=0.1
 	if collision:
@@ -200,7 +200,7 @@ func update_timed_item():
 
 func check_existing_items():
 	# make sure it is in the list of item types we want to "time increment"
-	if item_type in ["InfiniteBalls","GravityReverse","MaxPaddle"]:		
+	if item_type in ["InfiniteBalls","GravityReverse","MaxPaddle"]:	
 		for child in Global.get_main().get_children():
 			# make sure it's not us, but is this class
 			if child != self and child is PickupItem:

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1xyv2ipq6mhn"]
+
+[ext_resource type="Script" path="res://scripts/timed_labels/click_to_continue_label.gd" id="1_5wwun"]
+[ext_resource type="FontFile" uid="uid://y2fv3f1jprtd" path="res://assets/fonts/bb.ttf" id="2_cm6bg"]
+[ext_resource type="AudioStream" uid="uid://byfqp1i6s14mg" path="res://assets/wave/sword_swipe.wav" id="3_m003j"]
+
+[node name="click_to_continue_label" type="Node3D"]
+script = ExtResource("1_5wwun")
+
+[node name="Label3D" type="Label3D" parent="."]
+modulate = Color(1, 0, 0, 1)
+text = "Click to Continue"
+font = ExtResource("2_cm6bg")
+font_size = 350
+outline_size = 50
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="sliding_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_m003j")
+autoplay = true
+bus = &"Sound FX"
+
+[node name="location_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1442, 0)
+visible = false
+text = "(0,0,0)"
+font_size = 100

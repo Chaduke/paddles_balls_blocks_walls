@@ -14,9 +14,14 @@ func clean_and_quit():
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_globals()
-	#if not Global.game_started:		
+	#if not Global.game_started:
 		#$main_menu.show()
 		#get_tree().paused = true
+	if Global.game_started:
+		$camera.position = Vector3(0,15,0)
+		$camera/hand_cursor.hide()
+	else:
+		Global.set_paused(true)
 				
 func set_globals():
 	# after each stage is complete 
@@ -68,8 +73,7 @@ func set_game_ready():
 	
 func get_input():
 	if Input.is_action_just_pressed("ui_cancel"):
-		if elapsed_time > 0.1 : toggle_main_menu()
-		
+		toggle_main_menu()
 	if Input.is_action_just_pressed("spawn_ball") and game_ready:
 		if Global.game_mode==Global.TIMED:
 			$ball_controller.spawn_ball()
@@ -81,8 +85,7 @@ func get_input():
 					MusicServer.play_music()
 			else:
 				#print("No ball to remove")
-				pass
-			
+				pass			
 	if Input.is_action_just_pressed("settings"):
 		if elapsed_time > 0.1 : toggle_settings()
 	if Input.is_action_just_pressed("reset"):
@@ -95,62 +98,59 @@ func get_input():
 	if Input.is_action_just_pressed("help_menu"):
 		toggle_help_menu()
 
-func toggle_stage_selection():
-	if OS.get_name() == "Web":
+func toggle_stage_selection():	
 		$stage_selection_menu_web.show()
 		$stage_selection_menu_web.elapsed_time = 0.0
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
-	else:
-		$stage_selection_menu_web.show()
-		$stage_selection_menu_web.elapsed_time = 0.0
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
+		Global.set_paused(true)
+		Global.enable_cursor(false)
 
 func toggle_help_menu():
 	if $help_menu.active:
 		$camera.lerping = true
 		$camera.target_position = Vector3(0,15,0)
 		$help_menu.active = false
+		Global.set_paused(false)
+		Global.enable_cursor(false)
 	else:
 		$camera.lerping = true
 		$camera.target_position = Vector3(0,45,0)
 		$help_menu.active = true
+		Global.set_paused(true)
+		Global.enable_cursor(true)
 
 func toggle_main_menu():
 	if $main_menu_3d.active:
 		$camera.target_position = Vector3(0,15,0)
 		$camera.lerping = true
 		$main_menu_3d.active = false
+		Global.enable_cursor(false)
+		Global.set_paused(false)
 	else:
 		$camera.target_position = Vector3(48,15,0)
 		$camera.lerping = true
 		$main_menu_3d.active = true
-	Global.toggle_cursor()
-		
-		
-	#get_tree().paused = true
+		Global.enable_cursor(true)
+		Global.set_paused(true)
 			
 func toggle_settings():
 		$settings_menu.show()
 		$settings_menu.elapsed_time = 0.0
-		get_tree().paused = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Global.set_paused(true)
+		Global.enable_cursor(false)
 			
 func game_over():
 	$game_over_menu.show()
 	set_globals()
-	get_tree().paused = true
+	Global.set_paused(true)
 	Global.stage_started = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func restart_stage():
 	# called from game_over_menu.gd
-	$game_over_menu.hide()
-	get_tree().paused = false
+	$game_over_menu.hide()	
 	if Global.game_mode == Global.ARCADE : Global.balls_left = 3
 	get_tree().reload_current_scene()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _on_ball_gun_timer_timeout():
 	$ball_controller.spawn_ball()

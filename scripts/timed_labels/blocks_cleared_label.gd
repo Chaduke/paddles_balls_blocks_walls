@@ -12,6 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if lerping:
+		$location_label.text = str(position)
 		if global_position.distance_to(target_position) > 1:
 			var new_position = global_position.lerp(target_position, 0.1) 
 			global_position = new_position

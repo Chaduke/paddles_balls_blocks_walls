@@ -16,7 +16,7 @@ func _ready() -> void:
 	velocity.y = -acceleration.y
 	target_position = Global.get_stage().get_node("score_label").global_position
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
 	if lerping:
 		if global_position.distance_to(target_position) > 1:
 			var new_position = global_position.lerp(target_position, 0.1) 

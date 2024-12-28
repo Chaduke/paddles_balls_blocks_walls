@@ -39,14 +39,11 @@ func update_labels():
 		$new_best_total_time_label.hide()
 	
 func _on_next_stage_button_pressed():
-	hide()
-	var main_scene = get_tree().root.get_child(2)
-	var stage_scene = main_scene.find_child("stage")
-	stage_scene.load_next_stage()
+	hide()	
+	Global.get_stage().load_next_stage()
 
-func _on_quit_button_pressed():
-	var main_scene = get_tree().root.get_child(2)
-	var confirm = main_scene.find_child("confirm_quit_menu")
+func _on_quit_button_pressed():	
+	var confirm = Global.get_main().find_child("confirm_quit_menu")
 	confirm.show()
 	confirm.previous_menu = self
 	hide()

@@ -10,12 +10,15 @@ var cleared = false
 var blocks_cleared = 0
 var points_gained = 0
 
-func _ready():	
+func _ready():
 	add_scene_paths()
 	load_stage()
 	if not Global.show_background_3d:
 		$background_3d.hide()
 	Global.update_score(0)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if Global.game_mode==Global.ARCADE:
+		adjust_ball_display()
 		
 func start_rsg():
 	ticks = 0
@@ -55,7 +58,8 @@ func adjust_ball_display():
 			var spare_ball_name = "ball_regular" + str(i)
 			var ball_to_remove = $spare_balls.get_node(spare_ball_name)
 			#print("Removing " + spare_ball_name)
-			ball_to_remove.queue_free()
+			if ball_to_remove:
+				ball_to_remove.queue_free()
 	
 func load_stage():
 	Global.load_times()
@@ -89,12 +93,16 @@ func cleanup_stage():
 	Global.stage_started = false
 	Global.get_main().get_node("ball_controller").remove_all_balls()
 	Global.get_main().get_node("paddle").queue_free()
+	clear_pickup_items()
 	clear_flow_arrows()
 	clear_metal_blocks()
 	# get_tree().paused = true
-	Global.toggle_cursor()
-	
-	
+
+func clear_pickup_items():
+	for child in Global.get_main().get_children():
+		if child is PickupItem:
+			child.queue_free()
+			
 func clear_flow_arrows():
 	for child in current_blocks.get_children():
 		if child.is_in_group("FlowArrows"):
@@ -120,7 +128,6 @@ func load_next_stage():
 	else:
 		get_tree().paused = false
 		get_tree().reload_current_scene()
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func get_breakable_count():
 	var all_blocks = current_blocks.get_children()

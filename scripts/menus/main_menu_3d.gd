@@ -4,9 +4,6 @@ var spin_sound = preload("res://assets/wave/sword_swipe.wav")
 var click_sound = preload("res://assets/wave/keyboard_click.wav")
 var sliding_sound = preload("res://assets/wave/sliding.wav")
 var active = true
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -14,21 +11,35 @@ func _process(delta: float) -> void:
 	if angle > 360:
 		angle = 0.0
 	$title_3d.rotation.y = sin(angle) * 0.3
-
+	
 func start_game():
 	active = false
 	var camera = Global.get_main().get_node("camera")
 	camera.target_position = Vector3(0,15,0)
 	camera.lerping = true
 	$play_button_3d.get_node("Label3D").text = "Resume Game"
-	get_tree().paused = false
 	Global.game_started = true
 	Global.stage_selected = false
-	Global.toggle_cursor()
+	Global.enable_cursor(false)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.get_main().set_globals()
-	if Global.game_mode == Global.ARCADE:
-		Global.get_stage().adjust_ball_display()
+	hide_labels()
+	Global.set_paused(false)
 
+func hide_labels():
+	$game_mode_label.hide()
+	$arcade_label.hide()
+	$timed_label.hide()
+	$selector_rect_3d.hide()
+	$selector_rect_3d2.hide()
+	$arcade_desc_label.hide()
+	$timed_desc_label.hide()
+	$stages_label.hide()
+	$old_label.hide()
+	$new_label.hide()
+	$old_desc_label.hide()
+	$new_desc_label.hide()
+	
 func play_spin_sound():
 	$AudioStreamPlayer.stream = spin_sound
 	$AudioStreamPlayer.play()

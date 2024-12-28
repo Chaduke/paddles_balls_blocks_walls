@@ -53,19 +53,32 @@ var slot4 = false
 var slot5 = false
 var slot6 = false
 
-func toggle_cursor():
-	var cursor = get_main().get_node("camera").get_node("hand_cursor")
-	if cursor.visible:
-		cursor.hide()
+func set_paused(state):
+	if state:
+		get_tree().paused = true
+		PhysicsServer3D.set_active(true)
 	else:
-		cursor.show()
+		get_tree().paused = false
+
+func enable_cursor(enabled):
+	if enabled:
+		get_cursor().show()
+		get_cursor().active = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		get_cursor().hide()
+		get_cursor().active = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+func get_cursor():
+	var cursor = get_main().get_node("camera").get_node("hand_cursor")
+	return cursor
 	
 func get_main():
-	var m = get_tree().root.get_child(2)
-	return m
+	return get_tree().root.get_child(2)
 	
 func get_stage():
-	return get_main().find_child("stage")
+	return get_main().get_node("stage")
 	
 func ball_offset():
 	return (current_ball_size / 4.0 + 0.5)

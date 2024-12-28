@@ -90,11 +90,11 @@ func _on_resume_button_pressed():
 func resume_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hide()
-	get_tree().paused = false	
-	Global.get_main().elapsed_time = 0.0	
+	get_tree().paused = false
+	Global.get_main().elapsed_time = 0.0
 
 func _on_settings_button_pressed():
-	hide()	
+	hide()
 	Global.get_main().get_node("settings_menu").show()
 
 func _on_start_button_mouse_entered() -> void:

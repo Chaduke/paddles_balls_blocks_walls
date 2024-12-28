@@ -22,4 +22,10 @@ stream = ExtResource("3_73mxg")
 autoplay = true
 bus = &"Sound FX"
 
+[node name="location_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1211, 0)
+visible = false
+text = "(0,0,0)"
+font_size = 100
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

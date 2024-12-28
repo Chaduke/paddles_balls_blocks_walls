@@ -7,5 +7,6 @@ assets/fonts/*.import
 assets/images/*.import
 assets/models/*.import
 assets/wave/*.import
+assets/wave/*.asd
 icon.svg.import
 

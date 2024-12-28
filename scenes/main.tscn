@@ -50,6 +50,7 @@ process_mode = 2
 visible = false
 
 [node name="ball_controller" parent="." instance=ExtResource("7_bqjly")]
+process_mode = 1
 
 [node name="camera" type="Camera3D" parent="."]
 process_mode = 3
@@ -126,13 +127,15 @@ horizontal_alignment = 2
 wait_time = 0.1
 
 [node name="help_menu" parent="." instance=ExtResource("11_j2wm8")]
-process_mode = 3
+process_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5, 30, -37)
 
 [node name="help_menu_2" parent="." instance=ExtResource("13_766ao")]
+process_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 30, -37)
 
 [node name="main_menu_3d" parent="." instance=ExtResource("16_3s4ar")]
+process_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0, -37)
 
 [connection signal="timeout" from="ball_gun_timer" to="." method="_on_ball_gun_timer_timeout"]
