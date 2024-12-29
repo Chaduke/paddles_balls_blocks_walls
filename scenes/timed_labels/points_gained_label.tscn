@@ -15,6 +15,7 @@ font_size = 350
 outline_size = 50
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="sliding_sound" type="AudioStreamPlayer" parent="."]

@@ -279,8 +279,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 22.5, 0)
 
 [node name="flow_arrows_right" parent="." instance=ExtResource("8_3g0jc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 23.5, 0)
-lateral_force = 10
+lateral_force = 20
 vertical_damping = 0.5
+
+[node name="flow_arrows_right3" parent="." instance=ExtResource("8_3g0jc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 23.5, 0)
+lateral_force = 10
+vertical_damping = 1.0
 
 [node name="flow_arrows_right2" parent="." instance=ExtResource("8_3g0jc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 27.5, 0)
@@ -288,8 +293,14 @@ vertical_damping = 0.5
 
 [node name="flow_arrows_left" parent="." instance=ExtResource("9_slfgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 23.5, 0)
-lateral_force = 10
+lateral_force = 20
 vertical_damping = 0.5
+
+[node name="flow_arrows_left3" parent="." instance=ExtResource("9_slfgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 23.5, 0)
+lateral_force = 10
+vertical_damping = 1.0
+metadata/_edit_group_ = true
 
 [node name="flow_arrows_left2" parent="." instance=ExtResource("9_slfgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 27.5, 0)
@@ -297,12 +308,16 @@ vertical_damping = 0.5
 
 [node name="flow_arrows_down" parent="." instance=ExtResource("10_xv58i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 26.5, 0)
+downward_impulse_amount = 5.0
 
 [node name="flow_arrows_down2" parent="." instance=ExtResource("10_xv58i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 26.5, 0)
+downward_impulse_amount = 5.0
 
 [node name="flow_arrows_down3" parent="." instance=ExtResource("10_xv58i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 27.5, 0)
+downward_impulse_amount = 15.0
+lateral_damping = 1.0
 
 [node name="flow_arrows_up" parent="." instance=ExtResource("11_pb0h1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 15.5, 0)
@@ -312,9 +327,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 15.5, 0)
 
 [node name="block_magnet" parent="." instance=ExtResource("12_i0y40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 24.5, 0)
+influence_x = 1
+influence_y = 5
+
+[node name="block_magnet3" parent="." instance=ExtResource("12_i0y40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 24.5, 0)
+influence_x = 5
+influence_y = 5
 
 [node name="block_magnet2" parent="." instance=ExtResource("12_i0y40")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 24.5, 0)
+influence_x = 1
+influence_y = 5
 
 [node name="block_green" parent="." instance=ExtResource("13_jhk8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 14.5, 0)

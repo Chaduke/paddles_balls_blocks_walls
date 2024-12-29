@@ -4,13 +4,22 @@ var spin_sound = preload("res://assets/wave/sword_swipe.wav")
 var click_sound = preload("res://assets/wave/keyboard_click.wav")
 var sliding_sound = preload("res://assets/wave/sliding.wav")
 var active = true
+var elapsed_time = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	elapsed_time += delta
 	angle+=delta * 0.5
 	if angle > 360:
 		angle = 0.0
 	$title_3d.rotation.y = sin(angle) * 0.3
+	if Input.is_action_just_pressed("ui_cancel") and Global.game_started and elapsed_time > 0.1:
+		Global.get_main().toggle_main_menu()
+	
+func _ready():
+	if Global.game_started:
+		$play_button_3d.get_node("Label3D").text = "Resume Game"
+		hide_labels()
 	
 func start_game():
 	active = false

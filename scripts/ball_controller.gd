@@ -88,6 +88,7 @@ func attach_ball_to_paddle():
 		#print("Balls list length is " + str(len(balls)))
 
 func remove_all_balls():
+	Global.get_main().get_node("ball_gun_timer").stop()
 	for ball in balls:
 		ball.queue_free()
 
@@ -148,7 +149,7 @@ func create_procedural_ball():
 	mesh_instance.mesh = sphere_mesh 
 	# Step 3: Create and configure StandardMaterial3D 
 	var material = StandardMaterial3D.new() 
-	material.albedo_color = Color(1, 0.49, 1) 
+	material.albedo_color = Color(1.0,0.5,1.0,1.0) 
 	# RGB: 255, 125, 255 (pink)
 	material.metallic = 0.3 
 	material.roughness = 0.3 

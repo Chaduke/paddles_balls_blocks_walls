@@ -1,5 +1,5 @@
 # pickup_item.gd
-class_name PickupItem extends CharacterBody3D
+class_name PickupItem extends Area3D
 @export var item_type: String = "Random"
 
 # the default pickup item timer is just 1
@@ -37,6 +37,7 @@ var infinite_balls_sound = preload("res://assets/wave/infinite_balls.wav")
 var large_balls_sound = preload("res://assets/wave/large_balls.wav")
 var small_balls_sound = preload("res://assets/wave/small_balls.wav")
 var gravity_reverse_sound = preload("res://assets/wave/gravity_reverse.wav")
+var paddle_collision = false
 
 func _ready():
 	state = MOVING_UP
@@ -101,17 +102,17 @@ func move_up():
 		state = MOVING_DOWN
 		
 func move_down():
+	position.y -= 0.1
+	rotation.x+=0.1
 	if position.y < 0:
 		queue_free()
-		return
-	var collision = move_and_collide(Vector3(0,-0.1,0))
-	rotation.x+=0.1
-	if collision:
-		# check for empty slot and set target location
-		if set_target_position():
-			enable_item_effect()
-		else:
-			queue_free()
+	else:
+		if paddle_collision:
+			# check for empty slot and set target location
+			if set_target_position():
+				enable_item_effect()
+			else:
+				queue_free()
 
 func enable_item_effect():
 	var paddle=Global.get_main().get_node("paddle")
@@ -236,4 +237,7 @@ func set_target_position():
 		return true
 	else:
 		return false
-		
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is Paddle:
+		paddle_collision = true

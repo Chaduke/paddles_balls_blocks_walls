@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cyr6mmhnjre2p" path="res://assets/wave/paddle.wav" id="4_ug1eg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aht7i"]
-albedo_color = Color(1, 0.490196, 1, 1)
+albedo_color = Color(1, 0.270588, 0.843137, 1)
 metallic = 0.3
 metallic_specular = 0.48
 roughness = 0.3

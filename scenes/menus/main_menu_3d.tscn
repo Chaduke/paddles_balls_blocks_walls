@@ -68,7 +68,7 @@ font_size = 250
 outline_size = 50
 
 [node name="old_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 19.2581, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 18.1002, 0)
 text = "The \"Old\" stages are clones of the original fifty game stages that inspired this one from Block 1.30 by Kenta, made in the early 2000s.  
 "
 font = ExtResource("4_ps3a5")
@@ -78,7 +78,7 @@ autowrap_mode = 3
 width = 2000.0
 
 [node name="new_desc_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 18.9039, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8581, 18.0132, 0)
 visible = false
 text = "The \"New\" stages are brand new custom stages created by me, Chaduke.  I plan on creating fifty total, with new block types, powerups and other features. 
 "
@@ -112,13 +112,13 @@ autowrap_mode = 3
 width = 2000.0
 
 [node name="play_button_3d" parent="." instance=ExtResource("5_d1m3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7534, 9.84209, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7534, 11.4008, 0)
 
 [node name="settings_button_3d" parent="." instance=ExtResource("7_goyks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5977, 7.02239, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5977, 7.55682, 0)
 
 [node name="settings_button_3d2" parent="." instance=ExtResource("8_fc77n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.44, 4.254, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.44, 3.3633, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

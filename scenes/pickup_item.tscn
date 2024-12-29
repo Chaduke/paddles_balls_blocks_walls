@@ -13,7 +13,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_wdw47"]
 size = Vector3(2, 1, 1)
 
-[node name="pickup_item" type="CharacterBody3D"]
+[node name="pickup_item" type="Area3D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_t3jms")
@@ -51,3 +51,5 @@ visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Sound FX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

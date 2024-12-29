@@ -9,6 +9,8 @@ var stage_cleared_label_scene=preload("res://scenes/timed_labels/stage_cleared_l
 var cleared = false
 var blocks_cleared = 0
 var points_gained = 0
+var starting_score = 0
+var starting_balls = 0
 
 func _ready():
 	add_scene_paths()
@@ -18,8 +20,10 @@ func _ready():
 	Global.update_score(0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if Global.game_mode==Global.ARCADE:
-		adjust_ball_display()
-		
+		starting_balls = Global.balls_left
+		starting_score = Global.score
+		adjust_ball_display()	
+	
 func start_rsg():
 	ticks = 0
 	$rsg_timer.start()

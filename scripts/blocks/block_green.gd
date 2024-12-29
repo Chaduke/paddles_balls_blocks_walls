@@ -7,6 +7,8 @@ class_name BlockGreen
 var explosion_scene = preload("res://scenes/explosions/block_green_explosion.tscn")
 var seed_scene = preload("res://scenes/blocks/seed.tscn")
 var reborn = false
+var timed_score_scene = preload("res://scenes/timed_labels/timed_score_label.tscn")
+@export var score_value = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,4 +23,10 @@ func _on_tree_exiting() -> void:
 		var new_block = seed_scene.instantiate()
 		new_block.position = position
 		Global.get_stage().current_blocks.add_child.call_deferred(new_block)
+		
+		var timed_score = timed_score_scene.instantiate()
+		timed_score.position = global_position
+		timed_score.position.z += 1
+		timed_score.set_score(score_value)
+		Global.get_main().add_child.call_deferred(timed_score)
 	

@@ -38,7 +38,7 @@ offset_right = 1016.0
 offset_bottom = 691.0
 theme_override_fonts/font = ExtResource("2_grbse")
 theme_override_font_sizes/font_size = 50
-text = "Restart Level"
+text = "Restart Stage"
 
 [node name="quit_button" type="Button" parent="."]
 layout_mode = 0

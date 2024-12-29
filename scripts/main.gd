@@ -124,11 +124,13 @@ func toggle_main_menu():
 		$camera.lerping = true
 		$main_menu_3d.active = false
 		Global.enable_cursor(false)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		Global.set_paused(false)
 	else:
 		$camera.target_position = Vector3(48,15,0)
 		$camera.lerping = true
 		$main_menu_3d.active = true
+		$main_menu_3d.elapsed_time = 0.0
 		Global.enable_cursor(true)
 		Global.set_paused(true)
 			
@@ -147,10 +149,13 @@ func game_over():
 
 func restart_stage():
 	# called from game_over_menu.gd
-	$game_over_menu.hide()	
-	if Global.game_mode == Global.ARCADE : Global.balls_left = 3
+	$game_over_menu.hide()
+	if Global.game_mode == Global.ARCADE : 
+		Global.balls_left = Global.get_stage().starting_balls
+		Global.score = Global.get_stage().starting_score
 	get_tree().reload_current_scene()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.set_paused(false)
 	
 func _on_ball_gun_timer_timeout():
 	$ball_controller.spawn_ball()
