@@ -33,13 +33,13 @@ func _on_tree_exiting():
 		# add explosion	
 		var new_explosion = explosion_scene.instantiate()
 		new_explosion.position = global_position
-		Global.get_main().add_child.call_deferred(new_explosion)
+		GameStateManager.main_scene.add_child.call_deferred(new_explosion)
 		if leave_cracked:
 			var cracked = block_magnet_cracked_scene.instantiate()
 			cracked.position = position 
 			cracked.influence_x = influence_x * 0.5
 			cracked.influence_y = influence_y * 0.5
-			Global.get_stage().add_child.call_deferred(cracked)
+			GameStateManager.main_scene.stage.add_child.call_deferred(cracked)
 
 func _on_magnetic_influence_area_entered(area: Area3D) -> void:
 	if area is BallClassic:

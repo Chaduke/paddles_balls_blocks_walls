@@ -4,6 +4,9 @@ extends Node3D
 var game_ready = false
 var camera_ready = false
 var elapsed_time = 0.0
+var stage_scene = preload("res://scenes/stage.tscn")
+var stage 
+var camera
 
 func clean_and_quit():
 	print("Removing all resources then exiting...")
@@ -12,17 +15,24 @@ func clean_and_quit():
 	get_tree().quit()
 	
 func _ready():
+	camera = $camera
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_globals()
 	#if not Global.game_started:
 		#$main_menu.show()
 		#get_tree().paused = true
 	if Global.game_started:
+		add_stage()
 		$camera.position = Vector3(0,15,0)
 		$camera/hand_cursor.hide()
 	else:
 		Global.set_paused(true)
-				
+
+func add_stage():
+	stage = stage_scene.instantiate()
+	stage.position = Vector3(-18.5,0,-37)	
+	add_child(stage)
+	
 func set_globals():
 	# after each stage is complete 
 	# I call a get_tree().reload_current_scene()
@@ -105,18 +115,21 @@ func toggle_stage_selection():
 		Global.enable_cursor(false)
 
 func toggle_help_menu():
-	if $help_menu.active:
-		$camera.lerping = true
-		$camera.target_position = Vector3(0,15,0)
-		$help_menu.active = false
-		Global.set_paused(false)
-		Global.enable_cursor(false)
-	else:
-		$camera.lerping = true
-		$camera.target_position = Vector3(0,45,0)
-		$help_menu.active = true
-		Global.set_paused(true)
-		Global.enable_cursor(true)
+	if elapsed_time > 0.1:
+		if $help_menu.active:
+			$camera.lerping = true
+			$camera.target_position = Vector3(0,15,0)
+			$help_menu.active = false
+			Global.set_paused(false)
+			Global.enable_cursor(false)
+			elapsed_time = 0.0
+		else:
+			$camera.lerping = true
+			$camera.target_position = Vector3(0,45,0)
+			$help_menu.active = true
+			$help_menu.elapsed_time = 0.0
+			Global.set_paused(true)
+			Global.enable_cursor(true)
 
 func toggle_main_menu():
 	if $main_menu_3d.active:
@@ -127,7 +140,7 @@ func toggle_main_menu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		Global.set_paused(false)
 	else:
-		$camera.target_position = Vector3(48,15,0)
+		$camera.target_position = Vector3(81.5,15,0)
 		$camera.lerping = true
 		$main_menu_3d.active = true
 		$main_menu_3d.elapsed_time = 0.0
@@ -151,8 +164,8 @@ func restart_stage():
 	# called from game_over_menu.gd
 	$game_over_menu.hide()
 	if Global.game_mode == Global.ARCADE : 
-		Global.balls_left = Global.get_stage().starting_balls
-		Global.score = Global.get_stage().starting_score
+		Global.balls_left = GameStateManager.main_scene.stage.starting_balls
+		Global.score = GameStateManager.main_scene.stage.starting_score
 	get_tree().reload_current_scene()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.set_paused(false)

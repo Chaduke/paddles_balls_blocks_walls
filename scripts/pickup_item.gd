@@ -115,7 +115,7 @@ func move_down():
 				queue_free()
 
 func enable_item_effect():
-	var paddle=Global.get_main().get_node("paddle")
+	var paddle=GameStateManager.main_scene.get_node("paddle")
 	if item_type == "Grower":
 		$AudioStreamPlayer.stream = grower_sound
 		$AudioStreamPlayer.play()
@@ -151,20 +151,20 @@ func reverse_gravity():
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
 	Vector3(0, 1, 0))
-	Global.get_main().get_node("ball_controller").reverse_gravity()
+	GameStateManager.main_scene.get_node("ball_controller").reverse_gravity()
 			
 func restore_gravity():
 	Global.gravity_reversed = false
 	PhysicsServer3D.area_set_param(get_world_3d().space, 
 	PhysicsServer3D.AREA_PARAM_GRAVITY_VECTOR, 
 	Vector3(0, -1, 0))
-	Global.get_main().get_node("ball_controller").restore_gravity()
+	GameStateManager.main_scene.get_node("ball_controller").restore_gravity()
 				
 func grow_balls():
 	var current = Global.current_ball_size
 	if current < 4:
 		Global.current_ball_size *=2
-		Global.get_main().get_node("ball_controller").update_ball_size()
+		GameStateManager.main_scene.get_node("ball_controller").update_ball_size()
 
 func shrink_balls():
 	var current = Global.current_ball_size
@@ -172,7 +172,7 @@ func shrink_balls():
 		@warning_ignore("integer_division")
 		Global.current_ball_size = int(Global.current_ball_size/2)
 		# print("Current ball size shrunk to " + str(Global.current_ball_size))		
-		Global.get_main().get_node("ball_controller").update_ball_size()
+		GameStateManager.main_scene.get_node("ball_controller").update_ball_size()
 		
 func move_right():
 	# Current position 
@@ -196,13 +196,13 @@ func update_timed_item():
 		elif item_type == "InfiniteBalls":
 			Global.infinite_balls = false
 		elif item_type == "MaxPaddle":
-			Global.get_main().get_node("paddle").normalize()
+			GameStateManager.main_scene.get_node("paddle").normalize()
 		queue_free()
 
 func check_existing_items():
 	# make sure it is in the list of item types we want to "time increment"
 	if item_type in ["InfiniteBalls","GravityReverse","MaxPaddle"]:	
-		for child in Global.get_main().get_children():
+		for child in GameStateManager.main_scene.get_children():
 			# make sure it's not us, but is this class
 			if child != self and child is PickupItem:
 				# make sure the item types match

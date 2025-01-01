@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/global.gd"
 MusicServer="*res://scenes/music_server.tscn"
+GameStateManager="*res://scripts/GameStateManager.gd"
 
 [display]
 
@@ -33,7 +34,7 @@ window/size/always_on_top=true
 
 [editor]
 
-movie_writer/movie_file="D:/blender/block2025/videos/devlog20241222/playability.avi"
+movie_writer/movie_file="D:/blender/block2025/videos/devlog20241229/menus.avi"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
@@ -102,3 +103,14 @@ common/physics_ticks_per_second=180
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/screen_space_roughness_limiter/enabled=false
+
+[shader_globals]
+
+tree_wind_size={
+"type": "vec4",
+"value": Vector4(50, 100, 5, 0.5)
+}
+tree_wind_power={
+"type": "vec3",
+"value": Vector3(0.05, 0.05, 0.001)
+}

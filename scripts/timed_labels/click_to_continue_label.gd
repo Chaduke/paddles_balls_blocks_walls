@@ -20,4 +20,4 @@ func _process(_delta: float) -> void:
 			lerping = false
 	else:
 		if Input.is_action_just_pressed("swing_paddle"):
-			Global.get_stage().load_next_stage()
+			GameStateManager.main_scene.stage.load_next_stage()

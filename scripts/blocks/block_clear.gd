@@ -29,7 +29,7 @@ func disable_collision():
 	$CollisionShape3D.disabled = true
 	
 func release_ball():
-	var ball_controller = Global.get_main().get_node("ball_controller")
+	var ball_controller = GameStateManager.main_scene.get_node("ball_controller")
 	var ball_instance = ball_controller.create_ball_instance()
 	ball_instance.position = global_transform.origin
 	var rng = RandomNumberGenerator.new() 
@@ -43,13 +43,13 @@ func release_ball():
 		ball_instance.velocity.y = 20
 	ball_instance.released = true
 	ball_controller.balls.append(ball_instance) 
-	Global.get_main().add_child.call_deferred(ball_instance)
+	GameStateManager.main_scene.add_child.call_deferred(ball_instance)
 	
 	var timed_score = timed_score_scene.instantiate()
 	timed_score.position = global_position
 	timed_score.position.z += 1
 	timed_score.set_score(score_value)
-	Global.get_main().add_child.call_deferred(timed_score)
+	GameStateManager.main_scene.add_child.call_deferred(timed_score)
 
 func _on_timer_timeout():
 	if (current_ball < total_balls):

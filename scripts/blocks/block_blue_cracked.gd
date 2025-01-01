@@ -17,12 +17,12 @@ func _on_area_entered(area):
 func explode_and_exit():	
 	var new_explosion = explosion_scene.instantiate()
 	new_explosion.position = global_position
-	Global.get_main().add_child.call_deferred(new_explosion)
+	GameStateManager.main_scene.add_child.call_deferred(new_explosion)
 	
 	var timed_score = timed_score_scene.instantiate()
 	timed_score.position = global_position
 	timed_score.position.z += 1
 	timed_score.set_score(score_value)
-	Global.get_main().add_child.call_deferred(timed_score)
+	GameStateManager.main_scene.add_child.call_deferred(timed_score)
 	
 	queue_free()

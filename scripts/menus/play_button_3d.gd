@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		current = null
 		get_parent().play_click_sound()
 		if Global.game_started:
-			Global.get_main().toggle_main_menu()
+			GameStateManager.main_scene.toggle_main_menu()
 		else:
 			get_parent().start_game()
 		

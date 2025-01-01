@@ -14,7 +14,7 @@ func _ready() -> void:
 	acceleration.y = randf_range(-5,5)
 	velocity.x = -acceleration.x
 	velocity.y = -acceleration.y
-	target_position = Global.get_stage().get_node("score_label").global_position
+	target_position = GameStateManager.main_scene.stage.get_node("score_label").global_position
 
 func _process(delta: float) -> void:	
 	if lerping:

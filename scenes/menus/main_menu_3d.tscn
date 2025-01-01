@@ -128,3 +128,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.876, 23.9053, 0)
 [node name="selector_rect_3d2" parent="." instance=ExtResource("9_r20rk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.359, 9.90731, 0)
 id = 1
+
+[node name="version_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9368, 27.3368, 0)
+text = "Version 0.0.0"
+font = ExtResource("4_ps3a5")
+font_size = 200
+outline_size = 50
+
+[node name="platform_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9368, 26.3236, 0)
+text = "Platform xxxxx"
+font = ExtResource("4_ps3a5")
+font_size = 200
+outline_size = 50
+
+[node name="click_capture_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4246, 22.8141, 0)
+modulate = Color(1, 0.466667, 0, 1)
+text = "Click to Capture Mouse Pointer"
+font = ExtResource("4_ps3a5")
+font_size = 200
+outline_size = 50

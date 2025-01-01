@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("swing_paddle") and current:
 		current = null
-		Global.get_main().clean_and_quit()
+		GameStateManager.main_scene.clean_and_quit()
 		
 func _on_area_entered(area: Area3D) -> void:
 	#print("Area : " + area.name + " entered mine")

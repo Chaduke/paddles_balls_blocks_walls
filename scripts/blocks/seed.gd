@@ -17,14 +17,14 @@ func _on_body_entered(body: Node3D) -> void:
 func explode_and_exit():	
 	var new_explosion = seed_explosion.instantiate()
 	new_explosion.position = global_position	
-	Global.get_main().add_child.call_deferred(new_explosion)	
+	GameStateManager.main_scene.add_child.call_deferred(new_explosion)	
 	
 	var timed_score = timed_score_scene.instantiate()
 	timed_score.position = global_position
 	timed_score.position.z += 1
 	timed_score.set_score(score_value)
 	timed_score.get_node("Label3D").modulate = Color(1.0,0.0,0.0,1.0)
-	Global.get_main().add_child.call_deferred(timed_score)
+	GameStateManager.main_scene.add_child.call_deferred(timed_score)
 	
 	queue_free()
 
@@ -33,7 +33,7 @@ func _on_germination_timer_timeout() -> void:
 	var new_block = green_block_scene.instantiate()
 	new_block.reborn = true 
 	new_block.position = position
-	Global.get_stage().current_blocks.add_child.call_deferred(new_block)
+	GameStateManager.main_scene.stage.current_blocks.add_child.call_deferred(new_block)
 	
 	
 	

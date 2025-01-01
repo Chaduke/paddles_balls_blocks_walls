@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("select_stage") and elapsed_time > 0.1:
 			hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.get_main().elapsed_time = 0.0
+			GameStateManager.main_scene.elapsed_time = 0.0
 			get_tree().paused = false
 		if Input.is_action_just_pressed("ui_text_caret_left"):
 			previous_page()

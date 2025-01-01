@@ -21,4 +21,4 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var new_scene = blocks_cleared_scene.instantiate()
-	Global.get_stage().add_child(new_scene)
+	GameStateManager.main_scene.stage.add_child(new_scene)

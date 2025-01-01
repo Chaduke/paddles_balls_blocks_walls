@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://tq71msfs14t3"]
+[gd_scene load_steps=5 format=3 uid="uid://tq71msfs14t3"]
 
-[ext_resource type="Script" path="res://moving_block.gd" id="1_5ine8"]
 [ext_resource type="Shader" path="res://scenes/blocks/moving_block.gdshader" id="2_w87xs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7yfg1"]
@@ -13,7 +12,6 @@ shader = ExtResource("2_w87xs")
 material = SubResource("ShaderMaterial_npofa")
 
 [node name="moving_block" type="Area3D" groups=["Blocks", "BreakableBlocks"]]
-script = ExtResource("1_5ine8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)

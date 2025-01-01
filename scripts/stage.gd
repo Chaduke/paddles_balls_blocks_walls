@@ -37,7 +37,7 @@ func _on_rsg_timer_timeout():
 	elif ticks==2:
 		$ready_set_go_label.text = "GO!!!"
 	else:
-		Global.get_main().set_game_ready()
+		GameStateManager.main_scene.set_game_ready()
 		$rsg_timer.stop()
 		$ready_set_go_label.hide()
 		
@@ -95,15 +95,15 @@ func cleanup_stage():
 	Global.stage_time = $time_label.elapsed_time
 	Global.accumlated_time = $total_time_label.elapsed_time
 	Global.stage_started = false
-	Global.get_main().get_node("ball_controller").remove_all_balls()
-	Global.get_main().get_node("paddle").queue_free()
+	GameStateManager.main_scene.get_node("ball_controller").remove_all_balls()
+	GameStateManager.main_scene.get_node("paddle").queue_free()
 	clear_pickup_items()
 	clear_flow_arrows()
 	clear_metal_blocks()
 	# get_tree().paused = true
 
 func clear_pickup_items():
-	for child in Global.get_main().get_children():
+	for child in GameStateManager.main_scene.get_children():
 		if child is PickupItem:
 			child.queue_free()
 			

@@ -4,17 +4,7 @@ extends Node
 var balls = []
 var ball_scene = preload("res://scenes/ball.tscn")
 var ball_classic_scene = preload("res://scenes/ball_classic.tscn")
-var paddle = null
 
-func _ready():
-	paddle = Global.get_main().get_node("paddle")
-	#print("Init ball controller")
-	#print("Balls list length is " + str(len(balls)))
-	
-func _process(_delta: float) -> void:
-	#if Global.stage_started: check_balls()
-	pass
-	
 func ball_lost(ball):
 	#print("Balls list length is " + str(len(balls)))
 	#print ("Erasing ball from list")
@@ -24,13 +14,14 @@ func ball_lost(ball):
 	#print("Balls list length is " + str(len(balls)))
 	if len(balls) == 0:
 		if Global.balls_left == 0:
-			Global.get_main().game_over()
+			GameStateManager.main_scene.game_over()
 		elif Global.game_mode == Global.ARCADE:
-			Global.get_main().game_ready = false
-			Global.get_stage().start_rsg()
+			GameStateManager.main_scene.game_ready = false
+			GameStateManager.main_scene.stage.start_rsg()
 
 func remove_ball_from_paddle():
 	# remove the ball from the paddle
+	var paddle = GameStateManager.main_scene.get_node("paddle")
 	var ball = null
 	for child in paddle.get_children():
 		if child is BallClassic:
@@ -40,7 +31,7 @@ func remove_ball_from_paddle():
 		return false
 	else:	
 		paddle.remove_child(ball)
-		Global.get_main().add_child(ball)
+		GameStateManager.main_scene.add_child(ball)
 		balls.append(ball)
 		ball.position  = paddle.global_position + Vector3(0,Global.ball_offset(),0)
 		ball.velocity.y = 30
@@ -62,6 +53,7 @@ func spawn_ball():
 			
 	# check if it's ok to spawn a ball
 	if decrement_balls():
+		var paddle = GameStateManager.main_scene.get_node("paddle")
 		var ball_instance = create_ball_instance()
 		# position the new ball in respect to the paddle 
 		
@@ -73,12 +65,13 @@ func spawn_ball():
 			set_ball_gravity(ball_instance)
 		# add the new ball to our list and to the main scene 
 		balls.append(ball_instance) 
-		Global.get_main().add_child(ball_instance)
+		GameStateManager.main_scene.add_child(ball_instance)
 		var ball_offset = Global.ball_offset() + 0.1
 		ball_instance.position = paddle.global_position + Vector3(0,ball_offset,0)
 		ball_instance.released = true
 		
 func attach_ball_to_paddle():
+	var paddle = GameStateManager.main_scene.get_node("paddle")
 	#print("Attaching ball to paddle")
 	if decrement_balls():
 		var ball = create_ball_instance()
@@ -88,19 +81,19 @@ func attach_ball_to_paddle():
 		#print("Balls list length is " + str(len(balls)))
 
 func remove_all_balls():
-	Global.get_main().get_node("ball_gun_timer").stop()
+	GameStateManager.main_scene.get_node("ball_gun_timer").stop()
 	for ball in balls:
 		ball.queue_free()
 
 func decrement_balls(): 
-	var spare_balls = Global.get_stage().get_node("spare_balls")
+	var spare_balls = GameStateManager.main_scene.stage.get_node("spare_balls")
 	if spare_balls.get_child_count() > 0 and not Global.infinite_balls:
 		var spare_ball = spare_balls.get_child(0)
 		spare_ball.queue_free()
 		Global.balls_left-=1
 		if Global.balls_left < 0: 
 			Global.balls_left = 0
-			Global.get_main().get_node("ball_gun_timer").stop()
+			GameStateManager.main_scene.get_node("ball_gun_timer").stop()
 		return true
 	else:
 		if Global.infinite_balls:

@@ -14,16 +14,25 @@ func _process(delta: float) -> void:
 		angle = 0.0
 	$title_3d.rotation.y = sin(angle) * 0.3
 	if Input.is_action_just_pressed("ui_cancel") and Global.game_started and elapsed_time > 0.1:
-		Global.get_main().toggle_main_menu()
+		GameStateManager.main_scene.toggle_main_menu()
+		
+	if Input.is_action_just_pressed("swing_paddle") and not Global.game_started:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		$click_capture_label.hide()
 	
 func _ready():
+	$version_label.text = "Version " +  ProjectSettings.get_setting("application/config/version")
+	$platform_label.text = "Platform " + OS.get_name()
+	if OS.get_name() == "Web":
+		$web_version_label.show()
 	if Global.game_started:
 		$play_button_3d.get_node("Label3D").text = "Resume Game"
 		hide_labels()
 	
 func start_game():
+	GameStateManager.main_scene.add_stage()
 	active = false
-	var camera = Global.get_main().get_node("camera")
+	var camera = GameStateManager.main_scene.get_node("camera")
 	camera.target_position = Vector3(0,15,0)
 	camera.lerping = true
 	$play_button_3d.get_node("Label3D").text = "Resume Game"
@@ -31,7 +40,7 @@ func start_game():
 	Global.stage_selected = false
 	Global.enable_cursor(false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.get_main().set_globals()
+	GameStateManager.main_scene.set_globals()
 	hide_labels()
 	Global.set_paused(false)
 
@@ -48,6 +57,7 @@ func hide_labels():
 	$new_label.hide()
 	$old_desc_label.hide()
 	$new_desc_label.hide()
+	$click_capture_label.hide()
 	
 func play_spin_sound():
 	$AudioStreamPlayer.stream = spin_sound
@@ -67,10 +77,12 @@ func slider_changed(id,moved_down):
 			Global.stages_mode = Global.NEW
 			$new_desc_label.show()
 			$old_desc_label.hide()
+			Global.current_stage = 51
 		else:
 			Global.stages_mode = Global.OLD
 			$new_desc_label.hide()
 			$old_desc_label.show()
+			Global.current_stage = 1
 	elif id == 1:
 		if moved_down:
 			Global.game_mode = Global.TIMED

@@ -10,10 +10,10 @@ func platform_specific_inits():
 	
 func _on_restart_button_pressed():
 	hide()
-	Global.get_main().restart_stage()
+	GameStateManager.main_scene.restart_stage()
 
 func _on_quit_button_pressed():	
-	var confirm = Global.get_main().find_child("confirm_quit_menu")
+	var confirm = GameStateManager.main_scene.find_child("confirm_quit_menu")
 	confirm.show()
 	confirm.previous_menu = self
 	hide()

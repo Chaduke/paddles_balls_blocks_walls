@@ -14,18 +14,18 @@ func _on_tree_exiting():
 		var item_instance = item_scene.instantiate()
 		item_instance.position = global_position	
 		item_instance.item_type = item_type
-		Global.get_main().add_child.call_deferred(item_instance)
+		GameStateManager.main_scene.add_child.call_deferred(item_instance)
 		# add explosion		
 		var new_explosion = explosion_scene.instantiate()
 		new_explosion.position = global_position
-		Global.get_main().add_child.call_deferred(new_explosion)
+		GameStateManager.main_scene.add_child.call_deferred(new_explosion)
 		# add cracked block
 		var new_block = block_pink_cracked_scene.instantiate()
 		new_block.position = position
-		Global.get_stage().current_blocks.add_child.call_deferred(new_block)
+		GameStateManager.main_scene.stage.current_blocks.add_child.call_deferred(new_block)
 		
 		var timed_score = timed_score_scene.instantiate()
 		timed_score.position = global_position
 		timed_score.position.z += 1
 		timed_score.set_score(score_value)
-		Global.get_main().add_child.call_deferred(timed_score)
+		GameStateManager.main_scene.add_child.call_deferred(timed_score)

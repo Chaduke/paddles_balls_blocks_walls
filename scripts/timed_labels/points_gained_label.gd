@@ -8,7 +8,7 @@ var click_to_continue_scene = preload("res://scenes/timed_labels/click_to_contin
 func _ready() -> void:
 	lerping = true
 	Vector3(25,12.5,-36)
-	$Label3D.text = "Points gained : " + str(Global.get_stage().points_gained)
+	$Label3D.text = "Points gained : " + str(GameStateManager.main_scene.stage.points_gained)
 
 func _process(_delta: float) -> void:
 	if lerping:
@@ -21,4 +21,4 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:	
 	var new_scene = click_to_continue_scene.instantiate()
-	Global.get_stage().add_child(new_scene)
+	GameStateManager.main_scene.stage.add_child(new_scene)

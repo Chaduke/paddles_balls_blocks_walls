@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://det1ixe847iod"]
+
+[ext_resource type="PackedScene" uid="uid://csttgjgujd8g5" path="res://scenes/tests/pine.tscn" id="1_6foqg"]
+
+[node name="BackgroundTest" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.6464, 16.0308)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="pine" parent="." instance=ExtResource("1_6foqg")]

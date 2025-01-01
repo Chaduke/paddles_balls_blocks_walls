@@ -1,7 +1,7 @@
 # global.gd
 extends Node
 
-var current_stage = 51
+var current_stage = 1
 # you have to count stage 0 in total_stages, 0 is the testing stage
 # so total_stages is the number of playable stages + 1
 var total_stages = 54
@@ -14,7 +14,7 @@ var stage_started = false
 
 const TIMED = 0
 const ARCADE = 1
-var game_mode = ARCADE
+var game_mode = TIMED
 var balls_left = 3
 var score = 0
 
@@ -71,14 +71,8 @@ func enable_cursor(enabled):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func get_cursor():
-	var cursor = get_main().get_node("camera").get_node("hand_cursor")
+	var cursor = GameStateManager.main_scene.camera.get_node("hand_cursor")
 	return cursor
-	
-func get_main():
-	return get_tree().root.get_child(2)
-	
-func get_stage():
-	return get_main().get_node("stage")
 	
 func ball_offset():
 	return (current_ball_size / 4.0 + 0.5)
@@ -180,9 +174,10 @@ func format_hundredths(h):
 
 func update_score(amount):
 	score+=amount
-	get_stage().points_gained+=amount
-	get_stage().blocks_cleared+=1
-	get_stage().get_node("score_label").text = str(score)
+	var stage = GameStateManager.main_scene.stage
+	stage.points_gained+=amount
+	stage.blocks_cleared+=1
+	stage.get_node("score_label").text = str(score)
 	if amount > 0:
-		get_stage().get_node("sound_player").play()
-	get_stage().update_stage()
+		stage.get_node("sound_player").play()
+	stage.update_stage()

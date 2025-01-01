@@ -69,7 +69,7 @@ func bounds_check():
 	# if so signal the ball controller
 	if position.y < 0:
 		#print("Calling ball lost from ball_classic")
-		Global.get_main().get_node("ball_controller").ball_lost(self)
+		GameStateManager.main_scene.get_node("ball_controller").ball_lost(self)
 
 func wall_collision():
 	$wall_sound.play()

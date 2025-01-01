@@ -40,10 +40,10 @@ func update_labels():
 	
 func _on_next_stage_button_pressed():
 	hide()	
-	Global.get_stage().load_next_stage()
+	GameStateManager.main_scene.stage.load_next_stage()
 
 func _on_quit_button_pressed():	
-	var confirm = Global.get_main().find_child("confirm_quit_menu")
+	var confirm = GameStateManager.main_scene.find_child("confirm_quit_menu")
 	confirm.show()
 	confirm.previous_menu = self
 	hide()

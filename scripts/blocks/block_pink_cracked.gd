@@ -24,6 +24,6 @@ func explode_and_exit():
 	timed_score.position = global_position
 	timed_score.position.z += 1
 	timed_score.set_score(score_value)
-	Global.get_main().add_child.call_deferred(timed_score)
+	GameStateManager.main_scene.add_child.call_deferred(timed_score)
 	
 	queue_free()

@@ -7,7 +7,7 @@ var points_gained_scene = preload("res://scenes/timed_labels/points_gained_label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lerping = true
-	$Label3D.text = "Blocks Cleared : " + str(Global.get_stage().blocks_cleared)
+	$Label3D.text = "Blocks Cleared : " + str(GameStateManager.main_scene.stage.blocks_cleared)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -22,4 +22,4 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var new_scene = points_gained_scene.instantiate()
-	Global.get_stage().add_child(new_scene)
+	GameStateManager.main_scene.stage.add_child(new_scene)

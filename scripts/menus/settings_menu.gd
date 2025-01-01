@@ -10,9 +10,8 @@ func _process(delta):
 		
 func resume_game():
 	hide()
-	get_tree().paused = false
-	var main_scene = get_tree().root.get_child(2)
-	main_scene.elapsed_time = 0.0
+	get_tree().paused = false	
+	GameStateManager.main_scene.elapsed_time = 0.0
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _on_back_button_pressed():

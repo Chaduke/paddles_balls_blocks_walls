@@ -64,7 +64,7 @@ func platform_specific_inits():
 		$quit_button.hide()
 
 func _on_quit_button_pressed():	
-	var confirm = Global.get_main().find_child("confirm_quit_menu")
+	var confirm = GameStateManager.main_scene.find_child("confirm_quit_menu")
 	confirm.show()
 	confirm.previous_menu = self
 	hide()
@@ -91,11 +91,11 @@ func resume_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	hide()
 	get_tree().paused = false
-	Global.get_main().elapsed_time = 0.0
+	GameStateManager.main_scene.elapsed_time = 0.0
 
 func _on_settings_button_pressed():
 	hide()
-	Global.get_main().get_node("settings_menu").show()
+	GameStateManager.main_scene.get_node("settings_menu").show()
 
 func _on_start_button_mouse_entered() -> void:
 	if $start_button.visible:
