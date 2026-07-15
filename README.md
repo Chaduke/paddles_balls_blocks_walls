@@ -1,6 +1,6 @@
 -Update July 15th 2026:
 
-This project is indefintely on hold.  I had to spend about a year at a full time job thta actually pays me money, and since I've started back working on this project, I've become a bit aggravated with the way Godot does certain things, and I'm looking at alternatives. 
+This project is indefintely on hold.  I had to spend about a year at a full time job that actually pays me money, and since I've started back working on this project, I've become a bit aggravated with the way Godot does certain things, and I'm looking at alternatives. 
 
 -Update Dec 22nd 2024:
 
